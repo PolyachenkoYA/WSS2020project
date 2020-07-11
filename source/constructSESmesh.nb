@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    604284,      10113]
-NotebookOptionsPosition[    603343,      10089]
-NotebookOutlinePosition[    603769,      10106]
-CellTagsIndexPosition[    603726,      10103]
+NotebookDataLength[    605820,      10150]
+NotebookOptionsPosition[    604876,      10126]
+NotebookOutlinePosition[    605302,      10143]
+CellTagsIndexPosition[    605259,      10140]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -45,10 +45,9 @@ txt\\\"\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]",
      RowBox[{
       RowBox[{"\"\<triangDensity\>\"", "\[Rule]", "5.0"}], ",", " ", 
       RowBox[{"\"\<probeR\>\"", "\[Rule]", "1.5"}], ",", " ", 
-      RowBox[{"\"\<toProtonate\>\"", "\[Rule]", "True"}], ",", " ", 
       RowBox[{"\"\<toPrint\>\"", "\[Rule]", "False"}], ",", 
-      RowBox[{"\"\<rootPath\>\"", "\[Rule]", "$WolframDocumentsDirectory"}]}],
-      "}"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+      RowBox[{"\"\<rootPath\>\"", "\[Rule]", "$TemporaryDirectory"}]}], 
+     "}"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{
@@ -216,35 +215,23 @@ compression=NO&structureId=\>\"", "<>", "structID"}], ",", "\"\<String\>\""}],
        "triangleIndices", ",", "nTriangles", ",", "mesh", ",", 
        "degeneratePolygonInd", ",", "meshInd", ",", "msmsDir", ",", 
        "pdb2xyzrExePath", ",", "pdb2xyzrDatabasePath", ",", "cmd", ",", 
-       "pdbName"}], "}"}], ",", "\[IndentingNewLine]", 
+       "pdbName", ",", "\[IndentingNewLine]", 
+       RowBox[{"triangDensity", "=", 
+        RowBox[{"OptionValue", "[", "\"\<triangDensity\>\"", "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"probeR", " ", "=", " ", 
+        RowBox[{"OptionValue", "[", "\"\<probeR\>\"", "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"toPrint", " ", "=", " ", 
+        RowBox[{"OptionValue", "[", "\"\<toPrint\>\"", "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"rootPath", " ", "=", " ", 
+        RowBox[{"OptionValue", "[", "\"\<rootPath\>\"", "]"}]}]}], 
+      "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
      RowBox[{"(*", 
-      RowBox[{"input", " ", "handler"}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"path", " ", "routines"}], "*)"}], "\[IndentingNewLine]", 
      RowBox[{
-      RowBox[{"triangDensity", "=", 
-       RowBox[{"OptionValue", "[", "\"\<triangDensity\>\"", "]"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"probeR", " ", "=", " ", 
-       RowBox[{"OptionValue", "[", "\"\<probeR\>\"", "]"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"toProtonate", " ", "=", " ", 
-       RowBox[{"OptionValue", "[", "\"\<toProtonate\>\"", "]"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"toPrint", " ", "=", " ", 
-       RowBox[{"OptionValue", "[", "\"\<toPrint\>\"", "]"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"rootPath", " ", "=", " ", 
-       RowBox[{"OptionValue", "[", "\"\<rootPath\>\"", "]"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"pdbName", " ", "=", " ", 
-       RowBox[{"ToLowerCase", "[", 
-        RowBox[{"ImportString", "[", 
-         RowBox[{"pdbStr", ",", 
-          RowBox[{"{", 
-           RowBox[{"\"\<PDB\>\"", ",", 
-            RowBox[{"{", "\"\<PDBID\>\"", "}"}]}], "}"}]}], "]"}], "]"}]}], 
-      ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-      RowBox[{"(*", 
-       RowBox[{"path", " ", "routines"}], "*)"}], "\[IndentingNewLine]", 
       RowBox[{"msmsDir", " ", "=", " ", 
        RowBox[{"DirectoryName", "[", "msmsExePath", "]"}]}], ";", 
       "\[IndentingNewLine]", 
@@ -264,6 +251,14 @@ compression=NO&structureId=\>\"", "<>", "structID"}], ",", "\"\<String\>\""}],
       "\[IndentingNewLine]", 
       RowBox[{"checkFile", "[", "msmsExePath", "]"}], ";", 
       "\[IndentingNewLine]", 
+      RowBox[{"pdbName", " ", "=", " ", 
+       RowBox[{"ToLowerCase", "[", 
+        RowBox[{"ImportString", "[", 
+         RowBox[{"pdbStr", ",", 
+          RowBox[{"{", 
+           RowBox[{"\"\<PDB\>\"", ",", 
+            RowBox[{"{", "\"\<PDBID\>\"", "}"}]}], "}"}]}], "]"}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
       RowBox[{"pdbFilename", " ", "=", " ", 
        RowBox[{"pdbName", "<>", "\"\<.pdb\>\""}]}], ";", 
       "\[IndentingNewLine]", 
@@ -322,14 +317,20 @@ compression=NO&structureId=\>\"", "<>", "structID"}], ",", "\"\<String\>\""}],
       RowBox[{"SetDirectory", "[", "proteinPath", "]"}], ";", 
       "\[IndentingNewLine]", 
       RowBox[{"vertices", " ", "=", " ", 
-       RowBox[{"ReadList", "[", 
+       RowBox[{"Map", "[", 
         RowBox[{
          RowBox[{
-         "\"\<!awk '{print $1, $2, $3}' \>\"", " ", "<>", "vertFilename"}], 
-         ",", 
-         RowBox[{"{", 
-          RowBox[{"Number", ",", "Number", ",", "Number"}], "}"}]}], "]"}]}], 
-      ";", "\[IndentingNewLine]", 
+          RowBox[{"#", "[", 
+           RowBox[{"[", 
+            RowBox[{"1", ";;", "3"}], "]"}], "]"}], "&"}], ",", 
+         RowBox[{"ReadList", "[", 
+          RowBox[{"vertFilename", ",", " ", 
+           RowBox[{"{", 
+            RowBox[{
+            "Real", ",", " ", "Real", ",", " ", "Real", ",", " ", "Real", ",",
+              " ", "Real", ",", " ", "Real", ",", " ", "Number", ",", " ", 
+             "Number", ",", " ", "Number"}], "}"}]}], "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
       RowBox[{"nVertices", " ", "=", " ", 
        RowBox[{"Length", "[", "vertices", "]"}]}], ";", "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
@@ -351,14 +352,19 @@ compression=NO&structureId=\>\"", "<>", "structID"}], ",", "\"\<String\>\""}],
             ",", "All", ",", "1"}], "]"}]}], ";"}]}], "]"}], ";", 
       "\[IndentingNewLine]", 
       RowBox[{"triangleIndices", " ", "=", " ", 
-       RowBox[{"ReadList", "[", 
+       RowBox[{"Map", "[", 
         RowBox[{
          RowBox[{
-         "\"\<!awk '{print $1, $2, $3}' \>\"", " ", "<>", "faceFilename"}], 
-         ",", 
-         RowBox[{"{", 
-          RowBox[{"Number", ",", "Number", ",", "Number"}], "}"}]}], "]"}]}], 
-      ";", "\[IndentingNewLine]", 
+          RowBox[{"#", "[", 
+           RowBox[{"[", 
+            RowBox[{"1", ";;", "3"}], "]"}], "]"}], "&"}], ",", 
+         RowBox[{"ReadList", "[", 
+          RowBox[{"faceFilename", ",", " ", 
+           RowBox[{"{", 
+            RowBox[{
+            "Number", ",", " ", "Number", ",", " ", "Number", ",", " ", 
+             "Number", ",", " ", "Number"}], "}"}]}], "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
       RowBox[{"nTriangles", " ", "=", " ", 
        RowBox[{"Length", "[", "triangleIndices", "]"}]}], ";", 
       "\[IndentingNewLine]", 
@@ -449,7 +455,14 @@ compression=NO&structureId=\>\"", "<>", "structID"}], ",", "\"\<String\>\""}],
              RowBox[{"Flatten", "[", "degeneratePolygonInd", "]"}], "]"}], 
             "]"}]}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
       "\[IndentingNewLine]", 
-      RowBox[{"(*", "return", "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"rootPath", "\[Equal]", "$TemporaryDirectory"}], ",", " ", 
+        RowBox[{
+         RowBox[{"DeleteDirectory", "[", 
+          RowBox[{"proteinPath", ",", 
+           RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ";"}]}], 
+       "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
       RowBox[{"Return", "[", 
        RowBox[{"{", 
         RowBox[{"mesh", ",", " ", "vertices", ",", " ", "meshInd"}], "}"}], 
@@ -496,22 +509,10 @@ compression=NO&structureId=\>\"", "<>", "structID"}], ",", "\"\<String\>\""}],
        RowBox[{"mesh", ",", " ", "vertices", ",", " ", "meshInd"}], "}"}], 
       " ", "=", " ", 
       RowBox[{"ConstructSESmesh", "[", 
-       RowBox[{"pdbStr", ",", "msmsExePath", ",", "reduceExePath"}], "]"}]}], 
-     ";", "\[IndentingNewLine]", 
-     RowBox[{"(*", 
-      RowBox[{
-       RowBox[{"Print", "[", 
-        RowBox[{"Take", "[", 
-         RowBox[{"mesh", ",", " ", "3"}], "]"}], "]"}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"Print", "[", 
-        RowBox[{"Take", "[", 
-         RowBox[{"vertices", ",", " ", "3"}], "]"}], "]"}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"Print", "[", 
-        RowBox[{"Take", "[", 
-         RowBox[{"meshInd", ",", " ", "3"}], "]"}], "]"}], ";"}], "*)"}], 
-     "\[IndentingNewLine]", 
+       RowBox[{"pdbStr", ",", "msmsExePath", ",", "reduceExePath", ",", 
+        RowBox[{
+        "\"\<rootPath\>\"", "\[Rule]", "$WolframDocumentsDirectory"}]}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
      RowBox[{"Print", "[", 
       RowBox[{"MeshRegion", "[", 
        RowBox[{"vertices", ",", " ", "meshInd", ",", 
@@ -524,9 +525,9 @@ compression=NO&structureId=\>\"", "<>", "structID"}], ",", "\"\<String\>\""}],
         RowBox[{"mesh", ",", " ", "vertices", ",", " ", "meshInd"}], "}"}], 
        " ", "=", " ", 
        RowBox[{"ConstructSESmesh", "[", 
-        RowBox[{"pdbName", ",", "msmsExePath", ",", "reduceExePath", ",", 
-         RowBox[{"\"\<toProtonate\>\"", "\[Rule]", "False"}]}], "]"}]}], ";", 
-      "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"DownloadPDB", "[", "pdbName", "]"}], ",", "msmsExePath", 
+         ",", "reduceExePath"}], "]"}]}], ";", "\[IndentingNewLine]", 
       RowBox[{"Print", "[", 
        RowBox[{"MeshRegion", "[", 
         RowBox[{"vertices", ",", " ", "meshInd", ",", 
@@ -758,9 +759,20 @@ compression=NO&structureId=\>\"", "<>", "structID"}], ",", "\"\<String\>\""}],
    3.803467663896761*^9, 3.803467684077427*^9}, {3.8034677150465717`*^9, 
    3.803467717234063*^9}, {3.803467863603228*^9, 3.8034678768564796`*^9}, {
    3.8034679258055363`*^9, 3.803467939598724*^9}, {3.8034679775130777`*^9, 
-   3.8034679808329573`*^9}, {3.803468057793721*^9, 3.803468082234666*^9}},
- CellLabel->
-  "In[420]:=",ExpressionUUID->"8d1075c8-34dc-4e2f-a2fe-8b21f3a02d67"],
+   3.8034679808329573`*^9}, {3.803468057793721*^9, 3.803468082234666*^9}, {
+   3.8034686939681463`*^9, 3.803468699841981*^9}, {3.8034687378446627`*^9, 
+   3.803468752070239*^9}, {3.803468799083145*^9, 3.8034688520135317`*^9}, {
+   3.803468887513163*^9, 3.8034688906196136`*^9}, {3.803468961245516*^9, 
+   3.803469018630495*^9}, {3.80346907252188*^9, 3.803469089935742*^9}, {
+   3.8034695757109737`*^9, 3.803469576541559*^9}, {3.803469698720389*^9, 
+   3.803469727096073*^9}, {3.8034699491524353`*^9, 3.8034699652523613`*^9}, {
+   3.8034701005641108`*^9, 3.803470137206031*^9}, {3.803470190032774*^9, 
+   3.803470194230803*^9}, {3.803470224598814*^9, 3.803470229718753*^9}, {
+   3.8034703130253983`*^9, 3.803470354029636*^9}, {3.803470552360327*^9, 
+   3.803470605262313*^9}, {3.803470710510435*^9, 3.803470723714424*^9}, 
+   3.803470803625676*^9, {3.803470950909544*^9, 
+   3.8034709773993187`*^9}},ExpressionUUID->"8d1075c8-34dc-4e2f-a2fe-\
+8b21f3a02d67"],
 
 Cell[BoxData[
  Graphics3DBox[
@@ -9986,14 +9998,14 @@ ve+qj7CG3TxnvI/njI+2hjfrsK9njt9iDQ/wnPFx1rCH54xzrv8H7hXq4g==
      ImageScaled[{2, 2, 2}]}, {"Directional", 
      GrayLevel[0.3], 
      ImageScaled[{0, 2, 2}]}},
-  Method->{"ShrinkWrap" -> True}]], "Print",
- CellChangeTimes->{
-  3.803463631249323*^9, 3.803463905069263*^9, 3.8034639750029087`*^9, 
-   3.803466921136427*^9, 3.8034679429605293`*^9, 3.803467983131707*^9, {
-   3.803468066696698*^9, 3.80346808559439*^9}},
+  Method->{"ShrinkWrap" -> True},
+  ViewPoint->{0.01288540630900027, -2.981307417316871, 1.6005124334898677`},
+  ViewVertical->{-0.02357767346676895, -0.11220956768470093`, 
+   0.9934048048172038}]], "Print",
+ CellChangeTimes->{3.803470670913557*^9, 3.803470727638749*^9},
  CellLabel->
   "During evaluation of \
-In[420]:=",ExpressionUUID->"8fcea852-9a36-4ca2-9119-2ed0e4f4ea86"]
+In[561]:=",ExpressionUUID->"70b7b4ea-dbd8-43cf-9284-4c31a60e80f3"]
 }, Open  ]],
 
 Cell[BoxData[""], "Input",
@@ -10064,27 +10076,52 @@ e7f8764ef21b"],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{"TextString", "[", 
-  RowBox[{"reduceDefaultArgs", ",", 
-   RowBox[{"ListFormat", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{"\"\<\>\"", ",", "\"\< \>\"", ",", "\"\<\>\""}], "}"}]}]}], 
-  "]"}]], "Input",
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"a", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2", ",", 
+       RowBox[{"-", "1"}], ",", 
+       RowBox[{"-", "2"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "4", ",", 
+       RowBox[{"-", "3"}], ",", 
+       RowBox[{"-", "4"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"5", ",", "6", ",", 
+       RowBox[{"-", "5"}], ",", 
+       RowBox[{"-", "6"}]}], "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Map", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"#", "[", 
+     RowBox[{"[", 
+      RowBox[{"2", ";;", "3"}], "]"}], "]"}], "&"}], ",", "a"}], 
+  "]"}]}], "Input",
  CellChangeTimes->{{3.8034554997176943`*^9, 3.803455503955597*^9}, {
   3.803463776514308*^9, 3.8034637851604233`*^9}, {3.803463827412086*^9, 
-  3.803463836808243*^9}},
+  3.803463836808243*^9}, {3.803470372251863*^9, 3.803470458867545*^9}, {
+  3.803470530360044*^9, 3.80347054000419*^9}},
  CellLabel->
-  "In[323]:=",ExpressionUUID->"febbc3d1-d7f7-4b7d-8967-a5d270859fe0"],
+  "In[543]:=",ExpressionUUID->"febbc3d1-d7f7-4b7d-8967-a5d270859fe0"],
 
-Cell[BoxData["\<\"-build -DB \
-\\\"/home/ypolyach/!EPFL/reduce/reduce_git/reduce_wwPDB_het_dict.txt\\\"\"\>"]\
-, "Output",
- CellChangeTimes->{
-  3.80345550439388*^9, 3.8034637854798317`*^9, {3.803463830286289*^9, 
-   3.803463837203085*^9}},
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"2", ",", 
+     RowBox[{"-", "1"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", 
+     RowBox[{"-", "3"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", 
+     RowBox[{"-", "5"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.803470534577359*^9, 3.803470540343975*^9}},
  CellLabel->
-  "Out[323]=",ExpressionUUID->"e7303693-e60e-4802-ad8b-deaee0a85c09"]
+  "Out[544]=",ExpressionUUID->"0f6ecea4-22f1-4490-9ce7-1e7dbe426515"]
 }, Open  ]]
 },
 WindowSize->{705., 767.25},
@@ -10106,14 +10143,14 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 37511, 740, 2885, "Input",ExpressionUUID->"8d1075c8-34dc-4e2f-a2fe-8b21f3a02d67"],
-Cell[38094, 764, 562078, 9231, 339, "Print",ExpressionUUID->"8fcea852-9a36-4ca2-9119-2ed0e4f4ea86"]
+Cell[580, 22, 38361, 752, 2906, "Input",ExpressionUUID->"8d1075c8-34dc-4e2f-a2fe-8b21f3a02d67"],
+Cell[38944, 776, 562094, 9231, 261, "Print",ExpressionUUID->"70b7b4ea-dbd8-43cf-9284-4c31a60e80f3"]
 }, Open  ]],
-Cell[600187, 9998, 201, 4, 26, "Input",ExpressionUUID->"720dc1ee-9a6b-4dc0-b3c7-e295e492e3fb"],
-Cell[600391, 10004, 2107, 58, 298, "Input",ExpressionUUID->"f0d6aae5-44d9-469c-ab59-e7f8764ef21b"],
+Cell[601053, 10010, 201, 4, 26, "Input",ExpressionUUID->"720dc1ee-9a6b-4dc0-b3c7-e295e492e3fb"],
+Cell[601257, 10016, 2107, 58, 298, "Input",ExpressionUUID->"f0d6aae5-44d9-469c-ab59-e7f8764ef21b"],
 Cell[CellGroupData[{
-Cell[602523, 10066, 478, 11, 28, "Input",ExpressionUUID->"febbc3d1-d7f7-4b7d-8967-a5d270859fe0"],
-Cell[603004, 10079, 323, 7, 30, "Output",ExpressionUUID->"e7303693-e60e-4802-ad8b-deaee0a85c09"]
+Cell[603389, 10078, 1026, 29, 46, "Input",ExpressionUUID->"febbc3d1-d7f7-4b7d-8967-a5d270859fe0"],
+Cell[604418, 10109, 442, 14, 30, "Output",ExpressionUUID->"0f6ecea4-22f1-4490-9ce7-1e7dbe426515"]
 }, Open  ]]
 }
 ]
