@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    306952,       5861]
-NotebookOptionsPosition[    305304,       5828]
-NotebookOutlinePosition[    305726,       5845]
-CellTagsIndexPosition[    305683,       5842]
+NotebookDataLength[    307042,       5862]
+NotebookOptionsPosition[    305394,       5829]
+NotebookOutlinePosition[    305816,       5846]
+CellTagsIndexPosition[    305773,       5843]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -61,16 +61,6 @@ txt\\\"\>\""}], "}"}]}], ";"}], "*)"}]}], "\[IndentingNewLine]",
  RowBox[{
   RowBox[{
    RowBox[{
-    RowBox[{"DownloadPDB", "[", "structID_", "]"}], ":=", 
-    RowBox[{"Import", "[", 
-     RowBox[{
-      RowBox[{
-      "\"\<http://www.rcsb.org/pdb/download/downloadFile.do?fileFormat=pdb&\
-compression=NO&structureId=\>\"", "<>", "structID"}], ",", "\"\<String\>\""}],
-      "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{
     RowBox[{"checkFile", "[", "filePath_", "]"}], ":=", "\[IndentingNewLine]", 
     RowBox[{"Module", "[", 
      RowBox[{
@@ -90,32 +80,43 @@ compression=NO&structureId=\>\"", "<>", "structID"}], ",", "\"\<String\>\""}],
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"writeAFile", "[", 
-    RowBox[{"str_", ",", " ", 
-     RowBox[{"filepathArg_", ":", "\"\<\>\""}]}], "]"}], ":=", 
-   "\[IndentingNewLine]", 
-   RowBox[{"Module", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"filepath", ",", 
-       RowBox[{"tmpfile", " ", "=", " ", 
-        RowBox[{"(", 
-         RowBox[{"filepathArg", "\[Equal]", "\"\<\>\""}], ")"}]}]}], "}"}], 
-     ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"writeAFile", "[", 
+     RowBox[{"str_", ",", " ", 
+      RowBox[{"filepathArg_", ":", "\"\<\>\""}]}], "]"}], ":=", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Module", "[", 
      RowBox[{
-      RowBox[{"filepath", "=", 
+      RowBox[{"{", 
+       RowBox[{"filepath", ",", 
+        RowBox[{"tmpfile", " ", "=", " ", 
+         RowBox[{"(", 
+          RowBox[{"filepathArg", "\[Equal]", "\"\<\>\""}], ")"}]}]}], "}"}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"filepath", "=", 
+        RowBox[{"If", "[", 
+         RowBox[{"tmpfile", ",", 
+          RowBox[{"CreateFile", "[", 
+           RowBox[{"OverwriteTarget", "\[Rule]", "True"}], "]"}], ",", 
+          "filepathArg"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"WriteString", "[", 
+        RowBox[{"filepath", ",", "str"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Close", "[", "filepath", "]"}], ";", "\[IndentingNewLine]", 
        RowBox[{"If", "[", 
-        RowBox[{"tmpfile", ",", 
-         RowBox[{"CreateFile", "[", 
-          RowBox[{"OverwriteTarget", "\[Rule]", "True"}], "]"}], ",", 
-         "filepathArg"}], "]"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"WriteString", "[", 
-       RowBox[{"filepath", ",", "str"}], "]"}], ";", "\[IndentingNewLine]", 
-      RowBox[{"Close", "[", "filepath", "]"}], ";", "\[IndentingNewLine]", 
-      RowBox[{"If", "[", 
-       RowBox[{"tmpfile", ",", " ", "filepath", ",", " ", "Nothing"}], 
-       "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+        RowBox[{"tmpfile", ",", " ", "filepath", ",", " ", "Nothing"}], 
+        "]"}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"DownloadPDB", "[", "structID_", "]"}], ":=", 
+    RowBox[{"Import", "[", 
+     RowBox[{
+      RowBox[{
+      "\"\<http://www.rcsb.org/pdb/download/downloadFile.do?fileFormat=pdb&\
+compression=NO&structureId=\>\"", "<>", "structID"}], ",", "\"\<String\>\""}],
+      "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{
@@ -364,8 +365,8 @@ compression=NO&structureId=\>\"", "<>", "structID"}], ",", "\"\<String\>\""}],
    3.803477943033876*^9}, {3.803477976162116*^9, 3.803478077588517*^9}, 
    3.803478131631052*^9, 3.803478176618599*^9, {3.8034787759230413`*^9, 
    3.80347886948777*^9}, {3.803478902333403*^9, 3.803479052675815*^9}, {
-   3.803479098171412*^9, 
-   3.8034791230602283`*^9}},ExpressionUUID->"5787533f-4598-4dd2-8b1f-\
+   3.803479098171412*^9, 3.8034791230602283`*^9}, {3.803480644628525*^9, 
+   3.803480655808407*^9}},ExpressionUUID->"5787533f-4598-4dd2-8b1f-\
 1edb8c66723d"],
 
 Cell[CellGroupData[{
@@ -5845,24 +5846,24 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 15424, 346, 1426, "Input",ExpressionUUID->"5787533f-4598-4dd2-8b1f-1edb8c66723d"],
+Cell[580, 22, 15514, 347, 1426, "Input",ExpressionUUID->"5787533f-4598-4dd2-8b1f-1edb8c66723d"],
 Cell[CellGroupData[{
-Cell[16029, 372, 636, 15, 26, "Print",ExpressionUUID->"be5f1ae0-91d3-45a7-ae47-3a5c11c2cbd5"],
-Cell[16668, 389, 995, 27, 29, "Print",ExpressionUUID->"3baff65b-cf76-42cc-8dc4-da0714a232a1"],
-Cell[17666, 418, 7514, 196, 20, "Print",ExpressionUUID->"4dbf8cb2-034f-416c-9855-7c0803fbde5a"],
-Cell[25183, 616, 95172, 1786, 258, "Print",ExpressionUUID->"f5d64b30-7460-4c11-9730-f793cdc3c037"],
-Cell[120358, 2404, 638, 15, 26, "Print",ExpressionUUID->"93dbc423-7ab7-4ed1-897c-f7aa9b53bb30"],
-Cell[120999, 2421, 1170, 32, 29, "Print",ExpressionUUID->"e6d4f4c1-ebeb-4d88-9aef-bfb9e3f0b798"],
-Cell[122172, 2455, 9284, 243, 20, "Print",ExpressionUUID->"5efc67f2-60fc-4c85-953e-9c6940975220"],
-Cell[131459, 2700, 172432, 3087, 267, "Print",ExpressionUUID->"9262d4ed-5bd5-49fe-8cb0-f244b1cd3752"]
+Cell[16119, 373, 636, 15, 26, "Print",ExpressionUUID->"be5f1ae0-91d3-45a7-ae47-3a5c11c2cbd5"],
+Cell[16758, 390, 995, 27, 29, "Print",ExpressionUUID->"3baff65b-cf76-42cc-8dc4-da0714a232a1"],
+Cell[17756, 419, 7514, 196, 20, "Print",ExpressionUUID->"4dbf8cb2-034f-416c-9855-7c0803fbde5a"],
+Cell[25273, 617, 95172, 1786, 258, "Print",ExpressionUUID->"f5d64b30-7460-4c11-9730-f793cdc3c037"],
+Cell[120448, 2405, 638, 15, 26, "Print",ExpressionUUID->"93dbc423-7ab7-4ed1-897c-f7aa9b53bb30"],
+Cell[121089, 2422, 1170, 32, 29, "Print",ExpressionUUID->"e6d4f4c1-ebeb-4d88-9aef-bfb9e3f0b798"],
+Cell[122262, 2456, 9284, 243, 20, "Print",ExpressionUUID->"5efc67f2-60fc-4c85-953e-9c6940975220"],
+Cell[131549, 2701, 172432, 3087, 267, "Print",ExpressionUUID->"9262d4ed-5bd5-49fe-8cb0-f244b1cd3752"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[303940, 5793, 610, 13, 47, "Input",ExpressionUUID->"f3a6ba28-9dc8-4ac7-9967-8ca768ab1840"],
-Cell[304553, 5808, 263, 4, 30, "Output",ExpressionUUID->"ef804aa5-6e38-4b53-b6a6-a77f53a68603"],
-Cell[304819, 5814, 253, 4, 30, "Output",ExpressionUUID->"94d4a9e4-41c7-4582-ace9-548ff5c82e04"]
+Cell[304030, 5794, 610, 13, 47, "Input",ExpressionUUID->"f3a6ba28-9dc8-4ac7-9967-8ca768ab1840"],
+Cell[304643, 5809, 263, 4, 30, "Output",ExpressionUUID->"ef804aa5-6e38-4b53-b6a6-a77f53a68603"],
+Cell[304909, 5815, 253, 4, 30, "Output",ExpressionUUID->"94d4a9e4-41c7-4582-ace9-548ff5c82e04"]
 }, Open  ]],
-Cell[305087, 5821, 213, 5, 26, "Input",ExpressionUUID->"a22aec37-90a8-4b73-9cc8-9784824c1eec"]
+Cell[305177, 5822, 213, 5, 26, "Input",ExpressionUUID->"a22aec37-90a8-4b73-9cc8-9784824c1eec"]
 }
 ]
 *)
