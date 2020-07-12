@@ -10,14 +10,16 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     64236,       1472]
-NotebookOptionsPosition[     63580,       1452]
-NotebookOutlinePosition[     64050,       1470]
-CellTagsIndexPosition[     64007,       1467]
+NotebookDataLength[    126043,       2363]
+NotebookOptionsPosition[    124257,       2328]
+NotebookOutlinePosition[    124727,       2346]
+CellTagsIndexPosition[    124684,       2343]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
 Cell[BoxData[{
  RowBox[{
   RowBox[{
@@ -235,8 +237,11 @@ Cell[BoxData[{
          RowBox[{"OptionValue", "[", "\"\<doReduce\>\"", "]"}]}], ",", 
         "\[IndentingNewLine]", 
         RowBox[{"verbose", " ", "=", " ", 
-         RowBox[{"OptionValue", "[", "\"\<verbose\>\"", "]"}]}]}], "}"}], ",",
-       "\[IndentingNewLine]", 
+         RowBox[{"OptionValue", "[", "\"\<verbose\>\"", "]"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"os", " ", "=", " ", 
+         RowBox[{"OptionValue", "[", "\"\<os\>\"", "]"}]}]}], "}"}], ",", 
+      "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{"If", "[", 
         RowBox[{
@@ -272,8 +277,8 @@ Cell[BoxData[{
           RowBox[{"msmsExePath", " ", "=", " ", 
            RowBox[{"getFilenameSafe", "[", 
             RowBox[{"msmsPath", ",", " ", 
-             RowBox[{"$OperatingSystem", "/.", "msmsExeMask"}]}], "]"}]}], 
-          ";", "\[IndentingNewLine]", 
+             RowBox[{"os", "/.", "msmsExeMask"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
           RowBox[{"pdb2xyzrExePath", " ", "=", " ", 
            RowBox[{"FileNameJoin", "[", 
             RowBox[{"{", 
@@ -300,18 +305,19 @@ Cell[BoxData[{
                 "]"}]}], ")"}]}], ",", "\[IndentingNewLine]", 
             RowBox[{
              RowBox[{"loadNew", "[", 
-              RowBox[{"msmsPath", ",", " ", "\[IndentingNewLine]", 
-               RowBox[{"$OperatingSystem", "/.", "msmsArchiveLinks"}], ",", 
-               "verbose"}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";",
-           "\[IndentingNewLine]", 
+              RowBox[{"msmsPath", ",", " ", 
+               RowBox[{"os", "/.", "msmsArchiveLinks"}], ",", "verbose"}], 
+              "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+          "\[IndentingNewLine]", 
           RowBox[{"msmsExePath", " ", "=", " ", 
            RowBox[{"getFilenameSafe", "[", 
-            RowBox[{"msmsPath", ",", " ", "\"\<msms.x86_64Linux*\>\""}], 
-            "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"msmsPath", ",", " ", 
+             RowBox[{"os", "/.", "msmsExeMask"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
           RowBox[{"If", "[", 
            RowBox[{
-            RowBox[{"$OperatingSystem", "\[NotEqual]", "\"\<Windows\>\""}], 
-            ",", "\[IndentingNewLine]", 
+            RowBox[{"os", "\[NotEqual]", "\"\<Windows\>\""}], ",", 
+            "\[IndentingNewLine]", 
             RowBox[{
              RowBox[{"If", "[", 
               RowBox[{
@@ -360,7 +366,7 @@ Cell[BoxData[{
            ";", "\[IndentingNewLine]", 
           RowBox[{"If", "[", 
            RowBox[{
-            RowBox[{"$OperatingSystem", "\[Equal]", "\"\<Windows\>\""}], ",", 
+            RowBox[{"os", "\[Equal]", "\"\<Windows\>\""}], ",", 
             "\[IndentingNewLine]", 
             RowBox[{
              RowBox[{"reduceExePath", " ", "=", " ", 
@@ -401,8 +407,8 @@ Cell[BoxData[{
                 RowBox[{"unpackedArch", " ", "=", " ", 
                  RowBox[{"loadNew", "[", 
                   RowBox[{"rootPath", ",", " ", 
-                   RowBox[{"$OperatingSystem", "/.", "reduceArchiveLinks"}], 
-                   ",", " ", "verbose"}], "]"}]}], ";", "\[IndentingNewLine]", 
+                   RowBox[{"os", "/.", "reduceArchiveLinks"}], ",", " ", 
+                   "verbose"}], "]"}]}], ";", "\[IndentingNewLine]", 
                 RowBox[{"RenameDirectory", "[", 
                  RowBox[{
                   RowBox[{"unpackedArch", "[", 
@@ -413,8 +419,8 @@ Cell[BoxData[{
              RowBox[{"reduceExePath", " ", "=", " ", 
               RowBox[{"loadIfAbsent", "[", 
                RowBox[{"reducePath", ",", 
-                RowBox[{"$OperatingSystem", "/.", "reduceArchiveLinks"}], ",",
-                 " ", "verbose"}], "]"}]}], ";", "\[IndentingNewLine]", 
+                RowBox[{"os", "/.", "reduceArchiveLinks"}], ",", " ", 
+                "verbose"}], "]"}]}], ";", "\[IndentingNewLine]", 
              RowBox[{"reduceDatabasePath", " ", "=", " ", 
               RowBox[{"loadIfAbsent", "[", 
                RowBox[{
@@ -716,7 +722,8 @@ reduce.3.23.130521.macosx.zip\>\""}]}], "}"}]}], ";"}], "\[IndentingNewLine]",
      RowBox[{"\"\<doMSMS\>\"", "\[Rule]", "True"}], ",", 
      RowBox[{"\"\<doReduce\>\"", "\[Rule]", "True"}], ",", 
      RowBox[{"\"\<verbose\>\"", "\[Rule]", "False"}], ",", 
-     RowBox[{"\"\<forceReinstall\>\"", "\[Rule]", "False"}]}], "}"}]}], 
+     RowBox[{"\"\<forceReinstall\>\"", "\[Rule]", "False"}], ",", 
+     RowBox[{"\"\<os\>\"", "\[Rule]", "$OperatingSystem"}]}], "}"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -728,7 +735,10 @@ reduce.3.23.130521.macosx.zip\>\""}]}], "}"}]}], ";"}], "\[IndentingNewLine]",
    RowBox[{"InstallMyPckg", "[", 
     RowBox[{
      RowBox[{"\"\<doMSMS\>\"", "\[Rule]", "False"}], ",", " ", 
-     RowBox[{"\"\<verbose\>\"", "\[Rule]", "False"}]}], "]"}]}], 
+     RowBox[{"\"\<verbose\>\"", "\[Rule]", "False"}], ",", 
+     RowBox[{"\"\<rootPath\>\"", "\[Rule]", "$WolframDocumentsDirectory"}], 
+     ",", " ", 
+     RowBox[{"\"\<os\>\"", "\[Rule]", "\"\<MacOSX\>\""}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"reduceDefaultArgs", "=", "\[IndentingNewLine]", 
@@ -751,8 +761,10 @@ reduce.3.23.130521.macosx.zip\>\""}]}], "}"}]}], ";"}], "\[IndentingNewLine]",
   RowBox[{"(*", 
    RowBox[{
    "\"\<AtomicRadius\>\"", ",", " ", "\"\<CovalentRadius\>\"", ",", " ", 
-    "\"\<VanDerWaalsRadius\>\""}], "*)"}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]", 
+    "\"\<VanDerWaalsRadius\>\""}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Abort", "[", "]"}], ";"}], "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{"the", " ", "protein", " ", "to", " ", "analyse"}], 
    "*)"}]}], "\[IndentingNewLine]", 
@@ -767,18 +779,19 @@ reduce.3.23.130521.macosx.zip\>\""}]}], "}"}]}], ";"}], "\[IndentingNewLine]",
  RowBox[{
   RowBox[{
    RowBox[{"Catch", "[", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{"Print", "[", 
+       RowBox[{"DrawProteinSAS", "[", 
+        RowBox[{"DownloadPDB", "[", "pdbName", "]"}], "]"}], "]"}], ";"}], 
+     "*)"}], "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{
       RowBox[{"Print", "[", 
        RowBox[{"DrawProteinSAS", "[", 
-        RowBox[{"DownloadPDB", "[", "pdbName", "]"}], "]"}], "]"}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"(*", 
-       RowBox[{"Print", "[", 
-        RowBox[{"DrawProteinSAS", "[", 
-         RowBox[{"ProtonatePDB", "[", 
-          RowBox[{"DownloadPDB", "[", "pdbName", "]"}], "]"}], "]"}], "]"}], 
-       "*)"}], ";"}], ",", "\[IndentingNewLine]", "_fileNotFoundTag", ",", 
+        RowBox[{"ProtonatePDB", "[", 
+         RowBox[{"DownloadPDB", "[", "pdbName", "]"}], "]"}], "]"}], "]"}], 
+      ";"}], ",", "\[IndentingNewLine]", "_fileNotFoundTag", ",", 
      RowBox[{
       RowBox[{"(", 
        RowBox[{
@@ -881,573 +894,1436 @@ reduce.3.23.130521.macosx.zip\>\""}]}], "}"}]}], ";"}], "\[IndentingNewLine]",
    3.803556829713292*^9, 3.8035568469122925`*^9}, 3.803559217299797*^9, {
    3.803559250270193*^9, 3.803559277774582*^9}, {3.803559333035571*^9, 
    3.8035593591448917`*^9}, 3.8035595099790688`*^9, {3.803565326721354*^9, 
-   3.803565340032318*^9}},ExpressionUUID->"5787533f-4598-4dd2-8b1f-\
-1edb8c66723d"],
+   3.803565340032318*^9}, {3.8035657814667287`*^9, 3.803565787149435*^9}, {
+   3.8035658309047365`*^9, 3.8035658925575194`*^9}, {3.8035659706157975`*^9, 
+   3.8035659765032687`*^9}, {3.8035661773459992`*^9, 
+   3.8035661817285185`*^9}, {3.803569450692816*^9, 3.803569460632756*^9}, {
+   3.8035694933077908`*^9, 3.803569502694213*^9}, {3.8035703369636254`*^9, 
+   3.8035703460870028`*^9}, {3.8035704108525143`*^9, 
+   3.8035704321755104`*^9}, {3.8035704725015116`*^9, 3.803570562298561*^9}, {
+   3.803570598267562*^9, 3.8035705992955613`*^9}},
+ CellLabel->
+  "In[702]:=",ExpressionUUID->"5787533f-4598-4dd2-8b1f-1edb8c66723d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "RunProcess", "pnfd", 
+   "\"Program \\!\\(\\*RowBox[{\\\"\\\\\\\"chmod\\\\\\\"\\\"}]\\) not found.  \
+Check Environment[\\\"PATH\\\"].\"", 2, 722, 43, 24589494496031190517, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8035704503205104`*^9, 3.803570619280596*^9},
+ CellLabel->
+  "During evaluation of \
+In[702]:=",ExpressionUUID->"f210fc9d-ddf1-4da7-ac42-bde1cf9537e0"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.803570450316518*^9, 3.8035706192925606`*^9},
+ CellLabel->
+  "Out[725]=",ExpressionUUID->"4d315130-6104-4cf8-834d-a86da922a3b5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Import", "fmterr", 
+   "\"Cannot import data as \\!\\(\\*RowBox[{\\\"\\\\\\\"PDB\\\\\\\"\\\"}]\\) \
+format.\"", 2, 728, 44, 24589494496031190517, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8035704503205104`*^9, 3.8035706295306864`*^9},
+ CellLabel->
+  "During evaluation of \
+In[702]:=",ExpressionUUID->"f0ec6777-4d0b-47a0-a4c1-37969030160f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "DeleteDuplicates", "normal", 
+   "\"Nonatomic expression expected at position \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \\!\\(\\*RowBox[{\\\"DeleteDuplicates\\\", \
+\\\"[\\\", \\\"$Failed\\\", \\\"]\\\"}]\\).\"", 2, 728, 45, 
+   24589494496031190517, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8035704503205104`*^9, 3.8035706295376515`*^9},
+ CellLabel->
+  "During evaluation of \
+In[702]:=",ExpressionUUID->"563fbd78-b563-4e4d-9f3c-93b773c88c55"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ElementData", "notent", 
+   "\"\\!\\(\\*RowBox[{\\\"\\\\\\\"$Failed\\\\\\\"\\\"}]\\) is not a known \
+entity, class, or tag for \\!\\(\\*RowBox[{\\\"ElementData\\\"}]\\). Use \
+\\!\\(\\*RowBox[{\\\"ElementData\\\"}]\\)[] for a list of entities.\"", 2, 
+   728, 46, 24589494496031190517, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8035704503205104`*^9, 3.803570629543652*^9},
+ CellLabel->
+  "During evaluation of \
+In[702]:=",ExpressionUUID->"f56b1924-4483-48a8-8149-b3de44daea1a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Import", "fmterr", 
+   "\"Cannot import data as \\!\\(\\*RowBox[{\\\"\\\\\\\"PDB\\\\\\\"\\\"}]\\) \
+format.\"", 2, 728, 47, 24589494496031190517, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8035704503205104`*^9, 3.8035706295856543`*^9},
+ CellLabel->
+  "During evaluation of \
+In[702]:=",ExpressionUUID->"8009a140-aa1c-4f31-9dc2-5a8ad9d1ffe6"],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[{
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"checkFilePresentQ", "[", 
-     RowBox[{"filepath_", ",", " ", 
-      RowBox[{"verbose_", ":", "False"}]}], "]"}], ":=", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"found", " ", "=", " ", 
-        RowBox[{"FileExistsQ", "[", "filepath", "]"}]}], "}"}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"If", "[", 
-        RowBox[{"verbose", ",", 
-         RowBox[{"Print", "[", 
-          RowBox[{
-          "\"\<searching for '\>\"", ",", " ", "filepath", ",", " ", 
-           "\"\<' ... \>\"", ",", 
-           RowBox[{"If", "[", 
-            RowBox[{
-             RowBox[{"!", "found"}], ",", 
-             RowBox[{"Style", "[", 
-              RowBox[{"\"\<NOT\>\"", ",", "Red"}], "]"}], ",", "\"\<\>\""}], 
-            "]"}], ",", " ", "\"\< found\>\""}], "]"}]}], "]"}], ";", 
-       "\[IndentingNewLine]", "found"}]}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"getFilenameSafe", "[", 
-     RowBox[{"path_", ",", " ", "ptrn_"}], "]"}], ":=", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"names", " ", "=", " ", 
-        RowBox[{"FileNames", "[", 
-         RowBox[{"ptrn", ",", "path"}], "]"}]}], "}"}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{"If", "[", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"Length", "[", "names", "]"}], ">", "0"}], ",", 
-        RowBox[{"names", "[", 
-         RowBox[{"[", "1", "]"}], "]"}], ",", 
-        RowBox[{"FileNameJoin", "[", 
-         RowBox[{"{", 
-          RowBox[{"path", ",", " ", 
-           RowBox[{"StringJoin", "[", 
-            RowBox[{"RandomChoice", "[", 
-             RowBox[{
-              RowBox[{"Alphabet", "[", "]"}], ",", "50"}], "]"}], "]"}]}], 
-          "}"}], "]"}]}], "]"}]}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"getLinkFilename", "[", 
-     RowBox[{"path_", ",", " ", "link_"}], "]"}], " ", ":=", " ", 
-    RowBox[{"FileNameJoin", "[", 
-     RowBox[{"{", 
-      RowBox[{"path", ",", " ", 
-       RowBox[{"FileBaseName", "[", 
-        RowBox[{"FileNameTake", "[", "link", "]"}], "]"}]}], "}"}], "]"}]}], 
-   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"loadNew", "[", 
-     RowBox[{"path_", ",", " ", "link_", ",", " ", 
-      RowBox[{"verbose_", ":", "False"}]}], "]"}], ":=", 
-    "\[IndentingNewLine]", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"archiveFile", ",", "unpackedFiles"}], "}"}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"If", "[", 
-        RowBox[{"verbose", ",", 
-         RowBox[{
-          RowBox[{"Print", "[", 
-           RowBox[{
-           "\"\<loading from '\>\"", ",", " ", "link", ",", "\"\<'\>\""}], 
-           "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
-       RowBox[{"archiveFile", " ", "=", " ", 
-        RowBox[{"URLDownload", "[", 
-         RowBox[{"link", ",", " ", 
-          RowBox[{"FileNameJoin", "[", 
-           RowBox[{"{", 
-            RowBox[{"path", ",", " ", 
-             RowBox[{"FileNameTake", "[", "link", "]"}]}], "}"}], "]"}], ",", 
-          RowBox[{"CreateIntermediateDirectories", "\[Rule]", "True"}]}], 
-         "]"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"If", "[", 
-        RowBox[{"verbose", ",", 
-         RowBox[{
-          RowBox[{"Print", "[", 
-           RowBox[{"archiveFile", ",", " ", "\"\< loaded\>\""}], "]"}], 
-          ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
-       RowBox[{"unpackedFiles", " ", "=", " ", 
-        RowBox[{"ExtractArchive", "[", 
-         RowBox[{"archiveFile", ",", "path", ",", 
-          RowBox[{"OverwriteTarget", "\[Rule]", "True"}], ",", 
-          RowBox[{"CreateIntermediateDirectories", "\[Rule]", "True"}]}], 
-         "]"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"If", "[", 
-        RowBox[{"verbose", ",", " ", 
-         RowBox[{"Print", "[", 
-          RowBox[{
-          "\"\<unpacked: '\>\"", ",", " ", "unpackedFiles", ",", 
-           "\"\<'\>\""}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
-       RowBox[{"DeleteFile", "[", "archiveFile", "]"}], ";", 
-       "\[IndentingNewLine]", "unpackedFiles"}]}], "\[IndentingNewLine]", 
-     "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"loadIfAbsent", "[", 
-     RowBox[{"path_", ",", " ", "link_", ",", " ", 
-      RowBox[{"verbose_", ":", "False"}]}], "]"}], ":=", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", "filepath", "}"}], ",", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"filepath", " ", "=", " ", 
-        RowBox[{"getLinkFilename", "[", 
-         RowBox[{"path", ",", " ", "link"}], "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"If", "[", 
-        RowBox[{
-         RowBox[{"!", 
-          RowBox[{"checkFilePresentQ", "[", 
-           RowBox[{"filepath", ",", " ", "verbose"}], "]"}]}], ",", 
-         "\[IndentingNewLine]", 
-         RowBox[{
-          RowBox[{"loadNew", "[", 
-           RowBox[{
-            RowBox[{"DirectoryName", "[", "filepath", "]"}], ",", " ", "link",
-             ",", " ", "verbose"}], "]"}], ";"}]}], "\[IndentingNewLine]", 
-        "]"}], ";", "\[IndentingNewLine]", "filepath"}]}], 
-     "\[IndentingNewLine]", "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"fileIsExecutableQ", "[", "cmd_", "]"}], ":=", " ", 
-   RowBox[{"(", 
-    RowBox[{
-     RowBox[{"Quiet", "[", 
-      RowBox[{"Check", "[", 
-       RowBox[{
-        RowBox[{"RunProcess", "[", 
-         RowBox[{"cmd", ",", "\"\<ExitCode\>\""}], "]"}], ",", 
-        "\"\<err\>\""}], "]"}], "]"}], "\[NotEqual]", "\"\<err\>\""}], 
-    ")"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"fileIsTheRightExecutableQ", "[", 
-     RowBox[{"cmd_", ",", " ", 
-      RowBox[{"testStr_", ":", "\"\<\>\""}]}], "]"}], ":=", 
-    "\[IndentingNewLine]", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"localErrorFlag", "=", "\"\<err\>\""}], ",", "stdStr", ",", 
-        "errStr"}], "}"}], ",", "\[IndentingNewLine]", 
-      RowBox[{"If", "[", 
-       RowBox[{
-        RowBox[{"fileIsExecutableQ", "[", "cmd", "]"}], ",", 
-        "\[IndentingNewLine]", "False", ",", "\[IndentingNewLine]", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{"StringStartsQ", "[", 
-           RowBox[{
-            RowBox[{"RunProcess", "[", 
-             RowBox[{"cmd", ",", "\"\<StandardError\>\""}], "]"}], ",", " ", 
-            "testStr"}], "]"}], ",", "\[IndentingNewLine]", "True", ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{"StringStartsQ", "[", 
-           RowBox[{
-            RowBox[{"RunProcess", "[", 
-             RowBox[{"cmd", ",", "\"\<StandardOutput\>\""}], "]"}], ",", " ", 
-            "testStr"}], "]"}]}], "\[IndentingNewLine]", "]"}]}], 
-       "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"InstallMyPckg", "[", 
-     RowBox[{"OptionsPattern", "[", "]"}], "]"}], ":=", "\[IndentingNewLine]", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-       "reducePath", ",", "reduceExePath", ",", "reduceDatabasePath", ",", 
-        " ", "reduceExeLink", ",", " ", "reduceDatabaseLink", ",", 
-        "\[IndentingNewLine]", "msmsPath", ",", "msmsExePath", ",", 
-        "pdb2xyzrExePath", ",", "pdb2xyzrDatabasePath", ",", "unpackedArch", 
-        ",", "\[IndentingNewLine]", 
-        RowBox[{"rootPath", " ", "=", " ", 
-         RowBox[{"OptionValue", "[", "\"\<rootPath\>\"", "]"}]}], ",", 
-        "\[IndentingNewLine]", 
-        RowBox[{"doMSMS", " ", "=", " ", 
-         RowBox[{"OptionValue", "[", "\"\<doMSMS\>\"", "]"}]}], ",", 
-        "\[IndentingNewLine]", 
-        RowBox[{"doReduce", " ", "=", " ", 
-         RowBox[{"OptionValue", "[", "\"\<doReduce\>\"", "]"}]}], ",", 
-        "\[IndentingNewLine]", 
-        RowBox[{"verbose", " ", "=", " ", 
-         RowBox[{"OptionValue", "[", "\"\<verbose\>\"", "]"}]}]}], "}"}], ",",
-       "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"If", "[", 
-        RowBox[{
-         RowBox[{"OptionValue", "[", "\"\<forceReinstall\>\"", "]"}], ",", 
-         "\[IndentingNewLine]", 
-         RowBox[{
-          RowBox[{"DeleteDirectory", "[", 
-           RowBox[{"rootPath", ",", 
-            RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ";", 
-          "\[IndentingNewLine]", 
-          RowBox[{"Return", "[", 
-           RowBox[{"InstallMyPckg", "[", 
-            RowBox[{"\"\<forceReinstall\>\"", "\[Rule]", "False"}], "]"}], 
-           "]"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
-       "\[IndentingNewLine]", 
-       RowBox[{"If", "[", 
-        RowBox[{
-         RowBox[{"!", 
-          RowBox[{"DirectoryQ", "[", "rootPath", "]"}]}], ",", 
-         "\[IndentingNewLine]", 
-         RowBox[{"CreateDirectory", "[", 
-          RowBox[{"rootPath", ",", 
-           RowBox[{"CreateIntermediateDirectories", "\[Rule]", "True"}]}], 
-          "]"}]}], "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-       RowBox[{"If", "[", 
-        RowBox[{"doMSMS", ",", "\[IndentingNewLine]", 
-         RowBox[{
-          RowBox[{"msmsPath", " ", "=", " ", 
-           RowBox[{"FileNameJoin", "[", 
-            RowBox[{"{", 
-             RowBox[{"rootPath", ",", " ", "\"\<MSMS\>\""}], "}"}], "]"}]}], 
-          ";", "\[IndentingNewLine]", 
-          RowBox[{"msmsExePath", " ", "=", " ", 
-           RowBox[{"getFilenameSafe", "[", 
-            RowBox[{"msmsPath", ",", " ", 
-             RowBox[{"$OperatingSystem", "/.", "msmsExeMask"}]}], "]"}]}], 
-          ";", "\[IndentingNewLine]", 
-          RowBox[{"pdb2xyzrExePath", " ", "=", " ", 
-           RowBox[{"FileNameJoin", "[", 
-            RowBox[{"{", 
-             RowBox[{"msmsPath", ",", " ", "\"\<pdb_to_xyzr\>\""}], "}"}], 
-            "]"}]}], ";", "\[IndentingNewLine]", 
-          RowBox[{"pdb2xyzrDatabasePath", " ", "=", " ", 
-           RowBox[{"FileNameJoin", "[", 
-            RowBox[{"{", 
-             RowBox[{"msmsPath", ",", " ", "\"\<atmtypenumbers\>\""}], "}"}], 
-            "]"}]}], ";", "\[IndentingNewLine]", 
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{"!", 
-             RowBox[{"(", 
-              RowBox[{
-               RowBox[{"checkFilePresentQ", "[", 
-                RowBox[{"msmsExePath", ",", " ", "verbose"}], "]"}], "&&", 
-               "\[IndentingNewLine]", 
-               RowBox[{"checkFilePresentQ", "[", 
-                RowBox[{"pdb2xyzrExePath", ",", " ", "verbose"}], "]"}], "&&",
-                "\[IndentingNewLine]", 
-               RowBox[{"checkFilePresentQ", "[", 
-                RowBox[{"pdb2xyzrDatabasePath", ",", " ", "verbose"}], 
-                "]"}]}], ")"}]}], ",", "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"loadNew", "[", 
-              RowBox[{"msmsPath", ",", " ", "\[IndentingNewLine]", 
-               RowBox[{"$OperatingSystem", "/.", "msmsArchiveLinks"}], ",", 
-               "verbose"}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";",
-           "\[IndentingNewLine]", 
-          RowBox[{"msmsExePath", " ", "=", " ", 
-           RowBox[{"getFilenameSafe", "[", 
-            RowBox[{"msmsPath", ",", " ", "\"\<msms.x86_64Linux*\>\""}], 
-            "]"}]}], ";", "\[IndentingNewLine]", 
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{"$OperatingSystem", "\[NotEqual]", "\"\<Windows\>\""}], 
-            ",", "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"!", 
-                RowBox[{"fileIsExecutableQ", "[", "msmsExePath", "]"}]}], ",",
-                "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"RunProcess", "[", 
-                 RowBox[{"{", 
-                  RowBox[{
-                  "\"\<chmod\>\"", ",", " ", "\"\<u+x\>\"", ",", " ", 
-                   "msmsExePath"}], "}"}], "]"}], ";"}]}], "]"}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"!", 
-                RowBox[{"fileIsExecutableQ", "[", 
-                 RowBox[{"{", 
-                  RowBox[{"pdb2xyzrExePath", ",", " ", "\"\<1\>\""}], "}"}], 
-                 "]"}]}], ",", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"RunProcess", "[", 
-                 RowBox[{"{", 
-                  RowBox[{
-                  "\"\<chmod\>\"", ",", " ", "\"\<u+x\>\"", ",", " ", 
-                   "msmsExePath"}], "}"}], "]"}], ";"}]}], "]"}], ";"}]}], 
-           "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", ",", 
-         "\[IndentingNewLine]", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-            "msmsExePath", ",", " ", "pdb2xyzrExePath", ",", " ", 
-             "pdb2xyzrDatabasePath"}], "}"}], " ", "=", " ", 
-           RowBox[{"{", 
-            RowBox[{"\"\<\>\"", ",", "\"\<\>\"", ",", "\"\<\>\""}], "}"}]}], 
-          ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-       "\[IndentingNewLine]", 
-       RowBox[{"If", "[", 
-        RowBox[{"doReduce", ",", "\[IndentingNewLine]", 
-         RowBox[{
-          RowBox[{"reducePath", " ", "=", " ", 
-           RowBox[{"FileNameJoin", "[", 
-            RowBox[{"{", 
-             RowBox[{"rootPath", ",", " ", "\"\<Reduce\>\""}], "}"}], "]"}]}],
-           ";", "\[IndentingNewLine]", 
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{"$OperatingSystem", "\[Equal]", "\"\<Windows\>\""}], ",", 
-            "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"reduceExePath", " ", "=", " ", 
-              RowBox[{"FileNameJoin", "[", 
-               RowBox[{"{", 
-                RowBox[{"reducePath", ",", " ", "\"\<reduce.exe\>\""}], "}"}],
-                "]"}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"reduceDatabasePath", " ", "=", " ", 
-              RowBox[{"FileNameJoin", "[", 
-               RowBox[{"{", 
-                RowBox[{
-                "reducePath", ",", " ", "\"\<reduce_wwPDB_het_dict.txt\>\""}],
-                 "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"!", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"checkFilePresentQ", "[", 
-                   RowBox[{"reduceExePath", ",", " ", "verbose"}], "]"}], " ",
-                   "&&", " ", 
-                  RowBox[{"checkFilePresentQ", "[", 
-                   RowBox[{"reduceDatabasePath", ",", " ", "verbose"}], 
-                   "]"}]}], ")"}]}], ",", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"If", "[", 
-                 RowBox[{
-                  RowBox[{"DirectoryQ", "[", "reducePath", "]"}], ",", 
-                  RowBox[{"DeleteDirectory", "[", 
-                   RowBox[{"reducePath", ",", 
-                    RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}]}], 
-                 "]"}], ";", "\[IndentingNewLine]", 
-                RowBox[{"If", "[", 
-                 RowBox[{
-                  RowBox[{"FileExistsQ", "[", "reducePath", "]"}], ",", 
-                  RowBox[{"DeleteFile", "[", "reducePath", "]"}]}], "]"}], 
-                ";", "\[IndentingNewLine]", 
-                RowBox[{"unpackedArch", " ", "=", " ", 
-                 RowBox[{"loadNew", "[", 
-                  RowBox[{"rootPath", ",", " ", 
-                   RowBox[{"$OperatingSystem", "/.", "reduceArchiveLinks"}], 
-                   ",", " ", "verbose"}], "]"}]}], ";", "\[IndentingNewLine]", 
-                RowBox[{"RenameDirectory", "[", 
-                 RowBox[{
-                  RowBox[{"unpackedArch", "[", 
-                   RowBox[{"[", "1", "]"}], "]"}], ",", " ", "reducePath"}], 
-                 "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
-            "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"reduceExePath", " ", "=", " ", 
-              RowBox[{"loadIfAbsent", "[", 
-               RowBox[{"reducePath", ",", 
-                RowBox[{"$OperatingSystem", "/.", "reduceArchiveLinks"}], ",",
-                 " ", "verbose"}], "]"}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"reduceDatabasePath", " ", "=", " ", 
-              RowBox[{"loadIfAbsent", "[", 
-               RowBox[{
-               "reducePath", ",", 
-                "\"\<http://kinemage.biochem.duke.edu/downloads/software/\
-reduce31/reduce_wwPDB_het_dict.txt.zip\>\"", ",", " ", "verbose"}], "]"}]}], 
-             ";", "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"!", 
-                RowBox[{"fileIsExecutableQ", "[", "reduceExePath", "]"}]}], 
-               ",", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"RunProcess", "[", 
-                 RowBox[{"{", 
-                  RowBox[{
-                  "\"\<chmod\>\"", ",", " ", "\"\<u+x\>\"", ",", " ", 
-                   "reduceExePath"}], "}"}], "]"}], ";"}]}], "]"}], ";"}]}], 
-           "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", ",", 
-         "\[IndentingNewLine]", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{"reduceExePath", ",", " ", "reduceDatabasePath"}], "}"}], 
-           " ", "=", " ", 
-           RowBox[{"{", 
-            RowBox[{"\"\<\>\"", ",", "\"\<\>\""}], "}"}]}], ";"}]}], 
-        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-       "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{
-        "msmsExePath", ",", " ", "pdb2xyzrExePath", ",", " ", 
-         "pdb2xyzrDatabasePath", ",", "reduceExePath", ",", " ", 
-         "reduceDatabasePath"}], "}"}]}]}], "\[IndentingNewLine]", "]"}]}], 
-   ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{"should", " ", "be", " ", "in", " ", 
-    RowBox[{"Initialize", "[", "]"}]}], "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"hh", "::", "fail"}], "=", 
-   "\"\<The function failed. The failure occured due to absent file `1` \
-\>\""}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"msmsArchiveLinks", " ", "=", " ", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{
-     "\"\<Windows\>\"", "\[Rule]", " ", 
-      "\"\<http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/\
-REL2.6.1/msms_win32_2.6.1.zip\>\""}], ",", "\[IndentingNewLine]", 
-     RowBox[{
-     "\"\<Unix\>\"", "\[Rule]", 
-      "\"\<http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/\
-REL2.6.1/msms_i86_64Linux2_2.6.1.tar.gz\>\""}], ",", "\[IndentingNewLine]", 
-     RowBox[{
-     "\"\<MacOSX\>\"", "\[Rule]", 
-      "\"\<http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/\
-REL2.6.1/msms_MacOSX_2.6.1.tar.gz\>\""}]}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"msmsExeMask", " ", "=", " ", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"\"\<Windows\>\"", "\[Rule]", "\"\<msms.exe\>\""}], ",", 
-     RowBox[{"\"\<Unix\>\"", "\[Rule]", "\"\<msms.x86_64Linux*\>\""}], ",", 
-     RowBox[{"\"\<MacOSX\>\"", "\[Rule]", "\"\<msms.MacOSX.*\>\""}]}], 
-    "}"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"reduceArchiveLinks", " ", "=", " ", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{
-     "\"\<Windows\>\"", "\[Rule]", 
-      "\"\<http://kinemage.biochem.duke.edu/downloads/software/reduce31/\
-reduce.3.16.111118.winArchive.zip\>\""}], ",", "\[IndentingNewLine]", 
-     RowBox[{
-     "\"\<Unix\>\"", "\[Rule]", 
-      "\"\<http://kinemage.biochem.duke.edu/downloads/software/reduce31/\
-reduce.3.23.130521.linuxi386.gz\>\""}], ",", "\[IndentingNewLine]", 
-     RowBox[{
-     "\"\<MacOSX\>\"", "\[Rule]", 
-      "\"\<http://kinemage.biochem.duke.edu/downloads/software/reduce31/\
-reduce.3.23.130521.macosx.zip\>\""}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"Options", "[", "InstallMyPckg", "]"}], " ", "=", " ", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"\"\<rootPath\>\"", "\[Rule]", 
-      RowBox[{"FileNameJoin", "[", 
-       RowBox[{"{", 
-        RowBox[{"$WolframDocumentsDirectory", ",", "\"\<PDBsys\>\""}], "}"}], 
-       "]"}]}], ",", 
-     RowBox[{"\"\<doMSMS\>\"", "\[Rule]", "True"}], ",", 
-     RowBox[{"\"\<doReduce\>\"", "\[Rule]", "True"}], ",", 
-     RowBox[{"\"\<verbose\>\"", "\[Rule]", "False"}], ",", 
-     RowBox[{"\"\<forceReinstall\>\"", "\[Rule]", "False"}]}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{
-    "msmsExePath", ",", " ", "pdb2xyzrExePath", ",", " ", 
-     "pdb2xyzrDatabasePath", ",", "reduceExePath", ",", " ", 
-     "reduceDatabasePath"}], "}"}], " ", "=", " ", 
-   RowBox[{"InstallMyPckg", "[", 
-    RowBox[{
-     RowBox[{"\"\<doMSMS\>\"", "\[Rule]", "False"}], ",", " ", 
-     RowBox[{"\"\<verbose\>\"", "\[Rule]", "False"}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"reduceDefaultArgs", "=", "\[IndentingNewLine]", 
-   RowBox[{"{", 
-    RowBox[{"\"\<-build\>\"", ",", "\"\<-DB\>\"", ",", 
-     RowBox[{
-     "\"\<\\\"\>\"", "<>", "reduceDatabasePath", "<>", "\"\<\\\"\>\""}]}], 
-    "}"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"Options", "[", "DrawProteinSAS", "]"}], " ", "=", " ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"\"\<probeR\>\"", "\[Rule]", 
-       RowBox[{"Quantity", "[", 
-        RowBox[{"1.5", ",", "\"\<Angstroms\>\""}], "]"}]}], ",", " ", 
-      RowBox[{"\"\<radiiType\>\"", "\[Rule]", "\"\<VanDerWaalsRadius\>\""}]}],
-      "}"}]}], ";"}], "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-   "\"\<AtomicRadius\>\"", ",", " ", "\"\<CovalentRadius\>\"", ",", " ", 
-    "\"\<VanDerWaalsRadius\>\""}], "*)"}]}], "\[IndentingNewLine]"}], "Input",
- CellChangeTimes->{{3.803559515335064*^9, 3.8035595426911154`*^9}, {
-   3.8035597061518216`*^9, 3.803559764278821*^9}, {3.8035598062951603`*^9, 
-   3.803559818439125*^9}, {3.8035616163589945`*^9, 3.8035616219139867`*^9}, {
-   3.8035617202713842`*^9, 3.803561734277383*^9}, {3.803561775317849*^9, 
-   3.803561775843816*^9}, {3.80356181470888*^9, 3.803561820280814*^9}, 
-   3.8035618989472675`*^9, {3.8035620040725775`*^9, 3.8035620215158772`*^9}, {
-   3.8035620668399115`*^9, 3.803562134394209*^9}, {3.803562457173757*^9, 
-   3.8035624628787603`*^9}, {3.803562504457432*^9, 3.8035625221884403`*^9}, {
-   3.8035625832553368`*^9, 3.8035627133464656`*^9}, {3.803562757512428*^9, 
-   3.803562772233464*^9}, {3.8035628327717724`*^9, 3.80356283488482*^9}, {
-   3.803562878796157*^9, 3.803562905424192*^9}, {3.803563073797632*^9, 
-   3.80356314865269*^9}, {3.8035632650522656`*^9, 3.803563311266122*^9}, {
-   3.8035633587021894`*^9, 3.8035633647491164`*^9}, {3.803563405898117*^9, 
-   3.8035634077991514`*^9}, {3.803563447412724*^9, 3.803563551298264*^9}, {
-   3.8035636504563775`*^9, 3.803563696104417*^9}, {3.8035637370419645`*^9, 
-   3.8035638017570906`*^9}, 3.8035639325887785`*^9, {3.8035640306418266`*^9, 
-   3.803564031076825*^9}, {3.8035640787816267`*^9, 3.8035640949956717`*^9}, {
-   3.8035641330246596`*^9, 3.8035641823570347`*^9}, {3.8035644157954054`*^9, 
-   3.8035644279043965`*^9}, 3.803564466525363*^9, {3.803564535224922*^9, 
-   3.8035645798556523`*^9}, {3.803564757531069*^9, 3.8035648097390347`*^9}, {
-   3.8035648742790346`*^9, 3.8035649471910496`*^9}, {3.8035650991444883`*^9, 
-   3.8035651262258883`*^9}, {3.8035651679438887`*^9, 3.803565169809854*^9}, 
-   3.8035653015082693`*^9},ExpressionUUID->"e7d0488c-dcfa-473c-afb9-\
-4f07541be7a3"],
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"VanDerWaalsRadius\"\>", 
+   "\[InvisibleSpace]", "\<\"; probe radius = \"\>", "\[InvisibleSpace]", 
+   TemplateBox[{
+    "1.5`", "\"\[CapitalARing]\"", "\[ARing]ngstr\[ODoubleDot]ms", 
+     "\"Angstroms\""},
+    "Quantity"]}],
+  SequenceForm["VanDerWaalsRadius", "; probe radius = ", 
+   Quantity[1.5, "Angstroms"]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8035706295946555`*^9},
+ CellLabel->
+  "During evaluation of \
+In[702]:=",ExpressionUUID->"23391b66-a446-4a89-9f53-c8676a023ace"],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"\<\"\"\>", ",", "\<\"\"\>", ",", "\<\"\"\>", 
-   ",", "\<\"C:\\\\Users\\\\polya\\\\OneDrive\\\\Documents\\\\Wolfram\\\\\
-PDBsys\\\\Reduce\\\\reduce.exe\"\>", 
-   ",", "\<\"C:\\\\Users\\\\polya\\\\OneDrive\\\\Documents\\\\Wolfram\\\\\
-PDBsys\\\\Reduce\\\\reduce_wwPDB_het_dict.txt\"\>"}], "}"}]], "Output",
- CellChangeTimes->{
-  3.8035647707510653`*^9, 3.8035649790930634`*^9, 3.8035650092054663`*^9, {
-   3.803565155372898*^9, 3.8035651701608963`*^9}},
+ RowBox[{"$Failed", "\[Rule]", 
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{
+    RowBox[{"ElementData", "[", 
+     RowBox[{"$Failed", ",", "\<\"VanDerWaalsRadius\"\>"}], "]"}], 
+    ",", "\<\"Angstroms\"\>"}], "]"}]}]], "Print",
+ CellChangeTimes->{3.8035706295986514`*^9},
  CellLabel->
-  "Out[490]=",ExpressionUUID->"7232f8f3-55ef-4dbd-bd08-58eaae03bd13"]
+  "During evaluation of \
+In[702]:=",ExpressionUUID->"b0364a32-2666-4f72-afcf-3f51c4713099"],
+
+Cell[BoxData[
+ RowBox[{"$Failed", "\[Rule]", 
+  RowBox[{
+   InterpretationBox[
+    RowBox[{
+     TagBox["ColorDataFunction",
+      "SummaryHead"], "[", 
+     DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = 
+      "Ready"}, 
+      TemplateBox[{
+        PaneSelectorBox[{False -> GridBox[{{
+              PaneBox[
+               ButtonBox[
+                DynamicBox[
+                 FEPrivate`FrontEndResource[
+                 "FEBitmaps", "SquarePlusIconMedium"]], 
+                ButtonFunction :> (Typeset`open$$ = True), Appearance -> None,
+                 Evaluator -> Automatic, Method -> "Preemptive"], 
+               Alignment -> {Center, Center}, ImageSize -> 
+               Dynamic[{
+                 Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                  AbsoluteCurrentValue[Magnification]}]], 
+              GraphicsBox[{PointSize -> Rational[1, 10], {{{
+                   RGBColor[0.65, 0.7, 0.7], 
+                   RectangleBox[{1, 9}, {2, 10}]}, {
+                   RGBColor[0.677263, 0.928423, 0.955287], 
+                   RectangleBox[{1, 8}, {2, 9}]}, {
+                   RGBColor[0.534026, 0.420729, 0.705621], 
+                   RectangleBox[{1, 7}, {2, 8}]}, {
+                   RGBColor[0.313725, 0.815686, 0.313725], 
+                   RectangleBox[{1, 6}, {2, 7}]}, {
+                   RGBColor[0.425391, 0.329242, 0.585895], 
+                   RectangleBox[{1, 5}, {2, 6}]}, {
+                   RGBColor[0., 0.420615, 0.525231], 
+                   RectangleBox[{1, 4}, {2, 5}]}, {
+                   RGBColor[0.332803, 0.217712, 0.483666], 
+                   RectangleBox[{1, 3}, {2, 4}]}, {
+                   RGBColor[0.743177, 0.440115, 0.23269], 
+                   RectangleBox[{1, 2}, {2, 3}]}, {
+                   RGBColor[0.734443, 0.544489, 0.683471], 
+                   RectangleBox[{1, 1}, {2, 2}]}}, {{
+                   RGBColor[0.836713, 1., 1.], 
+                   RectangleBox[{2, 9}, {3, 10}]}, {
+                   RGBColor[0.658708, 0.492173, 0.842842], 
+                   RectangleBox[{2, 8}, {3, 9}]}, {
+                   RGBColor[0.480072, 0.744591, 0.0955222], 
+                   RectangleBox[{2, 7}, {3, 8}]}, {
+                   RGBColor[0.784314, 0.501961, 0.2], 
+                   RectangleBox[{2, 6}, {3, 7}]}, {
+                   RGBColor[0.325959, 0.646423, 0.095983], 
+                   RectangleBox[{2, 5}, {3, 6}]}, {
+                   RGBColor[0.752941, 0.752941, 0.752941], 
+                   RectangleBox[{2, 4}, {3, 5}]}, {
+                   RGBColor[0.165935, 0.55605, 0.0796556], 
+                   RectangleBox[{2, 3}, {3, 4}]}, {
+                   RGBColor[0.72281, 0.39143, 0.215783], 
+                   RectangleBox[{2, 2}, {3, 3}]}, {
+                   RGBColor[0.681179, 0.360409, 0.63675], 
+                   RectangleBox[{2, 1}, {3, 2}]}}, {{
+                   RGBColor[0.799435, 0.543572, 0.997559], 
+                   RectangleBox[{3, 9}, {4, 10}]}, {
+                   RGBColor[0.628274, 0.850553, 0.0782731], 
+                   RectangleBox[{3, 8}, {4, 9}]}, {
+                   RGBColor[0.901961, 0.901961, 0.901961], 
+                   RectangleBox[{3, 7}, {4, 8}]}, {
+                   RGBColor[0.490196, 0.501961, 0.690196], 
+                   RectangleBox[{3, 6}, {4, 7}]}, {
+                   RGBColor[0.531014, 1., 1.], 
+                   RectangleBox[{3, 5}, {4, 6}]}, {
+                   RGBColor[1., 0.85098, 0.560784], 
+                   RectangleBox[{3, 4}, {4, 5}]}, {
+                   RGBColor[0.928084, 0.716075, 0.329427], 
+                   RectangleBox[{3, 3}, {4, 4}]}, {
+                   RGBColor[0.702434, 0.347663, 0.200392], 
+                   RectangleBox[{3, 2}, {4, 3}]}, {
+                   RGBColor[0.605181, 0.367584, 0.556343], 
+                   RectangleBox[{3, 1}, {4, 2}]}}, {{
+                   RGBColor[0.770565, 0.964309, 0.0442359], 
+                   RectangleBox[{4, 9}, {5, 10}]}, {
+                   RGBColor[0.8913, 0.631904, 0.627399], 
+                   RectangleBox[{4, 8}, {5, 9}]}, {
+                   RGBColor[0.74902, 0.760784, 0.780392], 
+                   RectangleBox[{4, 7}, {5, 8}]}, {
+                   RGBColor[0.800757, 0.542666, 0.533513], 
+                   RectangleBox[{4, 6}, {5, 7}]}, {
+                   RGBColor[0.458599, 0.917466, 0.918573], 
+                   RectangleBox[{4, 5}, {5, 6}]}, {
+                   RGBColor[0.728371, 0.440594, 0.422196], 
+                   RectangleBox[{4, 4}, {5, 5}]}, {
+                   RGBColor[0.894824, 0.731424, 0.325131], 
+                   RectangleBox[{4, 3}, {5, 4}]}, {
+                   RGBColor[0.679962, 0.309234, 0.187368], 
+                   RectangleBox[{4, 2}, {5, 3}]}, {
+                   RGBColor[0.521806, 0.382125, 0.469204], 
+                   RectangleBox[{4, 1}, {5, 2}]}}, {{
+                   RGBColor[1., 0.709804, 0.709804], 
+                   RectangleBox[{5, 9}, {6, 10}]}, {
+                   RGBColor[0.941176, 0.784314, 0.627451], 
+                   RectangleBox[{5, 8}, {6, 9}]}, {
+                   RGBColor[0.65098, 0.65098, 0.670588], 
+                   RectangleBox[{5, 7}, {6, 8}]}, {
+                   RGBColor[0.60508, 0.632465, 0.576489], 
+                   RectangleBox[{5, 6}, {6, 7}]}, {
+                   RGBColor[0.385036, 0.834854, 0.841681], 
+                   RectangleBox[{5, 5}, {6, 6}]}, {
+                   RGBColor[0.39799, 0.491477, 0.495586], 
+                   RectangleBox[{5, 4}, {6, 5}]}, {
+                   RGBColor[0.86523, 0.707999, 0.315261], 
+                   RectangleBox[{5, 3}, {6, 4}]}, {
+                   RGBColor[0.652012, 0.276823, 0.17779], 
+                   RectangleBox[{5, 2}, {6, 3}]}, {
+                   RGBColor[0.445624, 0.373159, 0.399069], 
+                   RectangleBox[{5, 1}, {6, 2}]}}, {{
+                   RGBColor[0.4, 0.4, 0.4], 
+                   RectangleBox[{6, 9}, {7, 10}]}, {
+                   RGBColor[1., 0.501961, 0], 
+                   RectangleBox[{6, 8}, {7, 9}]}, {
+                   RGBColor[0.541176, 0.6, 0.780392], 
+                   RectangleBox[{6, 7}, {7, 8}]}, {
+                   RGBColor[0.741176, 0.501961, 0.890196], 
+                   RectangleBox[{6, 6}, {7, 7}]}, {
+                   RGBColor[0.310325, 0.752163, 0.769323], 
+                   RectangleBox[{6, 5}, {7, 6}]}, {
+                   RGBColor[0.619608, 0.388235, 0.709804], 
+                   RectangleBox[{6, 4}, {7, 5}]}, {
+                   RGBColor[0.837836, 0.662974, 0.301635], 
+                   RectangleBox[{6, 3}, {7, 4}]}, {
+                   RGBColor[0.613603, 0.251489, 0.173042], 
+                   RectangleBox[{6, 2}, {7, 3}]}, {
+                   RGBColor[0.815686, 0.815686, 0.878431], 
+                   RectangleBox[{6, 1}, {7, 2}]}}, {{
+                   RGBColor[0.291989, 0.437977, 0.888609], 
+                   RectangleBox[{7, 9}, {8, 10}]}, {
+                   RGBColor[0.90443, 0.97015, 0.13504], 
+                   RectangleBox[{7, 8}, {8, 9}]}, {
+                   RGBColor[0.611765, 0.478431, 0.780392], 
+                   RectangleBox[{7, 7}, {8, 8}]}, {
+                   RGBColor[0.917248, 0.657833, 0.0706628], 
+                   RectangleBox[{7, 6}, {8, 7}]}, {
+                   RGBColor[0.234466, 0.669394, 0.701499], 
+                   RectangleBox[{7, 5}, {8, 6}]}, {
+                   RGBColor[0.816706, 0.451332, 0.0100947], 
+                   RectangleBox[{7, 4}, {8, 5}]}, {
+                   RGBColor[0.811992, 0.607859, 0.285626], 
+                   RectangleBox[{7, 3}, {8, 4}]}, {
+                   RGBColor[0.557855, 0.234598, 0.17489], 
+                   RectangleBox[{7, 2}, {8, 3}]}, {
+                   RGBColor[1., 0.819608, 0.137255], 
+                   RectangleBox[{7, 1}, {8, 2}]}}, {{
+                   RGBColor[0.800498, 0.201504, 0.192061], 
+                   RectangleBox[{8, 9}, {9, 10}]}, {
+                   RGBColor[0.412698, 0.932689, 0.166398], 
+                   RectangleBox[{8, 8}, {9, 9}]}, {
+                   RGBColor[0.878431, 0.4, 0.2], 
+                   RectangleBox[{8, 7}, {9, 8}]}, {
+                   RGBColor[0.58847, 0.22163, 0.16064], 
+                   RectangleBox[{8, 6}, {9, 7}]}, {
+                   RGBColor[0.157459, 0.586546, 0.638209], 
+                   RectangleBox[{8, 5}, {9, 6}]}, {
+                   RGBColor[0.580392, 0, 0.580392], 
+                   RectangleBox[{8, 4}, {9, 5}]}, {
+                   RGBColor[0.787563, 0.549894, 0.268279], 
+                   RectangleBox[{8, 3}, {9, 4}]}, {
+                   RGBColor[0.475685, 0.227573, 0.18555], 
+                   RectangleBox[{8, 2}, {9, 3}]}, {
+                   RGBColor[0.721569, 0.721569, 0.815686], 
+                   RectangleBox[{8, 1}, {9, 2}]}}, {{
+                   RGBColor[0.578462, 0.85539, 0.408855], 
+                   RectangleBox[{9, 9}, {10, 10}]}, {
+                   RGBColor[0.546138, 0.844244, 0.892092], 
+                   RectangleBox[{9, 8}, {10, 9}]}, {
+                   RGBColor[0.941176, 0.564706, 0.627451], 
+                   RectangleBox[{9, 7}, {10, 8}]}, {
+                   RGBColor[0.426019, 0.747462, 0.810413], 
+                   RectangleBox[{9, 6}, {10, 7}]}, {
+                   RGBColor[0.0793033, 0.50362, 0.579453], 
+                   RectangleBox[{9, 5}, {10, 6}]}, {
+                   RGBColor[0.316906, 0.638078, 0.710252], 
+                   RectangleBox[{9, 4}, {10, 5}]}, {
+                   RGBColor[0.764628, 0.493261, 0.250405], 
+                   RectangleBox[{9, 3}, {10, 4}]}, {
+                   RGBColor[0.781537, 0.717388, 0.716579], 
+                   RectangleBox[{9, 2}, {10, 3}]}, {
+                   RGBColor[0.65098, 0.329412, 0.301961], 
+                   RectangleBox[{9, 1}, {10, 2}]}}}}, {
+               ImageSize -> 
+                Dynamic[{
+                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                   AbsoluteCurrentValue[Magnification]}], AspectRatio -> 1, 
+                PlotRangePadding -> None, Axes -> False, AspectRatio -> 1, 
+                ImageSize -> 
+                Dynamic[{
+                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                   AbsoluteCurrentValue[Magnification]}], Frame -> True, 
+                FrameTicks -> None, FrameStyle -> Directive[
+                  Opacity[0.5], 
+                  Thickness[Tiny], 
+                  RGBColor[0.368417, 0.506779, 0.709798]]}], 
+              GridBox[{{
+                 RowBox[{
+                   TagBox["\"Name: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["\"Atoms\"", "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox["\"Colors: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["125", "SummaryItem"]}]}}, 
+               GridBoxAlignment -> {
+                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+               False, GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               GridBoxSpacings -> {
+                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+               BaseStyle -> {
+                ShowStringCharacters -> False, NumberMarks -> False, 
+                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+            GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+            GridBoxItemSize -> {
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+            BaselinePosition -> {1, 1}], True -> GridBox[{{
+              PaneBox[
+               ButtonBox[
+                DynamicBox[
+                 FEPrivate`FrontEndResource[
+                 "FEBitmaps", "SquareMinusIconMedium"]], 
+                ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                None, Evaluator -> Automatic, Method -> "Preemptive"], 
+               Alignment -> {Center, Center}, ImageSize -> 
+               Dynamic[{
+                 Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                  AbsoluteCurrentValue[Magnification]}]], 
+              GraphicsBox[{PointSize -> Rational[1, 10], {{{
+                   RGBColor[0.65, 0.7, 0.7], 
+                   RectangleBox[{1, 9}, {2, 10}]}, {
+                   RGBColor[0.677263, 0.928423, 0.955287], 
+                   RectangleBox[{1, 8}, {2, 9}]}, {
+                   RGBColor[0.534026, 0.420729, 0.705621], 
+                   RectangleBox[{1, 7}, {2, 8}]}, {
+                   RGBColor[0.313725, 0.815686, 0.313725], 
+                   RectangleBox[{1, 6}, {2, 7}]}, {
+                   RGBColor[0.425391, 0.329242, 0.585895], 
+                   RectangleBox[{1, 5}, {2, 6}]}, {
+                   RGBColor[0., 0.420615, 0.525231], 
+                   RectangleBox[{1, 4}, {2, 5}]}, {
+                   RGBColor[0.332803, 0.217712, 0.483666], 
+                   RectangleBox[{1, 3}, {2, 4}]}, {
+                   RGBColor[0.743177, 0.440115, 0.23269], 
+                   RectangleBox[{1, 2}, {2, 3}]}, {
+                   RGBColor[0.734443, 0.544489, 0.683471], 
+                   RectangleBox[{1, 1}, {2, 2}]}}, {{
+                   RGBColor[0.836713, 1., 1.], 
+                   RectangleBox[{2, 9}, {3, 10}]}, {
+                   RGBColor[0.658708, 0.492173, 0.842842], 
+                   RectangleBox[{2, 8}, {3, 9}]}, {
+                   RGBColor[0.480072, 0.744591, 0.0955222], 
+                   RectangleBox[{2, 7}, {3, 8}]}, {
+                   RGBColor[0.784314, 0.501961, 0.2], 
+                   RectangleBox[{2, 6}, {3, 7}]}, {
+                   RGBColor[0.325959, 0.646423, 0.095983], 
+                   RectangleBox[{2, 5}, {3, 6}]}, {
+                   RGBColor[0.752941, 0.752941, 0.752941], 
+                   RectangleBox[{2, 4}, {3, 5}]}, {
+                   RGBColor[0.165935, 0.55605, 0.0796556], 
+                   RectangleBox[{2, 3}, {3, 4}]}, {
+                   RGBColor[0.72281, 0.39143, 0.215783], 
+                   RectangleBox[{2, 2}, {3, 3}]}, {
+                   RGBColor[0.681179, 0.360409, 0.63675], 
+                   RectangleBox[{2, 1}, {3, 2}]}}, {{
+                   RGBColor[0.799435, 0.543572, 0.997559], 
+                   RectangleBox[{3, 9}, {4, 10}]}, {
+                   RGBColor[0.628274, 0.850553, 0.0782731], 
+                   RectangleBox[{3, 8}, {4, 9}]}, {
+                   RGBColor[0.901961, 0.901961, 0.901961], 
+                   RectangleBox[{3, 7}, {4, 8}]}, {
+                   RGBColor[0.490196, 0.501961, 0.690196], 
+                   RectangleBox[{3, 6}, {4, 7}]}, {
+                   RGBColor[0.531014, 1., 1.], 
+                   RectangleBox[{3, 5}, {4, 6}]}, {
+                   RGBColor[1., 0.85098, 0.560784], 
+                   RectangleBox[{3, 4}, {4, 5}]}, {
+                   RGBColor[0.928084, 0.716075, 0.329427], 
+                   RectangleBox[{3, 3}, {4, 4}]}, {
+                   RGBColor[0.702434, 0.347663, 0.200392], 
+                   RectangleBox[{3, 2}, {4, 3}]}, {
+                   RGBColor[0.605181, 0.367584, 0.556343], 
+                   RectangleBox[{3, 1}, {4, 2}]}}, {{
+                   RGBColor[0.770565, 0.964309, 0.0442359], 
+                   RectangleBox[{4, 9}, {5, 10}]}, {
+                   RGBColor[0.8913, 0.631904, 0.627399], 
+                   RectangleBox[{4, 8}, {5, 9}]}, {
+                   RGBColor[0.74902, 0.760784, 0.780392], 
+                   RectangleBox[{4, 7}, {5, 8}]}, {
+                   RGBColor[0.800757, 0.542666, 0.533513], 
+                   RectangleBox[{4, 6}, {5, 7}]}, {
+                   RGBColor[0.458599, 0.917466, 0.918573], 
+                   RectangleBox[{4, 5}, {5, 6}]}, {
+                   RGBColor[0.728371, 0.440594, 0.422196], 
+                   RectangleBox[{4, 4}, {5, 5}]}, {
+                   RGBColor[0.894824, 0.731424, 0.325131], 
+                   RectangleBox[{4, 3}, {5, 4}]}, {
+                   RGBColor[0.679962, 0.309234, 0.187368], 
+                   RectangleBox[{4, 2}, {5, 3}]}, {
+                   RGBColor[0.521806, 0.382125, 0.469204], 
+                   RectangleBox[{4, 1}, {5, 2}]}}, {{
+                   RGBColor[1., 0.709804, 0.709804], 
+                   RectangleBox[{5, 9}, {6, 10}]}, {
+                   RGBColor[0.941176, 0.784314, 0.627451], 
+                   RectangleBox[{5, 8}, {6, 9}]}, {
+                   RGBColor[0.65098, 0.65098, 0.670588], 
+                   RectangleBox[{5, 7}, {6, 8}]}, {
+                   RGBColor[0.60508, 0.632465, 0.576489], 
+                   RectangleBox[{5, 6}, {6, 7}]}, {
+                   RGBColor[0.385036, 0.834854, 0.841681], 
+                   RectangleBox[{5, 5}, {6, 6}]}, {
+                   RGBColor[0.39799, 0.491477, 0.495586], 
+                   RectangleBox[{5, 4}, {6, 5}]}, {
+                   RGBColor[0.86523, 0.707999, 0.315261], 
+                   RectangleBox[{5, 3}, {6, 4}]}, {
+                   RGBColor[0.652012, 0.276823, 0.17779], 
+                   RectangleBox[{5, 2}, {6, 3}]}, {
+                   RGBColor[0.445624, 0.373159, 0.399069], 
+                   RectangleBox[{5, 1}, {6, 2}]}}, {{
+                   RGBColor[0.4, 0.4, 0.4], 
+                   RectangleBox[{6, 9}, {7, 10}]}, {
+                   RGBColor[1., 0.501961, 0], 
+                   RectangleBox[{6, 8}, {7, 9}]}, {
+                   RGBColor[0.541176, 0.6, 0.780392], 
+                   RectangleBox[{6, 7}, {7, 8}]}, {
+                   RGBColor[0.741176, 0.501961, 0.890196], 
+                   RectangleBox[{6, 6}, {7, 7}]}, {
+                   RGBColor[0.310325, 0.752163, 0.769323], 
+                   RectangleBox[{6, 5}, {7, 6}]}, {
+                   RGBColor[0.619608, 0.388235, 0.709804], 
+                   RectangleBox[{6, 4}, {7, 5}]}, {
+                   RGBColor[0.837836, 0.662974, 0.301635], 
+                   RectangleBox[{6, 3}, {7, 4}]}, {
+                   RGBColor[0.613603, 0.251489, 0.173042], 
+                   RectangleBox[{6, 2}, {7, 3}]}, {
+                   RGBColor[0.815686, 0.815686, 0.878431], 
+                   RectangleBox[{6, 1}, {7, 2}]}}, {{
+                   RGBColor[0.291989, 0.437977, 0.888609], 
+                   RectangleBox[{7, 9}, {8, 10}]}, {
+                   RGBColor[0.90443, 0.97015, 0.13504], 
+                   RectangleBox[{7, 8}, {8, 9}]}, {
+                   RGBColor[0.611765, 0.478431, 0.780392], 
+                   RectangleBox[{7, 7}, {8, 8}]}, {
+                   RGBColor[0.917248, 0.657833, 0.0706628], 
+                   RectangleBox[{7, 6}, {8, 7}]}, {
+                   RGBColor[0.234466, 0.669394, 0.701499], 
+                   RectangleBox[{7, 5}, {8, 6}]}, {
+                   RGBColor[0.816706, 0.451332, 0.0100947], 
+                   RectangleBox[{7, 4}, {8, 5}]}, {
+                   RGBColor[0.811992, 0.607859, 0.285626], 
+                   RectangleBox[{7, 3}, {8, 4}]}, {
+                   RGBColor[0.557855, 0.234598, 0.17489], 
+                   RectangleBox[{7, 2}, {8, 3}]}, {
+                   RGBColor[1., 0.819608, 0.137255], 
+                   RectangleBox[{7, 1}, {8, 2}]}}, {{
+                   RGBColor[0.800498, 0.201504, 0.192061], 
+                   RectangleBox[{8, 9}, {9, 10}]}, {
+                   RGBColor[0.412698, 0.932689, 0.166398], 
+                   RectangleBox[{8, 8}, {9, 9}]}, {
+                   RGBColor[0.878431, 0.4, 0.2], 
+                   RectangleBox[{8, 7}, {9, 8}]}, {
+                   RGBColor[0.58847, 0.22163, 0.16064], 
+                   RectangleBox[{8, 6}, {9, 7}]}, {
+                   RGBColor[0.157459, 0.586546, 0.638209], 
+                   RectangleBox[{8, 5}, {9, 6}]}, {
+                   RGBColor[0.580392, 0, 0.580392], 
+                   RectangleBox[{8, 4}, {9, 5}]}, {
+                   RGBColor[0.787563, 0.549894, 0.268279], 
+                   RectangleBox[{8, 3}, {9, 4}]}, {
+                   RGBColor[0.475685, 0.227573, 0.18555], 
+                   RectangleBox[{8, 2}, {9, 3}]}, {
+                   RGBColor[0.721569, 0.721569, 0.815686], 
+                   RectangleBox[{8, 1}, {9, 2}]}}, {{
+                   RGBColor[0.578462, 0.85539, 0.408855], 
+                   RectangleBox[{9, 9}, {10, 10}]}, {
+                   RGBColor[0.546138, 0.844244, 0.892092], 
+                   RectangleBox[{9, 8}, {10, 9}]}, {
+                   RGBColor[0.941176, 0.564706, 0.627451], 
+                   RectangleBox[{9, 7}, {10, 8}]}, {
+                   RGBColor[0.426019, 0.747462, 0.810413], 
+                   RectangleBox[{9, 6}, {10, 7}]}, {
+                   RGBColor[0.0793033, 0.50362, 0.579453], 
+                   RectangleBox[{9, 5}, {10, 6}]}, {
+                   RGBColor[0.316906, 0.638078, 0.710252], 
+                   RectangleBox[{9, 4}, {10, 5}]}, {
+                   RGBColor[0.764628, 0.493261, 0.250405], 
+                   RectangleBox[{9, 3}, {10, 4}]}, {
+                   RGBColor[0.781537, 0.717388, 0.716579], 
+                   RectangleBox[{9, 2}, {10, 3}]}, {
+                   RGBColor[0.65098, 0.329412, 0.301961], 
+                   RectangleBox[{9, 1}, {10, 2}]}}}}, {
+               ImageSize -> 
+                Dynamic[{
+                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                   AbsoluteCurrentValue[Magnification]}], AspectRatio -> 1, 
+                PlotRangePadding -> None, Axes -> False, AspectRatio -> 1, 
+                ImageSize -> 
+                Dynamic[{
+                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                   AbsoluteCurrentValue[Magnification]}], Frame -> True, 
+                FrameTicks -> None, FrameStyle -> Directive[
+                  Opacity[0.5], 
+                  Thickness[Tiny], 
+                  RGBColor[0.368417, 0.506779, 0.709798]]}], 
+              GridBox[{{
+                 RowBox[{
+                   TagBox["\"Name: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["\"Atoms\"", "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox["\"Colors: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["125", "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox["\"Class: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["\"Named\"", "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox["\"Color names: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox[
+                    FrameBox[
+                    PaneBox[
+                    TagBox[
+                    GridBox[{{
+                    StyleBox["\"H\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"He\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Li\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Be\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"B\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"C\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"N\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"O\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"F\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ne\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Na\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Mg\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Al\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Si\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"P\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"S\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Cl\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ar\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"K\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ca\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Sc\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ti\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"V\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Cr\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Mn\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Fe\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Co\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ni\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Cu\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Zn\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ga\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ge\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"As\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Se\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Br\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Kr\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Rb\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Sr\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Y\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Zr\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Nb\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Mo\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Tc\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ru\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Rh\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Pd\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ag\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Cd\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"In\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Sn\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Sb\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Te\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"I\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Xe\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Cs\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ba\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"La\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ce\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Pr\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Nd\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Pm\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Sm\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Eu\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Gd\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Tb\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Dy\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ho\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Er\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Tm\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Yb\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Lu\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Hf\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ta\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"W\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Re\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Os\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ir\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Pt\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Au\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Hg\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Tl\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Pb\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Bi\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Po\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"At\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Rn\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Fr\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ra\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ac\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Th\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Pa\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"U\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Np\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Pu\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Am\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Cm\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Bk\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Cf\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Es\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Fm\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Md\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"No\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Lr\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Rf\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Db\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Sg\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Bh\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Hs\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Mt\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ds\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Rg\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Cn\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Nh\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Fl\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Mc\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Lv\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Ts\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Og\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Uub\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Uut\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Uuq\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Uup\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Uuh\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Uus\"", ShowStringCharacters -> True]}, {
+                    StyleBox["\"Uuo\"", ShowStringCharacters -> True]}}, 
+                    GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                    DefaultBaseStyle -> "Column", 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+                    "Column"], ImageSize -> {Automatic, 50}, Scrollbars -> 
+                    Automatic], FrameStyle -> GrayLevel[0.7], StripOnInput -> 
+                    False], "SummaryItem"]}]}}, 
+               GridBoxAlignment -> {
+                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+               False, GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               GridBoxSpacings -> {
+                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+               BaseStyle -> {
+                ShowStringCharacters -> False, NumberMarks -> False, 
+                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+            GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+            GridBoxItemSize -> {
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+            BaselinePosition -> {1, 1}]}, 
+         Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+       "SummaryPanel"],
+      DynamicModuleValues:>{}], "]"}],
+    ColorDataFunction[
+    "Atoms", "Named", {{
+      "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", 
+       "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", 
+       "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr", "Rb",
+        "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", "In",
+        "Sn", "Sb", "Te", "I", "Xe", "Cs", "Ba", "La", "Ce", "Pr", "Nd", "Pm",
+        "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu", "Hf", 
+       "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Tl", "Pb", "Bi", "Po", 
+       "At", "Rn", "Fr", "Ra", "Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", 
+       "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr", "Rf", "Db", "Sg", "Bh", "Hs",
+        "Mt", "Ds", "Rg", "Cn", "Nh", "Fl", "Mc", "Lv", "Ts", "Og", "Uub", 
+       "Uut", "Uuq", "Uup", "Uuh", "Uus", "Uuo"}, {
+      "h", "he", "li", "be", "b", "c", "n", "o", "f", "ne", "na", "mg", "al", 
+       "si", "p", "s", "cl", "ar", "k", "ca", "sc", "ti", "v", "cr", "mn", 
+       "fe", "co", "ni", "cu", "zn", "ga", "ge", "as", "se", "br", "kr", "rb",
+        "sr", "y", "zr", "nb", "mo", "tc", "ru", "rh", "pd", "ag", "cd", "in",
+        "sn", "sb", "te", "i", "xe", "cs", "ba", "la", "ce", "pr", "nd", "pm",
+        "sm", "eu", "gd", "tb", "dy", "ho", "er", "tm", "yb", "lu", "hf", 
+       "ta", "w", "re", "os", "ir", "pt", "au", "hg", "tl", "pb", "bi", "po", 
+       "at", "rn", "fr", "ra", "ac", "th", "pa", "u", "np", "pu", "am", "cm", 
+       "bk", "cf", "es", "fm", "md", "no", "lr", "rf", "db", "sg", "bh", "hs",
+        "mt", "ds", "rg", "cn", "nh", "fl", "mc", "lv", "ts", "og", "uub", 
+       "uut", "uuq", "uup", "uuh", "uus", "uuo"}}, Replace[#, 
+      Dispatch[{
+       "h" -> RGBColor[0.65, 0.7, 0.7], "he" -> RGBColor[0.836713, 1., 1.], 
+        "li" -> RGBColor[0.799435, 0.543572, 0.997559], "be" -> 
+        RGBColor[0.770565, 0.964309, 0.0442359], "b" -> 
+        RGBColor[1., 0.709804, 0.709804], "c" -> RGBColor[0.4, 0.4, 0.4], "n" -> 
+        RGBColor[0.291989, 0.437977, 0.888609], "o" -> 
+        RGBColor[0.800498, 0.201504, 0.192061], "f" -> 
+        RGBColor[0.578462, 0.85539, 0.408855], "ne" -> 
+        RGBColor[0.677263, 0.928423, 0.955287], "na" -> 
+        RGBColor[0.658708, 0.492173, 0.842842], "mg" -> 
+        RGBColor[0.628274, 0.850553, 0.0782731], "al" -> 
+        RGBColor[0.8913, 0.631904, 0.627399], "si" -> 
+        RGBColor[0.941176, 0.784314, 0.627451], "p" -> 
+        RGBColor[1., 0.501961, 0], "s" -> RGBColor[0.90443, 0.97015, 0.13504],
+         "cl" -> RGBColor[0.412698, 0.932689, 0.166398], "ar" -> 
+        RGBColor[0.546138, 0.844244, 0.892092], "k" -> 
+        RGBColor[0.534026, 0.420729, 0.705621], "ca" -> 
+        RGBColor[0.480072, 0.744591, 0.0955222], "sc" -> 
+        RGBColor[0.901961, 0.901961, 0.901961], "ti" -> 
+        RGBColor[0.74902, 0.760784, 0.780392], "v" -> 
+        RGBColor[0.65098, 0.65098, 0.670588], "cr" -> 
+        RGBColor[0.541176, 0.6, 0.780392], "mn" -> 
+        RGBColor[0.611765, 0.478431, 0.780392], "fe" -> 
+        RGBColor[0.878431, 0.4, 0.2], "co" -> 
+        RGBColor[0.941176, 0.564706, 0.627451], "ni" -> 
+        RGBColor[0.313725, 0.815686, 0.313725], "cu" -> 
+        RGBColor[0.784314, 0.501961, 0.2], "zn" -> 
+        RGBColor[0.490196, 0.501961, 0.690196], "ga" -> 
+        RGBColor[0.800757, 0.542666, 0.533513], "ge" -> 
+        RGBColor[0.60508, 0.632465, 0.576489], "as" -> 
+        RGBColor[0.741176, 0.501961, 0.890196], "se" -> 
+        RGBColor[0.917248, 0.657833, 0.0706628], "br" -> 
+        RGBColor[0.58847, 0.22163, 0.16064], "kr" -> 
+        RGBColor[0.426019, 0.747462, 0.810413], "rb" -> 
+        RGBColor[0.425391, 0.329242, 0.585895], "sr" -> 
+        RGBColor[0.325959, 0.646423, 0.095983], "y" -> 
+        RGBColor[0.531014, 1., 1.], "zr" -> 
+        RGBColor[0.458599, 0.917466, 0.918573], "nb" -> 
+        RGBColor[0.385036, 0.834854, 0.841681], "mo" -> 
+        RGBColor[0.310325, 0.752163, 0.769323], "tc" -> 
+        RGBColor[0.234466, 0.669394, 0.701499], "ru" -> 
+        RGBColor[0.157459, 0.586546, 0.638209], "rh" -> 
+        RGBColor[0.0793033, 0.50362, 0.579453], "pd" -> 
+        RGBColor[0., 0.420615, 0.525231], "ag" -> 
+        RGBColor[0.752941, 0.752941, 0.752941], "cd" -> 
+        RGBColor[1., 0.85098, 0.560784], "in" -> 
+        RGBColor[0.728371, 0.440594, 0.422196], "sn" -> 
+        RGBColor[0.39799, 0.491477, 0.495586], "sb" -> 
+        RGBColor[0.619608, 0.388235, 0.709804], "te" -> 
+        RGBColor[0.816706, 0.451332, 0.0100947], "i" -> 
+        RGBColor[0.580392, 0, 0.580392], "xe" -> 
+        RGBColor[0.316906, 0.638078, 0.710252], "cs" -> 
+        RGBColor[0.332803, 0.217712, 0.483666], "ba" -> 
+        RGBColor[0.165935, 0.55605, 0.0796556], "la" -> 
+        RGBColor[0.928084, 0.716075, 0.329427], "ce" -> 
+        RGBColor[0.894824, 0.731424, 0.325131], "pr" -> 
+        RGBColor[0.86523, 0.707999, 0.315261], "nd" -> 
+        RGBColor[0.837836, 0.662974, 0.301635], "pm" -> 
+        RGBColor[0.811992, 0.607859, 0.285626], "sm" -> 
+        RGBColor[0.787563, 0.549894, 0.268279], "eu" -> 
+        RGBColor[0.764628, 0.493261, 0.250405], "gd" -> 
+        RGBColor[0.743177, 0.440115, 0.23269], "tb" -> 
+        RGBColor[0.72281, 0.39143, 0.215783], "dy" -> 
+        RGBColor[0.702434, 0.347663, 0.200392], "ho" -> 
+        RGBColor[0.679962, 0.309234, 0.187368], "er" -> 
+        RGBColor[0.652012, 0.276823, 0.17779], "tm" -> 
+        RGBColor[0.613603, 0.251489, 0.173042], "yb" -> 
+        RGBColor[0.557855, 0.234598, 0.17489], "lu" -> 
+        RGBColor[0.475685, 0.227573, 0.18555], "hf" -> 
+        RGBColor[0.781537, 0.717388, 0.716579], "ta" -> 
+        RGBColor[0.734443, 0.544489, 0.683471], "w" -> 
+        RGBColor[0.681179, 0.360409, 0.63675], "re" -> 
+        RGBColor[0.605181, 0.367584, 0.556343], "os" -> 
+        RGBColor[0.521806, 0.382125, 0.469204], "ir" -> 
+        RGBColor[0.445624, 0.373159, 0.399069], "pt" -> 
+        RGBColor[0.815686, 0.815686, 0.878431], "au" -> 
+        RGBColor[1., 0.819608, 0.137255], "hg" -> 
+        RGBColor[0.721569, 0.721569, 0.815686], "tl" -> 
+        RGBColor[0.65098, 0.329412, 0.301961], "pb" -> 
+        RGBColor[0.341176, 0.34902, 0.380392], "bi" -> 
+        RGBColor[0.619608, 0.309804, 0.709804], "po" -> 
+        RGBColor[0.670588, 0.360784, 0], "at" -> 
+        RGBColor[0.458824, 0.309804, 0.270588], "rn" -> 
+        RGBColor[0.218799, 0.516091, 0.591608], "fr" -> 
+        RGBColor[0.25626, 0.0861372, 0.398932], "ra" -> 
+        RGBColor[0., 0.473472, 0.04654], "ac" -> 
+        RGBColor[0.322042, 0.71693, 0.988479], "th" -> 
+        RGBColor[0.3608, 0.67166, 0.943003], "pa" -> 
+        RGBColor[0.397469, 0.628, 0.898853], "u" -> 
+        RGBColor[0.43205, 0.58595, 0.856029], "np" -> 
+        RGBColor[0.464542, 0.54551, 0.814532], "pu" -> 
+        RGBColor[0.494945, 0.506679, 0.774361], "am" -> 
+        RGBColor[0.52326, 0.469458, 0.735517], "cm" -> 
+        RGBColor[0.549486, 0.433847, 0.697999], "bk" -> 
+        RGBColor[0.573624, 0.399845, 0.661808], "cf" -> 
+        RGBColor[0.595673, 0.367454, 0.626942], "es" -> 
+        RGBColor[0.615633, 0.336672, 0.593404], "fm" -> 
+        RGBColor[0.633505, 0.307499, 0.561191], "md" -> 
+        RGBColor[0.649288, 0.279937, 0.530305], "no" -> 
+        RGBColor[0.662982, 0.253984, 0.500746], "lr" -> 
+        RGBColor[0.674588, 0.22964, 0.472513], "rf" -> 
+        RGBColor[0.684106, 0.206907, 0.445606], "db" -> 
+        RGBColor[0.691534, 0.185783, 0.420025], "sg" -> 
+        RGBColor[0.696874, 0.166269, 0.395772], "bh" -> 
+        RGBColor[0.700126, 0.148365, 0.372844], "hs" -> 
+        RGBColor[0.701289, 0.13207, 0.351243], "mt" -> 
+        RGBColor[0.700363, 0.117385, 0.330968], "ds" -> 
+        RGBColor[0.697348, 0.10431, 0.31202], "rg" -> 
+        RGBColor[0.692245, 0.0928444, 0.294398], "cn" -> 
+        RGBColor[0.685054, 0.0829886, 0.278102], "nh" -> 
+        RGBColor[0.675773, 0.0747426, 0.263133], "fl" -> 
+        RGBColor[0.664405, 0.0681063, 0.249491], "mc" -> 
+        RGBColor[0.650947, 0.0630797, 0.237174], "lv" -> 
+        RGBColor[0.635401, 0.0596628, 0.226184], "ts" -> 
+        RGBColor[0.635401, 0.056628, 0.226184], "og" -> 
+        RGBColor[0.635401, 0.0528, 0.226184], "uub" -> 
+        RGBColor[0.685054, 0.0829886, 0.278102], "uut" -> 
+        RGBColor[0.675773, 0.0747426, 0.263133], "uuq" -> 
+        RGBColor[0.664405, 0.0681063, 0.249491], "uup" -> 
+        RGBColor[0.650947, 0.0630797, 0.237174], "uuh" -> 
+        RGBColor[0.635401, 0.0596628, 0.226184], "uus" -> 
+        RGBColor[0.635401, 0.056628, 0.226184], "uuo" -> 
+        RGBColor[0.635401, 0.0528, 0.226184]}]]& ],
+    Editable->False,
+    SelectWithContents->True,
+    Selectable->False], "[", "$Failed", "]"}]}]], "Print",
+ CellChangeTimes->{3.803570629614654*^9},
+ CellLabel->
+  "During evaluation of \
+In[702]:=",ExpressionUUID->"12ab418e-d127-4523-a10a-ff59ea534824"]
+}, Open  ]],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part", "partw", 
+   "\"Part \\!\\(\\*RowBox[{\\\"2\\\"}]\\) of \
+\\!\\(\\*RowBox[{InterpretationBox[RowBox[{TagBox[\\\"ColorDataFunction\\\", \
+\\\"SummaryHead\\\"], \\\"[\\\", DynamicModuleBox[{Typeset`open$$ = False, \
+Set[Typeset`embedState$$, \\\"Ready\\\"]}, \
+TemplateBox[List[PaneSelectorBox[List[Rule[False, \
+GridBox[List[List[PaneBox[ButtonBox[DynamicBox[FEPrivate`FrontEndResource[\\\"\
+FEBitmaps\\\", \\\"SquarePlusIconMedium\\\"]], RuleDelayed[ButtonFunction, \
+Set[Typeset`open$$, True]], Rule[Appearance, None], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], Rule[Alignment, List[Center, \
+Center]], Rule[ImageSize, Dynamic[List[Automatic, Times[3.5`, CurrentValue[\\\
+\"FontCapHeight\\\"], Power[AbsoluteCurrentValue[Magnification], -1]]]]]], \
+GraphicsBox[List[Rule[PointSize, Rational[1, 10]], \
+List[List[List[RGBColor[0.65`, 0.7`, 0.7`], RectangleBox[List[1, 9], List[2, \
+10]]], List[RGBColor[0.677263`, 0.928423`, 0.955287`], RectangleBox[List[1, \
+8], List[2, 9]]], List[RGBColor[0.534026`, 0.420729`, 0.705621`], \
+RectangleBox[List[1, 7], List[2, 8]]], List[RGBColor[0.313725`, 0.815686`, \
+0.313725`], RectangleBox[List[1, 6], List[2, 7]]], List[RGBColor[0.425391`, \
+0.329242`, 0.585895`], RectangleBox[List[1, 5], List[2, 6]]], \
+List[RGBColor[0.`, 0.420615`, 0.525231`], RectangleBox[List[1, 4], List[2, \
+5]]], List[RGBColor[0.332803`, 0.217712`, 0.483666`], RectangleBox[List[1, \
+3], List[2, 4]]], List[RGBColor[0.743177`, 0.440115`, 0.23269`], \
+RectangleBox[List[1, 2], List[2, 3]]], List[RGBColor[0.734443`, 0.544489`, \
+0.683471`], RectangleBox[List[1, 1], List[2, 2]]]], \
+List[List[RGBColor[0.836713`, 1.`, 1.`], RectangleBox[List[2, 9], List[3, \
+10]]], List[RGBColor[0.658708`, 0.492173`, 0.842842`], RectangleBox[List[2, \
+8], List[3, 9]]], List[RGBColor[0.480072`, 0.744591`, 0.0955222`], \
+RectangleBox[List[2, 7], List[3, 8]]], List[RGBColor[0.784314`, 0.501961`, \
+0.2`], RectangleBox[List[2, 6], List[3, 7]]], List[RGBColor[0.325959`, \
+0.646423`, 0.095983`], RectangleBox[List[2, 5], List[3, 6]]], \
+List[RGBColor[0.752941`, 0.752941`, 0.752941`], RectangleBox[List[2, 4], \
+List[3, 5]]], List[RGBColor[0.165935`, 0.55605`, 0.0796556`], \
+RectangleBox[List[2, 3], List[3, 4]]], List[RGBColor[0.72281`, 0.39143`, \
+0.215783`], RectangleBox[List[2, 2], List[3, 3]]], List[RGBColor[0.681179`, \
+0.360409`, 0.63675`], RectangleBox[List[2, 1], List[3, 2]]]], \
+List[List[RGBColor[0.799435`, 0.543572`, 0.997559`], RectangleBox[List[3, 9], \
+List[4, 10]]], List[RGBColor[0.628274`, 0.850553`, 0.0782731`], \
+RectangleBox[List[3, 8], List[4, 9]]], List[RGBColor[0.901961`, 0.901961`, \
+0.901961`], RectangleBox[List[3, 7], List[4, 8]]], List[RGBColor[0.490196`, \
+0.501961`, 0.690196`], RectangleBox[List[3, 6], List[4, 7]]], \
+List[RGBColor[0.531014`, 1.`, 1.`], RectangleBox[List[3, 5], List[4, 6]]], \
+List[RGBColor[1.`, 0.85098`, 0.560784`], RectangleBox[List[3, 4], List[4, \
+5]]], List[RGBColor[0.928084`, 0.716075`, 0.329427`], RectangleBox[List[3, \
+3], List[4, 4]]], List[RGBColor[0.702434`, 0.347663`, 0.200392`], \
+RectangleBox[List[3, 2], List[4, 3]]], List[RGBColor[0.605181`, 0.367584`, \
+0.556343`], RectangleBox[List[3, 1], List[4, 2]]]], \
+List[List[RGBColor[0.770565`, 0.964309`, 0.0442359`], RectangleBox[List[4, \
+9], List[5, 10]]], List[RGBColor[0.8913`, 0.631904`, 0.627399`], \
+RectangleBox[List[4, 8], List[5, 9]]], List[RGBColor[0.74902`, 0.760784`, \
+0.780392`], RectangleBox[List[4, 7], List[5, 8]]], List[RGBColor[0.800757`, \
+0.542666`, 0.533513`], RectangleBox[List[4, 6], List[5, 7]]], \
+List[RGBColor[0.458599`, 0.917466`, 0.918573`], RectangleBox[List[4, 5], \
+List[5, 6]]], List[RGBColor[0.728371`, 0.440594`, 0.422196`], \
+RectangleBox[List[4, 4], List[5, 5]]], List[RGBColor[0.894824`, 0.731424`, \
+0.325131`], RectangleBox[List[4, 3], List[5, 4]]], List[RGBColor[0.679962`, \
+0.309234`, 0.187368`], RectangleBox[List[4, 2], List[5, 3]]], \
+List[RGBColor[0.521806`, 0.382125`, 0.469204`], RectangleBox[List[4, 1], \
+List[5, 2]]]], List[List[RGBColor[1.`, 0.709804`, 0.709804`], \
+RectangleBox[List[5, 9], List[6, 10]]], List[RGBColor[0.941176`, 0.784314`, \
+0.627451`], RectangleBox[List[5, 8], List[6, 9]]], List[RGBColor[0.65098`, \
+0.65098`, 0.670588`], RectangleBox[List[5, 7], List[6, 8]]], \
+List[RGBColor[0.60508`, 0.632465`, 0.576489`], RectangleBox[List[5, 6], \
+List[6, 7]]], List[RGBColor[0.385036`, 0.834854`, 0.841681`], \
+RectangleBox[List[5, 5], List[6, 6]]], List[RGBColor[0.39799`, 0.491477`, \
+0.495586`], RectangleBox[List[5, 4], List[6, 5]]], List[RGBColor[0.86523`, \
+0.707999`, 0.315261`], RectangleBox[List[5, 3], List[6, 4]]], \
+List[RGBColor[0.652012`, 0.276823`, 0.17779`], RectangleBox[List[5, 2], \
+List[6, 3]]], List[RGBColor[0.445624`, 0.373159`, 0.399069`], \
+RectangleBox[List[5, 1], List[6, 2]]]], List[List[RGBColor[0.4`, 0.4`, 0.4`], \
+RectangleBox[List[6, 9], List[7, 10]]], List[RGBColor[1.`, 0.501961`, 0], \
+RectangleBox[List[6, 8], List[7, 9]]], List[RGBColor[0.541176`, 0.6`, \
+0.780392`], RectangleBox[List[6, 7], List[7, 8]]], List[RGBColor[0.741176`, \
+0.501961`, 0.890196`], RectangleBox[List[6, 6], List[7, 7]]], \
+List[RGBColor[0.310325`, 0.752163`, 0.769323`], RectangleBox[List[6, 5], \
+List[7, 6]]], List[RGBColor[0.619608`, 0.388235`, 0.709804`], \
+RectangleBox[List[6, 4], List[7, 5]]], List[RGBColor[0.837836`, 0.662974`, \
+0.301635`], RectangleBox[List[6, 3], List[7, 4]]], List[RGBColor[0.613603`, \
+0.251489`, 0.173042`], RectangleBox[List[6, 2], List[7, 3]]], \
+List[RGBColor[0.815686`, 0.815686`, 0.878431`], RectangleBox[List[6, 1], \
+List[7, 2]]]], List[List[RGBColor[0.291989`, 0.437977`, 0.888609`], \
+RectangleBox[List[7, 9], List[8, 10]]], List[RGBColor[0.90443`, 0.97015`, \
+0.13504`], RectangleBox[List[7, 8], List[8, 9]]], List[RGBColor[0.611765`, \
+0.478431`, 0.780392`], RectangleBox[List[7, 7], List[8, 8]]], \
+List[RGBColor[0.917248`, 0.657833`, 0.0706628`], RectangleBox[List[7, 6], \
+List[8, 7]]], List[RGBColor[0.234466`, 0.669394`, 0.701499`], \
+RectangleBox[List[7, 5], List[8, 6]]], List[RGBColor[0.816706`, 0.451332`, \
+0.0100947`], RectangleBox[List[7, 4], List[8, 5]]], List[RGBColor[0.811992`, \
+0.607859`, 0.285626`], RectangleBox[List[7, 3], List[8, 4]]], \
+List[RGBColor[0.557855`, 0.234598`, 0.17489`], RectangleBox[List[7, 2], \
+List[8, 3]]], List[RGBColor[1.`, 0.819608`, 0.137255`], RectangleBox[List[7, \
+1], List[8, 2]]]], List[List[RGBColor[0.800498`, 0.201504`, 0.192061`], \
+RectangleBox[List[8, 9], List[9, 10]]], List[RGBColor[0.412698`, 0.932689`, \
+0.166398`], RectangleBox[List[8, 8], List[9, 9]]], List[RGBColor[0.878431`, \
+0.4`, 0.2`], RectangleBox[List[8, 7], List[9, 8]]], List[RGBColor[0.58847`, \
+0.22163`, 0.16064`], RectangleBox[List[8, 6], List[9, 7]]], \
+List[RGBColor[0.157459`, 0.586546`, 0.638209`], RectangleBox[List[8, 5], \
+List[9, 6]]], List[RGBColor[0.580392`, 0, 0.580392`], RectangleBox[List[8, \
+4], List[9, 5]]], List[RGBColor[0.787563`, 0.549894`, 0.268279`], \
+RectangleBox[List[8, 3], List[9, 4]]], List[RGBColor[0.475685`, 0.227573`, \
+0.18555`], RectangleBox[List[8, 2], List[9, 3]]], List[RGBColor[0.721569`, \
+0.721569`, 0.815686`], RectangleBox[List[8, 1], List[9, 2]]]], \
+List[List[RGBColor[0.578462`, 0.85539`, 0.408855`], RectangleBox[List[9, 9], \
+List[10, 10]]], List[RGBColor[0.546138`, 0.844244`, 0.892092`], \
+RectangleBox[List[9, 8], List[10, 9]]], List[RGBColor[0.941176`, 0.564706`, \
+0.627451`], RectangleBox[List[9, 7], List[10, 8]]], List[RGBColor[0.426019`, \
+0.747462`, 0.810413`], RectangleBox[List[9, 6], List[10, 7]]], \
+List[RGBColor[0.0793033`, 0.50362`, 0.579453`], RectangleBox[List[9, 5], \
+List[10, 6]]], List[RGBColor[0.316906`, 0.638078`, 0.710252`], \
+RectangleBox[List[9, 4], List[10, 5]]], List[RGBColor[0.764628`, 0.493261`, \
+0.250405`], RectangleBox[List[9, 3], List[10, 4]]], List[RGBColor[0.781537`, \
+0.717388`, 0.716579`], RectangleBox[List[9, 2], List[10, 3]]], \
+List[RGBColor[0.65098`, 0.329412`, 0.301961`], RectangleBox[List[9, 1], \
+List[10, 2]]]]]], List[Rule[ImageSize, Dynamic[List[Automatic, Times[3.5`, \
+CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]], Rule[AspectRatio, 1], \
+Rule[PlotRangePadding, None], Rule[Axes, False], Rule[AspectRatio, 1], \
+Rule[ImageSize, Dynamic[List[Automatic, Times[3.5`, \
+CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]], Rule[Frame, True], \
+Rule[FrameTicks, None], Rule[FrameStyle, Directive[Opacity[0.5`], \
+Thickness[Tiny], RGBColor[0.368417`, 0.506779`, 0.709798`]]]]], \
+GridBox[List[List[RowBox[List[TagBox[\\\"\\\\\\\"Name: \\\\\\\"\\\", \
+\\\"SummaryItemAnnotation\\\"], \\\"\\\\[InvisibleSpace]\\\", TagBox[\\\"\\\\\
+\\\"Atoms\\\\\\\"\\\", \\\"SummaryItem\\\"]]]], \
+List[RowBox[List[TagBox[\\\"\\\\\\\"Colors: \\\\\\\"\\\", \
+\\\"SummaryItemAnnotation\\\"], \\\"\\\\[InvisibleSpace]\\\", TagBox[\\\"51\\\
+\", \\\"SummaryItem\\\"]]]]], Rule[GridBoxAlignment, \
+List[Rule[\\\"Columns\\\", List[List[Left]]], Rule[\\\"Rows\\\", \
+List[List[Automatic]]]]], Rule[AutoDelete, False], Rule[GridBoxItemSize, \
+List[Rule[\\\"Columns\\\", List[List[Automatic]]], Rule[\\\"Rows\\\", \
+List[List[Automatic]]]]], Rule[GridBoxSpacings, List[Rule[\\\"Columns\\\", \
+List[List[2]]], Rule[\\\"Rows\\\", List[List[Automatic]]]]], Rule[BaseStyle, \
+List[Rule[ShowStringCharacters, False], Rule[NumberMarks, False], \
+Rule[PrintPrecision, 3], Rule[ShowSyntaxStyles, False]]]]]], \
+Rule[GridBoxAlignment, List[Rule[\\\"Rows\\\", List[List[Top]]]]], \
+Rule[AutoDelete, False], Rule[GridBoxItemSize, List[Rule[\\\"Columns\\\", \
+List[List[Automatic]]], Rule[\\\"Rows\\\", List[List[Automatic]]]]], \
+Rule[BaselinePosition, List[1, 1]]]], Rule[True, \
+GridBox[List[List[PaneBox[ButtonBox[DynamicBox[FEPrivate`FrontEndResource[\\\"\
+FEBitmaps\\\", \\\"SquareMinusIconMedium\\\"]], RuleDelayed[ButtonFunction, \
+Set[Typeset`open$$, False]], Rule[Appearance, None], Rule[Evaluator, \
+Automatic], Rule[Method, \\\"Preemptive\\\"]], Rule[Alignment, List[Center, \
+Center]], Rule[ImageSize, Dynamic[List[Automatic, Times[3.5`, CurrentValue[\\\
+\"FontCapHeight\\\"], Power[AbsoluteCurrentValue[Magnification], -1]]]]]], \
+GraphicsBox[List[Rule[PointSize, Rational[1, 10]], \
+List[List[List[RGBColor[0.65`, 0.7`, 0.7`], RectangleBox[List[1, 9], List[2, \
+10]]], List[RGBColor[0.677263`, 0.928423`, 0.955287`], RectangleBox[List[1, \
+8], List[2, 9]]], List[RGBColor[0.534026`, 0.420729`, 0.705621`], \
+RectangleBox[List[1, 7], List[2, 8]]], List[RGBColor[0.313725`, 0.815686`, \
+0.313725`], RectangleBox[List[1, 6], List[2, 7]]], List[RGBColor[0.425391`, \
+0.329242`, 0.585895`], RectangleBox[List[1, 5], List[2, 6]]], \
+List[RGBColor[0.`, 0.420615`, 0.525231`], RectangleBox[List[1, 4], List[2, \
+5]]], List[RGBColor[0.332803`, 0.217712`, 0.483666`], RectangleBox[List[1, \
+3], List[2, 4]]], List[RGBColor[0.743177`, 0.440115`, 0.23269`], \
+RectangleBox[List[1, 2], List[2, 3]]], List[RGBColor[0.734443`, 0.544489`, \
+0.683471`], RectangleBox[List[1, 1], List[2, 2]]]], \
+List[List[RGBColor[0.836713`, 1.`, 1.`], RectangleBox[List[2, 9], List[3, \
+10]]], List[RGBColor[0.658708`, 0.492173`, 0.842842`], RectangleBox[List[2, \
+8], List[3, 9]]], List[RGBColor[0.480072`, 0.744591`, 0.0955222`], \
+RectangleBox[List[2, 7], List[3, 8]]], List[RGBColor[0.784314`, 0.501961`, \
+0.2`], RectangleBox[List[2, 6], List[3, 7]]], List[RGBColor[0.325959`, \
+0.646423`, 0.095983`], RectangleBox[List[2, 5], List[3, 6]]], \
+List[RGBColor[0.752941`, 0.752941`, 0.752941`], RectangleBox[List[2, 4], \
+List[3, 5]]], List[RGBColor[0.165935`, 0.55605`, 0.0796556`], \
+RectangleBox[List[2, 3], List[3, 4]]], List[RGBColor[0.72281`, 0.39143`, \
+0.215783`], RectangleBox[List[2, 2], List[3, 3]]], List[RGBColor[0.681179`, \
+0.360409`, 0.63675`], RectangleBox[List[2, 1], List[3, 2]]]], \
+List[List[RGBColor[0.799435`, 0.543572`, 0.997559`], RectangleBox[List[3, 9], \
+List[4, 10]]], List[RGBColor[0.628274`, 0.850553`, 0.0782731`], \
+RectangleBox[List[3, 8], List[4, 9]]], List[RGBColor[0.901961`, 0.901961`, \
+0.901961`], RectangleBox[List[3, 7], List[4, 8]]], List[RGBColor[0.490196`, \
+0.501961`, 0.690196`], RectangleBox[List[3, 6], List[4, 7]]], \
+List[RGBColor[0.531014`, 1.`, 1.`], RectangleBox[List[3, 5], List[4, 6]]], \
+List[RGBColor[1.`, 0.85098`, 0.560784`], RectangleBox[List[3, 4], List[4, \
+5]]], List[RGBColor[0.928084`, 0.716075`, 0.329427`], RectangleBox[List[3, \
+3], List[4, 4]]], List[RGBColor[0.702434`, 0.347663`, 0.200392`], \
+RectangleBox[List[3, 2], List[4, 3]]], List[RGBColor[0.605181`, 0.367584`, \
+0.556343`], RectangleBox[List[3, 1], List[4, 2]]]], \
+List[List[RGBColor[0.770565`, 0.964309`, 0.0442359`], RectangleBox[List[4, \
+9], List[5, 10]]], List[RGBColor[0.8913`, 0.631904`, 0.627399`], \
+RectangleBox[List[4, 8], List[5, 9]]], List[RGBColor[0.74902`, 0.760784`, \
+0.780392`], RectangleBox[List[4, 7], List[5, 8]]], List[RGBColor[0.800757`, \
+0.542666`, 0.533513`], RectangleBox[List[4, 6], List[5, 7]]], \
+List[RGBColor[0.458599`, 0.917466`, 0.918573`], RectangleBox[List[4, 5], \
+List[5, 6]]], List[RGBColor[0.728371`, 0.440594`, 0.422196`], \
+RectangleBox[List[4, 4], List[5, 5]]], List[RGBColor[0.894824`, 0.731424`, \
+0.325131`], RectangleBox[List[4, 3], List[5, 4]]], List[RGBColor[0.679962`, \
+0.309234`, 0.187368`], RectangleBox[List[4, 2], List[5, 3]]], \
+List[RGBColor[0.521806`, 0.382125`, 0.469204`], RectangleBox[List[4, 1], \
+List[5, 2]]]], List[List[RGBColor[1.`, 0.709804`, 0.709804`], \
+RectangleBox[List[5, 9], List[6, 10]]], List[RGBColor[0.941176`, 0.784314`, \
+0.627451`], RectangleBox[List[5, 8], List[6, 9]]], List[RGBColor[0.65098`, \
+0.65098`, 0.670588`], RectangleBox[List[5, 7], List[6, 8]]], \
+List[RGBColor[0.60508`, 0.632465`, 0.576489`], RectangleBox[List[5, 6], \
+List[6, 7]]], List[RGBColor[0.385036`, 0.834854`, 0.841681`], \
+RectangleBox[List[5, 5], List[6, 6]]], List[RGBColor[0.39799`, 0.491477`, \
+0.495586`], RectangleBox[List[5, 4], List[6, 5]]], List[RGBColor[0.86523`, \
+0.707999`, 0.315261`], RectangleBox[List[5, 3], List[6, 4]]], \
+List[RGBColor[0.652012`, 0.276823`, 0.17779`], RectangleBox[List[5, 2], \
+List[6, 3]]], List[RGBColor[0.445624`, 0.373159`, 0.399069`], \
+RectangleBox[List[5, 1], List[6, 2]]]], List[List[RGBColor[0.4`, 0.4`, 0.4`], \
+RectangleBox[List[6, 9], List[7, 10]]], List[RGBColor[1.`, 0.501961`, 0], \
+RectangleBox[List[6, 8], List[7, 9]]], List[RGBColor[0.541176`, 0.6`, \
+0.780392`], RectangleBox[List[6, 7], List[7, 8]]], List[RGBColor[0.741176`, \
+0.501961`, 0.890196`], RectangleBox[List[6, 6], List[7, 7]]], \
+List[RGBColor[0.310325`, 0.752163`, 0.769323`], RectangleBox[List[6, 5], \
+List[7, 6]]], List[RGBColor[0.619608`, 0.388235`, 0.709804`], \
+RectangleBox[List[6, 4], List[7, 5]]], List[RGBColor[0.837836`, 0.662974`, \
+0.301635`], RectangleBox[List[6, 3], List[7, 4]]], List[RGBColor[0.613603`, \
+0.251489`, 0.173042`], RectangleBox[List[6, 2], List[7, 3]]], \
+List[RGBColor[0.815686`, 0.815686`, 0.878431`], RectangleBox[List[6, 1], \
+List[7, 2]]]], List[List[RGBColor[0.291989`, 0.437977`, 0.888609`], \
+RectangleBox[List[7, 9], List[8, 10]]], List[RGBColor[0.90443`, 0.97015`, \
+0.13504`], RectangleBox[List[7, 8], List[8, 9]]], List[RGBColor[0.611765`, \
+0.478431`, 0.780392`], RectangleBox[List[7, 7], List[8, 8]]], \
+List[RGBColor[0.917248`, 0.657833`, 0.0706628`], RectangleBox[List[7, 6], \
+List[8, 7]]], List[RGBColor[0.234466`, 0.669394`, 0.701499`], \
+RectangleBox[List[7, 5], List[8, 6]]], List[RGBColor[0.816706`, 0.451332`, \
+0.0100947`], RectangleBox[List[7, 4], List[8, 5]]], List[RGBColor[0.811992`, \
+0.607859`, 0.285626`], RectangleBox[List[7, 3], List[8, 4]]], \
+List[RGBColor[0.557855`, 0.234598`, 0.17489`], RectangleBox[List[7, 2], \
+List[8, 3]]], List[RGBColor[1.`, 0.819608`, 0.137255`], RectangleBox[List[7, \
+1], List[8, 2]]]], List[List[RGBColor[0.800498`, 0.201504`, 0.192061`], \
+RectangleBox[List[8, 9], List[9, 10]]], List[RGBColor[0.412698`, 0.932689`, \
+0.166398`], RectangleBox[List[8, 8], List[9, 9]]], List[RGBColor[0.878431`, \
+0.4`, 0.2`], RectangleBox[List[8, 7], List[9, 8]]], List[RGBColor[0.58847`, \
+0.22163`, 0.16064`], RectangleBox[List[8, 6], List[9, 7]]], \
+List[RGBColor[0.157459`, 0.586546`, 0.638209`], RectangleBox[List[8, 5], \
+List[9, 6]]], List[RGBColor[0.580392`, 0, 0.580392`], RectangleBox[List[8, \
+4], List[9, 5]]], List[RGBColor[0.787563`, 0.549894`, 0.268279`], \
+RectangleBox[List[8, 3], List[9, 4]]], List[RGBColor[0.475685`, 0.227573`, \
+0.18555`], RectangleBox[List[8, 2], List[9, 3]]], List[RGBColor[0.721569`, \
+0.721569`, 0.815686`], RectangleBox[List[8, 1], List[9, 2]]]], \
+List[List[RGBColor[0.578462`, 0.85539`, 0.408855`], RectangleBox[List[9, 9], \
+List[10, 10]]], List[RGBColor[0.546138`, 0.844244`, 0.892092`], \
+RectangleBox[List[9, 8], List[10, 9]]], List[RGBColor[0.941176`, 0.564706`, \
+0.627451`], RectangleBox[List[9, 7], List[10, 8]]], List[RGBColor[0.426019`, \
+0.747462`, 0.810413`], RectangleBox[List[9, 6], List[10, 7]]], \
+List[RGBColor[0.0793033`, 0.50362`, 0.579453`], RectangleBox[List[9, 5], \
+List[10, 6]]], List[RGBColor[0.316906`, 0.638078`, 0.710252`], \
+RectangleBox[List[9, 4], List[10, 5]]], List[RGBColor[0.764628`, 0.493261`, \
+0.250405`], RectangleBox[List[9, 3], List[10, 4]]], List[RGBColor[0.781537`, \
+0.717388`, 0.716579`], RectangleBox[List[9, 2], List[10, 3]]], \
+List[RGBColor[0.65098`, 0.329412`, 0.301961`], RectangleBox[List[9, 1], \
+List[10, 2]]]]]], List[Rule[ImageSize, Dynamic[List[Automatic, Times[3.5`, \
+CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]], Rule[AspectRatio, 1], \
+Rule[PlotRangePadding, None], Rule[Axes, False], Rule[AspectRatio, 1], \
+Rule[ImageSize, Dynamic[List[Automatic, Times[3.5`, \
+CurrentValue[\\\"FontCapHeight\\\"], \
+Power[AbsoluteCurrentValue[Magnification], -1]]]]], Rule[Frame, True], \
+Rule[FrameTicks, None], Rule[FrameStyle, Directive[Opacity[0.5`], \
+Thickness[Tiny], RGBColor[0.368417`, 0.506779`, 0.709798`]]]]], \
+GridBox[List[List[RowBox[List[TagBox[\\\"\\\\\\\"Name: \\\\\\\"\\\", \
+\\\"SummaryItemAnnotation\\\"], \\\"\\\\[InvisibleSpace]\\\", TagBox[\\\"\\\\\
+\\\"Atoms\\\\\\\"\\\", \\\"SummaryItem\\\"]]]], \
+List[RowBox[List[TagBox[\\\"\\\\\\\"Colors: \\\\\\\"\\\", \
+\\\"SummaryItemAnnotation\\\"], \\\"\\\\[InvisibleSpace]\\\", TagBox[\\\"51\\\
+\", \\\"SummaryItem\\\"]]]], List[RowBox[List[TagBox[\\\"\\\\\\\"Class: \
+\\\\\\\"\\\", \\\"SummaryItemAnnotation\\\"], \\\"\\\\[InvisibleSpace]\\\", \
+TagBox[\\\"\\\\\\\"Named\\\\\\\"\\\", \\\"SummaryItem\\\"]]]]], \
+Rule[GridBoxAlignment, List[Rule[\\\"Columns\\\", List[List[Left]]], \
+Rule[\\\"Rows\\\", List[List[Automatic]]]]], Rule[AutoDelete, False], \
+Rule[GridBoxItemSize, List[Rule[\\\"Columns\\\", List[List[Automatic]]], \
+Rule[\\\"Rows\\\", List[List[Automatic]]]]], Rule[GridBoxSpacings, List[Rule[\
+\\\"Columns\\\", List[List[2]]], Rule[\\\"Rows\\\", List[List[Automatic]]]]], \
+Rule[BaseStyle, List[Rule[ShowStringCharacters, False], Rule[NumberMarks, \
+False], Rule[PrintPrecision, 3], Rule[ShowSyntaxStyles, False]]]]]], \
+Rule[GridBoxAlignment, List[Rule[\\\"Rows\\\", List[List[Top]]]]], \
+Rule[AutoDelete, False], Rule[GridBoxItemSize, List[Rule[\\\"Columns\\\", \
+List[List[Automatic]]], Rule[\\\"Rows\\\", List[List[Automatic]]]]], \
+Rule[BaselinePosition, List[1, 1]]]]], Dynamic[Typeset`open$$], \
+Rule[ImageSize, Automatic]]], \\\"SummaryPanel\\\"], \
+RuleDelayed[DynamicModuleValues, List[]]], \\\"]\\\"}], \
+ColorDataFunction[\\\"Atoms\\\", \\\"Named\\\", List[List[\\\"H\\\", \\\"He\\\
+\", \\\"Li\\\", \\\"Be\\\", \\\"B\\\", \\\"C\\\", \\\"N\\\", \\\"O\\\", \\\"F\
+\\\", \\\"Ne\\\", \\\"Na\\\", \\\"Mg\\\", \\\"Al\\\", \\\"Si\\\", \\\"P\\\", \
+\\\"S\\\", \\\"Cl\\\", \\\"Ar\\\", \\\"K\\\", \\\"Ca\\\", \\\"Sc\\\", \
+\\\"Ti\\\", \\\"V\\\", \\\"Cr\\\", \\\"Mn\\\", \\\"Fe\\\", \\\"Co\\\", \\\"Ni\
+\\\", \\\"Cu\\\", \\\"Zn\\\", \\\"Ga\\\", \\\"Ge\\\", \\\"As\\\", \\\"Se\\\", \
+\\\"Br\\\", \\\"Kr\\\", \\\"Rb\\\", \\\"Sr\\\", \\\"Y\\\", \\\"Zr\\\", \\\"Nb\
+\\\", \\\"Mo\\\", \\\"Tc\\\", \\\"Ru\\\", \\\"Rh\\\", \\\"Pd\\\", \\\"Ag\\\", \
+\\\"Cd\\\", \\\"In\\\", \\\"Sn\\\", Skeleton[75]], List[\\\"h\\\", \
+\\\"he\\\", \\\"li\\\", \\\"be\\\", \\\"b\\\", \\\"c\\\", \\\"n\\\", \
+\\\"o\\\", \\\"f\\\", \\\"ne\\\", \\\"na\\\", \\\"mg\\\", \\\"al\\\", \
+\\\"si\\\", \\\"p\\\", \\\"s\\\", \\\"cl\\\", \\\"ar\\\", \\\"k\\\", \\\"ca\\\
+\", \\\"sc\\\", \\\"ti\\\", \\\"v\\\", \\\"cr\\\", \\\"mn\\\", \\\"fe\\\", \\\
+\"co\\\", \\\"ni\\\", \\\"cu\\\", \\\"zn\\\", \\\"ga\\\", \\\"ge\\\", \
+\\\"as\\\", \\\"se\\\", \\\"br\\\", \\\"kr\\\", \\\"rb\\\", \\\"sr\\\", \\\"y\
+\\\", \\\"zr\\\", \\\"nb\\\", \\\"mo\\\", \\\"tc\\\", \\\"ru\\\", \\\"rh\\\", \
+\\\"pd\\\", \\\"ag\\\", \\\"cd\\\", \\\"in\\\", \\\"sn\\\", Skeleton[75]]], \
+Function[Replace[Slot[1], Dispatch[List[Rule[\\\"h\\\", RGBColor[0.65`, 0.7`, \
+0.7`]], Rule[\\\"he\\\", RGBColor[0.836713`, 1.`, 1.`]], Rule[\\\"li\\\", \
+RGBColor[0.799435`, 0.543572`, 0.997559`]], Rule[\\\"be\\\", \
+RGBColor[0.770565`, 0.964309`, 0.0442359`]], Rule[\\\"b\\\", RGBColor[1.`, \
+0.709804`, 0.709804`]], Rule[\\\"c\\\", RGBColor[0.4`, 0.4`, 0.4`]], \
+Rule[\\\"n\\\", RGBColor[0.291989`, 0.437977`, 0.888609`]], Rule[\\\"o\\\", \
+RGBColor[0.800498`, 0.201504`, 0.192061`]], Rule[\\\"f\\\", \
+RGBColor[0.578462`, 0.85539`, 0.408855`]], Rule[\\\"ne\\\", \
+RGBColor[0.677263`, 0.928423`, 0.955287`]], Rule[\\\"na\\\", \
+RGBColor[0.658708`, 0.492173`, 0.842842`]], Rule[\\\"mg\\\", \
+RGBColor[0.628274`, 0.850553`, 0.0782731`]], Rule[\\\"al\\\", \
+RGBColor[0.8913`, 0.631904`, 0.627399`]], Rule[\\\"si\\\", \
+RGBColor[0.941176`, 0.784314`, 0.627451`]], Rule[\\\"p\\\", RGBColor[1.`, \
+0.501961`, 0]], Rule[\\\"s\\\", RGBColor[0.90443`, 0.97015`, 0.13504`]], \
+Rule[\\\"cl\\\", RGBColor[0.412698`, 0.932689`, 0.166398`]], Rule[\\\"ar\\\", \
+RGBColor[0.546138`, 0.844244`, 0.892092`]], Rule[\\\"k\\\", \
+RGBColor[0.534026`, 0.420729`, 0.705621`]], Rule[\\\"ca\\\", \
+RGBColor[0.480072`, 0.744591`, 0.0955222`]], Rule[\\\"sc\\\", \
+RGBColor[0.901961`, 0.901961`, 0.901961`]], Rule[\\\"ti\\\", \
+RGBColor[0.74902`, 0.760784`, 0.780392`]], Rule[\\\"v\\\", RGBColor[0.65098`, \
+0.65098`, 0.670588`]], Rule[\\\"cr\\\", RGBColor[0.541176`, 0.6`, \
+0.780392`]], Rule[\\\"mn\\\", RGBColor[0.611765`, 0.478431`, 0.780392`]], \
+Rule[\\\"fe\\\", RGBColor[0.878431`, 0.4`, 0.2`]], Rule[\\\"co\\\", \
+RGBColor[0.941176`, 0.564706`, 0.627451`]], Rule[\\\"ni\\\", \
+RGBColor[0.313725`, 0.815686`, 0.313725`]], Rule[\\\"cu\\\", \
+RGBColor[0.784314`, 0.501961`, 0.2`]], Rule[\\\"zn\\\", RGBColor[0.490196`, \
+0.501961`, 0.690196`]], Rule[\\\"ga\\\", RGBColor[0.800757`, 0.542666`, \
+0.533513`]], Rule[\\\"ge\\\", RGBColor[0.60508`, 0.632465`, 0.576489`]], \
+Rule[\\\"as\\\", RGBColor[0.741176`, 0.501961`, 0.890196`]], Rule[\\\"se\\\", \
+RGBColor[0.917248`, 0.657833`, 0.0706628`]], Rule[\\\"br\\\", \
+RGBColor[0.58847`, 0.22163`, 0.16064`]], Rule[\\\"kr\\\", RGBColor[0.426019`, \
+0.747462`, 0.810413`]], Rule[\\\"rb\\\", RGBColor[0.425391`, 0.329242`, \
+0.585895`]], Rule[\\\"sr\\\", RGBColor[0.325959`, 0.646423`, 0.095983`]], \
+Rule[\\\"y\\\", RGBColor[0.531014`, 1.`, 1.`]], Rule[\\\"zr\\\", \
+RGBColor[0.458599`, 0.917466`, 0.918573`]], Rule[\\\"nb\\\", \
+RGBColor[0.385036`, 0.834854`, 0.841681`]], Rule[\\\"mo\\\", \
+RGBColor[0.310325`, 0.752163`, 0.769323`]], Rule[\\\"tc\\\", \
+RGBColor[0.234466`, 0.669394`, 0.701499`]], Rule[\\\"ru\\\", \
+RGBColor[0.157459`, 0.586546`, 0.638209`]], Rule[\\\"rh\\\", \
+RGBColor[0.0793033`, 0.50362`, 0.579453`]], Rule[\\\"pd\\\", RGBColor[0.`, \
+0.420615`, 0.525231`]], Rule[\\\"ag\\\", RGBColor[0.752941`, 0.752941`, \
+0.752941`]], Rule[\\\"cd\\\", RGBColor[1.`, 0.85098`, 0.560784`]], \
+Rule[\\\"in\\\", RGBColor[0.728371`, 0.440594`, 0.422196`]], Rule[\\\"sn\\\", \
+RGBColor[0.39799`, 0.491477`, 0.495586`]], Rule[\\\"sb\\\", \
+RGBColor[0.619608`, 0.388235`, 0.709804`]], Rule[\\\"te\\\", \
+RGBColor[0.816706`, 0.451332`, 0.0100947`]], Rule[\\\"i\\\", \
+RGBColor[0.580392`, 0, 0.580392`]], Rule[\\\"xe\\\", RGBColor[0.316906`, \
+0.638078`, 0.710252`]], Rule[\\\"cs\\\", RGBColor[0.332803`, 0.217712`, \
+0.483666`]], Rule[\\\"ba\\\", RGBColor[0.165935`, 0.55605`, 0.0796556`]], \
+Rule[\\\"la\\\", RGBColor[0.928084`, 0.716075`, 0.329427`]], Rule[\\\"ce\\\", \
+RGBColor[0.894824`, 0.731424`, 0.325131`]], Rule[\\\"pr\\\", \
+RGBColor[0.86523`, 0.707999`, 0.315261`]], Rule[\\\"nd\\\", \
+RGBColor[0.837836`, 0.662974`, 0.301635`]], Rule[\\\"pm\\\", \
+RGBColor[0.811992`, 0.607859`, 0.285626`]], Rule[\\\"sm\\\", \
+RGBColor[0.787563`, 0.549894`, 0.268279`]], Rule[\\\"eu\\\", \
+RGBColor[0.764628`, 0.493261`, 0.250405`]], Rule[\\\"gd\\\", \
+RGBColor[0.743177`, 0.440115`, 0.23269`]], Rule[\\\"tb\\\", \
+RGBColor[0.72281`, 0.39143`, 0.215783`]], Rule[\\\"dy\\\", \
+RGBColor[0.702434`, 0.347663`, 0.200392`]], Rule[\\\"ho\\\", \
+RGBColor[0.679962`, 0.309234`, 0.187368`]], Rule[\\\"er\\\", \
+RGBColor[0.652012`, 0.276823`, 0.17779`]], Rule[\\\"tm\\\", \
+RGBColor[0.613603`, 0.251489`, 0.173042`]], Rule[\\\"yb\\\", \
+RGBColor[0.557855`, 0.234598`, 0.17489`]], Rule[\\\"lu\\\", \
+RGBColor[0.475685`, 0.227573`, 0.18555`]], Rule[\\\"hf\\\", \
+RGBColor[0.781537`, 0.717388`, 0.716579`]], Rule[\\\"ta\\\", \
+RGBColor[0.734443`, 0.544489`, 0.683471`]], Rule[\\\"w\\\", \
+RGBColor[0.681179`, 0.360409`, 0.63675`]], Rule[\\\"re\\\", \
+RGBColor[0.605181`, 0.367584`, 0.556343`]], Rule[\\\"os\\\", \
+RGBColor[0.521806`, 0.382125`, 0.469204`]], Rule[\\\"ir\\\", \
+RGBColor[0.445624`, 0.373159`, 0.399069`]], Rule[\\\"pt\\\", \
+RGBColor[0.815686`, 0.815686`, 0.878431`]], Rule[\\\"au\\\", RGBColor[1.`, \
+0.819608`, 0.137255`]], Rule[\\\"hg\\\", RGBColor[0.721569`, 0.721569`, \
+0.815686`]], Rule[\\\"tl\\\", RGBColor[0.65098`, 0.329412`, 0.301961`]], \
+Rule[\\\"pb\\\", RGBColor[0.341176`, 0.34902`, 0.380392`]], Rule[\\\"bi\\\", \
+RGBColor[0.619608`, 0.309804`, 0.709804`]], Rule[\\\"po\\\", \
+RGBColor[0.670588`, 0.360784`, 0]], Rule[\\\"at\\\", RGBColor[0.458824`, \
+0.309804`, 0.270588`]], Rule[\\\"rn\\\", RGBColor[0.218799`, 0.516091`, \
+0.591608`]], Rule[\\\"fr\\\", RGBColor[0.25626`, 0.0861372`, 0.398932`]], \
+Rule[\\\"ra\\\", RGBColor[0.`, 0.473472`, 0.04654`]], Rule[\\\"ac\\\", \
+RGBColor[0.322042`, 0.71693`, 0.988479`]], Rule[\\\"th\\\", RGBColor[0.3608`, \
+0.67166`, 0.943003`]], Rule[\\\"pa\\\", RGBColor[0.397469`, 0.628`, \
+0.898853`]], Rule[\\\"u\\\", RGBColor[0.43205`, 0.58595`, 0.856029`]], \
+Rule[\\\"np\\\", RGBColor[0.464542`, 0.54551`, 0.814532`]], Rule[\\\"pu\\\", \
+RGBColor[0.494945`, 0.506679`, 0.774361`]], Rule[\\\"am\\\", \
+RGBColor[0.52326`, 0.469458`, 0.735517`]], Rule[\\\"cm\\\", \
+RGBColor[0.549486`, 0.433847`, 0.697999`]], Rule[\\\"bk\\\", \
+RGBColor[0.573624`, 0.399845`, 0.661808`]], Rule[\\\"cf\\\", \
+RGBColor[0.595673`, 0.367454`, 0.626942`]], Rule[\\\"es\\\", \
+RGBColor[0.615633`, 0.336672`, 0.593404`]], Rule[\\\"fm\\\", \
+RGBColor[0.633505`, 0.307499`, 0.561191`]], Rule[\\\"md\\\", \
+RGBColor[0.649288`, 0.279937`, 0.530305`]], Rule[\\\"no\\\", \
+RGBColor[0.662982`, 0.253984`, 0.500746`]], Rule[\\\"lr\\\", \
+RGBColor[0.674588`, 0.22964`, 0.472513`]], Rule[\\\"rf\\\", \
+RGBColor[0.684106`, 0.206907`, 0.445606`]], Rule[\\\"db\\\", \
+RGBColor[0.691534`, 0.185783`, 0.420025`]], Rule[\\\"sg\\\", \
+RGBColor[0.696874`, 0.166269`, 0.395772`]], Rule[\\\"bh\\\", \
+RGBColor[0.700126`, 0.148365`, 0.372844`]], Rule[\\\"hs\\\", \
+RGBColor[0.701289`, 0.13207`, 0.351243`]], Rule[\\\"mt\\\", \
+RGBColor[0.700363`, 0.117385`, 0.330968`]], Rule[\\\"ds\\\", \
+RGBColor[0.697348`, 0.10431`, 0.31202`]], Rule[\\\"rg\\\", \
+RGBColor[0.692245`, 0.0928444`, 0.294398`]], Rule[\\\"cn\\\", \
+RGBColor[0.685054`, 0.0829886`, 0.278102`]], Rule[\\\"nh\\\", \
+RGBColor[0.675773`, 0.0747426`, 0.263133`]], Rule[\\\"fl\\\", \
+RGBColor[0.664405`, 0.0681063`, 0.249491`]], Rule[\\\"mc\\\", \
+RGBColor[0.650947`, 0.0630797`, 0.237174`]], Rule[\\\"lv\\\", \
+RGBColor[0.635401`, 0.0596628`, 0.226184`]], Rule[\\\"ts\\\", \
+RGBColor[0.635401`, 0.056628`, 0.226184`]], Rule[\\\"og\\\", \
+RGBColor[0.635401`, 0.0528`, 0.226184`]], Rule[\\\"uub\\\", \
+RGBColor[0.685054`, 0.0829886`, 0.278102`]], Rule[\\\"uut\\\", \
+RGBColor[0.675773`, 0.0747426`, 0.263133`]], Rule[\\\"uuq\\\", \
+RGBColor[0.664405`, 0.0681063`, 0.249491`]], Rule[\\\"uup\\\", \
+RGBColor[0.650947`, 0.0630797`, 0.237174`]], Rule[\\\"uuh\\\", \
+RGBColor[0.635401`, 0.0596628`, 0.226184`]], Rule[\\\"uus\\\", \
+RGBColor[0.635401`, 0.056628`, 0.226184`]], Rule[\\\"uuo\\\", \
+RGBColor[0.635401`, 0.0528`, 0.226184`]]]]]]], Rule[Selectable, False], \
+Rule[Editable, False], Rule[SelectWithContents, True]], \\\"[\\\", \
+\\\"$Failed\\\", \\\"]\\\"}]\\) does not exist.\"", 2, 728, 48, 
+   24589494496031190517, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8035704503205104`*^9, 3.803570629679685*^9},
+ CellLabel->
+  "During evaluation of \
+In[702]:=",ExpressionUUID->"af436b88-5b36-4c97-9ddc-83e5e353e71f"],
+
+Cell[BoxData[
+ Graphics3DBox[{{$Failed, 
+    SphereBox[QuantityMagnitude[Rational[1, 100] $Failed], QuantityMagnitude[
+     ElementData[$Failed, "VanDerWaalsRadius"] + 
+      Quantity[1.5, "Angstroms"]]]}, {Part[
+     ColorDataFunction[
+     "Atoms", "Named", {{
+       "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al",
+         "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", 
+        "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr", 
+        "Rb", "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd",
+         "In", "Sn", "Sb", "Te", "I", "Xe", "Cs", "Ba", "La", "Ce", "Pr", 
+        "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", 
+        "Lu", "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Tl", "Pb",
+         "Bi", "Po", "At", "Rn", "Fr", "Ra", "Ac", "Th", "Pa", "U", "Np", 
+        "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr", "Rf", 
+        "Db", "Sg", "Bh", "Hs", "Mt", "Ds", "Rg", "Cn", "Nh", "Fl", "Mc", 
+        "Lv", "Ts", "Og", "Uub", "Uut", "Uuq", "Uup", "Uuh", "Uus", "Uuo"}, {
+       "h", "he", "li", "be", "b", "c", "n", "o", "f", "ne", "na", "mg", "al",
+         "si", "p", "s", "cl", "ar", "k", "ca", "sc", "ti", "v", "cr", "mn", 
+        "fe", "co", "ni", "cu", "zn", "ga", "ge", "as", "se", "br", "kr", 
+        "rb", "sr", "y", "zr", "nb", "mo", "tc", "ru", "rh", "pd", "ag", "cd",
+         "in", "sn", "sb", "te", "i", "xe", "cs", "ba", "la", "ce", "pr", 
+        "nd", "pm", "sm", "eu", "gd", "tb", "dy", "ho", "er", "tm", "yb", 
+        "lu", "hf", "ta", "w", "re", "os", "ir", "pt", "au", "hg", "tl", "pb",
+         "bi", "po", "at", "rn", "fr", "ra", "ac", "th", "pa", "u", "np", 
+        "pu", "am", "cm", "bk", "cf", "es", "fm", "md", "no", "lr", "rf", 
+        "db", "sg", "bh", "hs", "mt", "ds", "rg", "cn", "nh", "fl", "mc", 
+        "lv", "ts", "og", "uub", "uut", "uuq", "uup", "uuh", "uus", "uuo"}}, 
+      Replace[#, 
+       Dispatch[{
+        "h" -> RGBColor[0.65, 0.7, 0.7], "he" -> RGBColor[0.836713, 1., 1.], 
+         "li" -> RGBColor[0.799435, 0.543572, 0.997559], "be" -> 
+         RGBColor[0.770565, 0.964309, 0.0442359], "b" -> 
+         RGBColor[1., 0.709804, 0.709804], "c" -> RGBColor[0.4, 0.4, 0.4], 
+         "n" -> RGBColor[0.291989, 0.437977, 0.888609], "o" -> 
+         RGBColor[0.800498, 0.201504, 0.192061], "f" -> 
+         RGBColor[0.578462, 0.85539, 0.408855], "ne" -> 
+         RGBColor[0.677263, 0.928423, 0.955287], "na" -> 
+         RGBColor[0.658708, 0.492173, 0.842842], "mg" -> 
+         RGBColor[0.628274, 0.850553, 0.0782731], "al" -> 
+         RGBColor[0.8913, 0.631904, 0.627399], "si" -> 
+         RGBColor[0.941176, 0.784314, 0.627451], "p" -> 
+         RGBColor[1., 0.501961, 0], "s" -> 
+         RGBColor[0.90443, 0.97015, 0.13504], "cl" -> 
+         RGBColor[0.412698, 0.932689, 0.166398], "ar" -> 
+         RGBColor[0.546138, 0.844244, 0.892092], "k" -> 
+         RGBColor[0.534026, 0.420729, 0.705621], "ca" -> 
+         RGBColor[0.480072, 0.744591, 0.0955222], "sc" -> 
+         RGBColor[0.901961, 0.901961, 0.901961], "ti" -> 
+         RGBColor[0.74902, 0.760784, 0.780392], "v" -> 
+         RGBColor[0.65098, 0.65098, 0.670588], "cr" -> 
+         RGBColor[0.541176, 0.6, 0.780392], "mn" -> 
+         RGBColor[0.611765, 0.478431, 0.780392], "fe" -> 
+         RGBColor[0.878431, 0.4, 0.2], "co" -> 
+         RGBColor[0.941176, 0.564706, 0.627451], "ni" -> 
+         RGBColor[0.313725, 0.815686, 0.313725], "cu" -> 
+         RGBColor[0.784314, 0.501961, 0.2], "zn" -> 
+         RGBColor[0.490196, 0.501961, 0.690196], "ga" -> 
+         RGBColor[0.800757, 0.542666, 0.533513], "ge" -> 
+         RGBColor[0.60508, 0.632465, 0.576489], "as" -> 
+         RGBColor[0.741176, 0.501961, 0.890196], "se" -> 
+         RGBColor[0.917248, 0.657833, 0.0706628], "br" -> 
+         RGBColor[0.58847, 0.22163, 0.16064], "kr" -> 
+         RGBColor[0.426019, 0.747462, 0.810413], "rb" -> 
+         RGBColor[0.425391, 0.329242, 0.585895], "sr" -> 
+         RGBColor[0.325959, 0.646423, 0.095983], "y" -> 
+         RGBColor[0.531014, 1., 1.], "zr" -> 
+         RGBColor[0.458599, 0.917466, 0.918573], "nb" -> 
+         RGBColor[0.385036, 0.834854, 0.841681], "mo" -> 
+         RGBColor[0.310325, 0.752163, 0.769323], "tc" -> 
+         RGBColor[0.234466, 0.669394, 0.701499], "ru" -> 
+         RGBColor[0.157459, 0.586546, 0.638209], "rh" -> 
+         RGBColor[0.0793033, 0.50362, 0.579453], "pd" -> 
+         RGBColor[0., 0.420615, 0.525231], "ag" -> 
+         RGBColor[0.752941, 0.752941, 0.752941], "cd" -> 
+         RGBColor[1., 0.85098, 0.560784], "in" -> 
+         RGBColor[0.728371, 0.440594, 0.422196], "sn" -> 
+         RGBColor[0.39799, 0.491477, 0.495586], "sb" -> 
+         RGBColor[0.619608, 0.388235, 0.709804], "te" -> 
+         RGBColor[0.816706, 0.451332, 0.0100947], "i" -> 
+         RGBColor[0.580392, 0, 0.580392], "xe" -> 
+         RGBColor[0.316906, 0.638078, 0.710252], "cs" -> 
+         RGBColor[0.332803, 0.217712, 0.483666], "ba" -> 
+         RGBColor[0.165935, 0.55605, 0.0796556], "la" -> 
+         RGBColor[0.928084, 0.716075, 0.329427], "ce" -> 
+         RGBColor[0.894824, 0.731424, 0.325131], "pr" -> 
+         RGBColor[0.86523, 0.707999, 0.315261], "nd" -> 
+         RGBColor[0.837836, 0.662974, 0.301635], "pm" -> 
+         RGBColor[0.811992, 0.607859, 0.285626], "sm" -> 
+         RGBColor[0.787563, 0.549894, 0.268279], "eu" -> 
+         RGBColor[0.764628, 0.493261, 0.250405], "gd" -> 
+         RGBColor[0.743177, 0.440115, 0.23269], "tb" -> 
+         RGBColor[0.72281, 0.39143, 0.215783], "dy" -> 
+         RGBColor[0.702434, 0.347663, 0.200392], "ho" -> 
+         RGBColor[0.679962, 0.309234, 0.187368], "er" -> 
+         RGBColor[0.652012, 0.276823, 0.17779], "tm" -> 
+         RGBColor[0.613603, 0.251489, 0.173042], "yb" -> 
+         RGBColor[0.557855, 0.234598, 0.17489], "lu" -> 
+         RGBColor[0.475685, 0.227573, 0.18555], "hf" -> 
+         RGBColor[0.781537, 0.717388, 0.716579], "ta" -> 
+         RGBColor[0.734443, 0.544489, 0.683471], "w" -> 
+         RGBColor[0.681179, 0.360409, 0.63675], "re" -> 
+         RGBColor[0.605181, 0.367584, 0.556343], "os" -> 
+         RGBColor[0.521806, 0.382125, 0.469204], "ir" -> 
+         RGBColor[0.445624, 0.373159, 0.399069], "pt" -> 
+         RGBColor[0.815686, 0.815686, 0.878431], "au" -> 
+         RGBColor[1., 0.819608, 0.137255], "hg" -> 
+         RGBColor[0.721569, 0.721569, 0.815686], "tl" -> 
+         RGBColor[0.65098, 0.329412, 0.301961], "pb" -> 
+         RGBColor[0.341176, 0.34902, 0.380392], "bi" -> 
+         RGBColor[0.619608, 0.309804, 0.709804], "po" -> 
+         RGBColor[0.670588, 0.360784, 0], "at" -> 
+         RGBColor[0.458824, 0.309804, 0.270588], "rn" -> 
+         RGBColor[0.218799, 0.516091, 0.591608], "fr" -> 
+         RGBColor[0.25626, 0.0861372, 0.398932], "ra" -> 
+         RGBColor[0., 0.473472, 0.04654], "ac" -> 
+         RGBColor[0.322042, 0.71693, 0.988479], "th" -> 
+         RGBColor[0.3608, 0.67166, 0.943003], "pa" -> 
+         RGBColor[0.397469, 0.628, 0.898853], "u" -> 
+         RGBColor[0.43205, 0.58595, 0.856029], "np" -> 
+         RGBColor[0.464542, 0.54551, 0.814532], "pu" -> 
+         RGBColor[0.494945, 0.506679, 0.774361], "am" -> 
+         RGBColor[0.52326, 0.469458, 0.735517], "cm" -> 
+         RGBColor[0.549486, 0.433847, 0.697999], "bk" -> 
+         RGBColor[0.573624, 0.399845, 0.661808], "cf" -> 
+         RGBColor[0.595673, 0.367454, 0.626942], "es" -> 
+         RGBColor[0.615633, 0.336672, 0.593404], "fm" -> 
+         RGBColor[0.633505, 0.307499, 0.561191], "md" -> 
+         RGBColor[0.649288, 0.279937, 0.530305], "no" -> 
+         RGBColor[0.662982, 0.253984, 0.500746], "lr" -> 
+         RGBColor[0.674588, 0.22964, 0.472513], "rf" -> 
+         RGBColor[0.684106, 0.206907, 0.445606], "db" -> 
+         RGBColor[0.691534, 0.185783, 0.420025], "sg" -> 
+         RGBColor[0.696874, 0.166269, 0.395772], "bh" -> 
+         RGBColor[0.700126, 0.148365, 0.372844], "hs" -> 
+         RGBColor[0.701289, 0.13207, 0.351243], "mt" -> 
+         RGBColor[0.700363, 0.117385, 0.330968], "ds" -> 
+         RGBColor[0.697348, 0.10431, 0.31202], "rg" -> 
+         RGBColor[0.692245, 0.0928444, 0.294398], "cn" -> 
+         RGBColor[0.685054, 0.0829886, 0.278102], "nh" -> 
+         RGBColor[0.675773, 0.0747426, 0.263133], "fl" -> 
+         RGBColor[0.664405, 0.0681063, 0.249491], "mc" -> 
+         RGBColor[0.650947, 0.0630797, 0.237174], "lv" -> 
+         RGBColor[0.635401, 0.0596628, 0.226184], "ts" -> 
+         RGBColor[0.635401, 0.056628, 0.226184], "og" -> 
+         RGBColor[0.635401, 0.0528, 0.226184], "uub" -> 
+         RGBColor[0.685054, 0.0829886, 0.278102], "uut" -> 
+         RGBColor[0.675773, 0.0747426, 0.263133], "uuq" -> 
+         RGBColor[0.664405, 0.0681063, 0.249491], "uup" -> 
+         RGBColor[0.650947, 0.0630797, 0.237174], "uuh" -> 
+         RGBColor[0.635401, 0.0596628, 0.226184], "uus" -> 
+         RGBColor[0.635401, 0.056628, 0.226184], "uuo" -> 
+         RGBColor[0.635401, 0.0528, 0.226184]}]]& ][$Failed], 2], 
+    SphereBox[QuantityMagnitude["Angstroms"^2], QuantityMagnitude[
+     "Angstroms" + Quantity[1.5, "Angstroms"]]]}}]], "Print",
+ CellChangeTimes->{3.8035706297331705`*^9},
+ CellLabel->
+  "During evaluation of \
+In[702]:=",ExpressionUUID->"1aef8690-50de-4ab5-b667-bdc122b93e02"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.8035688733270373`*^9, 
+  3.803568929199044*^9}},ExpressionUUID->"7038770e-3ed1-4539-b6ba-\
+a60bc8375f4b"],
+
+Cell[BoxData[
+ RowBox[{"ProtonatePDB", "[", 
+  RowBox[{"DownloadPDB", "[", "pdbName", "]"}], "]"}]], "Output",
+ CellChangeTimes->{3.8035689162880383`*^9},
+ CellLabel->
+  "Out[674]=",ExpressionUUID->"093224fe-5e51-49d1-a628-f72d33ddff82"]
 }, Open  ]]
 },
 WindowSize->{849., 574.8},
@@ -1469,10 +2345,25 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 38491, 864, 2683, "Input",ExpressionUUID->"5787533f-4598-4dd2-8b1f-1edb8c66723d"],
 Cell[CellGroupData[{
-Cell[39074, 888, 23912, 548, 1806, "Input",ExpressionUUID->"e7d0488c-dcfa-473c-afb9-4f07541be7a3"],
-Cell[62989, 1438, 575, 11, 41, "Output",ExpressionUUID->"7232f8f3-55ef-4dbd-bd08-58eaae03bd13"]
+Cell[580, 22, 39372, 883, 2697, "Input",ExpressionUUID->"5787533f-4598-4dd2-8b1f-1edb8c66723d"],
+Cell[39955, 907, 431, 10, 21, "Message",ExpressionUUID->"f210fc9d-ddf1-4da7-ac42-bde1cf9537e0"],
+Cell[40389, 919, 184, 3, 25, "Output",ExpressionUUID->"4d315130-6104-4cf8-834d-a86da922a3b5"],
+Cell[40576, 924, 402, 9, 21, "Message",ExpressionUUID->"f0ec6777-4d0b-47a0-a4c1-37969030160f"],
+Cell[40981, 935, 502, 11, 21, "Message",ExpressionUUID->"563fbd78-b563-4e4d-9f3c-93b773c88c55"],
+Cell[41486, 948, 541, 11, 21, "Message",ExpressionUUID->"f56b1924-4483-48a8-8149-b3de44daea1a"],
+Cell[42030, 961, 402, 9, 21, "Message",ExpressionUUID->"8009a140-aa1c-4f31-9dc2-5a8ad9d1ffe6"],
+Cell[CellGroupData[{
+Cell[42457, 974, 545, 14, 24, "Print",ExpressionUUID->"23391b66-a446-4a89-9f53-c8676a023ace"],
+Cell[43005, 990, 390, 10, 20, "Print",ExpressionUUID->"b0364a32-2666-4f72-afcf-3f51c4713099"],
+Cell[43398, 1002, 42122, 729, 45, "Print",ExpressionUUID->"12ab418e-d127-4523-a10a-ff59ea534824"]
+}, Open  ]],
+Cell[85535, 1734, 28927, 415, 45, "Message",ExpressionUUID->"af436b88-5b36-4c97-9ddc-83e5e353e71f"],
+Cell[114465, 2151, 9345, 159, 319, "Print",ExpressionUUID->"1aef8690-50de-4ab5-b667-bdc122b93e02"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[123847, 2315, 154, 3, 22, "Input",ExpressionUUID->"7038770e-3ed1-4539-b6ba-a60bc8375f4b"],
+Cell[124004, 2320, 237, 5, 25, "Output",ExpressionUUID->"093224fe-5e51-49d1-a628-f72d33ddff82"]
 }, Open  ]]
 }
 ]
