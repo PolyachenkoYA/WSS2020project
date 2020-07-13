@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    128379,       2402]
-NotebookOptionsPosition[    124193,       2311]
-NotebookOutlinePosition[    125673,       2354]
-CellTagsIndexPosition[    125600,       2349]
+NotebookDataLength[    138507,       2898]
+NotebookOptionsPosition[    133531,       2792]
+NotebookOutlinePosition[    135613,       2847]
+CellTagsIndexPosition[    135482,       2840]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -40,9 +40,149 @@ Cell["MIPT", "Affiliation",
   3.803650641379285*^9}},ExpressionUUID->"96c2b484-c964-462d-9af7-\
 4e5a7606bcb7"],
 
-Cell["<Abstract: project description>", "Abstract",
- CellChangeTimes->{{3.802186680026499*^9, 
-  3.802186711462531*^9}},ExpressionUUID->"bd44fc5d-a918-4ecb-a444-\
+Cell[TextData[{
+ StyleBox["Goal:",
+  FontWeight->"Bold"],
+ " To create a WL package which enables one to construct and visualize \
+surfaces of proteins.\n",
+ StyleBox["Results:",
+  FontWeight->"Bold"],
+ " The package implements the 2 main functions corresponding to the 2 types \
+of surfaces. Tools necessary for sound work with proteins are also provided. \
+More specifically the constructions of solvent accessible surface (SAS",
+ ButtonBox[Cell[TextData[StyleBox[ButtonBox["1"],
+  FontVariations->{"CompatibilityType"->"Superscript"}]], "Citation",
+  Editable->False,
+  TaggingRules->{NoteData -> RowBox[{
+       RowBox[{
+         RowBox[{"Word", " ", "JM"}], ",", " ", 
+         RowBox[{"Lovell", " ", "SC"}], ",", " ", 
+         RowBox[{"Richardson", " ", "JS"}], ",", " ", 
+         RowBox[{
+           RowBox[{"Richardson", " ", 
+             RowBox[{"DC", ".", " ", "Asparagine"}], " ", "and", " ", 
+             RowBox[{"glutamine", ":", " ", 
+               RowBox[{
+                 
+                 RowBox[{
+                  "using", " ", "hydrogen", " ", "atom", " ", "contacts", " ",
+                    "in", " ", "the", " ", "choice", " ", "of", " ", "side"}],
+                  "-", 
+                 RowBox[{"chain", " ", "amide", " ", 
+                   RowBox[{"orientation", ".", " ", "J"}], " ", "Mol", " ", 
+                   RowBox[{"Biol", ".", " ", "1999"}]}]}]}]}], ";", 
+           RowBox[{
+             RowBox[{"285", 
+               RowBox[{"(", "4", ")"}]}], ":", 
+             RowBox[{"1735", "-", 
+               RowBox[{"1747.", " ", "doi"}]}], ":", 
+             RowBox[{
+               RowBox[{"10.1006", "/", "jmbi"}], ".1998", ".2401"}]}]}]}], 
+       "\n"}]},ExpressionUUID->"e37aed2c-cef6-4eb0-a551-33e47708cc49"],
+  BaseStyle->"Hyperlink",
+  ButtonData->"0000C629"],
+ ") and of solvent excluded surface (SES",
+ StyleBox["1",
+  FontVariations->{"CompatibilityType"->"Superscript"}],
+ ")",
+ " are implemented using MSMS program",
+ ButtonBox[Cell[TextData[StyleBox[ButtonBox["3"],
+  FontVariations->{"CompatibilityType"->"Superscript"}]], "Citation",
+  Editable->False,
+  TaggingRules->{NoteData -> RowBox[{
+       RowBox[{
+         RowBox[{"Word", " ", "JM"}], ",", " ", 
+         RowBox[{"Lovell", " ", "SC"}], ",", " ", 
+         RowBox[{"Richardson", " ", "JS"}], ",", " ", 
+         RowBox[{
+           RowBox[{"Richardson", " ", 
+             RowBox[{"DC", ".", " ", "Asparagine"}], " ", "and", " ", 
+             RowBox[{"glutamine", ":", " ", 
+               RowBox[{
+                 
+                 RowBox[{
+                  "using", " ", "hydrogen", " ", "atom", " ", "contacts", " ",
+                    "in", " ", "the", " ", "choice", " ", "of", " ", "side"}],
+                  "-", 
+                 RowBox[{"chain", " ", "amide", " ", 
+                   RowBox[{"orientation", ".", " ", "J"}], " ", "Mol", " ", 
+                   RowBox[{"Biol", ".", " ", "1999"}]}]}]}]}], ";", 
+           RowBox[{
+             RowBox[{"285", 
+               RowBox[{"(", "4", ")"}]}], ":", 
+             RowBox[{"1735", "-", 
+               RowBox[{"1747.", " ", "doi"}]}], ":", 
+             RowBox[{
+               RowBox[{"10.1006", "/", "jmbi"}], ".1998", ".2401"}]}]}]}], 
+       "\n"}]},ExpressionUUID->"552ad17b-4c8d-4bbf-98c0-67cbd4f5fea7"],
+  BaseStyle->"Hyperlink",
+  ButtonData->"0000C629"],
+ ". SAS of a protein is a surface formed by points which a center of a probe \
+solvent molecule rolling over the protein can occupy. SES of a molecule is \
+the inner boundary of the union of all possible probes that do not overlap \
+with the protein. PDB files often do not have hydrogen atoms in them so one \
+may want to protonate a protein before surface analysis to gain a surface \
+closer to the one acting in a real world. Often the impact of protonation on \
+a surface is minimal, but it may not always be the case. A function for \
+protonation is implemented using the Reduce program",
+ ButtonBox[Cell[TextData[StyleBox[ButtonBox["4"],
+  FontVariations->{"CompatibilityType"->"Superscript"}]], "Citation",
+  Editable->False,
+  TaggingRules->{NoteData -> RowBox[{
+       RowBox[{
+         RowBox[{"Sanner", " ", "MF"}], ",", " ", 
+         RowBox[{"Olson", " ", "AJ"}], ",", " ", 
+         RowBox[{
+           RowBox[{"Spehner", " ", 
+             RowBox[{"JC", ".", " ", "Reduced"}], " ", 
+             RowBox[{"surface", ":", " ", 
+               
+               RowBox[{
+                "an", " ", "efficient", " ", "way", " ", "to", " ", "compute",
+                  " ", "molecular", " ", 
+                 
+                 RowBox[{
+                  "surfaces", ".", " ", "Biopolymers", ".", " ", 
+                   "1996"}]}]}]}], ";", 
+           RowBox[{
+             RowBox[{"38", 
+               RowBox[{"(", "3", ")"}]}], ":", 
+             RowBox[{"305", "-", 
+               RowBox[{"320.", " ", "doi"}]}], ":", 
+             RowBox[{
+               RowBox[{
+                 RowBox[{"10.1002", "/", 
+                   RowBox[{"(", "SICI", ")"}]}], "1097"}], "-", 
+               RowBox[{"0282", 
+                 RowBox[{"(", "199603", ")"}], "38"}]}], ":", 
+             RowBox[{
+               RowBox[{"3", "%3", 
+                 RowBox[{"C305", "::", "AID"}]}], "-", 
+               RowBox[{"BIP4", "%3", "E3", 
+                 RowBox[{".0", ".", "CO"}]}]}]}], ";", 
+           RowBox[{"2", "-", "Y"}]}]}], "\n"}]},ExpressionUUID->
+  "89589cab-5000-43ff-b8c2-006c87f7d1e1"],
+  BaseStyle->"Hyperlink",
+  ButtonData->"0000D604"],
+ StyleBox[".",
+  FontWeight->"Bold"],
+ "\n",
+ StyleBox["Methods:",
+  FontWeight->"Bold"],
+ " "
+}], "Abstract",
+ CellChangeTimes->{{3.802186680026499*^9, 3.802186711462531*^9}, {
+   3.803656018225853*^9, 3.803656171456437*^9}, {3.803656611287126*^9, 
+   3.8036567910010433`*^9}, {3.8036568634230547`*^9, 3.803656887362639*^9}, {
+   3.803657153100068*^9, 3.8036572385072203`*^9}, {3.803657318969042*^9, 
+   3.803657404366105*^9}, {3.803657460284635*^9, 3.803657650641407*^9}, {
+   3.803658440090199*^9, 3.803658494620878*^9}, {3.803658595633665*^9, 
+   3.803658915852861*^9}, {3.803659170179098*^9, 3.803659294981167*^9}, {
+   3.803659328926553*^9, 3.803659335996008*^9}, {3.8036594483079357`*^9, 
+   3.8036594855790462`*^9}, {3.803659585216584*^9, 3.803659585225101*^9}, {
+   3.8036596432615967`*^9, 3.803659675439165*^9}, 3.803659884512526*^9, {
+   3.803659971168097*^9, 
+   3.803659973423832*^9}},ExpressionUUID->"bd44fc5d-a918-4ecb-a444-\
 9098256d0564"],
 
 Cell[CellGroupData[{
@@ -2293,25 +2433,366 @@ Cell["References", "Section",
  CellTags->"Keywords",
  CellID->1137237116],
 
-Cell[CellGroupData[{
+Cell[TextData[{
+ "\t",
+ StyleBox["1",
+  FontVariations->{"CompatibilityType"->"Superscript"}],
+ "\t",
+ "Word",
+ " ",
+ "JM",
+ ",",
+ " ",
+ "Lovell",
+ " ",
+ "SC",
+ ",",
+ " ",
+ "Richardson",
+ " ",
+ "JS",
+ ",",
+ " ",
+ "Richardson",
+ " ",
+ "DC",
+ ".",
+ " ",
+ "Asparagine",
+ " ",
+ "and",
+ " ",
+ "glutamine",
+ ":",
+ " ",
+ "using",
+ " ",
+ "hydrogen",
+ " ",
+ "atom",
+ " ",
+ "contacts",
+ " ",
+ "in",
+ " ",
+ "the",
+ " ",
+ "choice",
+ " ",
+ "of",
+ " ",
+ "side",
+ "-",
+ "chain",
+ " ",
+ "amide",
+ " ",
+ "orientation",
+ ".",
+ " ",
+ "J",
+ " ",
+ "Mol",
+ " ",
+ "Biol",
+ ".",
+ " ",
+ "1999",
+ ";",
+ "285",
+ "(",
+ "4",
+ ")",
+ ":",
+ "1735",
+ "-",
+ "1747.",
+ " ",
+ "doi",
+ ":",
+ "10.1006",
+ "/",
+ "jmbi",
+ ".1998",
+ ".2401",
+ "\n"
+}], "Reference",
+ Editable->False,
+ TaggingRules->{ReferenceNoteData -> ""},
+ CellTags->"0000C629",ExpressionUUID->"73fd41db-3e8f-4eab-9d42-4992216d899c"],
 
-Cell["<Ref1>", "Item",
- CellChangeTimes->{{3.802186382533594*^9, 3.802186383585804*^9}, {
-  3.802186733203268*^9, 3.8021867345244904`*^9}}],
+Cell[TextData[{
+ "\t",
+ StyleBox["2",
+  FontVariations->{"CompatibilityType"->"Superscript"}],
+ "\t",
+ "Word",
+ " ",
+ "JM",
+ ",",
+ " ",
+ "Lovell",
+ " ",
+ "SC",
+ ",",
+ " ",
+ "Richardson",
+ " ",
+ "JS",
+ ",",
+ " ",
+ "Richardson",
+ " ",
+ "DC",
+ ".",
+ " ",
+ "Asparagine",
+ " ",
+ "and",
+ " ",
+ "glutamine",
+ ":",
+ " ",
+ "using",
+ " ",
+ "hydrogen",
+ " ",
+ "atom",
+ " ",
+ "contacts",
+ " ",
+ "in",
+ " ",
+ "the",
+ " ",
+ "choice",
+ " ",
+ "of",
+ " ",
+ "side",
+ "-",
+ "chain",
+ " ",
+ "amide",
+ " ",
+ "orientation",
+ ".",
+ " ",
+ "J",
+ " ",
+ "Mol",
+ " ",
+ "Biol",
+ ".",
+ " ",
+ "1999",
+ ";",
+ "285",
+ "(",
+ "4",
+ ")",
+ ":",
+ "1735",
+ "-",
+ "1747.",
+ " ",
+ "doi",
+ ":",
+ "10.1006",
+ "/",
+ "jmbi",
+ ".1998",
+ ".2401",
+ "\n"
+}], "Reference",
+ Editable->False,
+ TaggingRules->{ReferenceNoteData -> ""},
+ CellTags->"0000C629",ExpressionUUID->"c2179ccb-de72-4568-917d-4cfada04b4a1"],
 
-Cell["<Ref2>", "Item",
- CellChangeTimes->{{3.802186382533594*^9, 3.802186385191455*^9}, {
-  3.802186737059086*^9, 3.802186738383222*^9}}],
+Cell[TextData[{
+ "\t",
+ StyleBox["3",
+  FontVariations->{"CompatibilityType"->"Superscript"}],
+ "\t",
+ "Word",
+ " ",
+ "JM",
+ ",",
+ " ",
+ "Lovell",
+ " ",
+ "SC",
+ ",",
+ " ",
+ "Richardson",
+ " ",
+ "JS",
+ ",",
+ " ",
+ "Richardson",
+ " ",
+ "DC",
+ ".",
+ " ",
+ "Asparagine",
+ " ",
+ "and",
+ " ",
+ "glutamine",
+ ":",
+ " ",
+ "using",
+ " ",
+ "hydrogen",
+ " ",
+ "atom",
+ " ",
+ "contacts",
+ " ",
+ "in",
+ " ",
+ "the",
+ " ",
+ "choice",
+ " ",
+ "of",
+ " ",
+ "side",
+ "-",
+ "chain",
+ " ",
+ "amide",
+ " ",
+ "orientation",
+ ".",
+ " ",
+ "J",
+ " ",
+ "Mol",
+ " ",
+ "Biol",
+ ".",
+ " ",
+ "1999",
+ ";",
+ "285",
+ "(",
+ "4",
+ ")",
+ ":",
+ "1735",
+ "-",
+ "1747.",
+ " ",
+ "doi",
+ ":",
+ "10.1006",
+ "/",
+ "jmbi",
+ ".1998",
+ ".2401",
+ "\n"
+}], "Reference",
+ Editable->False,
+ TaggingRules->{ReferenceNoteData -> ""},
+ CellTags->"0000C629",ExpressionUUID->"ce79505d-b45e-4436-a876-e1f4e420403b"],
 
-Cell["...", "Item",
- CellChangeTimes->{{3.802186382533594*^9, 3.802186386161345*^9}}]
-}, Open  ]]
+Cell[TextData[{
+ "\t",
+ StyleBox["4",
+  FontVariations->{"CompatibilityType"->"Superscript"}],
+ "\t",
+ "Sanner",
+ " ",
+ "MF",
+ ",",
+ " ",
+ "Olson",
+ " ",
+ "AJ",
+ ",",
+ " ",
+ "Spehner",
+ " ",
+ "JC",
+ ".",
+ " ",
+ "Reduced",
+ " ",
+ "surface",
+ ":",
+ " ",
+ "an",
+ " ",
+ "efficient",
+ " ",
+ "way",
+ " ",
+ "to",
+ " ",
+ "compute",
+ " ",
+ "molecular",
+ " ",
+ "surfaces",
+ ".",
+ " ",
+ "Biopolymers",
+ ".",
+ " ",
+ "1996",
+ ";",
+ "38",
+ "(",
+ "3",
+ ")",
+ ":",
+ "305",
+ "-",
+ "320.",
+ " ",
+ "doi",
+ ":",
+ "10.1002",
+ "/",
+ "(",
+ "SICI",
+ ")",
+ "1097",
+ "-",
+ "0282",
+ "(",
+ "199603",
+ ")",
+ "38",
+ ":",
+ "3",
+ "%3",
+ "C305",
+ "::",
+ "AID",
+ "-",
+ "BIP4",
+ "%3",
+ "E3",
+ ".0",
+ ".",
+ "CO",
+ ";",
+ "2",
+ "-",
+ "Y",
+ "\n"
+}], "Reference",
+ Editable->False,
+ TaggingRules->{ReferenceNoteData -> ""},
+ CellTags->"0000D604",ExpressionUUID->"d16e6790-c5ac-466b-8a6c-b43edc1d0eac"]
 }, Open  ]]
 }, Open  ]]
 },
 WindowToolbars->{},
-WindowSize->{1227.75, 804.75},
-WindowMargins->{{Automatic, 42}, {Automatic, 22.5}},
+WindowSize->{1224.75, 804.75},
+WindowMargins->{{Automatic, 45}, {Automatic, 22.5}},
 DockedCells->{
   Cell[
    TextData[{
@@ -2335,20 +2816,32 @@ ExpressionUUID->"15030e7a-fcbd-41b2-baf0-ccf506242f85"
 (*CellTagsOutline
 CellTagsIndex->{
  "Keywords"->{
-  Cell[122587, 2250, 135, 3, 70, "Section",ExpressionUUID->"366a9c7c-40b6-4e17-b612-e85b5abac490",
+  Cell[128876, 2390, 135, 3, 68, "Section",ExpressionUUID->"366a9c7c-40b6-4e17-b612-e85b5abac490",
    CellTags->"Keywords",
    CellID->442466898],
-  Cell[123120, 2271, 143, 3, 70, "Section",ExpressionUUID->"bd1f6cad-4ff3-4ab7-b602-0b4d3ed3e2ac",
+  Cell[129409, 2411, 143, 3, 68, "Section",ExpressionUUID->"bd1f6cad-4ff3-4ab7-b602-0b4d3ed3e2ac",
    CellTags->"Keywords",
    CellID->1836614011],
-  Cell[123622, 2290, 139, 3, 70, "Section",ExpressionUUID->"5961a637-a7ed-48e9-b1ab-e1a62f6c691c",
+  Cell[129911, 2430, 139, 3, 68, "Section",ExpressionUUID->"5961a637-a7ed-48e9-b1ab-e1a62f6c691c",
    CellTags->"Keywords",
-   CellID->1137237116]}
+   CellID->1137237116]},
+ "0000C629"->{
+  Cell[130053, 2435, 860, 86, 59, "Reference",ExpressionUUID->"73fd41db-3e8f-4eab-9d42-4992216d899c",
+   CellTags->"0000C629"],
+  Cell[130916, 2523, 860, 86, 59, "Reference",ExpressionUUID->"c2179ccb-de72-4568-917d-4cfada04b4a1",
+   CellTags->"0000C629"],
+  Cell[131779, 2611, 860, 86, 59, "Reference",ExpressionUUID->"ce79505d-b45e-4436-a876-e1f4e420403b",
+   CellTags->"0000C629"]},
+ "0000D604"->{
+  Cell[132642, 2699, 861, 89, 59, "Reference",ExpressionUUID->"d16e6790-c5ac-466b-8a6c-b43edc1d0eac",
+   CellTags->"0000D604"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Keywords", 125133, 2336}
+ {"Keywords", 134471, 2817},
+ {"0000C629", 134930, 2827},
+ {"0000D604", 135330, 2834}
  }
 *)
 (*NotebookFileOutline
@@ -2357,51 +2850,54 @@ Cell[CellGroupData[{
 Cell[580, 22, 251, 4, 98, "Title",ExpressionUUID->"7f5a763c-439b-409d-85d9-b001eb779415"],
 Cell[834, 28, 408, 6, 32, "Author",ExpressionUUID->"17c07b4e-577f-4fd8-bb63-78ea3b522bfe"],
 Cell[1245, 36, 202, 4, 31, "Affiliation",ExpressionUUID->"96c2b484-c964-462d-9af7-4e5a7606bcb7"],
-Cell[1450, 42, 177, 3, 62, "Abstract",ExpressionUUID->"bd44fc5d-a918-4ecb-a444-9098256d0564"],
+Cell[1450, 42, 6466, 143, 243, "Abstract",ExpressionUUID->"bd44fc5d-a918-4ecb-a444-9098256d0564"],
 Cell[CellGroupData[{
-Cell[1652, 49, 185, 2, 68, "Section",ExpressionUUID->"dde3b2d2-a587-4e33-b62b-89e06e4d8b0b"],
-Cell[1840, 53, 293, 5, 35, "Text",ExpressionUUID->"2c2380b2-0547-4128-a721-db738b29388d"],
-Cell[2136, 60, 369, 8, 38, "CodeText",ExpressionUUID->"b6cf8fe9-f994-4c80-b699-4acc808ada53"],
+Cell[7941, 189, 185, 2, 68, "Section",ExpressionUUID->"dde3b2d2-a587-4e33-b62b-89e06e4d8b0b"],
+Cell[8129, 193, 293, 5, 35, "Text",ExpressionUUID->"2c2380b2-0547-4128-a721-db738b29388d"],
+Cell[8425, 200, 369, 8, 38, "CodeText",ExpressionUUID->"b6cf8fe9-f994-4c80-b699-4acc808ada53"],
 Cell[CellGroupData[{
-Cell[2530, 72, 595, 17, 29, "Input",ExpressionUUID->"67fcfee9-b5f6-4707-8cd4-267a0ba5567d"],
-Cell[3128, 91, 58931, 1052, 233, "Output",ExpressionUUID->"c2e29358-141a-4437-bbff-6b1981baf6d7"]
+Cell[8819, 212, 595, 17, 29, "Input",ExpressionUUID->"67fcfee9-b5f6-4707-8cd4-267a0ba5567d"],
+Cell[9417, 231, 58931, 1052, 233, "Output",ExpressionUUID->"c2e29358-141a-4437-bbff-6b1981baf6d7"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[62108, 1149, 208, 3, 68, "Section",ExpressionUUID->"caacebfb-419d-440c-b7aa-51a88439c458"],
-Cell[62319, 1154, 293, 5, 35, "Text",ExpressionUUID->"aaaa7627-b177-492c-9708-ecc8c98df024"],
-Cell[62615, 1161, 369, 8, 38, "CodeText",ExpressionUUID->"07e2c6e1-5e20-4cf8-b6d9-36eca977b547"],
+Cell[68397, 1289, 208, 3, 68, "Section",ExpressionUUID->"caacebfb-419d-440c-b7aa-51a88439c458"],
+Cell[68608, 1294, 293, 5, 35, "Text",ExpressionUUID->"aaaa7627-b177-492c-9708-ecc8c98df024"],
+Cell[68904, 1301, 369, 8, 38, "CodeText",ExpressionUUID->"07e2c6e1-5e20-4cf8-b6d9-36eca977b547"],
 Cell[CellGroupData[{
-Cell[63009, 1173, 595, 17, 29, "Input",ExpressionUUID->"0463416d-61d3-4c5a-84ec-bcb5d883417c"],
-Cell[63607, 1192, 58931, 1052, 233, "Output",ExpressionUUID->"6757ae53-b91e-4615-8826-3385e5058b27"]
+Cell[69298, 1313, 595, 17, 29, "Input",ExpressionUUID->"0463416d-61d3-4c5a-84ec-bcb5d883417c"],
+Cell[69896, 1332, 58931, 1052, 233, "Output",ExpressionUUID->"6757ae53-b91e-4615-8826-3385e5058b27"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[122587, 2250, 135, 3, 70, "Section",ExpressionUUID->"366a9c7c-40b6-4e17-b612-e85b5abac490",
+Cell[128876, 2390, 135, 3, 68, "Section",ExpressionUUID->"366a9c7c-40b6-4e17-b612-e85b5abac490",
  CellTags->"Keywords",
  CellID->442466898],
 Cell[CellGroupData[{
-Cell[122747, 2257, 140, 2, 70, "Item",ExpressionUUID->"5813e785-8d21-454e-ac75-5f3913597a2c"],
-Cell[122890, 2261, 90, 1, 70, "Item",ExpressionUUID->"995c8064-6859-4e41-b6cd-65ce27221847"],
-Cell[122983, 2264, 88, 1, 70, "Item",ExpressionUUID->"bedccd35-f9c3-46ac-ac87-d418e441e604"]
+Cell[129036, 2397, 140, 2, 32, "Item",ExpressionUUID->"5813e785-8d21-454e-ac75-5f3913597a2c"],
+Cell[129179, 2401, 90, 1, 32, "Item",ExpressionUUID->"995c8064-6859-4e41-b6cd-65ce27221847"],
+Cell[129272, 2404, 88, 1, 32, "Item",ExpressionUUID->"bedccd35-f9c3-46ac-ac87-d418e441e604"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[123120, 2271, 143, 3, 70, "Section",ExpressionUUID->"bd1f6cad-4ff3-4ab7-b602-0b4d3ed3e2ac",
+Cell[129409, 2411, 143, 3, 68, "Section",ExpressionUUID->"bd1f6cad-4ff3-4ab7-b602-0b4d3ed3e2ac",
  CellTags->"Keywords",
  CellID->1836614011],
-Cell[123266, 2276, 179, 5, 70, "Text",ExpressionUUID->"006d71ed-241c-4cf5-8ee6-00d91fa914f6"],
-Cell[123448, 2283, 137, 2, 70, "Text",ExpressionUUID->"279e8012-b716-44b0-8c1c-3c37e92e2ad2"]
+Cell[129555, 2416, 179, 5, 35, "Text",ExpressionUUID->"006d71ed-241c-4cf5-8ee6-00d91fa914f6"],
+Cell[129737, 2423, 137, 2, 35, "Text",ExpressionUUID->"279e8012-b716-44b0-8c1c-3c37e92e2ad2"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[123622, 2290, 139, 3, 70, "Section",ExpressionUUID->"5961a637-a7ed-48e9-b1ab-e1a62f6c691c",
+Cell[129911, 2430, 139, 3, 68, "Section",ExpressionUUID->"5961a637-a7ed-48e9-b1ab-e1a62f6c691c",
  CellTags->"Keywords",
  CellID->1137237116],
-Cell[CellGroupData[{
-Cell[123786, 2297, 139, 2, 70, "Item",ExpressionUUID->"bac34aab-5f3c-4c18-85c2-373b47cd99f0"],
-Cell[123928, 2301, 137, 2, 70, "Item",ExpressionUUID->"e5e467fd-9b3a-49e2-8d1e-d3011b1f02df"],
-Cell[124068, 2305, 85, 1, 70, "Item",ExpressionUUID->"40a463f9-c8f1-43ba-810b-4f669ff2ca85"]
-}, Open  ]]
+Cell[130053, 2435, 860, 86, 59, "Reference",ExpressionUUID->"73fd41db-3e8f-4eab-9d42-4992216d899c",
+ CellTags->"0000C629"],
+Cell[130916, 2523, 860, 86, 59, "Reference",ExpressionUUID->"c2179ccb-de72-4568-917d-4cfada04b4a1",
+ CellTags->"0000C629"],
+Cell[131779, 2611, 860, 86, 59, "Reference",ExpressionUUID->"ce79505d-b45e-4436-a876-e1f4e420403b",
+ CellTags->"0000C629"],
+Cell[132642, 2699, 861, 89, 59, "Reference",ExpressionUUID->"d16e6790-c5ac-466b-8a6c-b43edc1d0eac",
+ CellTags->"0000D604"]
 }, Open  ]]
 }, Open  ]]
 }
