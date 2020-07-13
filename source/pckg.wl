@@ -249,3 +249,35 @@ SESMesh2Coordinates[mesh_]:=Map[Triangle[QuantityMagnitude[#[[1]]]]&,mesh];
   End[ ];
   
   EndPackage[ ];
+
+
+(*
+Quiet[Remove["Global`*"]];
+
+<<"/home/ypolyach/!wolfram/WSS2020project/source/pckg.wl";
+
+(*the protein to analyse*)
+pdbName = "1tf6";
+pdbName = "1aki";
+
+{mesh, vertices, meshInd} = ConstructSESmesh[DownloadPDB[pdbName]];
+MeshRegion[QuantityMagnitude[vertices], meshInd,PlotTheme\[Rule]"LargeMesh"]
+
+{mesh, vertices, meshInd} = ConstructSESmesh[ProtonatePDB[DownloadPDB[pdbName]],"rootPath"\[Rule]$WolframDocumentsDirectory];
+MeshRegion[QuantityMagnitude[vertices], meshInd,PlotTheme\[Rule]"LargeMesh"]
+*)
+
+
+(*
+Quiet[Remove["Global`*"]];
+
+<< "/home/ypolyach/!wolfram/WSS2020project/source/pckg.wl";
+
+pdbName = "1tf6";
+pdbName = "1aki";
+toProtonate = True;
+
+pdb = DownloadPDB[pdbName];
+If[toProtonate, pdb = ProtonatePDB[pdb]];
+DrawProteinSAS[pdb]
+*)
