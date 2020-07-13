@@ -1,14 +1,14 @@
 (* ::Package:: *)
 
-{
- {BeginPackage["ProteinSurfaces`"]
+BeginPackage["ProteinSurfaces`"];
   
-  DownloadPDB::usage = "Download usage"
-  InstallMyPckg::usage = "Install usage"
-  ProtonatePDB::usage = "Protonate usage"
-  DrawProteinSAS::usage = "Draw usage"
+  DownloadPDB::usage = "Download usage";
+  InstallMyPckg::usage = "Install usage";
+  ProtonatePDB::usage = "Protonate usage";
+  DrawProteinSAS::usage = "Draw usage";
+  ConstructSESmesh::usage = "Construct usage";
   
-  Begin["`Private`"]
+  Begin["`Private`"];
   
   checkFilePresentQ[filepath_, verbose_:False]:=Module[{found = FileExistsQ[filepath]},
   If[verbose,Print["searching for '", filepath, "' ... ",If[!found,Style["NOT",Red],""], " found"]];
@@ -154,22 +154,7 @@
   RunProcess[Flatten[{reduceExePath, reduceOptions, "-"}], "StandardOutput", pdbStr]
   ];*)
   
-  constructProteinSAS[coords_, radii_, probeR_, colors_]:=Table[{colors[[i]], Sphere[QuantityMagnitude[coords[[i]]], QuantityMagnitude[radii[[i]]+probeR]]},{i, 1, Length[radii]}]
-  
-  DrawProteinSAS[pdbStr_,OptionsPattern[]]:=
-  Module[{elements,radiiTable,presentElements,colorTable, radiiType, probeR, coords},
-  radiiType = OptionValue["radiiType"];
-  probeR = OptionValue["probeR"]; 
-  elements = ImportString[pdbStr,{"PDB",{"VertexTypes"}}];
-  presentElements = DeleteDuplicates[elements];
-  colorTable = Map[(#->ColorData["Atoms"][#])&, presentElements];
-  radiiTable = Map[(#->UnitConvert[ElementData[#, radiiType],"Angstroms"])&,presentElements];
-  coords = Map[Quantity[#,"Angstroms"]&,ImportString[pdbStr,{"PDB","VertexCoordinates"}]/100];
-  Print[radiiType, "; probe radius = ", probeR];
-  Print[radiiTable];
-  Print[colorTable];sas = constructProteinSAS[coords, elements/.radiiTable, probeR, elements/.colorTable];
-  Return[Graphics3D[sas]];
-  ];
+  constructProteinSAS[coords_, radii_, probeR_, colors_]:=Table[{colors[[i]], Sphere[QuantityMagnitude[coords[[i]]], QuantityMagnitude[radii[[i]]+probeR]]},{i, 1, Length[radii]}];
   
   ConstructSESmesh[pdbStr_,OptionsPattern[]]:=
   Module[
@@ -228,6 +213,23 @@
   Return[{mesh, vertices, meshInd}];
   ];
   
+  DrawProteinSAS[pdbStr_,OptionsPattern[]]:=
+  Module[{elements,radiiTable,presentElements,colorTable, radiiType, probeR, coords},
+  radiiType = OptionValue["radiiType"];
+  probeR = OptionValue["probeR"]; 
+  elements = ImportString[pdbStr,{"PDB",{"VertexTypes"}}];
+  presentElements = DeleteDuplicates[elements];
+  colorTable = Map[(#->ColorData["Atoms"][#])&, presentElements];
+  radiiTable = Map[(#->UnitConvert[ElementData[#, radiiType],"Angstroms"])&,presentElements];
+  coords = Map[Quantity[#,"Angstroms"]&,ImportString[pdbStr,{"PDB","VertexCoordinates"}]/100];
+  Print[radiiType, "; probe radius = ", probeR];
+  Print[radiiTable];
+  Print[colorTable];
+  sas = constructProteinSAS[coords, elements/.radiiTable, probeR, elements/.colorTable];
+  Return[Graphics3D[sas]];
+  ];
+  
+  
   (*should be in Initialize[]*)
   failStr="The function failed. The failure occured due to absent file `1` ";
   msmsArchiveLinks = {"Windows"-> "http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/REL2.6.1/msms_win32_2.6.1.zip",
@@ -241,18 +243,13 @@
   Options[DrawProteinSAS] = {"probeR"->Quantity[1.5,"Angstroms"], "radiiType"->"VanDerWaalsRadius"};
   (*"AtomicRadius", "CovalentRadius", "VanDerWaalsRadius"*)
   Options[DrawProteinSAS] = {"triangDensity"->5.0, "probeR"->1.5, "toPrint"->False,"rootPath"->$TemporaryDirectory};
-  {msmsExePath, pdb2xyzrExePath, pdb2xyzrDatabasePath,reduceExePath, reduceDatabasePath} = InstallMyPckg["doMSMS"->False];
+  {msmsExePath, pdb2xyzrExePath, pdb2xyzrDatabasePath,reduceExePath, reduceDatabasePath} = InstallMyPckg[];
   reduceDefaultArgs=
   {"-build","-DB","\""<>reduceDatabasePath<>"\""};
   Options[DrawProteinSAS] = {"probeR"->Quantity[1.5,"Angstroms"], "radiiType"->"VanDerWaalsRadius"};
   (*"AtomicRadius", "CovalentRadius", "VanDerWaalsRadius"*)
-  Options[DrawProteinSAS] = {"triangDensity"->5.0, "probeR"->1.5, "toPrint"->False,"rootPath"->$TemporaryDirectory};
+  Options[ConstructSESmesh] = {"triangDensity"->5.0, "probeR"->1.5, "toPrint"->False,"rootPath"->$TemporaryDirectory};
   
-  End[ ]
+  End[ ];
   
-  EndPackage[ ]},
- {\[Placeholder]}
-}
-
-
-
+  EndPackage[ ];
