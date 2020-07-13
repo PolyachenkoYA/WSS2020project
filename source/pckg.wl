@@ -7,6 +7,7 @@ BeginPackage["ProteinSurfaces`"];
   ProtonatePDB::usage = "Protonate usage";
   DrawProteinSAS::usage = "Draw usage";
   ConstructSESmesh::usage = "Construct usage";
+  SESMesh2Coordinates::usage = "SESMesh2Coordinates usage";
   
   Begin["`Private`"];
   
@@ -158,10 +159,10 @@ BeginPackage["ProteinSurfaces`"];
   
   ConstructSESmesh[pdbStr_,OptionsPattern[]]:=
   Module[
-  {rawPDBfilepath,rawPDBfilename,pdbFilename, pdbFilepath, xyzrFilename,xyzrFilepath,vertFilename,faceFilename,proteinPath,vertices,nVertices,triangleIndices,nTriangles,mesh,degeneratePolygonInd,meshInd,msmsDir,pdb2xyzrExePath,pdb2xyzrDatabasePath,cmd,pdbName,
+  {rawPDBfilepath,rawPDBfilename,pdbFilename, pdbFilepath, xyzrFilename,xyzrFilepath,vertFilename,faceFilename,proteinPath,vertices,triangleIndices,nTriangles,mesh,degeneratePolygonInd,meshInd,msmsDir,pdb2xyzrExePath,pdb2xyzrDatabasePath,cmd,pdbName,
   triangDensity=OptionValue["triangDensity"],
-  probeR = OptionValue["probeR"],
-  toPrint = OptionValue["verbose"],
+  probeR = QuantityMagnitude[OptionValue["probeR"]],
+  verbose = OptionValue["verbose"],
   rootPath = OptionValue["rootPath"]
   },
   
@@ -180,32 +181,29 @@ BeginPackage["ProteinSurfaces`"];
   proteinPath = FileNameJoin[{rootPath, pdbName}];
   pdbFilepath = FileNameJoin[{proteinPath, pdbFilename}];
   xyzrFilepath = FileNameJoin[{proteinPath, xyzrFilename}];
-  renewDir[proteinPath];
   
   (*reduce & msms utilization*)
+renewDir[proteinPath];
   SetDirectory[msmsDir];
   writeAFile[pdbStr, pdbFilepath];
   writeAFile[RunProcess[{pdb2xyzrExePath, pdbFilepath}, "StandardOutput"], xyzrFilepath];
   RunProcess[{msmsExePath, "-no_header", "-probe_radius",ToString[probeR],"-density",ToString[triangDensity],"-if",xyzrFilepath,"-of",FileNameJoin[{proteinPath, pdbName}]}, "StandardOutput"];
   SetDirectory[proteinPath];
-  vertices = Map[#[[1;;3]]&,ReadList[vertFilename, {Real, Real, Real, Real, Real, Real, Number, Number, Number}]];
-  nVertices = Length[vertices];
+vertices = Map[Quantity[#[[1;;3]],"Angstroms"]&,ReadList[vertFilename, {Real, Real, Real, Real, Real, Real, Number, Number, Number}]];
   triangleIndices = Map[#[[1;;3]]&,ReadList[faceFilename, {Number, Number, Number, Number, Number}]];
   nTriangles = Length[triangleIndices];
   (*duplicate vertices handling*)
-  mesh = Table[
-  Module[{trgPoints},
-  trgPoints = {vertices[[ triangleIndices[[i]][[1]] ]], vertices[[ triangleIndices[[i]][[2]] ]], vertices[[ triangleIndices[[i]][[3]] ]]};
-  If[DuplicateFreeQ[trgPoints],Triangle[trgPoints],Null]
+mesh = Table[ Module[{trgPoints},trgPoints = {vertices[[ triangleIndices[[i]][[1]] ]], vertices[[ triangleIndices[[i]][[2]] ]], vertices[[ triangleIndices[[i]][[3]] ]]};
+ If[DuplicateFreeQ[trgPoints],Triangle[trgPoints],Null]
   ],
   {i,1,nTriangles}];
   degeneratePolygonInd = Position[mesh, Null];
   mesh = Delete[mesh, degeneratePolygonInd];
-  meshInd = Table[If[!MemberQ[Flatten[degeneratePolygonInd],i],Triangle[triangleIndices[[i]]], Nothing],{i,1,nTriangles}];
+meshInd = Table[If[!MemberQ[Flatten[degeneratePolygonInd],i],Triangle[triangleIndices[[i]]], Nothing],{i,1,nTriangles}];
   
   (*print some stats*)
-  If[toPrint,
-  Print["Duplicate vertices: ", If[!DuplicateFreeQ[vertices],Part[Select[Tally@vertices,Part[#,2]>1&],All,1],Null]];Print["Degenerate polygon indices: ", Flatten[degeneratePolygonInd]];
+  If[verbose,
+  Print["Duplicate vertices: ", If[!DuplicateFreeQ[vertices],Part[Select[Tally@vertices,Part[#,2]>1&],All,1],"None"]];Print["Degenerate polygon indices: ", Flatten[degeneratePolygonInd]];
   Print["Degenerate polygons: ", triangleIndices[[Flatten[degeneratePolygonInd]]]];
   ];
   If[rootPath==$TemporaryDirectory, DeleteDirectory[proteinPath,DeleteContents->True];];
@@ -228,7 +226,8 @@ BeginPackage["ProteinSurfaces`"];
   sas = constructProteinSAS[coords, elements/.radiiTable, probeR, elements/.colorTable];
   Return[Graphics3D[sas]];
   ];
-  
+
+SESMesh2Coordinates[mesh_]:=Map[Triangle[QuantityMagnitude[#[[1]]]]&,mesh];
   
   (*should be in Initialize[]*)
   failStr="The function failed. The failure occured due to absent file `1` ";
@@ -242,7 +241,7 @@ BeginPackage["ProteinSurfaces`"];
   Options[InstallMyPckg] = {"rootPath"->FileNameJoin[{$WolframDocumentsDirectory,"PDBsys"}],"doMSMS"->True,"doReduce"->True,"verbose"->False,"forceReinstall"->False,"os"->$OperatingSystem};
   Options[DrawProteinSAS] = {"probeR"->Quantity[1.5,"Angstroms"], "radiiType"->"VanDerWaalsRadius"};
   (*"AtomicRadius", "CovalentRadius", "VanDerWaalsRadius"*)
-  Options[ConstructSESmesh] = {"triangDensity"->5.0, "probeR"->1.5, "verbose"->False,"rootPath"->$TemporaryDirectory};   
+  Options[ConstructSESmesh] = {"triangDensity"->5.0, "probeR"->Quantity[1.5,"Angstroms"], "verbose"->False,"rootPath"->$TemporaryDirectory};   
   {msmsExePath, pdb2xyzrExePath, pdb2xyzrDatabasePath,reduceExePath, reduceDatabasePath} = InstallMyPckg[];
   reduceDefaultArgs=
   {"-build","-DB","\""<>reduceDatabasePath<>"\""};
