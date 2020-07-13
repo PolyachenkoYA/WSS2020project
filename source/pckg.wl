@@ -52,6 +52,12 @@ BeginPackage["ProteinSurfaces`"];
   ]
   ];
   
+  replaceStringInFiles[filenames_, oldStr_, newStr_]:=
+Module[{nFiles = Length[filenames],filename},
+Do[filename=filenames[[i]];
+Export[filename,StringReplace[Import[filename,"Text"],oldStr->newStr],"Text"],{i,1,nFiles}];
+];
+  
   InstallMyPckg[OptionsPattern[]]:=
   Module[{reducePath,reduceExePath,reduceDatabasePath, reduceExeLink, reduceDatabaseLink,
   msmsPath,msmsExePath,pdb2xyzrExePath,pdb2xyzrDatabasePath,unpackedArch,paths,
@@ -78,6 +84,7 @@ BeginPackage["ProteinSurfaces`"];
   loadNew[msmsPath, os/.msmsArchiveLinks,verbose];
   ];
   msmsExePath = getFilenameSafe[msmsPath, os/.msmsExeMask];
+replaceStringInFiles[{pdb2xyzrExePath}, "nawk", "awk"];
   If[os!="Windows",
   If[!fileIsExecutableQ[msmsExePath],
   RunProcess[{"chmod", "u+x", msmsExePath}];];
