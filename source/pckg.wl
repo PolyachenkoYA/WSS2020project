@@ -161,7 +161,7 @@ BeginPackage["ProteinSurfaces`"];
   {rawPDBfilepath,rawPDBfilename,pdbFilename, pdbFilepath, xyzrFilename,xyzrFilepath,vertFilename,faceFilename,proteinPath,vertices,nVertices,triangleIndices,nTriangles,mesh,degeneratePolygonInd,meshInd,msmsDir,pdb2xyzrExePath,pdb2xyzrDatabasePath,cmd,pdbName,
   triangDensity=OptionValue["triangDensity"],
   probeR = OptionValue["probeR"],
-  toPrint = OptionValue["toPrint"],
+  toPrint = OptionValue["verbose"],
   rootPath = OptionValue["rootPath"]
   },
   
@@ -242,13 +242,10 @@ BeginPackage["ProteinSurfaces`"];
   Options[InstallMyPckg] = {"rootPath"->FileNameJoin[{$WolframDocumentsDirectory,"PDBsys"}],"doMSMS"->True,"doReduce"->True,"verbose"->False,"forceReinstall"->False,"os"->$OperatingSystem};
   Options[DrawProteinSAS] = {"probeR"->Quantity[1.5,"Angstroms"], "radiiType"->"VanDerWaalsRadius"};
   (*"AtomicRadius", "CovalentRadius", "VanDerWaalsRadius"*)
-  Options[DrawProteinSAS] = {"triangDensity"->5.0, "probeR"->1.5, "toPrint"->False,"rootPath"->$TemporaryDirectory};
+  Options[ConstructSESmesh] = {"triangDensity"->5.0, "probeR"->1.5, "verbose"->False,"rootPath"->$TemporaryDirectory};   
   {msmsExePath, pdb2xyzrExePath, pdb2xyzrDatabasePath,reduceExePath, reduceDatabasePath} = InstallMyPckg[];
   reduceDefaultArgs=
   {"-build","-DB","\""<>reduceDatabasePath<>"\""};
-  Options[DrawProteinSAS] = {"probeR"->Quantity[1.5,"Angstroms"], "radiiType"->"VanDerWaalsRadius"};
-  (*"AtomicRadius", "CovalentRadius", "VanDerWaalsRadius"*)
-  Options[ConstructSESmesh] = {"triangDensity"->5.0, "probeR"->1.5, "toPrint"->False,"rootPath"->$TemporaryDirectory};
   
   End[ ];
   
