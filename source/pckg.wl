@@ -232,7 +232,7 @@ meshInd = Table[If[!MemberQ[Flatten[degeneratePolygonInd],i],Triangle[triangleIn
   colorTable = Map[(#->ColorData["Atoms"][#])&, presentElements];
   radiiTable = Map[(#->UnitConvert[ElementData[#, radiiType<>"Radius"],"Angstroms"])&,presentElements];
   coords = Map[Quantity[#,"Angstroms"]&,ImportString[pdbStr,{"PDB","VertexCoordinates"}]/100];
-  Print[radiiType, "; probe radius = ", probeR];
+  Print["radii type: ", radiiType, "; probe radius = ", probeR];
   Print[radiiTable];
   Print[colorTable];
   sas = constructProteinSAS[coords, elements/.radiiTable, probeR, elements/.colorTable];
