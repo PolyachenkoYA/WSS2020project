@@ -164,11 +164,21 @@ replaceStringInFiles[{pdb2xyzrExePath}, "nawk", "awk"];
   
   constructProteinSAS[coords_, radii_, probeR_, colors_]:=Table[{colors[[i]], Sphere[QuantityMagnitude[coords[[i]]], QuantityMagnitude[radii[[i]]+probeR]]},{i, 1, Length[radii]}];
   
+  parseProbeR[probeRarg_, radiiType_]:=Module[{probeR = probeRarg},
+  If[NumberQ[probeR], probeR = Quantity[probeR, "Angstroms"],
+  If[QuantityMagnitude[probeR] < 0, (*let the system choose*)
+  probeR = UnitConvert[Min[ElementData["O", radiiType<>"Radius"],
+  ElementData["H", radiiType<>"Radius"]],"Angstroms"];
+  ];
+  ];
+  probeR
+  ];
+  
   ConstructSESmesh[pdbStr_,OptionsPattern[]]:=
   Module[
   {rawPDBfilepath,rawPDBfilename,pdbFilename, pdbFilepath, xyzrFilename,xyzrFilepath,vertFilename,faceFilename,proteinPath,vertices,triangleIndices,nTriangles,mesh,degeneratePolygonInd,meshInd,msmsDir,pdb2xyzrExePath,pdb2xyzrDatabasePath,cmd,pdbName,
   triangDensity=OptionValue["triangDensity"],
-  probeR = QuantityMagnitude[OptionValue["probeR"]],
+  probeR = QuantityMagnitude[UnitConvert[parseProbeR[OptionValue["probeR"], "VanDerWaals"],"Angstroms"]],
   verbose = OptionValue["verbose"],
   rootPath = OptionValue["rootPath"]
   },
@@ -221,18 +231,14 @@ meshInd = Table[If[!MemberQ[Flatten[degeneratePolygonInd],i],Triangle[triangleIn
   DrawProteinSAS[pdbStr_,OptionsPattern[]]:=
   Module[{elements,radiiTable,presentElements,colorTable, radiiType, probeR, coords},
   radiiType = OptionValue["radiiType"];
-  probeR = OptionValue["probeR"]; 
-  If[NumberQ[probeR], probeR = Quantity[probeR, "Angstroms"]];
-  If[QuantityMagnitude[probeR]==-1, (*default value*)
-  probeR = UnitConvert[Min[ElementData["O", radiiType<>"Radius"],
-  ElementData["H", radiiType<>"Radius"]],"Angstroms"];
-  ];
+  probeR = parseProbeR[OptionValue["probeR"], radiiType];
   elements = ImportString[pdbStr,{"PDB",{"VertexTypes"}}];
   presentElements = DeleteDuplicates[elements];
   colorTable = Map[(#->ColorData["Atoms"][#])&, presentElements];
   radiiTable = Map[(#->UnitConvert[ElementData[#, radiiType<>"Radius"],"Angstroms"])&,presentElements];
   coords = Map[Quantity[#,"Angstroms"]&,ImportString[pdbStr,{"PDB","VertexCoordinates"}]/100];
-  Print["radii type: ", radiiType, "; probe radius = ", probeR];
+  Print["radii type: ", radiiType];
+  Print["probe radius = ", probeR];
   Print[radiiTable];
   Print[colorTable];
   sas = constructProteinSAS[coords, elements/.radiiTable, probeR, elements/.colorTable];
