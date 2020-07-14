@@ -222,16 +222,21 @@ meshInd = Table[If[!MemberQ[Flatten[degeneratePolygonInd],i],Triangle[triangleIn
   Module[{elements,radiiTable,presentElements,colorTable, radiiType, probeR, coords},
   radiiType = OptionValue["radiiType"];
   probeR = OptionValue["probeR"]; 
+  If[NumberQ[probeR], probeR = Quantity[probeR, "Angstroms"]];
+  If[QuantityMagnitude[probeR]==-1, (*default value*)
+  probeR = UnitConvert[Min[ElementData["O", radiiType<>"Radius"],
+  ElementData["H", radiiType<>"Radius"]],"Angstroms"];
+  ];
   elements = ImportString[pdbStr,{"PDB",{"VertexTypes"}}];
   presentElements = DeleteDuplicates[elements];
   colorTable = Map[(#->ColorData["Atoms"][#])&, presentElements];
-  radiiTable = Map[(#->UnitConvert[ElementData[#, radiiType],"Angstroms"])&,presentElements];
+  radiiTable = Map[(#->UnitConvert[ElementData[#, radiiType<>"Radius"],"Angstroms"])&,presentElements];
   coords = Map[Quantity[#,"Angstroms"]&,ImportString[pdbStr,{"PDB","VertexCoordinates"}]/100];
   Print[radiiType, "; probe radius = ", probeR];
   Print[radiiTable];
   Print[colorTable];
   sas = constructProteinSAS[coords, elements/.radiiTable, probeR, elements/.colorTable];
-  Return[Graphics3D[sas]];
+  Return[Graphics3D[sas,Boxed->False]];
   ];
 
 SESMesh2Coordinates[mesh_]:=Map[Triangle[QuantityMagnitude[#[[1]]]]&,mesh];
@@ -246,8 +251,8 @@ SESMesh2Coordinates[mesh_]:=Map[Triangle[QuantityMagnitude[#[[1]]]]&,mesh];
   "Unix"->"http://kinemage.biochem.duke.edu/downloads/software/reduce31/reduce.3.23.130521.linuxi386.gz",
   "MacOSX"->"http://kinemage.biochem.duke.edu/downloads/software/reduce31/reduce.3.23.130521.macosx.zip"};
   Options[InstallMyPckg] = {"rootPath"->FileNameJoin[{$WolframDocumentsDirectory,"PDBsys"}],"doMSMS"->True,"doReduce"->True,"verbose"->False,"forceReinstall"->False,"os"->$OperatingSystem};
-  Options[DrawProteinSAS] = {"probeR"->Quantity[1.5,"Angstroms"], "radiiType"->"VanDerWaalsRadius"};
-  (*"AtomicRadius", "CovalentRadius", "VanDerWaalsRadius"*)
+  Options[DrawProteinSAS] = {"probeR"->Quantity[-1,"Angstroms"], "radiiType"->"VanDerWaals"};
+  (*"Atomic", "Covalent", "VanDerWaals"*)
   Options[ConstructSESmesh] = {"triangDensity"->5.0, "probeR"->Quantity[1.5,"Angstroms"], "verbose"->False,"rootPath"->$TemporaryDirectory};   
   {msmsExePath, pdb2xyzrExePath, pdb2xyzrDatabasePath,reduceExePath, reduceDatabasePath} = InstallMyPckg[];
   reduceDefaultArgs=
