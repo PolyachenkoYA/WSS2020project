@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    219423,       4093]
-NotebookOptionsPosition[    217871,       4061]
-NotebookOutlinePosition[    218297,       4078]
-CellTagsIndexPosition[    218254,       4075]
+NotebookDataLength[    204037,       3734]
+NotebookOptionsPosition[    202681,       3704]
+NotebookOutlinePosition[    203108,       3721]
+CellTagsIndexPosition[    203065,       3718]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -29,31 +29,15 @@ Cell[BoxData[{
   RowBox[{"(*", 
    RowBox[{
     RowBox[{
-    "<<", "\"\<https://www.wolframcloud.com/obj/polyachenko.yua/Published/\
-ConstructPDBsurfaces.wl\>\""}], ";"}], "*)"}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-    RowBox[{"NotebookEvaluate", "@", 
-     RowBox[{"NotebookOpen", "[", 
-      RowBox[{
-       RowBox[{
-       "CloudObject", "[", 
-        "\"\<https://www.wolframcloud.com/obj/polyachenko.yua/Published/\
-ConstructPDBsurfaces.wl\>\"", "]"}], ",", 
-       RowBox[{"Visible", "\[Rule]", "False"}]}], "]"}]}], ";"}], "*)"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+    "<<", "\"\</home/ypolyach/!wolfram/WSS2020project/source/pckg.wl\>\""}], 
+    ";"}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"NotebookEvaluate", "@", 
-   RowBox[{"CreateDocument", "[", 
+  RowBox[{
+   RowBox[{"CloudGet", "[", 
     RowBox[{
-     RowBox[{"Import", "[", 
-      RowBox[{
-       RowBox[{
-       "CloudObject", "@", 
-        "\"\<https://www.wolframcloud.com/obj/polyachenko.yua/Published/\
-ConstructPDBsurfaces.wl\>\""}], ",", "\"\<NB\>\""}], "]"}], ",", 
-     RowBox[{"Visible", "\[Rule]", "False"}]}], "]"}]}], 
+    "CloudObject", "[", 
+     "\"\<https://www.wolframcloud.com/obj/polyachenko.yua/Published/\
+ConstructPDBsurfaces.wl\>\"", "]"}], "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"pdbName", " ", "=", " ", "\"\<1tf6\>\""}], 
@@ -205,7 +189,12 @@ ConstructPDBsurfaces.wl\>\""}], ",", "\"\<NB\>\""}], "]"}], ",",
    3.803800612058281*^9, 3.803800619261284*^9}, {3.803800668054867*^9, 
    3.803800668152495*^9}, {3.803800833822082*^9, 3.80380089858083*^9}, {
    3.803801011757821*^9, 3.803801027452722*^9}, {3.803801693975481*^9, 
-   3.803801695369402*^9}},ExpressionUUID->"5787533f-4598-4dd2-8b1f-\
+   3.803801695369402*^9}, {3.803802710706444*^9, 3.8038027271580877`*^9}, {
+   3.8038028503330593`*^9, 3.803802881329206*^9}, {3.8038055778411293`*^9, 
+   3.803805629744012*^9}, {3.803805661032733*^9, 3.8038057042303677`*^9}, {
+   3.803806076199703*^9, 3.803806111919915*^9}, 3.803806162931539*^9, 
+   3.803808159418571*^9, 
+   3.803808667720581*^9},ExpressionUUID->"5787533f-4598-4dd2-8b1f-\
 1edb8c66723d"],
 
 Cell[CellGroupData[{
@@ -215,10 +204,11 @@ Cell[BoxData[
   RowBox[{"\<\"radii type: \"\>", "\[InvisibleSpace]", "\<\"VanDerWaals\"\>"}],
   SequenceForm["radii type: ", "VanDerWaals"],
   Editable->False]], "Print",
- CellChangeTimes->{3.8038009082327013`*^9, 3.803801071466494*^9},
+ CellChangeTimes->{3.803806119380149*^9, 3.803807436019803*^9, 
+  3.8038081725465097`*^9},
  CellLabel->
   "During evaluation of \
-In[41]:=",ExpressionUUID->"7fb0ce3e-f84e-4283-a7a7-005a43eb6c39"],
+In[1]:=",ExpressionUUID->"1d29df36-c835-417e-8cb8-d7499f68d6b0"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -230,10 +220,11 @@ Cell[BoxData[
   SequenceForm["probe radius = ", 
    Quantity[1.3, "Angstroms"]],
   Editable->False]], "Print",
- CellChangeTimes->{3.8038009082327013`*^9, 3.8038010715228148`*^9},
+ CellChangeTimes->{3.803806119380149*^9, 3.803807436019803*^9, 
+  3.803808172573378*^9},
  CellLabel->
   "During evaluation of \
-In[41]:=",ExpressionUUID->"cb222a5c-1a79-432e-b5cd-72cc3708437e"],
+In[1]:=",ExpressionUUID->"3282d094-a02d-4b5a-8958-07ee8d872a0c"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -263,10 +254,11 @@ Cell[BoxData[
      "1.8`3.", "\"\[CapitalARing]\"", "\[ARing]ngstr\[ODoubleDot]ms", 
       "\"Angstroms\""},
      "Quantity"]}]}], "}"}]], "Print",
- CellChangeTimes->{3.8038009082327013`*^9, 3.8038010715267344`*^9},
+ CellChangeTimes->{3.803806119380149*^9, 3.803807436019803*^9, 
+  3.8038081725760717`*^9},
  CellLabel->
   "During evaluation of \
-In[41]:=",ExpressionUUID->"d72ae622-689f-4539-ae3f-d2e20f960de0"],
+In[1]:=",ExpressionUUID->"05a822d1-2f74-42a1-bcdf-17c72926a4c9"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -507,10 +499,11 @@ Cell[BoxData[
      RGBColor[0.90443, 0.97015, 0.13504],
      Editable->False,
      Selectable->False]}]}], "}"}]], "Print",
- CellChangeTimes->{3.8038009082327013`*^9, 3.803801071529602*^9},
+ CellChangeTimes->{3.803806119380149*^9, 3.803807436019803*^9, 
+  3.803808172579179*^9},
  CellLabel->
   "During evaluation of \
-In[41]:=",ExpressionUUID->"3932be41-594e-4af2-a4eb-2abda3cf21b1"]
+In[1]:=",ExpressionUUID->"c44129b2-479b-4478-be51-6670595da2dc"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -3602,7 +3595,12 @@ Cell[BoxData[
     SphereBox[{37.255, 9.634, 10.002}, 2.8200000000000003`]}, 
    {RGBColor[0.800498, 0.201504, 0.192061], 
     SphereBox[{43.755, 23.843000000000004`, 8.038}, 2.8200000000000003`]}},
-  Boxed->False]], "Output",
+  Boxed->False,
+  ImageSize->{361.337587435084, 352.8609863008338},
+  ImageSizeRaw->Automatic,
+  ViewPoint->{-1.094623918874821, -2.952542106126695, -1.2386660517573196`},
+  ViewVertical->{-0.3280823414759088, -0.7234749585784396, 
+   0.6074092208072004}]], "Output",
  CellChangeTimes->{
   3.8037987869504232`*^9, 3.803798967977754*^9, {3.803799042729377*^9, 
    3.8037990620861597`*^9}, 3.803799092863965*^9, {3.803799133402824*^9, 
@@ -3613,8 +3611,11 @@ Cell[BoxData[
    3.803800197512413*^9, 3.803800242670752*^9, 3.803800281524068*^9, 
    3.803800405541356*^9, 3.803800466512982*^9, 3.8038005685667067`*^9, {
    3.8038006151703863`*^9, 3.803800627089882*^9}, 3.803800862672805*^9, 
-   3.803800908556137*^9, 3.803801071823516*^9},
- CellLabel->"Out[8]=",ExpressionUUID->"874ddd39-d3e8-414d-bd4b-a2fa9d2cbc51"]
+   3.803800908556137*^9, 3.803801071823516*^9, 3.803802885819935*^9, 
+   3.8038029599299097`*^9, {3.803805600711462*^9, 3.803805623877871*^9}, {
+   3.803805693861209*^9, 3.803805707066082*^9}, {3.803806094622999*^9, 
+   3.8038061197032967`*^9}, 3.803807436377293*^9, 3.803808172900651*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"7d2a72b3-4729-4d99-8b1e-d486fe6efd10"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -3670,397 +3671,39 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
-Cell[BoxData[{"lib", "\[IndentingNewLine]", 
- RowBox[{"ExpandFileName", "[", "lib", "]"}], "\[IndentingNewLine]", 
- RowBox[{"Information", "[", "lib", "]"}], "\[IndentingNewLine]"}], "Input",
- CellChangeTimes->{{3.803799452706073*^9, 3.8037994759364033`*^9}, {
-  3.803799511189639*^9, 3.803799516602799*^9}, {3.8037995475819273`*^9, 
-  3.8037995511910353`*^9}},
- CellLabel->
-  "In[129]:=",ExpressionUUID->"f522c14a-a579-4a3f-b36b-5caa136f5fb0"],
-
-Cell[BoxData[
- RowBox[{"File", "[", 
-  TemplateBox[{
-   "\"/tmp/ConstructPDBsurfaces-eefc58e6-6e3a-49a8-836a-df2502ad2cc0.wl\""},
-   "FileArgument"], "]"}]], "Output",
- CellChangeTimes->{{3.803799456228351*^9, 3.803799465656356*^9}, 
-   3.803799551553253*^9},
- CellLabel->
-  "Out[129]=",ExpressionUUID->"adbf5f78-75fe-401a-b187-6b91e6c6eaaa"],
-
-Cell[BoxData["\<\"/tmp/ConstructPDBsurfaces-eefc58e6-6e3a-49a8-836a-\
-df2502ad2cc0.wl\"\>"], "Output",
- CellChangeTimes->{{3.803799456228351*^9, 3.803799465656356*^9}, 
-   3.803799551555645*^9},
- CellLabel->
-  "Out[130]=",ExpressionUUID->"2b11e13a-847b-48a3-bb5a-f2cbcbe73c96"],
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"filename", " ", "=", " ", "\"\<ConstructPDBsurfaces.wl\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"CopyFile", "[", 
+  RowBox[{
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", "filename"}], "}"}], 
+    "]"}], ",", 
+   RowBox[{"CloudObject", "[", "filename", "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.803805946460539*^9, 3.803806042163528*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"bec98970-e292-455e-aaf7-78c0e8219b8d"],
 
 Cell[BoxData[
  InterpretationBox[
-  StyleBox[
-   FrameBox[
-    TagBox[GridBox[{
-       {
-        ItemBox[
-         PaneBox[
-          StyleBox["\<\" File\"\>", "InformationTitleText",
-           StripOnInput->False],
-          FrameMargins->{{4, 0}, {-1, 1}}],
-         BaseStyle->"InformationTitleBackground",
-         StripOnInput->False]},
-       {
-        PaneBox[GridBox[{
-           {
-            
-            DynamicModuleBox[{System`InformationDump`open$$ = {
-             False, False, False, False, False, False, False, False, False, 
-              False, False, False, False, False, False, False, False, False, 
-              False, False, False, False, False, False, False, False, False, 
-              False, False, False, False, False, False, False, False, False, 
-              False}}, 
-             StyleBox[GridBox[{
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" File Name\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"FileName\"",
-                   TooltipStyle->"TextStyling"],
-                  
-                  Annotation[#, "FileName", 
-                   "Tooltip"]& ], \
-"\<\"/tmp/ConstructPDBsurfaces-eefc58e6-6e3a-49a8-836a-df2502ad2cc0.wl\"\>"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" Directory Name\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"DirectoryName\"",
-                   TooltipStyle->"TextStyling"],
-                  
-                  Annotation[#, "DirectoryName", 
-                   "Tooltip"]& ], "\<\"/tmp\"\>"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   
-                   StyleBox["\<\" Absolute File Name\"\>", 
-                    "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"AbsoluteFileName\"",
-                   TooltipStyle->"TextStyling"],
-                  
-                  Annotation[#, "AbsoluteFileName", 
-                   "Tooltip"]& ], \
-"\<\"/tmp/ConstructPDBsurfaces-eefc58e6-6e3a-49a8-836a-df2502ad2cc0.wl\"\>"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" File Base Name\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"FileBaseName\"",
-                   TooltipStyle->"TextStyling"],
-                  
-                  Annotation[#, "FileBaseName", 
-                   "Tooltip"]& ], \
-"\<\"ConstructPDBsurfaces-eefc58e6-6e3a-49a8-836a-df2502ad2cc0\"\>"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" File Extension\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"FileExtension\"",
-                   TooltipStyle->"TextStyling"],
-                  
-                  Annotation[#, "FileExtension", 
-                   "Tooltip"]& ], "\<\"wl\"\>"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" Last Access Date\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"LastAccessDate\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "LastAccessDate", "Tooltip"]& ], 
-                 TemplateBox[{
-                   RowBox[{"\"Wed 15 Jul 2020 13:56:12\"", 
-                    StyleBox[
-                    RowBox[{"\"GMT+\"", "\[InvisibleSpace]", 
-                    StyleBox[
-                    "3.`", NumberMarks -> False, StripOnInput -> False]}], 
-                    FontColor -> GrayLevel[0.5]]}], 
-                   RowBox[{"DateObject", "[", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    
-                    RowBox[{
-                    "2020", ",", "7", ",", "15", ",", "13", ",", "56", ",", 
-                    "12.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"",
-                     ",", "3.`"}], "]"}]},
-                  "DateObject",
-                  Editable->False]},
-                {
-                 TagBox[
-                  TooltipBox[
-                   
-                   StyleBox["\<\" Last Modification Date\"\>", 
-                    "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"LastModificationDate\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "LastModificationDate", "Tooltip"]& ], 
-                 TemplateBox[{
-                   RowBox[{"\"Wed 15 Jul 2020 13:56:12\"", 
-                    StyleBox[
-                    RowBox[{"\"GMT+\"", "\[InvisibleSpace]", 
-                    StyleBox[
-                    "3.`", NumberMarks -> False, StripOnInput -> False]}], 
-                    FontColor -> GrayLevel[0.5]]}], 
-                   RowBox[{"DateObject", "[", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    
-                    RowBox[{
-                    "2020", ",", "7", ",", "15", ",", "13", ",", "56", ",", 
-                    "12.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"",
-                     ",", "3.`"}], "]"}]},
-                  "DateObject",
-                  Editable->False]},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" File Type\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"FileType\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "FileType", "Tooltip"]& ], "\<\"File\"\>"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" Byte Count\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"ByteCount\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "ByteCount", "Tooltip"]& ], "5234"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" Raw Byte Count\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"RawByteCount\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "RawByteCount", "Tooltip"]& ], "8192"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" Block Count\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"BlockCount\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "BlockCount", "Tooltip"]& ], "16"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" Block Size\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"BlockSize\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "BlockSize", "Tooltip"]& ], "4096"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   
-                   StyleBox["\<\" Unix Permissions Code\"\>", 
-                    "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"UnixPermissionsCode\"",
-                   TooltipStyle->"TextStyling"],
-                  
-                  Annotation[#, "UnixPermissionsCode", 
-                   "Tooltip"]& ], "\<\"0664\"\>"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   
-                   StyleBox["\<\" Unix Permissions String\"\>", 
-                    "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"UnixPermissionsString\"",
-                   TooltipStyle->"TextStyling"],
-                  
-                  Annotation[#, "UnixPermissionsString", 
-                   "Tooltip"]& ], "\<\"-rw-rw-r--\"\>"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" Device\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"Device\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "Device", "Tooltip"]& ], "66309"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" Inode\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"Inode\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "Inode", "Tooltip"]& ], "7474421"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" Link Count\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"LinkCount\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "LinkCount", "Tooltip"]& ], "1"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" UID\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"UID\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "UID", "Tooltip"]& ], "1000"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" GID\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"GID\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "GID", "Tooltip"]& ], "1000"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" Owner Name\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"OwnerName\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "OwnerName", "Tooltip"]& ], 
-                 RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" Group Name\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"GroupName\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "GroupName", "Tooltip"]& ], 
-                 RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" Set Group ID\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"SetGroupID\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "SetGroupID", "Tooltip"]& ], "False"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" Set User ID\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"SetUserID\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "SetUserID", "Tooltip"]& ], "False"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   StyleBox["\<\" Sticky\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                   "\"Sticky\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "Sticky", "Tooltip"]& ], "False"},
-                {
-                 TagBox[
-                  TooltipBox[
-                   
-                   StyleBox["\<\" File Attributes\"\>", "InformationRowLabel",
-                    
-                    StripOnInput->False],
-                   "\"FileAttributes\"",
-                   TooltipStyle->"TextStyling"],
-                  Annotation[#, "FileAttributes", "Tooltip"]& ], 
-                 RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}
-               },
-               AutoDelete->False,
-               GridBoxAlignment->{"Columns" -> {Right, Left}},
-               GridBoxDividers->None,
-               GridBoxItemSize->{"Columns" -> {Automatic, Automatic}},
-               GridBoxSpacings->{"Columns" -> {
-                   Offset[0.27999999999999997`], {
-                    Offset[0.5599999999999999]}, 
-                   Offset[0.27999999999999997`]}, "Rows" -> {
-                   Offset[0.2], {
-                    Offset[0.8]}, 
-                   Offset[0.2]}}], "DialogStyle",
-              StripOnInput->False],
-             DynamicModuleValues:>{}]}
-          },
-          DefaultBaseStyle->"Column",
-          GridBoxAlignment->{"Columns" -> {{Left}}},
-          GridBoxDividers->{"Columns" -> {{False}}, "Rows" -> {{False}}},
-          
-          GridBoxItemSize->{
-           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.27999999999999997`], {
-               Offset[0.5599999999999999]}, 
-              Offset[0.27999999999999997`]}, "Rows" -> {
-              Offset[0.2], {
-               Offset[3.6]}, 
-              Offset[0.2]}}],
-         FrameMargins->6]}
-      },
-      DefaultBaseStyle->"Column",
-      FrameStyle->Directive[
-        GrayLevel[0.8], 
-        Thickness[Tiny]],
-      GridBoxAlignment->{"Columns" -> {{Left}}},
-      GridBoxDividers->{
-       "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
-      GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-     
-     "Column"],
-    BaseStyle->"InformationGridFrame",
-    StripOnInput->False], "InformationGridPlain",
-   StripOnInput->False],
-  InformationData[
-   Association[
-   "ObjectType" -> "File", "FileName" -> 
-    "/tmp/ConstructPDBsurfaces-eefc58e6-6e3a-49a8-836a-df2502ad2cc0.wl", 
-    "DirectoryName" -> "/tmp", "AbsoluteFileName" -> 
-    "/tmp/ConstructPDBsurfaces-eefc58e6-6e3a-49a8-836a-df2502ad2cc0.wl", 
-    "AbsoluteShortFileName" -> Missing["NotApplicable"], "ShortFileName" -> 
-    Missing["NotApplicable"], "FileBaseName" -> 
-    "ConstructPDBsurfaces-eefc58e6-6e3a-49a8-836a-df2502ad2cc0", 
-    "FileExtension" -> "wl", "CreationDate" -> Missing["NotApplicable"], 
-    "LastAccessDate" -> 
-    DateObject[{2020, 7, 15, 13, 56, 12.}, "Instant", "Gregorian", 3.], 
-    "LastChangeDate" -> Missing["NotApplicable"], "LastModificationDate" -> 
-    DateObject[{2020, 7, 15, 13, 56, 12.}, "Instant", "Gregorian", 3.], 
-    "FileType" -> "File", "ByteCount" -> 5234, "RawByteCount" -> 8192, 
-    "BlockCount" -> 16, "BlockSize" -> 4096, "FileAssociation" -> 
-    Missing["NotApplicable"], "Permissions" -> Missing["NotApplicable"], 
-    "UnixPermissionsCode" -> "0664", "UnixPermissionsString" -> "-rw-rw-r--", 
-    "Device" -> 66309, "Inode" -> 7474421, "LinkCount" -> 1, "UID" -> 1000, 
-    "GID" -> 1000, "SID" -> Missing["NotApplicable"], "OwnerName" -> 
-    Missing["NotAvailable"], "GroupName" -> Missing["NotAvailable"], 
-    "SetGroupID" -> False, "SetUserID" -> False, "Sticky" -> False, 
-    "ReadOnly" -> Missing["NotApplicable"], "Archive" -> 
-    Missing["NotApplicable"], "Hidden" -> Missing["NotApplicable"], "System" -> 
-    Missing["NotApplicable"], "FileAttributes" -> Missing["NotAvailable"]], 
-   True]]], "Output",
- CellChangeTimes->{{3.803799456228351*^9, 3.803799465656356*^9}, 
-   3.80379955156734*^9},
- CellLabel->
-  "Out[131]=",ExpressionUUID->"d56944d6-9b61-4c02-a0d2-d4ff8d50e4c6"]
+  RowBox[{"CloudObject", "[", 
+   TemplateBox[{
+    "\"https://www.wolframcloud.com/obj/polyachenko.yua/ConstructPDBsurfaces.\
+wl\"", "https://www.wolframcloud.com/obj/polyachenko.yua/ConstructPDBsurfaces.\
+wl"},
+    "HyperlinkURL"], "]"}],
+  CloudObject[
+  "https://www.wolframcloud.com/obj/polyachenko.yua/ConstructPDBsurfaces.wl"],
+  
+  SelectWithContents->True]], "Output",
+ CellChangeTimes->{3.803806055828019*^9},
+ CellLabel->"Out[18]=",ExpressionUUID->"dd961dd7-a879-43ac-8316-18a2e8d8e03f"]
 }, Open  ]]
 },
-WindowSize->{849., 649.5},
-WindowMargins->{{Automatic, 57.75}, {0, Automatic}},
+WindowSize->{857.25, 649.5},
+WindowMargins->{{Automatic, 49.5}, {0, Automatic}},
 Magnification:>0.8 Inherited,
 FrontEndVersion->"12.1 for Linux x86 (64-bit) (March 20, 2020)",
 StyleDefinitions->"Default.nb",
@@ -4078,22 +3721,20 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 11397, 186, 311, "Input",ExpressionUUID->"5787533f-4598-4dd2-8b1f-1edb8c66723d"],
+Cell[580, 22, 11098, 175, 199, "Input",ExpressionUUID->"5787533f-4598-4dd2-8b1f-1edb8c66723d"],
 Cell[CellGroupData[{
-Cell[12002, 212, 361, 8, 18, "Print",ExpressionUUID->"7fb0ce3e-f84e-4283-a7a7-005a43eb6c39"],
-Cell[12366, 222, 489, 13, 23, "Print",ExpressionUUID->"cb222a5c-1a79-432e-b5cd-72cc3708437e"],
-Cell[12858, 237, 1102, 31, 25, "Print",ExpressionUUID->"d72ae622-689f-4539-ae3f-d2e20f960de0"],
-Cell[13963, 270, 9214, 242, 18, "Print",ExpressionUUID->"3932be41-594e-4af2-a4eb-2abda3cf21b1"]
+Cell[11703, 201, 385, 9, 18, "Print",ExpressionUUID->"1d29df36-c835-417e-8cb8-d7499f68d6b0"],
+Cell[12091, 212, 509, 14, 23, "Print",ExpressionUUID->"3282d094-a02d-4b5a-8958-07ee8d872a0c"],
+Cell[12603, 228, 1124, 32, 25, "Print",ExpressionUUID->"05a822d1-2f74-42a1-bcdf-17c72926a4c9"],
+Cell[13730, 262, 9236, 243, 18, "Print",ExpressionUUID->"c44129b2-479b-4478-be51-6670595da2dc"]
 }, Open  ]],
-Cell[23192, 515, 176154, 3101, 308, "Output",ExpressionUUID->"874ddd39-d3e8-414d-bd4b-a2fa9d2cbc51"]
+Cell[22981, 508, 176636, 3109, 295, "Output",ExpressionUUID->"7d2a72b3-4729-4d99-8b1e-d486fe6efd10"]
 }, Open  ]],
-Cell[199361, 3619, 1014, 26, 103, "Input",ExpressionUUID->"03e88ee7-2dc3-4cb2-be4e-56d24731f5cc"],
-Cell[200378, 3647, 915, 21, 87, "Input",ExpressionUUID->"619074fe-828a-4716-9fce-73e12738b2ae"],
+Cell[199632, 3620, 1014, 26, 103, "Input",ExpressionUUID->"03e88ee7-2dc3-4cb2-be4e-56d24731f5cc"],
+Cell[200649, 3648, 915, 21, 87, "Input",ExpressionUUID->"619074fe-828a-4716-9fce-73e12738b2ae"],
 Cell[CellGroupData[{
-Cell[201318, 3672, 444, 7, 71, "Input",ExpressionUUID->"f522c14a-a579-4a3f-b36b-5caa136f5fb0"],
-Cell[201765, 3681, 342, 8, 32, "Output",ExpressionUUID->"adbf5f78-75fe-401a-b187-6b91e6c6eaaa"],
-Cell[202110, 3691, 277, 5, 26, "Output",ExpressionUUID->"2b11e13a-847b-48a3-bb5a-f2cbcbe73c96"],
-Cell[202390, 3698, 15465, 360, 397, "Output",ExpressionUUID->"d56944d6-9b61-4c02-a0d2-d4ff8d50e4c6"]
+Cell[201589, 3673, 541, 13, 40, "Input",ExpressionUUID->"bec98970-e292-455e-aaf7-78c0e8219b8d"],
+Cell[202133, 3688, 532, 13, 29, "Output",ExpressionUUID->"dd961dd7-a879-43ac-8316-18a2e8d8e03f"]
 }, Open  ]]
 }
 ]
