@@ -23,15 +23,24 @@ BeginPackage["ProteinSurfaces`"];
   loadNew[path_, link_, verbose_:False]:=
   Module[{archiveFile,unpackedFiles},
   If[verbose,Print["loading from '", link,"'"];];
+  If[$CloudEvaluation, 
+  archiveFile = CloudEvaluate[URLDownload[link, FileNameJoin[{path, FileNameTake[link]}],CreateIntermediateDirectories->True]];
+  ,
   archiveFile = URLDownload[link, FileNameJoin[{path, FileNameTake[link]}],CreateIntermediateDirectories->True];
+  ];
   If[verbose,Print[archiveFile, " loaded"];];
+  If[$CloudEvaluation, 
+  unpackedFiles = CloudEvaluate[ExtractArchive[archiveFile,path,OverwriteTarget->True,CreateIntermediateDirectories->True]];
+  ,
   unpackedFiles = ExtractArchive[archiveFile,path,OverwriteTarget->True,CreateIntermediateDirectories->True];
+  ];
   If[verbose, Print["unpacked: '", unpackedFiles,"'"]];
-  DeleteFile[archiveFile];
+  (*DeleteFile[archiveFile];*)
   unpackedFiles
   ];
   
   loadIfAbsent[path_, link_, verbose_:False]:=Module[{filepath},
+  If[verbose, Print["loading to: ", path];];
   filepath = getLinkFilename[path, link];
   If[!checkFilePresentQ[filepath, verbose],
   loadNew[DirectoryName[filepath], link, verbose];
@@ -39,8 +48,8 @@ BeginPackage["ProteinSurfaces`"];
   filepath
   ];
   
-  (*fileIsExecutableQ[cmd_]:= (Quiet[Check[RunProcess[cmd,"ExitCode"],"err"]]\[NotEqual]"err");*)
-  fileIsExecutableQ[cmd_]:= False;
+  fileIsExecutableQ[cmd_]:= (Quiet[Check[RunProcess[cmd,"ExitCode"],"err"]]!="err");
+(*  fileIsExecutableQ[cmd_]:= False;*)
   fileIsTheRightExecutableQ[cmd_, testStr_:""]:=
   Module[{localErrorFlag="err",stdStr,errStr},
   If[fileIsExecutableQ[cmd],
@@ -70,8 +79,13 @@ Export[filename,StringReplace[Import[filename,"Text"],oldStr->newStr],"Text"],{i
   DeleteDirectory[rootPath,DeleteContents->True];
   Return[InstallMyPckg["forceReinstall"->False]];];
   
+  If[$CloudEvaluation, 
+  If[!DirectoryQ[CloudObject[rootPath]],
+  CloudEvaluate[CreateDirectory[CloudObject[rootPath]]]];
+  ,
   If[!DirectoryQ[rootPath],
-  CreateDirectory[rootPath,CreateIntermediateDirectories->True]];
+  CreateDirectory[rootPath]];
+  ];
   
   If[doMSMS,
   msmsPath = FileNameJoin[{rootPath, "MSMS"}];
@@ -136,12 +150,20 @@ replaceStringInFiles[{pdb2xyzrExePath}, "nawk", "awk"];
   If[tmpfile, filepath, Nothing]
   ];
   
-  renewDir[path_]:=
-  Module[{},
+  renewDir[pathArg_]:=
+  Module[{path = pathArg},
+  If[$CloudEvaluation, 
+  CloudEvaluate[
+  path = CloudObject[path];
   If[DirectoryQ[path],
-  DeleteDirectory[path,DeleteContents->True];
+  DeleteDirectory[path,DeleteContents->True]];
+  CreateDirectory[path]
   ];
+  ,
+  If[DirectoryQ[path],
+  DeleteDirectory[path,DeleteContents->True];];
   CreateDirectory[path];
+  ];
   ];
   
   DownloadPDB[structID_]:=Import["http://www.rcsb.org/pdb/download/downloadFile.do?fileFormat=pdb&compression=NO&structureId="<>structID,"String"];
