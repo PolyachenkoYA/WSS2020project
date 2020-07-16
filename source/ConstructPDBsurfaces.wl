@@ -22,25 +22,19 @@ BeginPackage["ProteinSurfaces`"];
   
   loadNew[path_, link_, verbose_:False]:=
   Module[{archiveFile,unpackedFiles},
-  If[verbose,Print["loading from '", link,"'"];];
-  If[$CloudEvaluation, 
-  archiveFile = CloudEvaluate[URLDownload[link, FileNameJoin[{path, FileNameTake[link]}],CreateIntermediateDirectories->True]];
-  ,
+  If[verbose,
+  Print["loading from '", link,"'"];
+  Print["loading to: ", path];
+  ];
   archiveFile = URLDownload[link, FileNameJoin[{path, FileNameTake[link]}],CreateIntermediateDirectories->True];
-  ];
   If[verbose,Print[archiveFile, " loaded"];];
-  If[$CloudEvaluation, 
-  unpackedFiles = CloudEvaluate[ExtractArchive[archiveFile,path,OverwriteTarget->True,CreateIntermediateDirectories->True]];
-  ,
   unpackedFiles = ExtractArchive[archiveFile,path,OverwriteTarget->True,CreateIntermediateDirectories->True];
-  ];
   If[verbose, Print["unpacked: '", unpackedFiles,"'"]];
-  (*DeleteFile[archiveFile];*)
+  DeleteFile[archiveFile];
   unpackedFiles
   ];
   
   loadIfAbsent[path_, link_, verbose_:False]:=Module[{filepath},
-  If[verbose, Print["loading to: ", path];];
   filepath = getLinkFilename[path, link];
   If[!checkFilePresentQ[filepath, verbose],
   loadNew[DirectoryName[filepath], link, verbose];
@@ -66,6 +60,8 @@ Module[{nFiles = Length[filenames],filename},
 Do[filename=filenames[[i]];
 Export[filename,StringReplace[Import[filename,"Text"],oldStr->newStr],"Text"],{i,1,nFiles}];
 ];
+
+safeDirDelete[dir_,deleteContents_:True]:=If[DirectoryQ[dir],DeleteDirectory[dir,DeleteContents->deleteContents];];
   
   InstallConstructPDBsurfaces[OptionsPattern[]]:=
   Module[{reducePath,reduceExePath,reduceDatabasePath, reduceExeLink, reduceDatabaseLink,
@@ -75,17 +71,13 @@ Export[filename,StringReplace[Import[filename,"Text"],oldStr->newStr],"Text"],{i
   doReduce = OptionValue["doReduce"],
   verbose = OptionValue["verbose"],
   os = OptionValue["os"]},
+  
   If[OptionValue["forceReinstall"],
   DeleteDirectory[rootPath,DeleteContents->True];
   Return[InstallMyPckg["forceReinstall"->False]];];
   
-  If[$CloudEvaluation, 
-  If[!DirectoryQ[CloudObject[rootPath]],
-  CloudEvaluate[CreateDirectory[CloudObject[rootPath]]]];
-  ,
   If[!DirectoryQ[rootPath],
   CreateDirectory[rootPath]];
-  ];
   
   If[doMSMS,
   msmsPath = FileNameJoin[{rootPath, "MSMS"}];
@@ -95,7 +87,12 @@ Export[filename,StringReplace[Import[filename,"Text"],oldStr->newStr],"Text"],{i
   If[!(checkFilePresentQ[msmsExePath, verbose]&&
   checkFilePresentQ[pdb2xyzrExePath, verbose]&&
   checkFilePresentQ[pdb2xyzrDatabasePath, verbose]),
-  loadNew[msmsPath, os/.msmsArchiveLinks,verbose];
+  If[os=="Windows",
+  unpackedArch = loadNew[rootPath, os/.msmsArchiveLinks,verbose];
+  safeDirDelete[msmsPath];
+  RenameDirectory[DirectoryName[Select[unpackedArch, StringMatchQ[#, __~~".pdb"]&][[1]]], msmsPath];
+  ,
+  unpackedArch = loadNew[msmsPath, os/.msmsArchiveLinks,verbose];];
   ];
   msmsExePath = getFilenameSafe[msmsPath, os/.msmsExeMask];
 replaceStringInFiles[{pdb2xyzrExePath}, "nawk", "awk"];
@@ -115,7 +112,7 @@ replaceStringInFiles[{pdb2xyzrExePath}, "nawk", "awk"];
   reduceExePath = FileNameJoin[{reducePath, "reduce.exe"}];
   reduceDatabasePath = FileNameJoin[{reducePath, "reduce_wwPDB_het_dict.txt"}];
   If[!(checkFilePresentQ[reduceExePath, verbose] && checkFilePresentQ[reduceDatabasePath, verbose]),
-  If[DirectoryQ[reducePath],DeleteDirectory[reducePath,DeleteContents->True]];
+  safeDirDelete[reducePath];
   If[FileExistsQ[reducePath],DeleteFile[reducePath]];
   unpackedArch = loadNew[rootPath, os/.reduceArchiveLinks, verbose];
   RenameDirectory[unpackedArch[[1]], reducePath];
@@ -152,18 +149,8 @@ replaceStringInFiles[{pdb2xyzrExePath}, "nawk", "awk"];
   
   renewDir[pathArg_]:=
   Module[{path = pathArg},
-  If[$CloudEvaluation, 
-  CloudEvaluate[
-  path = CloudObject[path];
-  If[DirectoryQ[path],
-  DeleteDirectory[path,DeleteContents->True]];
-  CreateDirectory[path]
-  ];
-  ,
-  If[DirectoryQ[path],
-  DeleteDirectory[path,DeleteContents->True];];
+  safeDirDelete[path];
   CreateDirectory[path];
-  ];
   ];
   
   DownloadPDB[structID_]:=Import["http://www.rcsb.org/pdb/download/downloadFile.do?fileFormat=pdb&compression=NO&structureId="<>structID,"String"];
@@ -251,7 +238,8 @@ meshInd = Table[If[!MemberQ[Flatten[degeneratePolygonInd],i],Triangle[triangleIn
   Print["Duplicate vertices: ", If[!DuplicateFreeQ[vertices],Part[Select[Tally@vertices,Part[#,2]>1&],All,1],"None"]];Print["Degenerate polygon indices: ", Flatten[degeneratePolygonInd]];
   Print["Degenerate polygons: ", triangleIndices[[Flatten[degeneratePolygonInd]]]];
   ];
-  If[rootPath==$TemporaryDirectory, DeleteDirectory[proteinPath,DeleteContents->True];];
+  If[rootPath==$TemporaryDirectory, 
+  DeleteDirectory[proteinPath,DeleteContents->True];];
   
   Return[{mesh, vertices, meshInd}];
   ];
@@ -280,7 +268,10 @@ Module[{datafile, radiiData, radiiTable, residData,i,radii,
 verbose = OptionValue["verbose"],
 explicitH = OptionValue["explicitH"]},
 If[verbose, Print["database: ", filepath];];
-datafile = Map[If[StringPart[#,1]!="#",StringSplit[StringDelete[#,"#"~~___]],Nothing]&,ReadList[filepath, String]];\[IndentingNewLine]radiiData = Map[\[IndentingNewLine]Module[{words = #},\[IndentingNewLine]If[words[[1]]\[Equal]"radius",
+datafile = Map[If[StringPart[#,1]!="#",StringSplit[StringDelete[#,"#"~~___]],Nothing]&,ReadList[filepath, String]];
+radiiData = Map[
+Module[{words = #},
+If[words[[1]]=="radius",
 If[Length[words]==5,
 words[[2;;]],
 Append[words[[2;;]], words[[4]] ]
