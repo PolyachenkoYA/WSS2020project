@@ -3,7 +3,7 @@
 BeginPackage["ProteinSurfaces`"];
   
   DownloadPDB::usage = "Download usage";
-  InstallMyPckg::usage = "Install usage";
+  InstallConstructPDBsurfaces::usage = "Install usage";
   ProtonatePDB::usage = "Protonate usage";
   DrawProteinSAS::usage = "Draw usage";
   ConstructSESmesh::usage = "Construct usage";
@@ -55,13 +55,20 @@ BeginPackage["ProteinSurfaces`"];
   ]
   ];
   
+  absoluteDirPath[dir_]:=FileNameJoin[{ParentDirectory[dir,1],FileNameTake[dir]}];
+  isSubdir[rootDir_, subDir_]:=StringStartsQ[absoluteDirPath[subDir], absoluteDirPath[rootDir]];
+  
   replaceStringInFiles[filenames_, oldStr_, newStr_]:=
 Module[{nFiles = Length[filenames],filename},
 Do[filename=filenames[[i]];
 Export[filename,StringReplace[Import[filename,"Text"],oldStr->newStr],"Text"],{i,1,nFiles}];
 ];
 
-safeDirDelete[dir_,deleteContents_:True]:=If[DirectoryQ[dir],DeleteDirectory[dir,DeleteContents->deleteContents];];
+safeDirDelete[dir_,deleteContents_:True]:=
+If[DirectoryQ[dir],
+If[isSubdir[dir, Directory[]], SetDirectory[ParentDirectory[dir,100]]];
+DeleteDirectory[dir,DeleteContents->deleteContents];
+];
   
   InstallConstructPDBsurfaces[OptionsPattern[]]:=
   Module[{reducePath,reduceExePath,reduceDatabasePath, reduceExeLink, reduceDatabaseLink,
@@ -73,8 +80,9 @@ safeDirDelete[dir_,deleteContents_:True]:=If[DirectoryQ[dir],DeleteDirectory[dir
   os = OptionValue["os"]},
   
   If[OptionValue["forceReinstall"],
-  DeleteDirectory[rootPath,DeleteContents->True];
-  Return[InstallMyPckg["forceReinstall"->False]];];
+  safeDirDelete[rootPath];
+  Return[InstallConstructPDBsurfaces["forceReinstall"->False]];
+  ];
   
   If[!DirectoryQ[rootPath],
   CreateDirectory[rootPath]];
@@ -221,25 +229,24 @@ renewDir[proteinPath];
   ];  
   RunProcess[{msmsExePath, "-no_header", "-probe_radius",ToString[probeR],"-density",ToString[triangDensity],"-if",xyzrFilepath,"-of",FileNameJoin[{proteinPath, pdbName}]}, "StandardOutput"];
   SetDirectory[proteinPath];
-vertices = Map[Quantity[#[[1;;3]],"Angstroms"]&,ReadList[vertFilename, {Real, Real, Real, Real, Real, Real, Number, Number, Number}]];
+  vertices = Map[Quantity[#[[1;;3]],"Angstroms"]&,ReadList[vertFilename, {Real, Real, Real, Real, Real, Real, Number, Number, Number}]];
   triangleIndices = Map[#[[1;;3]]&,ReadList[faceFilename, {Number, Number, Number, Number, Number}]];
   nTriangles = Length[triangleIndices];
   (*duplicate vertices handling*)
-mesh = Table[ Module[{trgPoints},trgPoints = {vertices[[ triangleIndices[[i]][[1]] ]], vertices[[ triangleIndices[[i]][[2]] ]], vertices[[ triangleIndices[[i]][[3]] ]]};
- If[DuplicateFreeQ[trgPoints],Triangle[trgPoints],Null]
+  mesh = Table[ Module[{trgPoints},trgPoints = {vertices[[ triangleIndices[[i]][[1]] ]], vertices[[ triangleIndices[[i]][[2]] ]], vertices[[ triangleIndices[[i]][[3]] ]]};
+  If[DuplicateFreeQ[trgPoints],Triangle[trgPoints],Null]
   ],
   {i,1,nTriangles}];
   degeneratePolygonInd = Position[mesh, Null];
   mesh = Delete[mesh, degeneratePolygonInd];
-meshInd = Table[If[!MemberQ[Flatten[degeneratePolygonInd],i],Triangle[triangleIndices[[i]]], Nothing],{i,1,nTriangles}];
+  meshInd = Table[If[!MemberQ[Flatten[degeneratePolygonInd],i],Triangle[triangleIndices[[i]]], Nothing],{i,1,nTriangles}];
   
   (*print some stats*)
   If[verbose,
   Print["Duplicate vertices: ", If[!DuplicateFreeQ[vertices],Part[Select[Tally@vertices,Part[#,2]>1&],All,1],"None"]];Print["Degenerate polygon indices: ", Flatten[degeneratePolygonInd]];
   Print["Degenerate polygons: ", triangleIndices[[Flatten[degeneratePolygonInd]]]];
   ];
-  If[rootPath==$TemporaryDirectory, 
-  DeleteDirectory[proteinPath,DeleteContents->True];];
+  If[rootPath==$TemporaryDirectory, safeDirDelete[proteinPath];];
   
   Return[{mesh, vertices, meshInd}];
   ];

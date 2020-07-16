@@ -1,0 +1,85 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[      2503,         77]
+NotebookOptionsPosition[      2009,         60]
+NotebookOutlinePosition[      2427,         76]
+CellTagsIndexPosition[      2384,         73]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"filename", " ", "=", " ", "\"\<ConstructPDBsurfaces.wl\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CopyFile", "[", 
+   RowBox[{
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", "filename"}], "}"}], 
+     "]"}], ",", 
+    RowBox[{"CloudObject", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Published\>\"", ",", "filename"}], "}"}], "]"}], ",", 
+      RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], "]"}], ",", 
+    RowBox[{"OverwriteTarget", "\[Rule]", "True"}]}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.803805946460539*^9, 3.803806042163528*^9}, {
+  3.803810430300145*^9, 3.803810440223721*^9}, {3.8039026817209015`*^9, 
+  3.8039027202848077`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"b6853a05-40b6-41fa-a73c-e38f08ba85f7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "CloudObject", "invpath", 
+   "\"Cloud object name \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"Published\\\\\\\\\\\\\\\\ConstructPDBsurfaces.wl\
+\\\\\\\"\\\"}]\\) contains either an illegal character or the reserved path \
+.Objects.\"", 2, 2, 1, 24591746849819155994, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8039027255958033`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"dfcb75c4-d1dc-43d0-868d-65cc459e0158"]
+}, Open  ]]
+},
+WindowSize->{913.8, 618.},
+WindowMargins->{{Automatic, 4.2000000000000455`}, {Automatic, 0}},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (March 20, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"897471e2-cb43-44b7-84d8-60504b27dc89"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[583, 22, 923, 22, 68, "Input",ExpressionUUID->"b6853a05-40b6-41fa-a73c-e38f08ba85f7"],
+Cell[1509, 46, 484, 11, 23, "Message",ExpressionUUID->"dfcb75c4-d1dc-43d0-868d-65cc459e0158"]
+}, Open  ]]
+}
+]
+*)
+
