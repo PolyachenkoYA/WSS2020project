@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[     29867,        658]
-NotebookOptionsPosition[     29293,        640]
-NotebookOutlinePosition[     29691,        656]
-CellTagsIndexPosition[     29648,        653]
+NotebookDataLength[     29925,        659]
+NotebookOptionsPosition[     29351,        641]
+NotebookOutlinePosition[     29749,        657]
+CellTagsIndexPosition[     29706,        654]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -54,7 +54,7 @@ Cell[BoxData[{
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"readDatafile", "[", 
+   RowBox[{"readXYZRdatabase", "[", 
     RowBox[{"filepath_", ",", " ", 
      RowBox[{"verbose_", ":", "False"}]}], "]"}], ":=", "\[IndentingNewLine]", 
    RowBox[{"Module", "[", 
@@ -505,7 +505,7 @@ Cell[BoxData[{
    RowBox[{
     RowBox[{"{", 
      RowBox[{"radii", ",", " ", "residData"}], "}"}], " ", "=", " ", 
-    RowBox[{"readDatafile", "[", "databasePath", "]"}]}], ";"}], 
+    RowBox[{"readXYZRdatabase", "[", "databasePath", "]"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"pdb", " ", "=", " ", 
@@ -612,9 +612,10 @@ Cell[BoxData[{
    3.803890217846229*^9, 3.803890236113315*^9}, {3.803890311914517*^9, 
    3.8038903259461527`*^9}, {3.803890361003474*^9, 3.803890374079208*^9}, {
    3.803890412529056*^9, 3.8038904318506937`*^9}, {3.8038904926493673`*^9, 
-   3.8038907186310263`*^9}, {3.803890748935647*^9, 3.803890770828904*^9}},
- CellLabel->
-  "In[147]:=",ExpressionUUID->"1fed6bb6-68b8-4382-acc0-4e41835977fd"],
+   3.8038907186310263`*^9}, {3.803890748935647*^9, 3.803890770828904*^9}, {
+   3.803891961264963*^9, 3.803891968359907*^9}, 
+   3.803892204529978*^9},ExpressionUUID->"1fed6bb6-68b8-4382-acc0-\
+4e41835977fd"],
 
 Cell[CellGroupData[{
 
@@ -655,10 +656,10 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[561, 20, 28040, 596, 2473, "Input",ExpressionUUID->"1fed6bb6-68b8-4382-acc0-4e41835977fd"],
+Cell[561, 20, 28098, 597, 2443, "Input",ExpressionUUID->"1fed6bb6-68b8-4382-acc0-4e41835977fd"],
 Cell[CellGroupData[{
-Cell[28626, 620, 414, 10, 29, "Input",ExpressionUUID->"788dd21f-6e90-4a73-a9bb-bb5579bf460a"],
-Cell[29043, 632, 234, 5, 48, "Output",ExpressionUUID->"8d647da5-53c4-4ea5-8a9e-5a8b445fd77f"]
+Cell[28684, 621, 414, 10, 29, "Input",ExpressionUUID->"788dd21f-6e90-4a73-a9bb-bb5579bf460a"],
+Cell[29101, 633, 234, 5, 48, "Output",ExpressionUUID->"8d647da5-53c4-4ea5-8a9e-5a8b445fd77f"]
 }, Open  ]]
 }
 ]

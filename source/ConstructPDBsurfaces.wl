@@ -67,7 +67,7 @@ Do[filename=filenames[[i]];
 Export[filename,StringReplace[Import[filename,"Text"],oldStr->newStr],"Text"],{i,1,nFiles}];
 ];
   
-  InstallMyPckg[OptionsPattern[]]:=
+  InstallConstructPDBsurfaces[OptionsPattern[]]:=
   Module[{reducePath,reduceExePath,reduceDatabasePath, reduceExeLink, reduceDatabaseLink,
   msmsPath,msmsExePath,pdb2xyzrExePath,pdb2xyzrDatabasePath,unpackedArch,paths,
   rootPath = OptionValue["rootPath"],
@@ -198,7 +198,7 @@ replaceStringInFiles[{pdb2xyzrExePath}, "nawk", "awk"];
   
   ConstructSESmesh[pdbStr_,OptionsPattern[]]:=
   Module[
-  {rawPDBfilepath,rawPDBfilename,pdbFilename, pdbFilepath, xyzrFilename,xyzrFilepath,vertFilename,faceFilename,proteinPath,vertices,triangleIndices,nTriangles,mesh,degeneratePolygonInd,meshInd,msmsDir,pdb2xyzrExePath,pdb2xyzrDatabasePath,cmd,pdbName,
+  {rawPDBfilepath,rawPDBfilename,pdbFilename, pdbFilepath, xyzrFilename,xyzrFilepath,vertFilename,faceFilename,proteinPath,vertices,triangleIndices,nTriangles,mesh,degeneratePolygonInd,meshInd,msmsDir,pdb2xyzrExePath,pdb2xyzrDatabasePath,cmd,pdbName,radiiData,residueData,
   triangDensity=OptionValue["triangDensity"],
   probeR = QuantityMagnitude[UnitConvert[parseProbeR[OptionValue["probeR"], "VanDerWaals"],"Angstroms"]],
   verbose = OptionValue["verbose"],
@@ -225,7 +225,13 @@ replaceStringInFiles[{pdb2xyzrExePath}, "nawk", "awk"];
 renewDir[proteinPath];
   SetDirectory[msmsDir];
   writeAFile[pdbStr, pdbFilepath];
-  writeAFile[RunProcess[{pdb2xyzrExePath,"-h", pdbFilepath}, "StandardOutput"], xyzrFilepath];
+  If[$OperatingSystem=="Windows",
+  {radiiData, residueData} = readXYZRdatabase[pdb2xyzrDatabasePath];
+  writeAFile[StringJoin[Map[(ToString[#[[1]]]<>" "<>ToString[#[[2]]]<>" "<>ToString[#[[3]]]<>" "<>ToString[#[[4]]]<>"\n")&, 
+  pdb2xyzr[pdbStr, radiiData, residueData]]],xyzrFilepath];
+  ,
+  writeAFile[RunProcess[{pdb2xyzrExePath,"-h", pdbFilepath}, "StandardOutput"], xyzrFilepath]
+  ];  
   RunProcess[{msmsExePath, "-no_header", "-probe_radius",ToString[probeR],"-density",ToString[triangDensity],"-if",xyzrFilepath,"-of",FileNameJoin[{proteinPath, pdbName}]}, "StandardOutput"];
   SetDirectory[proteinPath];
 vertices = Map[Quantity[#[[1;;3]],"Angstroms"]&,ReadList[vertFilename, {Real, Real, Real, Real, Real, Real, Number, Number, Number}]];
@@ -268,6 +274,92 @@ meshInd = Table[If[!MemberQ[Flatten[degeneratePolygonInd],i],Triangle[triangleIn
   ];
 
 SESMesh2Coordinates[mesh_]:=Map[Triangle[QuantityMagnitude[#[[1]]]]&,mesh];
+
+readXYZRdatabase[filepath_, OptionsPattern[]]:=
+Module[{datafile, radiiData, radiiTable, residData,i,radii,
+verbose = OptionValue["verbose"],
+explicitH = OptionValue["explicitH"]},
+If[verbose, Print["database: ", filepath];];
+datafile = Map[If[StringPart[#,1]!="#",StringSplit[StringDelete[#,"#"~~___]],Nothing]&,ReadList[filepath, String]];\[IndentingNewLine]radiiData = Map[\[IndentingNewLine]Module[{words = #},\[IndentingNewLine]If[words[[1]]\[Equal]"radius",
+If[Length[words]==5,
+words[[2;;]],
+Append[words[[2;;]], words[[4]] ]
+],
+Nothing
+]
+]&
+,datafile];
+radiiData = Map[Read[StringToStream[#],Number]&,radiiData,{2}];
+If[verbose, Print["radii data: ",radiiData];];
+For[i=1, i<Length[radiiData],i++,
+(*this is the place to implemet -h flag from the original script*)
+radii[radiiData[[i]][[1]]] = radiiData[[i]][[If[explicitH,3,4]]];
+If[verbose, Print["r[",radiiData[[i]][[1]],"] = ", radii[radiiData[[i]][[1]]] ]];
+];
+
+residData = Map[
+Module[{words = #},
+If[words[[1]]!="radius",
+words,
+Nothing
+]
+]&
+,datafile];
+residData = 
+Map[Module[{residPatt = #[[1]], atomPatt=#[[2]]},
+If[residPatt=="*",residPatt=".*"];
+residPatt = "^"<>residPatt<>"$";
+atomPatt = "^"<>atomPatt<>"$";
+{residPatt, atomPatt, Read[StringToStream[#[[3]]],Number]}
+]&
+,
+residData];
+If[verbose, Print["residue data: ",residData];];
+{radii, residData}
+]
+
+pdb2xyzr[pdb_, radii_, residData_, OptionsPattern[]]:=
+Module[{nPatterns = Length[residData], 
+verbose = OptionValue["verbose"],
+rDefault = OptionValue["rDefault"]},
+Map[
+If[MemberQ[{"ATOM", "atom", "HETATM", "hetatm"}, TextWords[#,1][[1]]],
+Module[{line = #,x,y,z,r,resName,atomName, resNum,pattI, beginAtomName},
+atomName = StringTake[line, {13,16}];
+resName = StringDelete[StringTake[line, {18,20}]," "];
+resNum = StringDelete[StringTake[line, {23,26}], " "];
+x = Read[StringToStream[StringTake[line, {31,38}]],Number];
+y = Read[StringToStream[StringTake[line, {39,46}]],Number];
+z = Read[StringToStream[StringTake[line, {47,54}]],Number];
+beginAtomName = StringTake[atomName,{1,2}];
+If[StringMatchQ[beginAtomName,RegularExpression["[ 0-9][HhDd]"]] || StringMatchQ[beginAtomName,RegularExpression["[Hh][^Gg]"]],
+atomName = "H";
+];
+atomName = StringDelete[atomName, " "];
+If[verbose, Print[resNum, ": ", atomName, " ", resName," (",x, ";",y, ";",z, ")"]];
+For[pattI=1, pattI<=nPatterns,pattI++,
+If[StringMatchQ[atomName, RegularExpression[residData[[pattI]][[2]] ] ]&&
+StringMatchQ[resName, RegularExpression[residData[[pattI]][[1]] ] ],
+Break[];
+];
+];
+If[pattI == nPatterns+1,
+Print["pdb2xyzr ERROR:\nprotein: ",ImportString[pdb,{"PDB","PDBID"}],
+"\nline: ", line,
+"\nresidue number: ", resNum,
+"\nread PATTERN: ", resName, "; ", atomName, " was NOT FOUND",
+"\nusing r = ", rDefault];
+r = rDefault;
+,
+r = radii[residData[[pattI]][[3]]];
+];
+{x,y,z,r}
+]
+,
+Nothing
+]&
+,StringSplit[pdb,"\n"]]
+];
   
   (*should be in Initialize[]*)
   failStr="The function failed. The failure occured due to absent file `1` ";
@@ -278,11 +370,13 @@ SESMesh2Coordinates[mesh_]:=Map[Triangle[QuantityMagnitude[#[[1]]]]&,mesh];
   reduceArchiveLinks = {"Windows"->"http://kinemage.biochem.duke.edu/downloads/software/reduce31/reduce.3.16.111118.winArchive.zip",
   "Unix"->"http://kinemage.biochem.duke.edu/downloads/software/reduce31/reduce.3.23.130521.linuxi386.gz",
   "MacOSX"->"http://kinemage.biochem.duke.edu/downloads/software/reduce31/reduce.3.23.130521.macosx.zip"};
-  Options[InstallMyPckg] = {"rootPath"->FileNameJoin[{$WolframDocumentsDirectory,"PDBsys"}],"doMSMS"->True,"doReduce"->True,"verbose"->False,"forceReinstall"->False,"os"->$OperatingSystem};
+  Options[readXYZRdatabase] = {"explicitH"->False, "verbose"->False};
+  Options[pdb2xyzr] = {"rDefault"->0.01, "verbose"->False};
+  Options[InstallConstructPDBsurfaces] = {"rootPath"->FileNameJoin[{$WolframDocumentsDirectory,"PDBsys"}],"doMSMS"->True,"doReduce"->True,"verbose"->False,"forceReinstall"->False,"os"->$OperatingSystem};
   Options[DrawProteinSAS] = {"probeR"->Quantity[-1,"Angstroms"], "radiiType"->"VanDerWaals"};
   (*"Atomic", "Covalent", "VanDerWaals"*)
   Options[ConstructSESmesh] = {"triangDensity"->5.0, "probeR"->Quantity[1.5,"Angstroms"], "verbose"->False,"rootPath"->$TemporaryDirectory};   
-  {msmsExePath, pdb2xyzrExePath, pdb2xyzrDatabasePath,reduceExePath, reduceDatabasePath} = InstallMyPckg[];
+  {msmsExePath, pdb2xyzrExePath, pdb2xyzrDatabasePath,reduceExePath, reduceDatabasePath} = InstallConstructPDBsurfaces[];
   reduceDefaultArgs=
   {"-build","-DB","\""<>reduceDatabasePath<>"\""};
   
