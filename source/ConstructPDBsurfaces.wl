@@ -225,7 +225,7 @@ replaceStringInFiles[{pdb2xyzrExePath}, "nawk", "awk"];
 renewDir[proteinPath];
   SetDirectory[msmsDir];
   writeAFile[pdbStr, pdbFilepath];
-  writeAFile[RunProcess[{pdb2xyzrExePath, pdbFilepath}, "StandardOutput"], xyzrFilepath];
+  writeAFile[RunProcess[{pdb2xyzrExePath,"-h", pdbFilepath}, "StandardOutput"], xyzrFilepath];
   RunProcess[{msmsExePath, "-no_header", "-probe_radius",ToString[probeR],"-density",ToString[triangDensity],"-if",xyzrFilepath,"-of",FileNameJoin[{proteinPath, pdbName}]}, "StandardOutput"];
   SetDirectory[proteinPath];
 vertices = Map[Quantity[#[[1;;3]],"Angstroms"]&,ReadList[vertFilename, {Real, Real, Real, Real, Real, Real, Number, Number, Number}]];

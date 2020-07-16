@@ -10,16 +10,14 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[     31541,        788]
-NotebookOptionsPosition[     30455,        763]
-NotebookOutlinePosition[     30854,        779]
-CellTagsIndexPosition[     30811,        776]
+NotebookDataLength[     29867,        658]
+NotebookOptionsPosition[     29293,        640]
+NotebookOutlinePosition[     29691,        656]
+CellTagsIndexPosition[     29648,        653]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-
-Cell[CellGroupData[{
 Cell[BoxData[{
  RowBox[{
   RowBox[{
@@ -29,740 +27,619 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
    RowBox[{
-    RowBox[{"checkFilePresentQ", "[", 
-     RowBox[{"filepath_", ",", " ", 
-      RowBox[{"verbose_", ":", "False"}]}], "]"}], ":=", 
+    RowBox[{"writeAFile", "[", 
+     RowBox[{"str_", ",", " ", 
+      RowBox[{"filepathArg_", ":", "\"\<\>\""}]}], "]"}], ":=", "\n", "  ", 
     RowBox[{"Module", "[", 
      RowBox[{
       RowBox[{"{", 
-       RowBox[{"found", " ", "=", " ", 
-        RowBox[{"FileExistsQ", "[", "filepath", "]"}]}], "}"}], ",", "\n", 
-      "  ", 
+       RowBox[{"filepath", ",", 
+        RowBox[{"tmpfile", " ", "=", " ", 
+         RowBox[{"(", 
+          RowBox[{"filepathArg", "==", "\"\<\>\""}], ")"}]}]}], "}"}], ",", 
+      "\n", "  ", 
       RowBox[{
-       RowBox[{"If", "[", 
-        RowBox[{"verbose", ",", 
-         RowBox[{"Print", "[", 
-          RowBox[{
-          "\"\<searching for '\>\"", ",", " ", "filepath", ",", " ", 
-           "\"\<' ... \>\"", ",", 
-           RowBox[{"If", "[", 
-            RowBox[{
-             RowBox[{"!", "found"}], ",", 
-             RowBox[{"Style", "[", 
-              RowBox[{"\"\<NOT\>\"", ",", "Red"}], "]"}], ",", "\"\<\>\""}], 
-            "]"}], ",", " ", "\"\< found\>\""}], "]"}]}], "]"}], ";", "\n", 
-       "  ", "found"}]}], "]"}]}], ";"}], "\n", "  "}], "\n", 
- RowBox[{"  ", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"getFilenameSafe", "[", 
-     RowBox[{"path_", ",", " ", "ptrn_"}], "]"}], ":=", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"names", " ", "=", " ", 
-        RowBox[{"FileNames", "[", 
-         RowBox[{"ptrn", ",", "path"}], "]"}]}], "}"}], ",", "\n", "  ", 
-      RowBox[{"If", "[", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"Length", "[", "names", "]"}], ">", "0"}], ",", 
-        RowBox[{"names", "[", 
-         RowBox[{"[", "1", "]"}], "]"}], ",", 
-        RowBox[{"FileNameJoin", "[", 
-         RowBox[{"{", 
-          RowBox[{"path", ",", " ", 
-           RowBox[{"StringJoin", "[", 
-            RowBox[{"RandomChoice", "[", 
-             RowBox[{
-              RowBox[{"Alphabet", "[", "]"}], ",", "50"}], "]"}], "]"}]}], 
-          "}"}], "]"}]}], "]"}]}], "]"}]}], ";"}], "\n", "  "}], "\n", 
- RowBox[{"  ", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"getLinkFilename", "[", 
-     RowBox[{"path_", ",", " ", "link_"}], "]"}], " ", ":=", " ", 
-    RowBox[{"FileNameJoin", "[", 
-     RowBox[{"{", 
-      RowBox[{"path", ",", " ", 
-       RowBox[{"FileBaseName", "[", 
-        RowBox[{"FileNameTake", "[", "link", "]"}], "]"}]}], "}"}], "]"}]}], 
-   ";"}], "\n", "  "}], "\n", 
- RowBox[{"  ", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"loadNew", "[", 
-     RowBox[{"path_", ",", " ", "link_", ",", " ", 
-      RowBox[{"verbose_", ":", "False"}]}], "]"}], ":=", "\n", "  ", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"archiveFile", ",", "unpackedFiles"}], "}"}], ",", "\n", "  ", 
-      
-      RowBox[{
-       RowBox[{"If", "[", 
-        RowBox[{"verbose", ",", 
-         RowBox[{
-          RowBox[{"Print", "[", 
-           RowBox[{
-           "\"\<loading from '\>\"", ",", " ", "link", ",", "\"\<'\>\""}], 
-           "]"}], ";"}]}], "]"}], ";", "\n", "  ", 
-       RowBox[{"archiveFile", " ", "=", " ", 
-        RowBox[{"URLDownload", "[", 
-         RowBox[{"link", ",", " ", 
-          RowBox[{"FileNameJoin", "[", 
-           RowBox[{"{", 
-            RowBox[{"path", ",", " ", 
-             RowBox[{"FileNameTake", "[", "link", "]"}]}], "}"}], "]"}], ",", 
-          
-          RowBox[{"CreateIntermediateDirectories", "->", "True"}]}], "]"}]}], 
-       ";", "\n", "  ", 
-       RowBox[{"If", "[", 
-        RowBox[{"verbose", ",", 
-         RowBox[{
-          RowBox[{"Print", "[", 
-           RowBox[{"archiveFile", ",", " ", "\"\< loaded\>\""}], "]"}], 
-          ";"}]}], "]"}], ";", "\n", "  ", 
-       RowBox[{"unpackedFiles", " ", "=", " ", 
-        RowBox[{"ExtractArchive", "[", 
-         RowBox[{"archiveFile", ",", "path", ",", 
-          RowBox[{"OverwriteTarget", "->", "True"}], ",", 
-          RowBox[{"CreateIntermediateDirectories", "->", "True"}]}], "]"}]}], 
-       ";", "\n", "  ", 
-       RowBox[{"If", "[", 
-        RowBox[{"verbose", ",", " ", 
-         RowBox[{"Print", "[", 
-          RowBox[{
-          "\"\<unpacked: '\>\"", ",", " ", "unpackedFiles", ",", 
-           "\"\<'\>\""}], "]"}]}], "]"}], ";", "\n", "  ", 
-       RowBox[{"DeleteFile", "[", "archiveFile", "]"}], ";", "\n", "  ", 
-       "unpackedFiles"}]}], "\n", "  ", "]"}]}], ";"}], "\n", "  "}], "\n", 
- RowBox[{"  ", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"loadIfAbsent", "[", 
-     RowBox[{"path_", ",", " ", "link_", ",", " ", 
-      RowBox[{"verbose_", ":", "False"}]}], "]"}], ":=", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", "filepath", "}"}], ",", "\n", "  ", 
-      RowBox[{
-       RowBox[{"filepath", " ", "=", " ", 
-        RowBox[{"getLinkFilename", "[", 
-         RowBox[{"path", ",", " ", "link"}], "]"}]}], ";", "\n", "  ", 
-       RowBox[{"If", "[", 
-        RowBox[{
-         RowBox[{"!", 
-          RowBox[{"checkFilePresentQ", "[", 
-           RowBox[{"filepath", ",", " ", "verbose"}], "]"}]}], ",", "\n", 
-         "  ", 
-         RowBox[{
-          RowBox[{"loadNew", "[", 
-           RowBox[{
-            RowBox[{"DirectoryName", "[", "filepath", "]"}], ",", " ", "link",
-             ",", " ", "verbose"}], "]"}], ";"}]}], "\n", "  ", "]"}], ";", 
-       "\n", "  ", "filepath"}]}], "\n", "  ", "]"}]}], ";"}], "\n", "  ", 
-  "\n", "  ", 
-  RowBox[{"(*", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"fileIsExecutableQ", "[", "cmd_", "]"}], ":=", " ", 
-     RowBox[{"(", 
-      RowBox[{
-       RowBox[{"Quiet", "[", 
-        RowBox[{"Check", "[", 
-         RowBox[{
-          RowBox[{"RunProcess", "[", 
-           RowBox[{"cmd", ",", "\"\<ExitCode\>\""}], "]"}], ",", 
-          "\"\<err\>\""}], "]"}], "]"}], "\[NotEqual]", "\"\<err\>\""}], 
-      ")"}]}], ";"}], "*)"}]}], "\n", 
- RowBox[{"  ", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"fileIsExecutableQ", "[", "cmd_", "]"}], ":=", " ", "False"}], 
-   ";"}]}], "\n", 
- RowBox[{"  ", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"fileIsTheRightExecutableQ", "[", 
-     RowBox[{"cmd_", ",", " ", 
-      RowBox[{"testStr_", ":", "\"\<\>\""}]}], "]"}], ":=", "\n", "  ", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"localErrorFlag", "=", "\"\<err\>\""}], ",", "stdStr", ",", 
-        "errStr"}], "}"}], ",", "\n", "  ", 
-      RowBox[{"If", "[", 
-       RowBox[{
-        RowBox[{"fileIsExecutableQ", "[", "cmd", "]"}], ",", "\n", "  ", 
-        "False", ",", "\n", "  ", 
+       RowBox[{"filepath", "=", 
         RowBox[{"If", "[", 
+         RowBox[{"tmpfile", ",", 
+          RowBox[{"CreateFile", "[", 
+           RowBox[{"OverwriteTarget", "->", "True"}], "]"}], ",", 
+          "filepathArg"}], "]"}]}], ";", "\n", "  ", 
+       RowBox[{"WriteString", "[", 
+        RowBox[{"filepath", ",", "str"}], "]"}], ";", "\n", "  ", 
+       RowBox[{"Close", "[", "filepath", "]"}], ";", "\n", "  ", 
+       RowBox[{"If", "[", 
+        RowBox[{"tmpfile", ",", " ", "filepath", ",", " ", "Nothing"}], 
+        "]"}]}]}], "\n", "  ", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"readDatafile", "[", 
+    RowBox[{"filepath_", ",", " ", 
+     RowBox[{"verbose_", ":", "False"}]}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "datafile", ",", " ", "radiiData", ",", " ", "radiiTable", ",", " ", 
+       "residData", ",", "i", ",", "radii"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{"verbose", ",", " ", 
+        RowBox[{
+         RowBox[{"Print", "[", 
+          RowBox[{"\"\<database: \>\"", ",", " ", "filepath"}], "]"}], 
+         ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"datafile", " ", "=", " ", 
+       RowBox[{"Map", "[", 
+        RowBox[{
          RowBox[{
-          RowBox[{"StringStartsQ", "[", 
+          RowBox[{"If", "[", 
            RowBox[{
-            RowBox[{"RunProcess", "[", 
-             RowBox[{"cmd", ",", "\"\<StandardError\>\""}], "]"}], ",", " ", 
-            "testStr"}], "]"}], ",", "\n", "  ", "True", ",", "\n", "  ", 
-          RowBox[{"StringStartsQ", "[", 
+            RowBox[{
+             RowBox[{"StringPart", "[", 
+              RowBox[{"#", ",", "1"}], "]"}], "\[NotEqual]", "\"\<#\>\""}], 
+            ",", 
+            RowBox[{"StringSplit", "[", 
+             RowBox[{"StringDelete", "[", 
+              RowBox[{"#", ",", 
+               RowBox[{"\"\<#\>\"", "~~", "___"}]}], "]"}], "]"}], ",", 
+            "Nothing"}], "]"}], "&"}], ",", 
+         RowBox[{"ReadList", "[", 
+          RowBox[{"filepath", ",", " ", "String"}], "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"radiiData", " ", "=", " ", 
+       RowBox[{"Map", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Module", "[", 
            RowBox[{
-            RowBox[{"RunProcess", "[", 
-             RowBox[{"cmd", ",", "\"\<StandardOutput\>\""}], "]"}], ",", " ", 
-            "testStr"}], "]"}]}], "\n", "  ", "]"}]}], "\n", "  ", "]"}]}], 
-     "\n", "  ", "]"}]}], ";"}], "\[IndentingNewLine]"}], "\n", 
+            RowBox[{"{", 
+             RowBox[{"words", " ", "=", " ", "#"}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"words", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", 
+               "\"\<radius\>\""}], ",", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Length", "[", "words", "]"}], "\[Equal]", "5"}], 
+                ",", "\[IndentingNewLine]", 
+                RowBox[{"words", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"2", ";;"}], "]"}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Append", "[", 
+                 RowBox[{
+                  RowBox[{"words", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"2", ";;"}], "]"}], "]"}], ",", " ", 
+                  RowBox[{"words", "[", 
+                   RowBox[{"[", "4", "]"}], "]"}]}], " ", "]"}]}], 
+               "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+              "Nothing"}], "\[IndentingNewLine]", "]"}]}], 
+           "\[IndentingNewLine]", "]"}], "&"}], "\[IndentingNewLine]", ",", 
+         "datafile"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"radiiData", " ", "=", " ", 
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Read", "[", 
+           RowBox[{
+            RowBox[{"StringToStream", "[", "#", "]"}], ",", "Number"}], "]"}],
+           "&"}], ",", "radiiData", ",", 
+         RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{"verbose", ",", " ", 
+        RowBox[{
+         RowBox[{"Print", "[", 
+          RowBox[{"\"\<radii data: \>\"", ",", "radiiData"}], "]"}], ";"}]}], 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", "1"}], ",", " ", 
+        RowBox[{"i", "<", 
+         RowBox[{"Length", "[", "radiiData", "]"}]}], ",", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{
+          "this", " ", "is", " ", "the", " ", "place", " ", "to", " ", 
+           "implemet"}], " ", "-", 
+          RowBox[{
+          "h", " ", "flag", " ", "from", " ", "the", " ", "original", " ", 
+           "script"}]}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"radii", "[", 
+           RowBox[{
+            RowBox[{"radiiData", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "]"}], " ", "=", " ", 
+          RowBox[{
+           RowBox[{"radiiData", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "3", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{"verbose", ",", " ", 
+           RowBox[{"Print", "[", 
+            RowBox[{"\"\<r[\>\"", ",", 
+             RowBox[{
+              RowBox[{"radiiData", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<] = \>\"", ",", " ", 
+             RowBox[{"radii", "[", 
+              RowBox[{
+               RowBox[{"radiiData", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "[", 
+               RowBox[{"[", "1", "]"}], "]"}], "]"}]}], " ", "]"}]}], "]"}], 
+         ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"residData", " ", "=", " ", 
+       RowBox[{"Map", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Module", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"words", " ", "=", " ", "#"}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"words", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], "\[NotEqual]", 
+               "\"\<radius\>\""}], ",", "\[IndentingNewLine]", "words", ",", 
+              "\[IndentingNewLine]", "Nothing"}], "\[IndentingNewLine]", 
+             "]"}]}], "\[IndentingNewLine]", "]"}], "&"}], 
+         "\[IndentingNewLine]", ",", "datafile"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"residData", " ", "=", " ", "\[IndentingNewLine]", 
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Module", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"residPatt", " ", "=", " ", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], ",", " ", 
+              RowBox[{"atomPatt", "=", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"residPatt", "\[Equal]", "\"\<*\>\""}], ",", 
+               RowBox[{"residPatt", "=", "\"\<.*\>\""}]}], "]"}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"residPatt", " ", "=", " ", 
+              RowBox[{"\"\<^\>\"", "<>", "residPatt", "<>", "\"\<$\>\""}]}], 
+             ";", "\[IndentingNewLine]", 
+             RowBox[{"atomPatt", " ", "=", " ", 
+              RowBox[{"\"\<^\>\"", "<>", "atomPatt", "<>", "\"\<$\>\""}]}], 
+             ";", "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{"residPatt", ",", " ", "atomPatt", ",", " ", 
+               RowBox[{"Read", "[", 
+                RowBox[{
+                 RowBox[{"StringToStream", "[", 
+                  RowBox[{"#", "[", 
+                   RowBox[{"[", "3", "]"}], "]"}], "]"}], ",", "Number"}], 
+                "]"}]}], "}"}]}]}], "\[IndentingNewLine]", "]"}], "&"}], 
+         "\[IndentingNewLine]", ",", "\[IndentingNewLine]", "residData"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{"verbose", ",", " ", 
+        RowBox[{
+         RowBox[{"Print", "[", 
+          RowBox[{"\"\<residue data: \>\"", ",", "residData"}], "]"}], 
+         ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"radii", ",", " ", "residData"}], "}"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Options", "[", "pdb2xyzr", "]"}], " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<rDefault\>\"", "\[Rule]", "0.01"}], ",", " ", 
+     RowBox[{"\"\<verbose\>\"", "\[Rule]", "False"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{
-    RowBox[{"replaceStringInFiles", "[", 
-     RowBox[{"filenames_", ",", " ", "oldStr_", ",", " ", "newStr_"}], "]"}], 
-    ":=", "\[IndentingNewLine]", 
+    RowBox[{"pdb2xyzr", "[", 
+     RowBox[{"pdb_", ",", " ", "radii_", ",", " ", "residData_", ",", 
+      RowBox[{"OptionsPattern", "[", "]"}]}], "]"}], ":=", 
+    "\[IndentingNewLine]", 
     RowBox[{"Module", "[", 
      RowBox[{
       RowBox[{"{", 
        RowBox[{
-        RowBox[{"nFiles", " ", "=", " ", 
-         RowBox[{"Length", "[", "filenames", "]"}]}], ",", "filename"}], 
-       "}"}], ",", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"Do", "[", 
+        RowBox[{"nPatterns", " ", "=", " ", 
+         RowBox[{"Length", "[", "residData", "]"}]}], ",", " ", 
+        "\[IndentingNewLine]", 
+        RowBox[{"verbose", "=", 
+         RowBox[{"OptionValue", "[", "\"\<verbose\>\"", "]"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"rDefault", " ", "=", " ", 
+         RowBox[{"OptionValue", "[", "\"\<rDefault\>\"", "]"}]}]}], "}"}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{"Map", "[", "\[IndentingNewLine]", 
+       RowBox[{
         RowBox[{
-         RowBox[{
-          RowBox[{"filename", "=", 
-           RowBox[{"filenames", "[", 
-            RowBox[{"[", "i", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-          RowBox[{"Export", "[", 
-           RowBox[{"filename", ",", 
-            RowBox[{"StringReplace", "[", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"MemberQ", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+              "\"\<ATOM\>\"", ",", " ", "\"\<atom\>\"", ",", " ", 
+               "\"\<HETATM\>\"", ",", " ", "\"\<hetatm\>\""}], "}"}], ",", 
+             " ", 
              RowBox[{
-              RowBox[{"Import", "[", 
-               RowBox[{"filename", ",", "\"\<Text\>\""}], "]"}], ",", 
-              RowBox[{"oldStr", "\[Rule]", "newStr"}]}], "]"}], ",", 
-            "\"\<Text\>\""}], "]"}]}], ",", 
-         RowBox[{"{", 
-          RowBox[{"i", ",", "1", ",", "nFiles"}], "}"}]}], "]"}], ";"}]}], 
-     "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
-  "  "}], "\n", 
- RowBox[{"  ", 
+              RowBox[{"TextWords", "[", 
+               RowBox[{"#", ",", "1"}], "]"}], "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Module", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"line", " ", "=", " ", "#"}], ",", "x", ",", "y", ",", 
+               "z", ",", "r", ",", "resName", ",", "atomName", ",", " ", 
+               "resNum", ",", "pattI", ",", " ", "beginAtomName"}], "}"}], 
+             ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"atomName", " ", "=", " ", 
+               RowBox[{"StringTake", "[", 
+                RowBox[{"line", ",", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"13", ",", "16"}], "}"}]}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"resName", " ", "=", " ", 
+               RowBox[{"StringDelete", "[", 
+                RowBox[{
+                 RowBox[{"StringTake", "[", 
+                  RowBox[{"line", ",", " ", 
+                   RowBox[{"{", 
+                    RowBox[{"18", ",", "20"}], "}"}]}], "]"}], ",", 
+                 "\"\< \>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"resNum", " ", "=", " ", 
+               RowBox[{"StringDelete", "[", 
+                RowBox[{
+                 RowBox[{"StringTake", "[", 
+                  RowBox[{"line", ",", " ", 
+                   RowBox[{"{", 
+                    RowBox[{"23", ",", "26"}], "}"}]}], "]"}], ",", " ", 
+                 "\"\< \>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"x", " ", "=", " ", 
+               RowBox[{"Read", "[", 
+                RowBox[{
+                 RowBox[{"StringToStream", "[", 
+                  RowBox[{"StringTake", "[", 
+                   RowBox[{"line", ",", " ", 
+                    RowBox[{"{", 
+                    RowBox[{"31", ",", "38"}], "}"}]}], "]"}], "]"}], ",", 
+                 "Number"}], "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"y", " ", "=", " ", 
+               RowBox[{"Read", "[", 
+                RowBox[{
+                 RowBox[{"StringToStream", "[", 
+                  RowBox[{"StringTake", "[", 
+                   RowBox[{"line", ",", " ", 
+                    RowBox[{"{", 
+                    RowBox[{"39", ",", "46"}], "}"}]}], "]"}], "]"}], ",", 
+                 "Number"}], "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"z", " ", "=", " ", 
+               RowBox[{"Read", "[", 
+                RowBox[{
+                 RowBox[{"StringToStream", "[", 
+                  RowBox[{"StringTake", "[", 
+                   RowBox[{"line", ",", " ", 
+                    RowBox[{"{", 
+                    RowBox[{"47", ",", "54"}], "}"}]}], "]"}], "]"}], ",", 
+                 "Number"}], "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"beginAtomName", " ", "=", " ", 
+               RowBox[{"StringTake", "[", 
+                RowBox[{"atomName", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "2"}], "}"}]}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"StringMatchQ", "[", 
+                  RowBox[{"beginAtomName", ",", 
+                   RowBox[{
+                   "RegularExpression", "[", "\"\<[ 0-9][HhDd]\>\"", "]"}]}], 
+                  "]"}], " ", "||", " ", 
+                 RowBox[{"StringMatchQ", "[", 
+                  RowBox[{"beginAtomName", ",", 
+                   RowBox[{
+                   "RegularExpression", "[", "\"\<[Hh][^Gg]\>\"", "]"}]}], 
+                  "]"}]}], ",", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"atomName", " ", "=", " ", "\"\<H\>\""}], ";"}]}], 
+               "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+              RowBox[{"atomName", " ", "=", " ", 
+               RowBox[{"StringDelete", "[", 
+                RowBox[{"atomName", ",", " ", "\"\< \>\""}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{"verbose", ",", " ", 
+                RowBox[{"Print", "[", 
+                 RowBox[{
+                 "resNum", ",", " ", "\"\<: \>\"", ",", " ", "atomName", ",", 
+                  " ", "\"\< \>\"", ",", " ", "resName", ",", "\"\< (\>\"", 
+                  ",", "x", ",", " ", "\"\<;\>\"", ",", "y", ",", " ", 
+                  "\"\<;\>\"", ",", "z", ",", " ", "\"\<)\>\""}], "]"}]}], 
+               "]"}], ";", "\[IndentingNewLine]", 
+              RowBox[{"For", "[", 
+               RowBox[{
+                RowBox[{"pattI", "=", "1"}], ",", " ", 
+                RowBox[{"pattI", "\[LessEqual]", "nPatterns"}], ",", 
+                RowBox[{"pattI", "++"}], ",", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"StringMatchQ", "[", 
+                    RowBox[{"atomName", ",", " ", 
+                    RowBox[{"RegularExpression", "[", 
+                    RowBox[{
+                    RowBox[{"residData", "[", 
+                    RowBox[{"[", "pattI", "]"}], "]"}], "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], " ", "]"}]}], " ", "]"}], 
+                    "&&", "\[IndentingNewLine]", 
+                    RowBox[{"StringMatchQ", "[", 
+                    RowBox[{"resName", ",", " ", 
+                    RowBox[{"RegularExpression", "[", 
+                    RowBox[{
+                    RowBox[{"residData", "[", 
+                    RowBox[{"[", "pattI", "]"}], "]"}], "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], " ", "]"}]}], " ", 
+                    "]"}]}], ",", "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"Break", "[", "]"}], ";"}]}], 
+                  "\[IndentingNewLine]", "]"}], ";"}]}], 
+               "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"pattI", " ", "\[Equal]", " ", 
+                 RowBox[{"nPatterns", "+", "1"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"Print", "[", 
+                  RowBox[{"\"\<pdb2xyzr ERROR:\\nprotein: \>\"", ",", 
+                   RowBox[{"ImportString", "[", 
+                    RowBox[{"pdb", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<PDB\>\"", ",", "\"\<PDBID\>\""}], "}"}]}], 
+                    "]"}], ",", "\[IndentingNewLine]", "\"\<\\nline: \>\"", 
+                   ",", " ", "line", ",", "\[IndentingNewLine]", 
+                   "\"\<\\nresidue number: \>\"", ",", " ", "resNum", ",", 
+                   "\[IndentingNewLine]", "\"\<\\nread PATTERN: \>\"", ",", 
+                   " ", "resName", ",", " ", "\"\<; \>\"", ",", " ", 
+                   "atomName", ",", " ", "\"\< was NOT FOUND\>\"", ",", 
+                   "\[IndentingNewLine]", "\"\<\\nusing r = \>\"", ",", " ", 
+                   "rDefault"}], "]"}], ";", "\[IndentingNewLine]", 
+                 RowBox[{"r", " ", "=", " ", "rDefault"}], ";"}], 
+                "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"r", " ", "=", " ", 
+                  RowBox[{"radii", "[", 
+                   RowBox[{
+                    RowBox[{"residData", "[", 
+                    RowBox[{"[", "pattI", "]"}], "]"}], "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], "]"}]}], ";"}]}], 
+               "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "y", ",", "z", ",", "r"}], "}"}]}]}], 
+            "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", ",", 
+           "\[IndentingNewLine]", "Nothing"}], "\[IndentingNewLine]", "]"}], 
+         "&"}], "\[IndentingNewLine]", ",", 
+        RowBox[{"StringSplit", "[", 
+         RowBox[{"pdb", ",", "\"\<\\n\>\""}], "]"}]}], "]"}]}], 
+     "\[IndentingNewLine]", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{
    RowBox[{
-    RowBox[{"InstallMyPckg", "[", 
-     RowBox[{"OptionsPattern", "[", "]"}], "]"}], ":=", "\n", "  ", 
-    RowBox[{"Module", "[", 
+    RowBox[{"xyzrPrint", "[", "xyzr_", "]"}], ":=", 
+    RowBox[{"StringJoin", "[", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"ToString", "[", 
+           RowBox[{"#", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "]"}], "<>", "\"\< \>\"", "<>", 
+          RowBox[{"ToString", "[", 
+           RowBox[{"#", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], "]"}], "<>", "\"\< \>\"", "<>", 
+          RowBox[{"ToString", "[", 
+           RowBox[{"#", "[", 
+            RowBox[{"[", "3", "]"}], "]"}], "]"}], "<>", "\"\< \>\"", "<>", 
+          RowBox[{"ToString", "[", 
+           RowBox[{"#", "[", 
+            RowBox[{"[", "4", "]"}], "]"}], "]"}], "<>", "\"\<\\n\>\""}], 
+         ")"}], "&"}], ",", " ", "xyzr"}], "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "===", "===", "===", "===", "===", "===", "===", "===", "===", "===", "===",
+     "===", "===", "===", "===", "===", "===", "===", "==="}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"databaseName", " ", "=", " ", "\"\<atmtypenumbers\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pdbName", " ", "=", " ", "\"\<1crn.pdb\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"xyzrName", " ", "=", " ", 
+    RowBox[{"FileNameJoin", "[", 
      RowBox[{
+      RowBox[{"FileBaseName", "[", "pdbName", "]"}], "<>", "\"\<.xyzr\>\""}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"databasePath", " ", "=", " ", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", " ", "databaseName"}], 
+     "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"radii", ",", " ", "residData"}], "}"}], " ", "=", " ", 
+    RowBox[{"readDatafile", "[", "databasePath", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pdb", " ", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"FileNameJoin", "[", 
       RowBox[{"{", 
        RowBox[{
-       "reducePath", ",", "reduceExePath", ",", "reduceDatabasePath", ",", 
-        " ", "reduceExeLink", ",", " ", "reduceDatabaseLink", ",", "\n", "  ",
-         "msmsPath", ",", "msmsExePath", ",", "pdb2xyzrExePath", ",", 
-        "pdb2xyzrDatabasePath", ",", "unpackedArch", ",", "paths", ",", "\n", 
-        "  ", 
-        RowBox[{"rootPath", " ", "=", " ", 
-         RowBox[{"OptionValue", "[", "\"\<rootPath\>\"", "]"}]}], ",", "\n", 
-        "  ", 
-        RowBox[{"doMSMS", " ", "=", " ", 
-         RowBox[{"OptionValue", "[", "\"\<doMSMS\>\"", "]"}]}], ",", "\n", 
-        "  ", 
-        RowBox[{"doReduce", " ", "=", " ", 
-         RowBox[{"OptionValue", "[", "\"\<doReduce\>\"", "]"}]}], ",", "\n", 
-        "  ", 
-        RowBox[{"verbose", " ", "=", " ", 
-         RowBox[{"OptionValue", "[", "\"\<verbose\>\"", "]"}]}], ",", "\n", 
-        "  ", 
-        RowBox[{"os", " ", "=", " ", 
-         RowBox[{"OptionValue", "[", "\"\<os\>\"", "]"}]}]}], "}"}], ",", 
-      "\n", "  ", 
-      RowBox[{
-       RowBox[{"If", "[", 
-        RowBox[{
-         RowBox[{"OptionValue", "[", "\"\<forceReinstall\>\"", "]"}], ",", 
-         "\n", "  ", 
-         RowBox[{
-          RowBox[{"DeleteDirectory", "[", 
-           RowBox[{"rootPath", ",", 
-            RowBox[{"DeleteContents", "->", "True"}]}], "]"}], ";", "\n", 
-          "  ", 
-          RowBox[{"Return", "[", 
-           RowBox[{"InstallMyPckg", "[", 
-            RowBox[{"\"\<forceReinstall\>\"", "->", "False"}], "]"}], "]"}], 
-          ";"}]}], "]"}], ";", "\n", "  ", "\n", "  ", 
-       RowBox[{"If", "[", 
-        RowBox[{
-         RowBox[{"!", 
-          RowBox[{"DirectoryQ", "[", "rootPath", "]"}]}], ",", "\n", "  ", 
-         RowBox[{"CreateDirectory", "[", 
-          RowBox[{"rootPath", ",", 
-           RowBox[{"CreateIntermediateDirectories", "->", "True"}]}], "]"}]}],
-         "]"}], ";", "\n", "  ", "\n", "  ", 
-       RowBox[{"If", "[", 
-        RowBox[{"doMSMS", ",", "\n", "  ", 
-         RowBox[{
-          RowBox[{"msmsPath", " ", "=", " ", 
-           RowBox[{"FileNameJoin", "[", 
-            RowBox[{"{", 
-             RowBox[{"rootPath", ",", " ", "\"\<MSMS\>\""}], "}"}], "]"}]}], 
-          ";", "\n", "  ", 
-          RowBox[{"msmsExePath", " ", "=", " ", 
-           RowBox[{"getFilenameSafe", "[", 
-            RowBox[{"msmsPath", ",", " ", 
-             RowBox[{"os", "/.", "msmsExeMask"}]}], "]"}]}], ";", "\n", "  ", 
-          
-          RowBox[{"pdb2xyzrExePath", " ", "=", " ", 
-           RowBox[{"FileNameJoin", "[", 
-            RowBox[{"{", 
-             RowBox[{"msmsPath", ",", " ", "\"\<pdb_to_xyzr\>\""}], "}"}], 
-            "]"}]}], ";", "\n", "  ", 
-          RowBox[{"pdb2xyzrDatabasePath", " ", "=", " ", 
-           RowBox[{"FileNameJoin", "[", 
-            RowBox[{"{", 
-             RowBox[{"msmsPath", ",", " ", "\"\<atmtypenumbers\>\""}], "}"}], 
-            "]"}]}], ";", "\n", "  ", 
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{"!", 
-             RowBox[{"(", 
-              RowBox[{
-               RowBox[{"checkFilePresentQ", "[", 
-                RowBox[{"msmsExePath", ",", " ", "verbose"}], "]"}], "&&", 
-               "\n", "  ", 
-               RowBox[{"checkFilePresentQ", "[", 
-                RowBox[{"pdb2xyzrExePath", ",", " ", "verbose"}], "]"}], "&&",
-                "\n", "  ", 
-               RowBox[{"checkFilePresentQ", "[", 
-                RowBox[{"pdb2xyzrDatabasePath", ",", " ", "verbose"}], 
-                "]"}]}], ")"}]}], ",", "\n", "  ", 
-            RowBox[{
-             RowBox[{"loadNew", "[", 
-              RowBox[{"msmsPath", ",", " ", 
-               RowBox[{"os", "/.", "msmsArchiveLinks"}], ",", "verbose"}], 
-              "]"}], ";"}]}], "\n", "  ", "]"}], ";", "\n", "  ", 
-          RowBox[{"msmsExePath", " ", "=", " ", 
-           RowBox[{"getFilenameSafe", "[", 
-            RowBox[{"msmsPath", ",", " ", 
-             RowBox[{"os", "/.", "msmsExeMask"}]}], "]"}]}], ";", 
-          "\[IndentingNewLine]", 
-          RowBox[{"replaceStringInFiles", "[", 
-           RowBox[{
-            RowBox[{"{", "pdb2xyzrExePath", "}"}], ",", " ", "\"\<nawk\>\"", 
-            ",", " ", "\"\<awk\>\""}], "]"}], ";", "\n", "  ", 
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{"os", "!=", "\"\<Windows\>\""}], ",", "\n", "  ", 
-            RowBox[{
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"!", 
-                RowBox[{"fileIsExecutableQ", "[", "msmsExePath", "]"}]}], ",",
-                "\n", "  ", 
-               RowBox[{
-                RowBox[{"RunProcess", "[", 
-                 RowBox[{"{", 
-                  RowBox[{
-                  "\"\<chmod\>\"", ",", " ", "\"\<u+x\>\"", ",", " ", 
-                   "msmsExePath"}], "}"}], "]"}], ";"}]}], "]"}], ";", "\n", 
-             "  ", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"!", 
-                RowBox[{"fileIsExecutableQ", "[", 
-                 RowBox[{"{", 
-                  RowBox[{"pdb2xyzrExePath", ",", " ", "\"\<1\>\""}], "}"}], 
-                 "]"}]}], ",", "\n", "  ", 
-               RowBox[{
-                RowBox[{"RunProcess", "[", 
-                 RowBox[{"{", 
-                  RowBox[{
-                  "\"\<chmod\>\"", ",", " ", "\"\<u+x\>\"", ",", " ", 
-                   "msmsExePath"}], "}"}], "]"}], ";"}]}], "]"}], ";"}]}], 
-           "\n", "  ", "]"}], ";"}], "\n", "  ", ",", "\n", "  ", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-            "msmsExePath", ",", " ", "pdb2xyzrExePath", ",", " ", 
-             "pdb2xyzrDatabasePath"}], "}"}], " ", "=", " ", 
-           RowBox[{"{", 
-            RowBox[{"\"\<\>\"", ",", "\"\<\>\"", ",", "\"\<\>\""}], "}"}]}], 
-          ";"}]}], "\n", "  ", "]"}], ";", "\n", "  ", "\n", "  ", 
-       RowBox[{"If", "[", 
-        RowBox[{"doReduce", ",", "\n", "  ", 
-         RowBox[{
-          RowBox[{"reducePath", " ", "=", " ", 
-           RowBox[{"FileNameJoin", "[", 
-            RowBox[{"{", 
-             RowBox[{"rootPath", ",", " ", "\"\<Reduce\>\""}], "}"}], "]"}]}],
-           ";", "\n", "  ", 
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{"os", "==", "\"\<Windows\>\""}], ",", "\n", "  ", 
-            RowBox[{
-             RowBox[{"reduceExePath", " ", "=", " ", 
-              RowBox[{"FileNameJoin", "[", 
-               RowBox[{"{", 
-                RowBox[{"reducePath", ",", " ", "\"\<reduce.exe\>\""}], "}"}],
-                "]"}]}], ";", "\n", "  ", 
-             RowBox[{"reduceDatabasePath", " ", "=", " ", 
-              RowBox[{"FileNameJoin", "[", 
-               RowBox[{"{", 
-                RowBox[{
-                "reducePath", ",", " ", "\"\<reduce_wwPDB_het_dict.txt\>\""}],
-                 "}"}], "]"}]}], ";", "\n", "  ", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"!", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"checkFilePresentQ", "[", 
-                   RowBox[{"reduceExePath", ",", " ", "verbose"}], "]"}], " ",
-                   "&&", " ", 
-                  RowBox[{"checkFilePresentQ", "[", 
-                   RowBox[{"reduceDatabasePath", ",", " ", "verbose"}], 
-                   "]"}]}], ")"}]}], ",", "\n", "  ", 
-               RowBox[{
-                RowBox[{"If", "[", 
-                 RowBox[{
-                  RowBox[{"DirectoryQ", "[", "reducePath", "]"}], ",", 
-                  RowBox[{"DeleteDirectory", "[", 
-                   RowBox[{"reducePath", ",", 
-                    RowBox[{"DeleteContents", "->", "True"}]}], "]"}]}], 
-                 "]"}], ";", "\n", "  ", 
-                RowBox[{"If", "[", 
-                 RowBox[{
-                  RowBox[{"FileExistsQ", "[", "reducePath", "]"}], ",", 
-                  RowBox[{"DeleteFile", "[", "reducePath", "]"}]}], "]"}], 
-                ";", "\n", "  ", 
-                RowBox[{"unpackedArch", " ", "=", " ", 
-                 RowBox[{"loadNew", "[", 
-                  RowBox[{"rootPath", ",", " ", 
-                   RowBox[{"os", "/.", "reduceArchiveLinks"}], ",", " ", 
-                   "verbose"}], "]"}]}], ";", "\n", "  ", 
-                RowBox[{"RenameDirectory", "[", 
-                 RowBox[{
-                  RowBox[{"unpackedArch", "[", 
-                   RowBox[{"[", "1", "]"}], "]"}], ",", " ", "reducePath"}], 
-                 "]"}], ";"}]}], "\n", "  ", "]"}], ";"}], "\n", "  ", ",", 
-            "\n", "  ", 
-            RowBox[{
-             RowBox[{"reduceExePath", " ", "=", " ", 
-              RowBox[{"loadIfAbsent", "[", 
-               RowBox[{"reducePath", ",", 
-                RowBox[{"os", "/.", "reduceArchiveLinks"}], ",", " ", 
-                "verbose"}], "]"}]}], ";", "\n", "  ", 
-             RowBox[{"reduceDatabasePath", " ", "=", " ", 
-              RowBox[{"loadIfAbsent", "[", 
-               RowBox[{
-               "reducePath", ",", 
-                "\"\<http://kinemage.biochem.duke.edu/downloads/software/\
-reduce31/reduce_wwPDB_het_dict.txt.zip\>\"", ",", " ", "verbose"}], "]"}]}], 
-             ";", "\n", "  ", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"!", 
-                RowBox[{"fileIsExecutableQ", "[", "reduceExePath", "]"}]}], 
-               ",", "\n", "  ", 
-               RowBox[{
-                RowBox[{"RunProcess", "[", 
-                 RowBox[{"{", 
-                  RowBox[{
-                  "\"\<chmod\>\"", ",", " ", "\"\<u+x\>\"", ",", " ", 
-                   "reduceExePath"}], "}"}], "]"}], ";"}]}], "]"}], ";"}]}], 
-           "\n", "  ", "]"}], ";"}], "\n", "  ", ",", "\n", "  ", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{"reduceExePath", ",", " ", "reduceDatabasePath"}], "}"}], 
-           " ", "=", " ", 
-           RowBox[{"{", 
-            RowBox[{"\"\<\>\"", ",", "\"\<\>\""}], "}"}]}], ";"}]}], "\n", 
-        "  ", "]"}], ";", "\n", "  ", "\n", "  ", 
-       RowBox[{"paths", " ", "=", " ", 
-        RowBox[{"{", 
-         RowBox[{
-         "msmsExePath", ",", " ", "pdb2xyzrExePath", ",", " ", 
-          "pdb2xyzrDatabasePath", ",", "reduceExePath", ",", " ", 
-          "reduceDatabasePath"}], "}"}]}], ";", "\n", "  ", 
-       RowBox[{"If", "[", 
-        RowBox[{"verbose", ",", 
-         RowBox[{"Print", "[", "paths", "]"}]}], "]"}], ";", "\n", "  ", 
-       "paths"}]}], "\n", "  ", "]"}]}], ";"}], "\[IndentingNewLine]", "\n", 
-  RowBox[{"(*", 
-   RowBox[{"should", " ", "be", " ", "in", " ", 
-    RowBox[{"Initialize", "[", "]"}]}], "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{"  ", 
-  RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", " ", "pdbName"}], "}"}],
+       "]"}], ",", "\"\<String\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"xyzr", " ", "=", " ", 
+   RowBox[{"pdb2xyzr", "[", 
+    RowBox[{"pdb", ",", " ", "radii", ",", " ", "residData", ",", " ", 
+     RowBox[{"\"\<verbose\>\"", "\[Rule]", "False"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"writeAFile", "[", 
    RowBox[{
-   "failStr", "=", 
-    "\"\<The function failed. The failure occured due to absent file `1` \
-\>\""}], ";"}]}], "\n", 
- RowBox[{"  ", 
-  RowBox[{
-   RowBox[{"msmsArchiveLinks", " ", "=", " ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{
-      "\"\<Windows\>\"", "->", " ", 
-       "\"\<http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/\
-REL2.6.1/msms_win32_2.6.1.zip\>\""}], ",", "\n", "  ", 
-      RowBox[{
-      "\"\<Unix\>\"", "->", 
-       "\"\<http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/\
-REL2.6.1/msms_i86_64Linux2_2.6.1.tar.gz\>\""}], ",", "\n", "  ", 
-      RowBox[{
-      "\"\<MacOSX\>\"", "->", 
-       "\"\<http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/\
-REL2.6.1/msms_MacOSX_2.6.1.tar.gz\>\""}]}], "}"}]}], ";"}]}], "\n", 
- RowBox[{"  ", 
-  RowBox[{
-   RowBox[{"msmsExeMask", " ", "=", " ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"\"\<Windows\>\"", "->", "\"\<msms.exe\>\""}], ",", 
-      RowBox[{"\"\<Unix\>\"", "->", "\"\<msms.x86_64Linux*\>\""}], ",", 
-      RowBox[{"\"\<MacOSX\>\"", "->", "\"\<msms.MacOSX.*\>\""}]}], "}"}]}], 
-   ";"}]}], "\n", 
- RowBox[{"  ", 
-  RowBox[{
-   RowBox[{"reduceArchiveLinks", " ", "=", " ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{
-      "\"\<Windows\>\"", "->", 
-       "\"\<http://kinemage.biochem.duke.edu/downloads/software/reduce31/\
-reduce.3.16.111118.winArchive.zip\>\""}], ",", "\n", "  ", 
-      RowBox[{
-      "\"\<Unix\>\"", "->", 
-       "\"\<http://kinemage.biochem.duke.edu/downloads/software/reduce31/\
-reduce.3.23.130521.linuxi386.gz\>\""}], ",", "\n", "  ", 
-      RowBox[{
-      "\"\<MacOSX\>\"", "->", 
-       "\"\<http://kinemage.biochem.duke.edu/downloads/software/reduce31/\
-reduce.3.23.130521.macosx.zip\>\""}]}], "}"}]}], ";"}]}], "\n", 
- RowBox[{"  ", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"Options", "[", "InstallMyPckg", "]"}], " ", "=", " ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"\"\<rootPath\>\"", "->", 
-       RowBox[{"FileNameJoin", "[", 
-        RowBox[{"{", 
-         RowBox[{"$WolframDocumentsDirectory", ",", "\"\<PDBsys\>\""}], "}"}],
-         "]"}]}], ",", 
-      RowBox[{"\"\<doMSMS\>\"", "->", "True"}], ",", 
-      RowBox[{"\"\<doReduce\>\"", "->", "True"}], ",", 
-      RowBox[{"\"\<verbose\>\"", "->", "False"}], ",", 
-      RowBox[{"\"\<forceReinstall\>\"", "->", "False"}], ",", 
-      RowBox[{"\"\<os\>\"", "->", "$OperatingSystem"}]}], "}"}]}], 
-   ";"}]}], "\n", 
- RowBox[{"  ", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"Options", "[", "DrawProteinSAS", "]"}], " ", "=", " ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"\"\<probeR\>\"", "->", 
-       RowBox[{"Quantity", "[", 
-        RowBox[{"1.5", ",", "\"\<Angstroms\>\""}], "]"}]}], ",", " ", 
-      RowBox[{"\"\<radiiType\>\"", "->", "\"\<VanDerWaalsRadius\>\""}]}], 
-     "}"}]}], ";"}], "\n", "  ", 
-  RowBox[{"(*", 
-   RowBox[{
-   "\"\<AtomicRadius\>\"", ",", " ", "\"\<CovalentRadius\>\"", ",", " ", 
-    "\"\<VanDerWaalsRadius\>\""}], "*)"}]}], "\n", 
- RowBox[{"  ", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"Options", "[", "ConstructSESmesh", "]"}], " ", "=", " ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"\"\<triangDensity\>\"", "->", "5.0"}], ",", " ", 
-      RowBox[{"\"\<probeR\>\"", "->", 
-       RowBox[{"Quantity", "[", 
-        RowBox[{"1.5", ",", "\"\<Angstroms\>\""}], "]"}]}], ",", " ", 
-      RowBox[{"\"\<verbose\>\"", "->", "False"}], ",", 
-      RowBox[{"\"\<rootPath\>\"", "->", "$TemporaryDirectory"}]}], "}"}]}], 
-   ";"}], "   "}], "\n", 
- RowBox[{"  ", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{
-     "msmsExePath", ",", " ", "pdb2xyzrExePath", ",", " ", 
-      "pdb2xyzrDatabasePath", ",", "reduceExePath", ",", " ", 
-      "reduceDatabasePath"}], "}"}], " ", "=", " ", 
-    RowBox[{"InstallMyPckg", "[", 
-     RowBox[{
-      RowBox[{"\"\<os\>\"", "\[Rule]", "\"\<MacOSX\>\""}], ",", " ", 
-      RowBox[{"\"\<verbose\>\"", "\[Rule]", "True"}], ",", " ", 
-      RowBox[{"\"\<rootPath\>\"", "\[Rule]", "$WolframDocumentsDirectory"}]}],
-      "]"}]}], ";"}]}], "\n", 
- RowBox[{"  ", 
-  RowBox[{
-   RowBox[{"reduceDefaultArgs", "=", "\n", "  ", 
-    RowBox[{"{", 
-     RowBox[{"\"\<-build\>\"", ",", "\"\<-DB\>\"", ",", 
-      RowBox[{
-      "\"\<\\\"\>\"", "<>", "reduceDatabasePath", "<>", "\"\<\\\"\>\""}]}], 
-     "}"}]}], ";"}]}], "\[IndentingNewLine]"}], "Input",
+    RowBox[{"xyzrPrint", "[", "xyzr", "]"}], ",", "xyzrName"}], "]"}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.803652034398033*^9, 3.803652140700144*^9}, 
    3.803652465602213*^9, {3.8036526084395742`*^9, 3.803652798860474*^9}, {
    3.803652830946212*^9, 3.8036528856250353`*^9}, {3.803652954376079*^9, 
-   3.803652985206932*^9}, {3.8036530591068497`*^9, 3.803653061359878*^9}},
- CellLabel->"In[38]:=",ExpressionUUID->"1fed6bb6-68b8-4382-acc0-4e41835977fd"],
+   3.803652985206932*^9}, {3.8036530591068497`*^9, 3.803653061359878*^9}, {
+   3.803871475565024*^9, 3.803871571143999*^9}, {3.8038716538283033`*^9, 
+   3.803871680032205*^9}, {3.803871722081149*^9, 3.803871726833709*^9}, {
+   3.803871775835943*^9, 3.803871795898964*^9}, {3.803871843480103*^9, 
+   3.803871894282608*^9}, {3.803872007509364*^9, 3.8038720253076963`*^9}, {
+   3.803872860649537*^9, 3.8038728833144073`*^9}, {3.803872927339965*^9, 
+   3.803872936250602*^9}, {3.803872973277775*^9, 3.803873099646432*^9}, {
+   3.803873138050433*^9, 3.803873138542554*^9}, {3.803873268868099*^9, 
+   3.803873290493396*^9}, {3.803873409232547*^9, 3.8038734141850853`*^9}, 
+   3.803873498360914*^9, {3.803873544597904*^9, 3.803873554899119*^9}, {
+   3.8038736458255444`*^9, 3.803873670411787*^9}, {3.80387374061511*^9, 
+   3.803873772828821*^9}, {3.803873814091373*^9, 3.803873878106617*^9}, {
+   3.803874113996992*^9, 3.8038741337036543`*^9}, {3.803874208692729*^9, 
+   3.803874344994459*^9}, {3.803874380408268*^9, 3.803874419719803*^9}, {
+   3.803874464579503*^9, 3.8038744673512907`*^9}, {3.803874507175736*^9, 
+   3.80387454171964*^9}, {3.8038747670670233`*^9, 3.803874787136915*^9}, {
+   3.8038748267255363`*^9, 3.803874836819992*^9}, {3.80387487086335*^9, 
+   3.803874905139936*^9}, {3.803874942328264*^9, 3.803874973713769*^9}, {
+   3.803875077693211*^9, 3.803875102520443*^9}, {3.8038751931356363`*^9, 
+   3.8038752000634823`*^9}, {3.803875306068697*^9, 3.803875308310651*^9}, {
+   3.803875345984561*^9, 3.803875347205411*^9}, {3.803875377621442*^9, 
+   3.803875443597529*^9}, {3.803875473826518*^9, 3.803875496204988*^9}, {
+   3.803875536910904*^9, 3.803875550944544*^9}, {3.80387561337359*^9, 
+   3.803875663272599*^9}, {3.8038757829656*^9, 3.8038757853624573`*^9}, {
+   3.8038758834732113`*^9, 3.803875891360997*^9}, {3.803876339258087*^9, 
+   3.803876478019209*^9}, {3.803876546957384*^9, 3.8038765921682043`*^9}, {
+   3.803876708106476*^9, 3.803876727110396*^9}, {3.803876772201723*^9, 
+   3.8038768399065866`*^9}, {3.8038768903572474`*^9, 
+   3.8038770608498583`*^9}, {3.803877093027861*^9, 3.8038771325694933`*^9}, {
+   3.803877269996043*^9, 3.8038772853643427`*^9}, {3.803877388233691*^9, 
+   3.80387757767708*^9}, {3.80387772005501*^9, 3.8038777886465693`*^9}, {
+   3.803877858339634*^9, 3.803877934869532*^9}, {3.803877968500392*^9, 
+   3.8038780254030237`*^9}, {3.8038781418424797`*^9, 3.803878283298573*^9}, {
+   3.803878781895859*^9, 3.80387886195755*^9}, {3.803878912537985*^9, 
+   3.803878999605323*^9}, 3.80387903407757*^9, {3.803879096314974*^9, 
+   3.803879145509837*^9}, {3.803879177616075*^9, 3.8038792372540417`*^9}, {
+   3.8038793033272963`*^9, 3.803879421675006*^9}, {3.803879543576333*^9, 
+   3.803879562076112*^9}, {3.803879594013475*^9, 3.803879621479107*^9}, {
+   3.803879772070303*^9, 3.803879837339231*^9}, {3.803879872000394*^9, 
+   3.8038799441503277`*^9}, {3.803880033085651*^9, 3.803880077779904*^9}, {
+   3.803883295408461*^9, 3.8038833139350433`*^9}, {3.803883351072999*^9, 
+   3.803883400655807*^9}, {3.8038834473039017`*^9, 3.803883455473466*^9}, {
+   3.803883496418886*^9, 3.803883758838066*^9}, {3.8038837905086184`*^9, 
+   3.803883794963661*^9}, {3.803883856221567*^9, 3.8038839744174356`*^9}, {
+   3.803884026042338*^9, 3.8038841355856123`*^9}, {3.803884192051937*^9, 
+   3.803884398361864*^9}, {3.803884693004429*^9, 3.803884695513897*^9}, {
+   3.8038848929666243`*^9, 3.8038849644567127`*^9}, {3.8038850058487587`*^9, 
+   3.803885149935165*^9}, {3.80388518649127*^9, 3.803885193411421*^9}, {
+   3.803885254465222*^9, 3.803885256431754*^9}, {3.803885292349413*^9, 
+   3.803885293288451*^9}, {3.8038853927985888`*^9, 3.803885447371018*^9}, {
+   3.8038854871960783`*^9, 3.803885520975966*^9}, {3.80388555437354*^9, 
+   3.803885584382399*^9}, {3.8038856339197283`*^9, 3.80388565809196*^9}, {
+   3.803885713042445*^9, 3.803885714429097*^9}, {3.803885753397573*^9, 
+   3.803885754341342*^9}, {3.8038858128524427`*^9, 3.803885812975833*^9}, {
+   3.8038859507246227`*^9, 3.803885977680703*^9}, {3.803886009233335*^9, 
+   3.8038860310378227`*^9}, {3.8038860931727133`*^9, 3.803886097207694*^9}, {
+   3.8038861324658003`*^9, 3.803886153322042*^9}, {3.8038861949483223`*^9, 
+   3.803886212074284*^9}, {3.803886346156809*^9, 3.80388634853575*^9}, {
+   3.8038864734346657`*^9, 3.8038864786061687`*^9}, {3.803886565395156*^9, 
+   3.8038865903022947`*^9}, {3.803886652946973*^9, 3.80388687438617*^9}, {
+   3.803886910481883*^9, 3.803887028569562*^9}, {3.8038870704384212`*^9, 
+   3.80388712610592*^9}, {3.803887184544557*^9, 3.8038872582036247`*^9}, {
+   3.803887301773487*^9, 3.8038873069598083`*^9}, {3.803887369293532*^9, 
+   3.803887374052352*^9}, {3.803887419907268*^9, 3.80388760966905*^9}, {
+   3.8038876580614767`*^9, 3.803887730091241*^9}, {3.803887794553628*^9, 
+   3.8038878068176928`*^9}, {3.8038878776401043`*^9, 3.803888030863558*^9}, {
+   3.8038881446315107`*^9, 3.803888156586362*^9}, {3.803888203388833*^9, 
+   3.803888234557234*^9}, {3.803888271816476*^9, 3.803888283770137*^9}, {
+   3.803888386514564*^9, 3.803888474945532*^9}, {3.803888854058774*^9, 
+   3.8038888627234907`*^9}, {3.803888965028924*^9, 3.803888977986946*^9}, {
+   3.803889048129278*^9, 3.803889060557168*^9}, {3.803889169924904*^9, 
+   3.8038892263526373`*^9}, {3.803889256923068*^9, 3.803889285354164*^9}, {
+   3.803889323121077*^9, 3.8038893268541813`*^9}, {3.8038893974170427`*^9, 
+   3.803889539002256*^9}, {3.8038895801780663`*^9, 3.80388958599061*^9}, {
+   3.80388961937399*^9, 3.803889645656939*^9}, {3.8038897237981*^9, 
+   3.803889731924107*^9}, {3.803889800307033*^9, 3.8038898056383142`*^9}, {
+   3.803889932807529*^9, 3.8038899484837418`*^9}, {3.803890061766244*^9, 
+   3.8038900731892014`*^9}, {3.803890106830021*^9, 3.803890141693369*^9}, {
+   3.803890217846229*^9, 3.803890236113315*^9}, {3.803890311914517*^9, 
+   3.8038903259461527`*^9}, {3.803890361003474*^9, 3.803890374079208*^9}, {
+   3.803890412529056*^9, 3.8038904318506937`*^9}, {3.8038904926493673`*^9, 
+   3.8038907186310263`*^9}, {3.803890748935647*^9, 3.803890770828904*^9}},
+ CellLabel->
+  "In[147]:=",ExpressionUUID->"1fed6bb6-68b8-4382-acc0-4e41835977fd"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"searching for '\"\>", 
-   "\[InvisibleSpace]", \
-"\<\"/home/ypolyach/Documents/Wolfram/MSMS/\
-ygtcyxumgdcswnqztlzwjpvosuqftkxttoqhbyfsgwkbwlfkwe\"\>", 
-   "\[InvisibleSpace]", "\<\"' ... \"\>", "\[InvisibleSpace]", 
-   StyleBox["\<\"NOT\"\>",
-    StripOnInput->False,
-    LineColor->RGBColor[1, 0, 0],
-    FrontFaceColor->RGBColor[1, 0, 0],
-    BackFaceColor->RGBColor[1, 0, 0],
-    GraphicsColor->RGBColor[1, 0, 0],
-    FontColor->RGBColor[1, 0, 0]], "\[InvisibleSpace]", "\<\" found\"\>"}],
-  SequenceForm[
-  "searching for '", 
-   "/home/ypolyach/Documents/Wolfram/MSMS/\
-ygtcyxumgdcswnqztlzwjpvosuqftkxttoqhbyfsgwkbwlfkwe", "' ... ", 
-   Style["NOT", 
-    RGBColor[1, 0, 0]], " found"],
-  Editable->False]], "Print",
- CellChangeTimes->{3.803652199148786*^9, 3.803653002645474*^9, 
-  3.803653087719103*^9},
+ RowBox[{"InputForm", "[", 
+  RowBox[{"StringDelete", "[", 
+   StyleBox[
+    RowBox[{"\"\< N  \>\"", ",", "\"\< \>\""}],
+    ShowStringCharacters->True,
+    NumberMarks->True], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.803887156845909*^9, 3.8038871785406237`*^9}, {
+  3.803890287406785*^9, 3.803890299258068*^9}},
  CellLabel->
-  "During evaluation of \
-In[38]:=",ExpressionUUID->"8b44db5d-3281-482e-8beb-d49b828aa2cf"],
+  "In[112]:=",ExpressionUUID->"788dd21f-6e90-4a73-a9bb-bb5579bf460a"],
 
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"loading from '\"\>", 
-   "\[InvisibleSpace]", \
-"\<\"http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/REL2.6.1/\
-msms_MacOSX_2.6.1.tar.gz\"\>", "\[InvisibleSpace]", "\<\"'\"\>"}],
-  SequenceForm[
-  "loading from '", 
-   "http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/REL2.6.1/\
-msms_MacOSX_2.6.1.tar.gz", "'"],
-  Editable->False]], "Print",
- CellChangeTimes->{3.803652199148786*^9, 3.803653002645474*^9, 
-  3.803653087721264*^9},
+Cell["\"N\"", "Output",
+ CellChangeTimes->{{3.803887174845817*^9, 3.803887178915197*^9}, {
+  3.803890293531238*^9, 3.803890299464581*^9}},
  CellLabel->
-  "During evaluation of \
-In[38]:=",ExpressionUUID->"5fe91d7f-10ce-4a3f-9361-3acd6105fabe"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   RowBox[{"File", "[", 
-    TemplateBox[{
-     "\"/home/ypolyach/Documents/Wolfram/MSMS/msms_MacOSX_2.6.1.tar.gz\""},
-     "FileArgument"], "]"}], "\[InvisibleSpace]", "\<\" loaded\"\>"}],
-  SequenceForm[
-   File["/home/ypolyach/Documents/Wolfram/MSMS/msms_MacOSX_2.6.1.tar.gz"], 
-   " loaded"],
-  Editable->False]], "Print",
- CellChangeTimes->{3.803652199148786*^9, 3.803653002645474*^9, 
-  3.803653090938356*^9},
- CellLabel->
-  "During evaluation of \
-In[38]:=",ExpressionUUID->"0e1b3d49-fc68-426f-8f62-adbdb4663fe4"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"unpacked: '\"\>", "\[InvisibleSpace]", 
-   RowBox[{"{", 
-    RowBox[{"\<\"/home/ypolyach/Documents/Wolfram/MSMS/1crn.pdb\"\>", 
-     ",", "\<\"/home/ypolyach/Documents/Wolfram/MSMS/1crn.xyzr\"\>", 
-     ",", "\<\"/home/ypolyach/Documents/Wolfram/MSMS/1crn.xyzrn\"\>", 
-     ",", "\<\"/home/ypolyach/Documents/Wolfram/MSMS/atmtypenumbers\"\>", 
-     ",", "\<\"/home/ypolyach/Documents/Wolfram/MSMS/msms.1\"\>", 
-     ",", "\<\"/home/ypolyach/Documents/Wolfram/MSMS/msms.html\"\>", 
-     ",", "\<\"/home/ypolyach/Documents/Wolfram/MSMS/msms.MacOSX.2.6.1\"\>", 
-     ",", "\<\"/home/ypolyach/Documents/Wolfram/MSMS/pdb_to_xyzr\"\>", 
-     ",", "\<\"/home/ypolyach/Documents/Wolfram/MSMS/pdb_to_xyzrn\"\>", 
-     ",", "\<\"/home/ypolyach/Documents/Wolfram/MSMS/README\"\>", 
-     ",", "\<\"/home/ypolyach/Documents/Wolfram/MSMS/ReleaseNotes\"\>"}], 
-    "}"}], "\[InvisibleSpace]", "\<\"'\"\>"}],
-  SequenceForm[
-  "unpacked: '", {
-   "/home/ypolyach/Documents/Wolfram/MSMS/1crn.pdb", 
-    "/home/ypolyach/Documents/Wolfram/MSMS/1crn.xyzr", 
-    "/home/ypolyach/Documents/Wolfram/MSMS/1crn.xyzrn", 
-    "/home/ypolyach/Documents/Wolfram/MSMS/atmtypenumbers", 
-    "/home/ypolyach/Documents/Wolfram/MSMS/msms.1", 
-    "/home/ypolyach/Documents/Wolfram/MSMS/msms.html", 
-    "/home/ypolyach/Documents/Wolfram/MSMS/msms.MacOSX.2.6.1", 
-    "/home/ypolyach/Documents/Wolfram/MSMS/pdb_to_xyzr", 
-    "/home/ypolyach/Documents/Wolfram/MSMS/pdb_to_xyzrn", 
-    "/home/ypolyach/Documents/Wolfram/MSMS/README", 
-    "/home/ypolyach/Documents/Wolfram/MSMS/ReleaseNotes"}, "'"],
-  Editable->False]], "Print",
- CellChangeTimes->{3.803652199148786*^9, 3.803653002645474*^9, 
-  3.803653090949666*^9},
- CellLabel->
-  "During evaluation of \
-In[38]:=",ExpressionUUID->"8b080069-f39d-4bb2-9f7d-94c8097b1029"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"searching for '\"\>", 
-   "\[InvisibleSpace]", \
-"\<\"/home/ypolyach/Documents/Wolfram/Reduce/reduce.3.23.130521.macosx\"\>", 
-   "\[InvisibleSpace]", "\<\"' ... \"\>", "\[InvisibleSpace]", "\<\"\"\>", 
-   "\[InvisibleSpace]", "\<\" found\"\>"}],
-  SequenceForm[
-  "searching for '", 
-   "/home/ypolyach/Documents/Wolfram/Reduce/reduce.3.23.130521.macosx", 
-   "' ... ", "", " found"],
-  Editable->False]], "Print",
- CellChangeTimes->{3.803652199148786*^9, 3.803653002645474*^9, 
-  3.8036530909791937`*^9},
- CellLabel->
-  "During evaluation of \
-In[38]:=",ExpressionUUID->"851b5faf-1ae3-4883-b770-0320ddf9c0ea"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"searching for '\"\>", 
-   "\[InvisibleSpace]", \
-"\<\"/home/ypolyach/Documents/Wolfram/Reduce/reduce_wwPDB_het_dict.txt\"\>", 
-   "\[InvisibleSpace]", "\<\"' ... \"\>", "\[InvisibleSpace]", "\<\"\"\>", 
-   "\[InvisibleSpace]", "\<\" found\"\>"}],
-  SequenceForm[
-  "searching for '", 
-   "/home/ypolyach/Documents/Wolfram/Reduce/reduce_wwPDB_het_dict.txt", 
-   "' ... ", "", " found"],
-  Editable->False]], "Print",
- CellChangeTimes->{3.803652199148786*^9, 3.803653002645474*^9, 
-  3.803653090980349*^9},
- CellLabel->
-  "During evaluation of \
-In[38]:=",ExpressionUUID->"44047234-7d1d-4bc7-8346-edb6b2086d80"],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"\<\"/home/ypolyach/Documents/Wolfram/MSMS/msms.MacOSX.2.6.1\"\>", 
-   ",", "\<\"/home/ypolyach/Documents/Wolfram/MSMS/pdb_to_xyzr\"\>", 
-   ",", "\<\"/home/ypolyach/Documents/Wolfram/MSMS/atmtypenumbers\"\>", 
-   ",", "\<\"/home/ypolyach/Documents/Wolfram/Reduce/reduce.3.23.130521.\
-macosx\"\>", 
-   ",", "\<\"/home/ypolyach/Documents/Wolfram/Reduce/reduce_wwPDB_het_dict.\
-txt\"\>"}], "}"}]], "Print",
- CellChangeTimes->{3.803652199148786*^9, 3.803653002645474*^9, 
-  3.803653090990426*^9},
- CellLabel->
-  "During evaluation of \
-In[38]:=",ExpressionUUID->"9e2d9cdb-4646-45c2-8acd-74e230702840"]
-}, Open  ]]
+  "Out[112]//InputForm=",ExpressionUUID->"8d647da5-53c4-4ea5-8a9e-\
+5a8b445fd77f"]
 }, Open  ]]
 },
-WindowSize->{789.75, 605.25},
-WindowMargins->{{Automatic, 0}, {Automatic, 38.25}},
+WindowSize->{914.25, 692.25},
+WindowMargins->{{Automatic, 3.75}, {9, Automatic}},
 FrontEndVersion->"12.1 for Linux x86 (64-bit) (March 20, 2020)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"897471e2-cb43-44b7-84d8-60504b27dc89"
@@ -778,17 +655,10 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[561, 20, 28040, 596, 2473, "Input",ExpressionUUID->"1fed6bb6-68b8-4382-acc0-4e41835977fd"],
 Cell[CellGroupData[{
-Cell[583, 22, 23866, 587, 3639, "Input",ExpressionUUID->"1fed6bb6-68b8-4382-acc0-4e41835977fd"],
-Cell[CellGroupData[{
-Cell[24474, 613, 963, 25, 64, "Print",ExpressionUUID->"8b44db5d-3281-482e-8beb-d49b828aa2cf"],
-Cell[25440, 640, 616, 15, 64, "Print",ExpressionUUID->"5fe91d7f-10ce-4a3f-9361-3acd6105fabe"],
-Cell[26059, 657, 565, 15, 31, "Print",ExpressionUUID->"0e1b3d49-fc68-426f-8f62-adbdb4663fe4"],
-Cell[26627, 674, 1836, 34, 221, "Print",ExpressionUUID->"8b080069-f39d-4bb2-9f7d-94c8097b1029"],
-Cell[28466, 710, 660, 16, 23, "Print",ExpressionUUID->"851b5faf-1ae3-4883-b770-0320ddf9c0ea"],
-Cell[29129, 728, 658, 16, 23, "Print",ExpressionUUID->"44047234-7d1d-4bc7-8346-edb6b2086d80"],
-Cell[29790, 746, 637, 13, 103, "Print",ExpressionUUID->"9e2d9cdb-4646-45c2-8acd-74e230702840"]
-}, Open  ]]
+Cell[28626, 620, 414, 10, 29, "Input",ExpressionUUID->"788dd21f-6e90-4a73-a9bb-bb5579bf460a"],
+Cell[29043, 632, 234, 5, 48, "Output",ExpressionUUID->"8d647da5-53c4-4ea5-8a9e-5a8b445fd77f"]
 }, Open  ]]
 }
 ]
