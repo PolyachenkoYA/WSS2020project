@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    204174,       3736]
-NotebookOptionsPosition[    202799,       3706]
-NotebookOutlinePosition[    203245,       3723]
-CellTagsIndexPosition[    203202,       3720]
+NotebookDataLength[    204201,       3732]
+NotebookOptionsPosition[    202846,       3702]
+NotebookOutlinePosition[    203272,       3719]
+CellTagsIndexPosition[    203229,       3716]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -40,27 +40,13 @@ Cell[BoxData[{
 ConstructPDBsurfaces.wl\>\"", "]"}], "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"pdbName", " ", "=", " ", "\"\<1tf6\>\""}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"pdbName", " ", "=", " ", "\"\<1aki\>\""}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
   RowBox[{
-   RowBox[{"toProtonate", " ", "=", " ", "True"}], ";"}], 
+   RowBox[{"pdbName", " ", "=", " ", "\"\<1aki\>\""}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"pdb", " ", "=", " ", 
-   RowBox[{"DownloadPDB", "[", "pdbName", "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"If", "[", 
-   RowBox[{"toProtonate", ",", " ", 
-    RowBox[{"pdb", " ", "=", " ", 
-     RowBox[{"ProtonatePDB", "[", "pdb", "]"}]}]}], "]"}], 
-  ";"}], "\[IndentingNewLine]", 
  RowBox[{"DrawProteinSAS", "[", 
-  RowBox[{"pdb", ",", " ", 
+  RowBox[{
+   RowBox[{"ProtonatePDB", "[", 
+    RowBox[{"DownloadPDB", "[", "pdbName", "]"}], "]"}], ",", " ", 
    RowBox[{"\"\<probeR\>\"", "\[Rule]", "1.3"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.802865458098439*^9, 3.80286546064642*^9}, {
    3.802865493535953*^9, 3.802865509527236*^9}, {3.80286554009973*^9, 
@@ -194,8 +180,10 @@ ConstructPDBsurfaces.wl\>\"", "]"}], "]"}], ";"}],
    3.803805629744012*^9}, {3.803805661032733*^9, 3.8038057042303677`*^9}, {
    3.803806076199703*^9, 3.803806111919915*^9}, 3.803806162931539*^9, 
    3.803808159418571*^9, 3.803808667720581*^9, {3.803815380457794*^9, 
-   3.8038154152171087`*^9}, {3.803815508948547*^9, 3.803815524278455*^9}},
- CellLabel->"In[17]:=",ExpressionUUID->"5787533f-4598-4dd2-8b1f-1edb8c66723d"],
+   3.8038154152171087`*^9}, {3.803815508948547*^9, 3.803815524278455*^9}, {
+   3.8039034037161694`*^9, 
+   3.803903435170094*^9}},ExpressionUUID->"5787533f-4598-4dd2-8b1f-\
+1edb8c66723d"],
 
 Cell[CellGroupData[{
 
@@ -204,10 +192,10 @@ Cell[BoxData[
   RowBox[{"\<\"radii type: \"\>", "\[InvisibleSpace]", "\<\"VanDerWaals\"\>"}],
   SequenceForm["radii type: ", "VanDerWaals"],
   Editable->False]], "Print",
- CellChangeTimes->{3.803815533560831*^9},
+ CellChangeTimes->{3.803815533560831*^9, 3.8039030538860693`*^9},
  CellLabel->
   "During evaluation of \
-In[17]:=",ExpressionUUID->"bc3943eb-868b-4ebe-a528-e0c5cda52e64"],
+In[1]:=",ExpressionUUID->"11836bb7-67cc-40f8-955e-489f4be054a0"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -219,10 +207,10 @@ Cell[BoxData[
   SequenceForm["probe radius = ", 
    Quantity[1.3, "Angstroms"]],
   Editable->False]], "Print",
- CellChangeTimes->{3.803815533575281*^9},
+ CellChangeTimes->{3.803815533560831*^9, 3.803903053918895*^9},
  CellLabel->
   "During evaluation of \
-In[17]:=",ExpressionUUID->"d4c5624c-393b-4f02-858e-d3431cc92ae9"],
+In[1]:=",ExpressionUUID->"cff235f9-98fa-4713-933e-b44a050669dd"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -252,10 +240,10 @@ Cell[BoxData[
      "1.8`3.", "\"\[CapitalARing]\"", "\[ARing]ngstr\[ODoubleDot]ms", 
       "\"Angstroms\""},
      "Quantity"]}]}], "}"}]], "Print",
- CellChangeTimes->{3.803815533578703*^9},
+ CellChangeTimes->{3.803815533560831*^9, 3.803903053921651*^9},
  CellLabel->
   "During evaluation of \
-In[17]:=",ExpressionUUID->"0cf637f3-8e0f-4682-8748-faf7753ec6bc"],
+In[1]:=",ExpressionUUID->"3df309e5-dd40-4467-a9d8-0e9814579d9e"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -496,10 +484,10 @@ Cell[BoxData[
      RGBColor[0.90443, 0.97015, 0.13504],
      Editable->False,
      Selectable->False]}]}], "}"}]], "Print",
- CellChangeTimes->{3.803815533581819*^9},
+ CellChangeTimes->{3.803815533560831*^9, 3.803903053925002*^9},
  CellLabel->
   "During evaluation of \
-In[17]:=",ExpressionUUID->"dd9fb9a9-9500-4bf0-b618-cd8e15d50faf"]
+In[1]:=",ExpressionUUID->"fca2d45d-4d34-40e0-b890-7f1ccd6844f7"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -3611,8 +3599,9 @@ Cell[BoxData[
    3.8038029599299097`*^9, {3.803805600711462*^9, 3.803805623877871*^9}, {
    3.803805693861209*^9, 3.803805707066082*^9}, {3.803806094622999*^9, 
    3.8038061197032967`*^9}, 3.803807436377293*^9, 3.803808172900651*^9, 
-   3.803815385370784*^9, 3.803815417782854*^9, 3.8038155338924637`*^9},
- CellLabel->"Out[24]=",ExpressionUUID->"c9ec72bc-1938-4f2a-b1a3-ee085128149d"]
+   3.803815385370784*^9, 3.803815417782854*^9, 3.8038155338924637`*^9, 
+   3.803903054255542*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"e52e3a7c-5e71-4e38-b3b5-fc5105df287d"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -3670,22 +3659,29 @@ Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"filename", " ", "=", " ", "\"\<ConstructPDBsurfaces.wl\>\""}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{"CopyFile", "[", 
   RowBox[{
-   RowBox[{"FileNameJoin", "[", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"NotebookDirectory", "[", "]"}], ",", "filename"}], "}"}], 
-    "]"}], ",", 
-   RowBox[{"CloudObject", "[", 
-    RowBox[{"filename", ",", 
-     RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], "]"}]}], 
-  "]"}]}], "Input",
+   RowBox[{"publishToCloud", "[", "filename", "]"}], ":=", 
+   RowBox[{"CopyFile", "[", 
+    RowBox[{
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "filename"}], "}"}], 
+      "]"}], ",", 
+     RowBox[{"CloudObject", "[", 
+      RowBox[{
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Published\>\"", ",", "filename"}], "}"}], "]"}], ",", 
+       RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], "]"}], ",", 
+     RowBox[{"OverwriteTarget", "\[Rule]", "True"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"publishToCloud", "[", "\"\<ConstructPDBsurfaces.wl\>\"", "]"}], 
+  ";"}]}], "Input",
  CellChangeTimes->{{3.803805946460539*^9, 3.803806042163528*^9}, {
-  3.803810430300145*^9, 
-  3.803810440223721*^9}},ExpressionUUID->"bec98970-e292-455e-aaf7-\
+   3.803810430300145*^9, 3.803810440223721*^9}, 3.803903192905859*^9, 
+   3.803903285433202*^9},ExpressionUUID->"bec98970-e292-455e-aaf7-\
 78c0e8219b8d"],
 
 Cell[BoxData[
@@ -3704,10 +3700,10 @@ wl"},
  CellLabel->"Out[18]=",ExpressionUUID->"dd961dd7-a879-43ac-8316-18a2e8d8e03f"]
 }, Open  ]]
 },
-WindowSize->{856.8, 618.},
-WindowMargins->{{Automatic, 50.40000000000009}, {Automatic, 0}},
+WindowSize->{856.5, 618.},
+WindowMargins->{{Automatic, 51}, {Automatic, 67.5}},
 Magnification:>0.8 Inherited,
-FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (March 20, 2020)",
+FrontEndVersion->"12.1 for Linux x86 (64-bit) (March 20, 2020)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"2516e1c3-8d5b-43c8-996d-5bb7e5fec405"
 ]
@@ -3723,20 +3719,20 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 11214, 175, 189, "Input",ExpressionUUID->"5787533f-4598-4dd2-8b1f-1edb8c66723d"],
+Cell[580, 22, 10815, 163, 135, "Input",ExpressionUUID->"5787533f-4598-4dd2-8b1f-1edb8c66723d"],
 Cell[CellGroupData[{
-Cell[11819, 201, 337, 8, 18, "Print",ExpressionUUID->"bc3943eb-868b-4ebe-a528-e0c5cda52e64"],
-Cell[12159, 211, 463, 13, 24, "Print",ExpressionUUID->"d4c5624c-393b-4f02-858e-d3431cc92ae9"],
-Cell[12625, 226, 1076, 31, 26, "Print",ExpressionUUID->"0cf637f3-8e0f-4682-8748-faf7753ec6bc"],
-Cell[13704, 259, 9190, 242, 18, "Print",ExpressionUUID->"dd9fb9a9-9500-4bf0-b618-cd8e15d50faf"]
+Cell[11420, 189, 360, 8, 18, "Print",ExpressionUUID->"11836bb7-67cc-40f8-955e-489f4be054a0"],
+Cell[11783, 199, 484, 13, 23, "Print",ExpressionUUID->"cff235f9-98fa-4713-933e-b44a050669dd"],
+Cell[12270, 214, 1097, 31, 25, "Print",ExpressionUUID->"3df309e5-dd40-4467-a9d8-0e9814579d9e"],
+Cell[13370, 247, 9211, 242, 18, "Print",ExpressionUUID->"fca2d45d-4d34-40e0-b890-7f1ccd6844f7"]
 }, Open  ]],
-Cell[22909, 504, 176713, 3110, 305, "Output",ExpressionUUID->"c9ec72bc-1938-4f2a-b1a3-ee085128149d"]
+Cell[22596, 492, 176738, 3111, 305, "Output",ExpressionUUID->"e52e3a7c-5e71-4e38-b3b5-fc5105df287d"]
 }, Open  ]],
-Cell[199637, 3617, 1014, 26, 101, "Input",ExpressionUUID->"03e88ee7-2dc3-4cb2-be4e-56d24731f5cc"],
-Cell[200654, 3645, 915, 21, 83, "Input",ExpressionUUID->"619074fe-828a-4716-9fce-73e12738b2ae"],
+Cell[199349, 3606, 1014, 26, 103, "Input",ExpressionUUID->"03e88ee7-2dc3-4cb2-be4e-56d24731f5cc"],
+Cell[200366, 3634, 915, 21, 87, "Input",ExpressionUUID->"619074fe-828a-4716-9fce-73e12738b2ae"],
 Cell[CellGroupData[{
-Cell[201594, 3670, 654, 18, 38, "Input",ExpressionUUID->"bec98970-e292-455e-aaf7-78c0e8219b8d"],
-Cell[202251, 3690, 532, 13, 29, "Output",ExpressionUUID->"dd961dd7-a879-43ac-8316-18a2e8d8e03f"]
+Cell[201306, 3659, 989, 25, 56, "Input",ExpressionUUID->"bec98970-e292-455e-aaf7-78c0e8219b8d"],
+Cell[202298, 3686, 532, 13, 29, "Output",ExpressionUUID->"dd961dd7-a879-43ac-8316-18a2e8d8e03f"]
 }, Open  ]]
 }
 ]

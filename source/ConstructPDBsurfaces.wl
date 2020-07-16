@@ -11,6 +11,8 @@ BeginPackage["ProteinSurfaces`"];
   
   Begin["`Private`"];
   
+  publishToCloud[filename]:=CopyFile[FileNameJoin[{NotebookDirectory[],filename}],CloudObject[FileNameJoin[{"Published",filename}],Permissions->"Public"],OverwriteTarget->True];
+  
   checkFilePresentQ[filepath_, verbose_:False]:=Module[{found = FileExistsQ[filepath]},
   If[verbose,Print["searching for '", filepath, "' ... ",If[!found,Style["NOT",Red],""], " found"]];
   found];
