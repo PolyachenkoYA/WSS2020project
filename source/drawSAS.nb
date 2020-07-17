@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    200274,       3702]
-NotebookOptionsPosition[    199235,       3677]
-NotebookOutlinePosition[    199662,       3694]
-CellTagsIndexPosition[    199619,       3691]
+NotebookDataLength[    203741,       3790]
+NotebookOptionsPosition[    202286,       3759]
+NotebookOutlinePosition[    202713,       3776]
+CellTagsIndexPosition[    202670,       3773]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -191,7 +191,58 @@ ConstructPDBsurfaces.wl\>\"", "]"}], "]"}], ";"}], "*)"}],
    3.803957921331555*^9}, {3.80398937656433*^9, 3.803989400555601*^9}, {
    3.803989475419342*^9, 3.803989499631665*^9}, {3.803989573453895*^9, 
    3.803989587839305*^9}},
- CellLabel->"In[39]:=",ExpressionUUID->"5787533f-4598-4dd2-8b1f-1edb8c66723d"],
+ CellLabel->"In[51]:=",ExpressionUUID->"5787533f-4598-4dd2-8b1f-1edb8c66723d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"searching for '\"\>", 
+   "\[InvisibleSpace]", \
+"\<\"/home/ypolyach/Documents/Wolfram/PDBsys/Reduce/reduce.3.23.130521.\
+linuxi386\"\>", "\[InvisibleSpace]", "\<\"' \[Ellipsis] \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>", "\[InvisibleSpace]", "\<\" found\"\>"}],
+  SequenceForm[
+  "searching for '", 
+   "/home/ypolyach/Documents/Wolfram/PDBsys/Reduce/reduce.3.23.130521.\
+linuxi386", "' \[Ellipsis] ", "", " found"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.8039919939390907`*^9, {3.8039967700448017`*^9, 3.803996785712164*^9}},
+ CellLabel->
+  "During evaluation of \
+In[51]:=",ExpressionUUID->"e0501f6e-b542-453c-b24a-07f7a1ebb859"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"searching for '\"\>", 
+   "\[InvisibleSpace]", \
+"\<\"/home/ypolyach/Documents/Wolfram/PDBsys/Reduce/reduce_wwPDB_het_dict.txt\
+\"\>", "\[InvisibleSpace]", "\<\"' \[Ellipsis] \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>", "\[InvisibleSpace]", "\<\" found\"\>"}],
+  SequenceForm[
+  "searching for '", 
+   "/home/ypolyach/Documents/Wolfram/PDBsys/Reduce/reduce_wwPDB_het_dict.txt",
+    "' \[Ellipsis] ", "", " found"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.8039919939390907`*^9, {3.8039967700448017`*^9, 3.803996785713821*^9}},
+ CellLabel->
+  "During evaluation of \
+In[51]:=",ExpressionUUID->"54f7b701-136a-4ecb-b1de-989cb326b771"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"\"\>", ",", "\<\"\"\>", ",", "\<\"\"\>", 
+   ",", "\<\"/home/ypolyach/Documents/Wolfram/PDBsys/Reduce/reduce.3.23.\
+130521.linuxi386\"\>", 
+   ",", "\<\"/home/ypolyach/Documents/Wolfram/PDBsys/Reduce/reduce_wwPDB_het_\
+dict.txt\"\>"}], "}"}]], "Print",
+ CellChangeTimes->{
+  3.8039919939390907`*^9, {3.8039967700448017`*^9, 3.803996785715193*^9}},
+ CellLabel->
+  "During evaluation of \
+In[51]:=",ExpressionUUID->"626fc854-165b-4802-9e2e-53870c6382b3"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -489,10 +540,12 @@ Cell[BoxData[
     "H" -> RGBColor[0.65, 0.7, 0.7], "S" -> 
     RGBColor[0.90443, 0.97015, 0.13504]}],
   Editable->False]], "Print",
- CellChangeTimes->{3.8039919939390907`*^9},
+ CellChangeTimes->{
+  3.8039919939390907`*^9, {3.8039967700448017`*^9, 3.8039967873032017`*^9}},
  CellLabel->
   "During evaluation of \
-In[39]:=",ExpressionUUID->"c15f9db5-4fca-4d26-a6c1-03ea4a2a2554"],
+In[51]:=",ExpressionUUID->"e63f86a7-67f7-4b62-aa85-781e5a945b4a"]
+}, Open  ]],
 
 Cell[BoxData[
  Graphics3DBox[{
@@ -3573,9 +3626,10 @@ Cell[BoxData[
    {RGBColor[0.800498, 0.201504, 0.192061], 
     SphereBox[{43.755, 23.843000000000004`, 8.038}, 2.02]}},
   Boxed->False]], "Output",
- CellChangeTimes->{3.80398957568183*^9, 3.80398961197687*^9, 
-  3.803990077930512*^9, 3.803991994280352*^9},
- CellLabel->"Out[44]=",ExpressionUUID->"5770ba17-d36a-4e86-959e-d94174c387d9"]
+ CellChangeTimes->{
+  3.80398957568183*^9, 3.80398961197687*^9, 3.803990077930512*^9, 
+   3.803991994280352*^9, {3.803996770366379*^9, 3.803996787667574*^9}},
+ CellLabel->"Out[56]=",ExpressionUUID->"63d55fe2-a361-49e9-9733-1504e5024447"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -3673,7 +3727,35 @@ wl"},
   SelectWithContents->True]], "Output",
  CellChangeTimes->{3.803806055828019*^9},
  CellLabel->"Out[18]=",ExpressionUUID->"dd961dd7-a879-43ac-8316-18a2e8d8e03f"]
-}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pdbFile", " ", "=", " ", "\"\<1ppt.pdb\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pdbLocal", " ", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{"pdbFile", ",", "\"\<String\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Timing", "[", 
+  RowBox[{"ImportString", "[", 
+   RowBox[{"pdbLocal", ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"\"\<PDB\>\"", ",", " ", "\"\<PDBID\>\""}], "}"}]}], "]"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Timing", "[", 
+  RowBox[{"Import", "[", 
+   RowBox[{"pdbFile", ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"\"\<PDB\>\"", ",", " ", "\"\<PDBID\>\""}], "}"}]}], "]"}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.8039936200103683`*^9, 3.803993775939624*^9}, {
+   3.80399383406386*^9, 3.803993899680594*^9}, {3.803995044641264*^9, 
+   3.8039950534024477`*^9}, 3.803995151357607*^9, 3.803995202912155*^9, {
+   3.803995241863415*^9, 
+   3.803995258696165*^9}},ExpressionUUID->"698ffa90-4e3c-4d89-9507-\
+0f3eebeb6f57"]
 },
 WindowSize->{856.5, 618.},
 WindowMargins->{{Automatic, 51}, {36.75, Automatic}},
@@ -3695,15 +3777,21 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 11217, 171, 167, "Input",ExpressionUUID->"5787533f-4598-4dd2-8b1f-1edb8c66723d"],
-Cell[11800, 195, 11749, 299, 74, "Print",ExpressionUUID->"c15f9db5-4fca-4d26-a6c1-03ea4a2a2554"],
-Cell[23552, 496, 172151, 3081, 308, "Output",ExpressionUUID->"5770ba17-d36a-4e86-959e-d94174c387d9"]
-}, Open  ]],
-Cell[195718, 3580, 1014, 26, 103, "Input",ExpressionUUID->"03e88ee7-2dc3-4cb2-be4e-56d24731f5cc"],
-Cell[196735, 3608, 935, 22, 87, "Input",ExpressionUUID->"619074fe-828a-4716-9fce-73e12738b2ae"],
 Cell[CellGroupData[{
-Cell[197695, 3634, 989, 25, 56, "Input",ExpressionUUID->"bec98970-e292-455e-aaf7-78c0e8219b8d"],
-Cell[198687, 3661, 532, 13, 29, "Output",ExpressionUUID->"dd961dd7-a879-43ac-8316-18a2e8d8e03f"]
-}, Open  ]]
+Cell[11822, 197, 696, 16, 18, "Print",ExpressionUUID->"e0501f6e-b542-453c-b24a-07f7a1ebb859"],
+Cell[12521, 215, 692, 16, 18, "Print",ExpressionUUID->"54f7b701-136a-4ecb-b1de-989cb326b771"],
+Cell[13216, 233, 496, 11, 34, "Print",ExpressionUUID->"626fc854-165b-4802-9e2e-53870c6382b3"],
+Cell[13715, 246, 11802, 300, 74, "Print",ExpressionUUID->"e63f86a7-67f7-4b62-aa85-781e5a945b4a"]
+}, Open  ]],
+Cell[25532, 549, 172201, 3082, 333, "Output",ExpressionUUID->"63d55fe2-a361-49e9-9733-1504e5024447"]
+}, Open  ]],
+Cell[197748, 3634, 1014, 26, 103, "Input",ExpressionUUID->"03e88ee7-2dc3-4cb2-be4e-56d24731f5cc"],
+Cell[198765, 3662, 935, 22, 87, "Input",ExpressionUUID->"619074fe-828a-4716-9fce-73e12738b2ae"],
+Cell[CellGroupData[{
+Cell[199725, 3688, 989, 25, 56, "Input",ExpressionUUID->"bec98970-e292-455e-aaf7-78c0e8219b8d"],
+Cell[200717, 3715, 532, 13, 29, "Output",ExpressionUUID->"dd961dd7-a879-43ac-8316-18a2e8d8e03f"]
+}, Open  ]],
+Cell[201264, 3731, 1018, 26, 71, "Input",ExpressionUUID->"698ffa90-4e3c-4d89-9507-0f3eebeb6f57"]
 }
 ]
 *)

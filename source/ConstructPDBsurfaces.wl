@@ -464,8 +464,7 @@ BeginPackage["ProteinSurfaces`"];
       ];
                       
   {msmsExePath, pdb2xyzrExePath, pdb2xyzrDatabasePath, reduceExePath, reduceDatabasePath} = InstallConstructPDBsurfaces[];
-  reduceDefaultArgs =
-  {"-build","-DB","\""<>reduceDatabasePath<>"\""};        
+  reduceDefaultArgs = {"-build","-DB","\""<>reduceDatabasePath<>"\""};        
     
   End[ ];
   
