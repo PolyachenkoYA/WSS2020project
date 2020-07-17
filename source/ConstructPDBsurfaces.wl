@@ -362,12 +362,12 @@ BeginPackage["ProteinSurfaces`"];
           Return[Graphics3D[sas,Boxed->False]];
       ];
       
-  Options[ConstructPDBSES] = {"TriangDensity"->5.0, "ProbeR"->Quantity[1.5,"Angstroms"], "Verbose"->False,"RootPath"->$TemporaryDirectory};     
+  Options[ConstructPDBSES] = {"TriangulationDensity"->5.0, "ProbeR"->Quantity[1.5,"Angstroms"], "Verbose"->False,"RootPath"->$TemporaryDirectory};     
   ConstructPDBSES[pdbStr_,OptionsPattern[]] :=
       Module[ {rawPDBfilepath,rawPDBfilename,pdbFilename, pdbFilepath, xyzrFilename,xyzrFilepath,vertFilename,
           faceFilename,proteinPath,vertices,triangleIndices,nTriangles,mesh,degeneratePolygonInd,
           meshInd,msmsDir,pdb2xyzrExePath,pdb2xyzrDatabasePath,cmd,pdbName,radiiData,residueData,
-      triangDensity = OptionValue["TriangDensity"],
+      triangDensity = OptionValue["TriangulationDensity"],
       probeR = QuantityMagnitude[UnitConvert[parseProbeR[OptionValue["ProbeR"], "VanDerWaals"],"Angstroms"]],
       verbose = OptionValue["Verbose"],
       rootPath = OptionValue["RootPath"]
@@ -376,7 +376,7 @@ BeginPackage["ProteinSurfaces`"];
           If[ verbose,
               Print["PDB ID: ", pdbName,
               "\nProbeR = ", probeR,
-              "\nTriangDensity = ", triangDensity,
+              "\nTriangulationDensity = ", triangDensity,
               "\nRootPath: '", rootPath, "'"];
           ];
           
