@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[      2731,         84]
-NotebookOptionsPosition[      2259,         67]
-NotebookOutlinePosition[      2655,         83]
-CellTagsIndexPosition[      2612,         80]
+NotebookDataLength[      2808,         83]
+NotebookOptionsPosition[      2334,         66]
+NotebookOutlinePosition[      2732,         82]
+CellTagsIndexPosition[      2689,         79]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -23,7 +23,7 @@ Cell[CellGroupData[{
 Cell[BoxData[{
  RowBox[{
   RowBox[{
-   RowBox[{"publishToCloud", "[", "filename", "]"}], ":=", 
+   RowBox[{"publishToCloud", "[", "filename_", "]"}], ":=", 
    RowBox[{"CopyFile", "[", 
     RowBox[{
      RowBox[{"FileNameJoin", "[", 
@@ -39,14 +39,13 @@ Cell[BoxData[{
        RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], "]"}], ",", 
      RowBox[{"OverwriteTarget", "\[Rule]", "True"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"publishToCloud", "[", "\"\<ConstructPDBsurfaces.wl\>\"", "]"}], 
-  ";"}], "\[IndentingNewLine]"}], "Input",
+ RowBox[{"publishToCloud", "[", "\"\<ConstructPDBsurfaces.wl\>\"", 
+  "]"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.803805946460539*^9, 3.803806042163528*^9}, {
    3.803810430300145*^9, 3.803810440223721*^9}, {3.8039026817209015`*^9, 
    3.8039027202848077`*^9}, 3.8039030290677958`*^9, {3.80390320857228*^9, 
-   3.803903273533476*^9}},ExpressionUUID->"b6853a05-40b6-41fa-a73c-\
-e38f08ba85f7"],
+   3.803903273533476*^9}, {3.8039751677463083`*^9, 3.803975181932445*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"b6853a05-40b6-41fa-a73c-e38f08ba85f7"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -61,12 +60,12 @@ ConstructPDBsurfaces.wl"},
   "https://www.wolframcloud.com/obj/polyachenko.yua/Published/\
 ConstructPDBsurfaces.wl"],
   SelectWithContents->True]], "Output",
- CellChangeTimes->{3.803903030983408*^9},
- CellLabel->"Out[4]=",ExpressionUUID->"c0fbcee8-3d7d-4eed-b1d4-4c1bb73c791d"]
+ CellChangeTimes->{{3.803975168030713*^9, 3.80397518540819*^9}},
+ CellLabel->"Out[6]=",ExpressionUUID->"d4db793d-d5c0-47ab-836a-7440fbe2a98b"]
 }, Open  ]]
 },
 WindowSize->{913.5, 618.},
-WindowMargins->{{Automatic, 5.25}, {Automatic, 45}},
+WindowMargins->{{Automatic, 5.25}, {Automatic, 67.5}},
 FrontEndVersion->"12.1 for Linux x86 (64-bit) (March 20, 2020)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"897471e2-cb43-44b7-84d8-60504b27dc89"
@@ -83,8 +82,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[583, 22, 1091, 26, 92, "Input",ExpressionUUID->"b6853a05-40b6-41fa-a73c-e38f08ba85f7"],
-Cell[1677, 50, 566, 14, 36, "Output",ExpressionUUID->"c0fbcee8-3d7d-4eed-b1d4-4c1bb73c791d"]
+Cell[583, 22, 1143, 25, 92, "Input",ExpressionUUID->"b6853a05-40b6-41fa-a73c-e38f08ba85f7"],
+Cell[1729, 49, 589, 14, 59, "Output",ExpressionUUID->"d4db793d-d5c0-47ab-836a-7440fbe2a98b"]
 }, Open  ]]
 }
 ]
