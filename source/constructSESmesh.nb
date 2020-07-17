@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   1661312,      28519]
-NotebookOptionsPosition[   1658547,      28467]
-NotebookOutlinePosition[   1659384,      28493]
-CellTagsIndexPosition[   1659292,      28488]
+NotebookDataLength[   1659486,      28467]
+NotebookOptionsPosition[   1657300,      28428]
+NotebookOutlinePosition[   1657771,      28446]
+CellTagsIndexPosition[   1657728,      28443]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -28407,66 +28407,27 @@ Cell[BoxData[""], "Input",
 
 Cell[CellGroupData[{
 
-Cell[BoxData[{
- RowBox[{
-  RowBox[{
-   RowBox[{"absoluteDirPath", "[", "dir_", "]"}], ":=", 
-   RowBox[{"FileNameJoin", "[", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"ParentDirectory", "[", 
-       RowBox[{"dir", ",", "1"}], "]"}], ",", 
-      RowBox[{"FileNameTake", "[", "dir", "]"}]}], "}"}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"isSubdir", "[", 
-    RowBox[{"rootDir_", ",", " ", "subDir_"}], "]"}], ":=", 
-   RowBox[{"StringStartsQ", "[", 
-    RowBox[{
-     RowBox[{"absoluteDirPath", "[", "subDir", "]"}], ",", " ", 
-     RowBox[{"absoluteDirPath", "[", "rootDir", "]"}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{"isSubdir", "[", 
-  RowBox[{"\"\<PDBsys\\MSMS\>\"", ",", "$WolframDocumentsDirectory"}], 
-  "]"}]}], "Input",
- CellChangeTimes->{{3.803901372941555*^9, 3.803901437964504*^9}, {
-  3.8039015127895317`*^9, 3.803901566042924*^9}, {3.8039016397967744`*^9, 
-  3.8039017099127812`*^9}, {3.8039017478634567`*^9, 3.8039017527204657`*^9}, {
-  3.8039017942214103`*^9, 3.803901823836405*^9}, {3.803901892184742*^9, 
-  3.803902029878911*^9}},
- EmphasizeSyntaxErrors->True,
- CellTags->"ParentDirectory_templates",
- CellLabel->"In[51]:=",ExpressionUUID->"5dd099e8-7cf4-40a8-8d2f-4ab1d9b50937"],
-
-Cell[BoxData["False"], "Output",
- CellChangeTimes->{{3.803901968557886*^9, 3.803902030277887*^9}},
- CellTags->"ParentDirectory_templates",
- CellLabel->"Out[53]=",ExpressionUUID->"ef144557-14d7-4ff5-a0f6-1f8e266bd756"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Quantity", "[", 
-  RowBox[{"1.5", ",", "\"\<Angstroms\>\""}], "]"}]], "Input",
+Cell[BoxData[{"$WolframID", "\[IndentingNewLine]", "$PublisherID"}], "Input",
  CellChangeTimes->{{3.803901597609988*^9, 3.803901632098771*^9}, {
   3.8039017576514387`*^9, 3.803901786942402*^9}, {3.8039745268072042`*^9, 
-  3.80397453480814*^9}},
- CellLabel->"In[16]:=",ExpressionUUID->"88ef1f16-ca37-4397-8074-101dd71c314b"],
+  3.80397453480814*^9}, {3.803978016419835*^9, 3.803978047082095*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"88ef1f16-ca37-4397-8074-101dd71c314b"],
 
-Cell[BoxData[
- TemplateBox[{
-  "1.5`", "\"\[CapitalARing]\"", "\[ARing]ngstr\[ODoubleDot]ms", 
-   "\"Angstroms\""},
-  "Quantity"]], "Output",
+Cell[BoxData["None"], "Output",
  CellChangeTimes->{{3.803901610223709*^9, 3.8039016323847075`*^9}, {
-   3.8039017593494444`*^9, 3.803901787212401*^9}, 3.8039745358507423`*^9},
- CellLabel->"Out[16]=",ExpressionUUID->"e74a6e3c-d9bb-43a4-be5f-51527a9cd5eb"]
+   3.8039017593494444`*^9, 3.803901787212401*^9}, 3.8039745358507423`*^9, {
+   3.803978017237878*^9, 3.803978047497044*^9}},
+ CellLabel->"Out[3]=",ExpressionUUID->"b34e93ef-83b1-4341-8502-e8eed5eb59c4"],
+
+Cell[BoxData["None"], "Output",
+ CellChangeTimes->{{3.803901610223709*^9, 3.8039016323847075`*^9}, {
+   3.8039017593494444`*^9, 3.803901787212401*^9}, 3.8039745358507423`*^9, {
+   3.803978017237878*^9, 3.803978048762833*^9}},
+ CellLabel->"Out[4]=",ExpressionUUID->"4e8ac077-d2e8-4624-ae26-6277819a47fe"]
 }, Open  ]]
 },
 WindowSize->{705., 574.5},
-WindowMargins->{{Automatic, 35.25}, {Automatic, 90}},
+WindowMargins->{{Automatic, 35.25}, {102.75, Automatic}},
 TaggingRules->{"TryRealOnly" -> False},
 Magnification:>0.7 Inherited,
 FrontEndVersion->"12.1 for Linux x86 (64-bit) (March 20, 2020)",
@@ -28477,18 +28438,10 @@ ExpressionUUID->"8f84b492-b49a-4344-aeb9-9962ce104ea8"
 
 (* Internal cache information *)
 (*CellTagsOutline
-CellTagsIndex->{
- "ParentDirectory_templates"->{
-  Cell[1656304, 28409, 1255, 30, 52, "Input",ExpressionUUID->"5dd099e8-7cf4-40a8-8d2f-4ab1d9b50937",
-   CellTags->"ParentDirectory_templates"],
-  Cell[1657562, 28441, 217, 3, 23, "Output",ExpressionUUID->"ef144557-14d7-4ff5-a0f6-1f8e266bd756",
-   CellTags->"ParentDirectory_templates"]}
- }
+CellTagsIndex->{}
 *)
 (*CellTagsIndex
-CellTagsIndex->{
- {"ParentDirectory_templates", 1658981, 28480}
- }
+CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
@@ -28512,14 +28465,9 @@ Cell[1653120, 28321, 868, 21, 97, "Input",ExpressionUUID->"f0d6aae5-44d9-469c-ab
 Cell[1653991, 28344, 2129, 56, 232, "Input",ExpressionUUID->"b07a57ea-838f-4748-ae26-d96a6e108043"],
 Cell[1656123, 28402, 156, 3, 21, "Input",ExpressionUUID->"28d1ecc0-9fdb-48ca-a45f-85baa9e29569"],
 Cell[CellGroupData[{
-Cell[1656304, 28409, 1255, 30, 52, "Input",ExpressionUUID->"5dd099e8-7cf4-40a8-8d2f-4ab1d9b50937",
- CellTags->"ParentDirectory_templates"],
-Cell[1657562, 28441, 217, 3, 23, "Output",ExpressionUUID->"ef144557-14d7-4ff5-a0f6-1f8e266bd756",
- CellTags->"ParentDirectory_templates"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[1657816, 28449, 348, 6, 21, "Input",ExpressionUUID->"88ef1f16-ca37-4397-8074-101dd71c314b"],
-Cell[1658167, 28457, 364, 7, 55, "Output",ExpressionUUID->"e74a6e3c-d9bb-43a4-be5f-51527a9cd5eb"]
+Cell[1656304, 28409, 368, 4, 37, "Input",ExpressionUUID->"88ef1f16-ca37-4397-8074-101dd71c314b"],
+Cell[1656675, 28415, 303, 4, 23, "Output",ExpressionUUID->"b34e93ef-83b1-4341-8502-e8eed5eb59c4"],
+Cell[1656981, 28421, 303, 4, 76, "Output",ExpressionUUID->"4e8ac077-d2e8-4624-ae26-6277819a47fe"]
 }, Open  ]]
 }
 ]

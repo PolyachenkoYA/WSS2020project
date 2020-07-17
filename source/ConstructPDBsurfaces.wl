@@ -25,7 +25,7 @@ BeginPackage["ProteinSurfaces`"];
   checkFilePresentQ[filepath_, verbose_:False] :=
       Module[ {found = FileExistsQ[filepath]},
           If[ verbose,
-              Print["searching for '", filepath, "' ... ",If[ !found,
+              Print["searching for '", filepath, "' \[Ellipsis] ",If[ !found,
                                                               Style["NOT",Red],
                                                               ""
                                                           ], " found"];
@@ -404,7 +404,7 @@ BeginPackage["ProteinSurfaces`"];
           SetDirectory[msmsDir];
           writeAFile[pdbStr, pdbFilepath];
           If[ verbose,
-              Print["runnig pdb2xyzr ..."]
+              Print["runnig pdb2xyzr \[Ellipsis]"]
           ];
           If[ $OperatingSystem=="Windows",
               {radiiData, residueData} = readXYZRdatabase[pdb2xyzrDatabasePath];
@@ -413,7 +413,7 @@ BeginPackage["ProteinSurfaces`"];
               writeAFile[RunProcess[{pdb2xyzrExePath,"-h", pdbFilepath}, "StandardOutput"], xyzrFilepath]
           ];
           If[ verbose,
-              Print["done\nrunnig MSMS ..."]
+              Print["done\nrunnig MSMS \[Ellipsis]"]
           ];
           RunProcess[{msmsExePath, "-no_header", "-probe_radius",ToString[probeR],"-density",ToString[triangDensity],"-if",xyzrFilepath,"-of",FileNameJoin[{proteinPath, pdbName}]}, "StandardOutput"];
           If[ verbose,
