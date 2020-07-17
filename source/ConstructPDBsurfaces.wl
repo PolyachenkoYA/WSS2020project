@@ -103,77 +103,7 @@ BeginPackage["ProteinSurfaces`"];
           ];
           DeleteDirectory[dir,DeleteContents->deleteContents];
       ];
-    
-  Options[InstallConstructPDBsurfaces] = {"RootPath"->FileNameJoin[{$WolframDocumentsDirectory,"PDBsys"}],"DoMSMS"->True,"DoReduce"->True,"Verbose"->False,"forceReinstall"->False,"os"->$OperatingSystem};
-  InstallConstructPDBsurfaces[OptionsPattern[]] :=
-      Module[ {reducePath,reduceExePath,reduceDatabasePath, reduceExeLink, reduceDatabaseLink,
-      msmsPath,msmsExePath,pdb2xyzrExePath,pdb2xyzrDatabasePath,unpackedArch,paths,
-      rootPath = OptionValue["RootPath"],
-      doMSMS = OptionValue["DoMSMS"],
-      doReduce = OptionValue["DoReduce"],
-      verbose = OptionValue["Verbose"],
-      os = OptionValue["os"]},
-          If[ OptionValue["forceReinstall"],
-              safeDirDelete[rootPath];
-              Return[InstallConstructPDBsurfaces["forceReinstall"->False]];
-          ];
-          If[ !DirectoryQ[rootPath],
-              CreateDirectory[rootPath]
-          ];
-          If[ doMSMS,
-              msmsPath = FileNameJoin[{rootPath, "MSMS"}];
-              msmsExePath = getFilenameSafe[msmsPath, os/.msmsExeMask];
-              pdb2xyzrExePath = FileNameJoin[{msmsPath, "pdb_to_xyzr"}];
-              pdb2xyzrDatabasePath = FileNameJoin[{msmsPath, "atmtypenumbers"}];
-              If[ !(checkFilePresentQ[msmsExePath, verbose]&&
-              checkFilePresentQ[pdb2xyzrExePath, verbose]&&
-              checkFilePresentQ[pdb2xyzrDatabasePath, verbose]),
-                  If[ os=="Windows",
-                      unpackedArch = loadNew[rootPath, os/.msmsArchiveLinks,verbose];
-                      safeDirDelete[msmsPath];
-                      RenameDirectory[DirectoryName[Select[unpackedArch, StringMatchQ[#, __~~".pdb"]&][[1]]], msmsPath];,
-                      unpackedArch = loadNew[msmsPath, os/.msmsArchiveLinks,verbose];
-                  ];
-              ];
-              msmsExePath = getFilenameSafe[msmsPath, os/.msmsExeMask];
-              replaceStringInFiles[{pdb2xyzrExePath}, "nawk", "awk"];
-              If[ os!="Windows",
-                  If[ !fileIsExecutableQ[msmsExePath],
-                      RunProcess[{"chmod", "u+x", msmsExePath}];
-                  ];
-                  If[ !fileIsExecutableQ[{pdb2xyzrExePath, "1"}],
-                      RunProcess[{"chmod", "u+x", msmsExePath}];
-                  ];
-              ];,
-              {msmsExePath, pdb2xyzrExePath, pdb2xyzrDatabasePath} = {"","",""};
-          ];
-          If[ doReduce,
-              reducePath = FileNameJoin[{rootPath, "Reduce"}];
-              If[ os=="Windows",
-                  reduceExePath = FileNameJoin[{reducePath, "reduce.exe"}];
-                  reduceDatabasePath = FileNameJoin[{reducePath, "reduce_wwPDB_het_dict.txt"}];
-                  If[ !(checkFilePresentQ[reduceExePath, verbose] && checkFilePresentQ[reduceDatabasePath, verbose]),
-                      safeDirDelete[reducePath];
-                      If[ FileExistsQ[reducePath],
-                          DeleteFile[reducePath]
-                      ];
-                      unpackedArch = loadNew[rootPath, os/.reduceArchiveLinks, verbose];
-                      RenameDirectory[unpackedArch[[1]], reducePath];
-                  ];,
-                  reduceExePath = loadIfAbsent[reducePath,os/.reduceArchiveLinks, verbose];
-                  reduceDatabasePath = loadIfAbsent[reducePath,"http://kinemage.biochem.duke.edu/downloads/software/reduce31/reduce_wwPDB_het_dict.txt.zip", verbose];
-                  If[ !fileIsExecutableQ[reduceExePath],
-                      RunProcess[{"chmod", "u+x", reduceExePath}];
-                  ];
-              ];,
-              {reduceExePath, reduceDatabasePath} = {"",""};
-          ];
-          paths = {msmsExePath, pdb2xyzrExePath, pdb2xyzrDatabasePath,reduceExePath, reduceDatabasePath};
-          If[ verbose,
-              Print[paths]
-          ];
-          paths
-      ];
+      
   
   checkFileThrow[filePath_] :=
       If[ !FileExistsQ[filePath],
@@ -211,47 +141,9 @@ BeginPackage["ProteinSurfaces`"];
           ];
           probeR
       ];
-  
-  DownloadPDB[structID_] :=
-      Import["http://www.rcsb.org/pdb/download/downloadFile.do?fileFormat=pdb&compression=NO&structureId="<>structID,"String"];
-  
-  ProtonatePDB[pdbStr_, reduceOptions_:reduceDefaultArgs] :=
-      Module[ {tempFilepath,pdbProtonated,cmd},
-          checkFileThrow[reduceExePath];
-          tempFilepath = writeAFile[pdbStr];
-          cmd = "!"<>reduceExePath<>" "<>TextString[reduceOptions,ListFormat->{""," ",""}]<>" "<>tempFilepath;
-          pdbProtonated = StringJoin[ReadList[cmd,Character]];
-          DeleteFile[tempFilepath];
-          pdbProtonated
-      ];
-  (*
-  Module[{},
-  checkFileQ[reduceExePath];
-  Print[Flatten[{reduceExePath, reduceOptions, "-"}]];
-  RunProcess[Flatten[{reduceExePath, reduceOptions, "-"}], "StandardOutput", pdbStr]
-  ];*)
-  
+      
   constructPDBSAS[coords_, radii_, probeR_, colors_] :=
       Table[{colors[[i]], Sphere[QuantityMagnitude[coords[[i]]], QuantityMagnitude[radii[[i]]+probeR]]},{i, 1, Length[radii]}];
-        
-  Options[DrawProteinSAS] = {"ProbeR"->Quantity[-1,"Angstroms"], "RadiiType"->"VanDerWaals"};
-  (*"Atomic", "Covalent", "VanDerWaals"*)
-  DrawPDBSAS[pdbStr_,OptionsPattern[]] :=
-      Module[ {elements,radiiTable,presentElements,colorTable, radiiType, probeR, coords},
-          radiiType = OptionValue["RadiiType"];
-          probeR = parseProbeR[OptionValue["ProbeR"], radiiType];
-          elements = ImportString[pdbStr,{"PDB",{"VertexTypes"}}];
-          presentElements = DeleteDuplicates[elements];
-          colorTable = Map[(#->ColorData["Atoms"][#])&, presentElements];
-          radiiTable = Map[(#->UnitConvert[ElementData[#, radiiType<>"Radius"],"Angstroms"])&,presentElements];
-          coords = Map[Quantity[#,"Angstroms"]&,ImportString[pdbStr,{"PDB","VertexCoordinates"}]/100];
-          Print["radii type: ", radiiType];
-          Print["probe radius = ", probeR];
-          Print[radiiTable];
-          Print[colorTable];
-          sas = constructPDBSAS[coords, elements/.radiiTable, probeR, elements/.colorTable];
-          Return[Graphics3D[sas,Boxed->False]];
-      ];
       
   Options[readXYZRdatabase] = {"explicitH"->False, "Verbose"->False};
   readXYZRdatabase[filepath_, OptionsPattern[]] :=
@@ -357,6 +249,117 @@ BeginPackage["ProteinSurfaces`"];
               Nothing
           ]&
           ,StringSplit[pdb,"\n"]]
+      ];      
+    
+  Options[InstallConstructPDBsurfaces] = {"RootPath"->FileNameJoin[{$WolframDocumentsDirectory,"PDBsys"}],"DoMSMS"->True,"DoReduce"->True,"Verbose"->False,"forceReinstall"->False,"os"->$OperatingSystem};
+  InstallConstructPDBsurfaces[OptionsPattern[]] :=
+      Module[ {reducePath,reduceExePath,reduceDatabasePath, reduceExeLink, reduceDatabaseLink,
+      msmsPath,msmsExePath,pdb2xyzrExePath,pdb2xyzrDatabasePath,unpackedArch,paths,
+      rootPath = OptionValue["RootPath"],
+      doMSMS = OptionValue["DoMSMS"],
+      doReduce = OptionValue["DoReduce"],
+      verbose = OptionValue["Verbose"],
+      os = OptionValue["os"]},
+          If[ OptionValue["forceReinstall"],
+              safeDirDelete[rootPath];
+              Return[InstallConstructPDBsurfaces["forceReinstall"->False]];
+          ];
+          If[ !DirectoryQ[rootPath],
+              CreateDirectory[rootPath]
+          ];
+          If[ doMSMS,
+              msmsPath = FileNameJoin[{rootPath, "MSMS"}];
+              msmsExePath = getFilenameSafe[msmsPath, os/.msmsExeMask];
+              pdb2xyzrExePath = FileNameJoin[{msmsPath, "pdb_to_xyzr"}];
+              pdb2xyzrDatabasePath = FileNameJoin[{msmsPath, "atmtypenumbers"}];
+              If[ !(checkFilePresentQ[msmsExePath, verbose]&&
+              checkFilePresentQ[pdb2xyzrExePath, verbose]&&
+              checkFilePresentQ[pdb2xyzrDatabasePath, verbose]),
+                  If[ os=="Windows",
+                      unpackedArch = loadNew[rootPath, os/.msmsArchiveLinks,verbose];
+                      safeDirDelete[msmsPath];
+                      RenameDirectory[DirectoryName[Select[unpackedArch, StringMatchQ[#, __~~".pdb"]&][[1]]], msmsPath];,
+                      unpackedArch = loadNew[msmsPath, os/.msmsArchiveLinks,verbose];
+                  ];
+              ];
+              msmsExePath = getFilenameSafe[msmsPath, os/.msmsExeMask];
+              replaceStringInFiles[{pdb2xyzrExePath}, "nawk", "awk"];
+              If[ os!="Windows",
+                  If[ !fileIsExecutableQ[msmsExePath],
+                      RunProcess[{"chmod", "u+x", msmsExePath}];
+                  ];
+                  If[ !fileIsExecutableQ[{pdb2xyzrExePath, "1"}],
+                      RunProcess[{"chmod", "u+x", msmsExePath}];
+                  ];
+              ];,
+              {msmsExePath, pdb2xyzrExePath, pdb2xyzrDatabasePath} = {"","",""};
+          ];
+          If[ doReduce,
+              reducePath = FileNameJoin[{rootPath, "Reduce"}];
+              If[ os=="Windows",
+                  reduceExePath = FileNameJoin[{reducePath, "reduce.exe"}];
+                  reduceDatabasePath = FileNameJoin[{reducePath, "reduce_wwPDB_het_dict.txt"}];
+                  If[ !(checkFilePresentQ[reduceExePath, verbose] && checkFilePresentQ[reduceDatabasePath, verbose]),
+                      safeDirDelete[reducePath];
+                      If[ FileExistsQ[reducePath],
+                          DeleteFile[reducePath]
+                      ];
+                      unpackedArch = loadNew[rootPath, os/.reduceArchiveLinks, verbose];
+                      RenameDirectory[unpackedArch[[1]], reducePath];
+                  ];,
+                  reduceExePath = loadIfAbsent[reducePath,os/.reduceArchiveLinks, verbose];
+                  reduceDatabasePath = loadIfAbsent[reducePath,"http://kinemage.biochem.duke.edu/downloads/software/reduce31/reduce_wwPDB_het_dict.txt.zip", verbose];
+                  If[ !fileIsExecutableQ[reduceExePath],
+                      RunProcess[{"chmod", "u+x", reduceExePath}];
+                  ];
+              ];,
+              {reduceExePath, reduceDatabasePath} = {"",""};
+          ];
+          paths = {msmsExePath, pdb2xyzrExePath, pdb2xyzrDatabasePath,reduceExePath, reduceDatabasePath};
+          If[ verbose,
+              Print[paths]
+          ];
+          paths
+      ];
+  
+  DownloadPDB[structID_] :=
+      Import["http://www.rcsb.org/pdb/download/downloadFile.do?fileFormat=pdb&compression=NO&structureId="<>structID,"String"];
+  
+  ProtonatePDB[pdbStr_, reduceOptions_:reduceDefaultArgs] :=
+      Module[ {tempFilepath,pdbProtonated,cmd},
+          checkFileThrow[reduceExePath];
+          tempFilepath = writeAFile[pdbStr];
+          cmd = "!"<>reduceExePath<>" "<>TextString[reduceOptions,ListFormat->{""," ",""}]<>" "<>tempFilepath;
+          pdbProtonated = StringJoin[ReadList[cmd,Character]];
+          DeleteFile[tempFilepath];
+          pdbProtonated
+      ];
+  (*
+  Module[{},
+  checkFileQ[reduceExePath];
+  Print[Flatten[{reduceExePath, reduceOptions, "-"}]];
+  RunProcess[Flatten[{reduceExePath, reduceOptions, "-"}], "StandardOutput", pdbStr]
+  ];*)
+  
+  Options[DrawPDBSAS] = {"ProbeR"->Quantity[-1,"Angstroms"], "RadiiType"->"VanDerWaals","Verbose"->True};
+  (*"Atomic", "Covalent", "VanDerWaals"*)
+  DrawPDBSAS[pdbStr_,OptionsPattern[]] :=
+      Module[ {elements,radiiTable,presentElements,colorTable, radiiType, probeR, coords,verbose},
+          verbose = OptionValue["Verbose"];
+          radiiType = OptionValue["RadiiType"];
+          probeR = parseProbeR[OptionValue["ProbeR"], radiiType];
+          elements = ImportString[pdbStr,{"PDB",{"VertexTypes"}}];
+          presentElements = DeleteDuplicates[elements];          
+          colorTable = Map[(#->ColorData["Atoms"][#])&, presentElements];
+          radiiTable = Map[(#->UnitConvert[ElementData[#, radiiType<>"Radius"],"Angstroms"])&,presentElements];
+          coords = Map[Quantity[#,"Angstroms"]&,ImportString[pdbStr,{"PDB","VertexCoordinates"}]/100];
+          If[verbose,Print["radii type: ", radiiType,
+          "\nprobe radius = ", probeR,
+          "\n", radiiTable,
+          "\n", colorTable]
+          ];
+          sas = constructPDBSAS[coords, elements/.radiiTable, probeR, elements/.colorTable];
+          Return[Graphics3D[sas,Boxed->False]];
       ];
       
   Options[ConstructPDBSES] = {"TriangDensity"->5.0, "ProbeR"->Quantity[1.5,"Angstroms"], "Verbose"->False,"RootPath"->$TemporaryDirectory};     
@@ -459,7 +462,7 @@ BeginPackage["ProteinSurfaces`"];
           ];
           Return[{mesh, vertices, meshInd}];
       ];
-                
+                      
   {msmsExePath, pdb2xyzrExePath, pdb2xyzrDatabasePath, reduceExePath, reduceDatabasePath} = InstallConstructPDBsurfaces[];
   reduceDefaultArgs =
   {"-build","-DB","\""<>reduceDatabasePath<>"\""};        
