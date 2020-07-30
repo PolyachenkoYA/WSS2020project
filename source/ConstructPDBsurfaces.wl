@@ -2,11 +2,11 @@
 
 BeginPackage["ProteinSurfaces`"];
   
-  DownloadPDB::usage = "Download usage";
-  InstallConstructPDBsurfaces::usage = "Install usage";
-  ProtonatePDB::usage = "Protonate usage";
-  DrawPDBSAS::usage = "Draw usage";
-  ConstructPDBSES::usage = "Construct usage";
+  DownloadPDB::usage = "A clean way to download pdb files from the PDB databank in text form";
+  InstallConstructPDBsurfaces::usage = "Installs the ProteinSurfaces package on your machine";
+  ProtonatePDB::usage = "Protonate a pdb file using Reduce protonation";
+  DrawPDBSAS::usage = "Creates a 3D image of a solvent accessible surface (SAS) for a protein from the PDB databank";
+  ConstructPDBSES::usage = "Builds a solvent excluded surface (SES) for a protein from the PDB databank";
   
   Begin["`Private`"];
   

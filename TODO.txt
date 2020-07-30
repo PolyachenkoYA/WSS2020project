@@ -1,0 +1,4 @@
+- Trim pdb before protonation in case the file is already somewhat protonated
+- add "-his" flag for protonation
+- POSSIBLY add area computation to MSMS
+- add info about cygwin on windows
