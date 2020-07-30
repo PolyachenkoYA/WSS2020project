@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   2286075,      39729]
+NotebookDataLength[   2347755,      40865]
 NotebookOptionsPosition[   2173251,      37518]
-NotebookOutlinePosition[   2274816,      39484]
-CellTagsIndexPosition[   2273739,      39451]
+NotebookOutlinePosition[   2336538,      40620]
+CellTagsIndexPosition[   2335461,      40587]
 WindowTitle->DrawPDBSAS | Definition Notebook
 WindowFrame->Normal*)
 
@@ -37533,7 +37533,1142 @@ DockedCells->{
    CellFrameMargins -> {{39, 5}, {2, 2}}, CellFrame -> {{0, 0}, {1, 0}}, 
    CacheGraphics -> False, CellOpen -> Dynamic[
      CurrentValue[
-      EvaluationNotebook[], {TaggingRules, "ToolsOpen"}, True]]]},
+      EvaluationNotebook[], {TaggingRules, "ToolsOpen"}, True]]], 
+  Cell[
+   BoxData[
+    StyleBox[
+     TagBox[
+      GridBox[{{
+         OverlayBox[{
+           StyleBox[
+            TagBox[
+             DynamicModuleBox[{Typeset`var$$ = False}, 
+              InterpretationBox[
+               StyleBox[
+                PaneSelectorBox[{False -> GridBox[{{
+                    OpenerBox[
+                    Dynamic[Typeset`var$$], Appearance -> Automatic, Enabled -> 
+                    Automatic, AutoAction -> False, ContinuousAction -> 
+                    False], 
+                    StyleBox[
+                    DynamicBox[
+                    ToBoxes[
+                    DateString[
+                    TimeZoneConvert[
+                    DateObject[
+                    3.805084192879621`16.33293925975367*^9, TimeZone -> 0]], {
+                    "MonthName", " ", "DayShort", ", ", "Year", " ", 
+                    "Hour12Short", ":", "Minute", " ", "AMPMLowerCase"}], 
+                    StandardForm], SingleEvaluation -> True, Evaluator -> 
+                    "System"], FontSlant -> Italic, FontColor -> 
+                    GrayLevel[0.5], FontSize -> 0.9 Inherited, StripOnInput -> 
+                    False]}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                    AutoDelete -> False, 
+                    GridBoxBackground -> {"Columns" -> {{Automatic}}}, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{0.2}}, "Rows" -> {{0.5}}}, 
+                    BaselinePosition -> {1, 1}], True -> GridBox[{{
+                    OpenerBox[
+                    Dynamic[Typeset`var$$], Appearance -> Automatic, Enabled -> 
+                    Automatic, AutoAction -> False, ContinuousAction -> 
+                    False], 
+                    StyleBox[
+                    DynamicBox[
+                    ToBoxes[
+                    DateString[
+                    TimeZoneConvert[
+                    DateObject[
+                    3.805084192879621`16.33293925975367*^9, TimeZone -> 0]], {
+                    "MonthName", " ", "DayShort", ", ", "Year", " ", 
+                    "Hour12Short", ":", "Minute", " ", "AMPMLowerCase"}], 
+                    StandardForm], SingleEvaluation -> True, Evaluator -> 
+                    "System"], FontSlant -> Italic, FontColor -> 
+                    GrayLevel[0.5], FontSize -> 0.9 Inherited, StripOnInput -> 
+                    False]}, {"", 
+                    PaneBox["\"\"", ImageMargins -> 0]}}, 
+                    GridBoxAlignment -> {"Columns" -> {{Left}}}, AutoDelete -> 
+                    False, GridBoxBackground -> {"Columns" -> {{Automatic}}}, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{0.2}}, "Rows" -> {{0.5}}}, 
+                    BaselinePosition -> {1, 1}]}, 
+                 Dynamic[Typeset`var$$], Alignment -> Automatic, ImageSize -> 
+                 Automatic, ImageMargins -> 0, BaseStyle -> {}, 
+                 DefaultBaseStyle -> "OpenerView", BaselinePosition -> 
+                 Baseline], Deployed -> False, StripOnInput -> False], 
+               OpenerView[{
+                 Style[
+                  Dynamic[
+                   DateString[
+                    TimeZoneConvert[
+                    DateObject[
+                    3.805084192879621`16.33293925975367*^9, TimeZone -> 0]], {
+                    "MonthName", " ", "DayShort", ", ", "Year", " ", 
+                    "Hour12Short", ":", "Minute", " ", "AMPMLowerCase"}], 
+                   SingleEvaluation -> True, Evaluator -> "System"], 
+                  FontSlant -> Italic, FontColor -> GrayLevel[0.5], FontSize -> 
+                  0.9 Inherited], ""}, False]], DynamicModuleValues -> 
+              Automatic], Setting[#, {0}]& ], ShowContents -> False, 
+            StripOnInput -> False], 
+           StyleBox[
+            DynamicBox[
+             ToBoxes[
+              DateString[
+               TimeZoneConvert[
+                DateObject[
+                3.805084192879621`16.33293925975367*^9, TimeZone -> 0]], {
+               "MonthName", " ", "DayShort", ", ", "Year", " ", "Hour12Short",
+                 ":", "Minute", " ", "AMPMLowerCase"}], StandardForm], 
+             SingleEvaluation -> True, Evaluator -> "System"], FontSlant -> 
+            Italic, FontColor -> GrayLevel[0.5], FontSize -> 0.9 Inherited, 
+            StripOnInput -> False]}, Alignment -> Right], "\"   \"", 
+         TagBox[
+          GridBox[{{
+             StyleBox["\"\[Checkmark]\"", FontColor -> RGBColor[0, 
+                Rational[2, 3], 0], FontSize -> 16, FontWeight -> "Heavy", 
+              StripOnInput -> False], "\"No issues found\""}}, 
+           GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Center}}}, 
+           AutoDelete -> False, 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+           GridBoxSpacings -> {"Columns" -> {{0.5}}}], "Grid"], "\"\"", 
+         TagBox[
+          ButtonBox[
+           TagBox[
+            PaneSelectorBox[{False -> GraphicsBox[{
+                 GrayLevel[
+                  NCache[
+                   Rational[64, 85], 0.7529411764705882]], 
+                 
+                 PolygonBox[{{-0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, -0.282842712474619}, {0.282842712474619, 
+                  0.42426406871192845`}, {0.42426406871192845`, 
+                  0.282842712474619}}], 
+                 
+                 PolygonBox[{{0.42426406871192845`, -0.282842712474619}, {
+                  0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, 0.282842712474619}, {-0.282842712474619, 
+                  0.42426406871192845`}}]}, ImageSize -> 18, PlotRangePadding -> 
+                0, PlotRange -> 0.7, Background -> None], True -> GraphicsBox[{
+                 GrayLevel[
+                  NCache[
+                   Rational[128, 255], 0.5019607843137255]], 
+                 
+                 PolygonBox[{{-0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, -0.282842712474619}, {0.282842712474619, 
+                  0.42426406871192845`}, {0.42426406871192845`, 
+                  0.282842712474619}}], 
+                 
+                 PolygonBox[{{0.42426406871192845`, -0.282842712474619}, {
+                  0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, 0.282842712474619}, {-0.282842712474619, 
+                  0.42426406871192845`}}]}, ImageSize -> 18, PlotRangePadding -> 
+                0, PlotRange -> 0.7, Background -> None]}, 
+             Dynamic[
+              CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+             FrameMargins -> 0], 
+            MouseAppearanceTag["LinkHand"]], ButtonFunction :> (CurrentValue[
+              EvaluationNotebook[], DockedCells] = DeleteCases[
+              Flatten[{
+                CurrentValue[
+                 EvaluationNotebook[], DockedCells]}], 
+              Condition[
+               Pattern[ResourceSystemClient`DefinitionNotebook`Private`c$, 
+                Blank[Cell]], 
+               Not[
+                FreeQ[
+                ResourceSystemClient`DefinitionNotebook`Private`c$, 
+                 "343032ff-002f-4b27-9e5c-07429a29b076"]]]]), Appearance -> 
+           None, BoxID -> "343032ff-002f-4b27-9e5c-07429a29b076", Evaluator -> 
+           Automatic, Method -> "Preemptive"], 
+          MouseAppearanceTag["LinkHand"]]}}, 
+       GridBoxAlignment -> {
+        "Columns" -> {Left, Left, Left, Right, Right}, 
+         "Rows" -> {{Baseline}}}, AutoDelete -> False, 
+       GridBoxItemSize -> {
+        "Columns" -> {Automatic, Automatic, Fit, Automatic, Automatic}, 
+         "Rows" -> {{Automatic}}}], "Grid"], "Text", FontSize -> 12, 
+     FontColor -> GrayLevel[0.25], StripOnInput -> False]], "StripeCell", 
+   CellFrameMargins -> {{20, 5}, {2, 2}}, CellFrame -> {{0, 0}, {1, 0}}, 
+   CellFrameColor -> GrayLevel[0.75]], 
+  Cell[
+   BoxData[
+    StyleBox[
+     TagBox[
+      DynamicModuleBox[{Typeset`var$$ = False}, 
+       InterpretationBox[
+        StyleBox[
+         PaneSelectorBox[{False -> GridBox[{{
+               OpenerBox[
+                Dynamic[Typeset`var$$], Appearance -> Automatic, Enabled -> 
+                Automatic, AutoAction -> False, ContinuousAction -> False], 
+               TagBox[
+                GridBox[{{
+                   StyleBox[
+                    DynamicBox[
+                    ToBoxes[
+                    DateString[
+                    TimeZoneConvert[
+                    DateObject[
+                    3.805084223362372`16.33293926323283*^9, TimeZone -> 0]], {
+                    "MonthName", " ", "DayShort", ", ", "Year", " ", 
+                    "Hour12Short", ":", "Minute", " ", "AMPMLowerCase"}], 
+                    StandardForm], SingleEvaluation -> True, Evaluator -> 
+                    "System"], FontSlant -> Italic, FontColor -> 
+                    GrayLevel[0.5], FontSize -> 0.9 Inherited, StripOnInput -> 
+                    False], "\"   \"", 
+                   TagBox[
+                    
+                    GridBox[{{
+                    "\"Your update has been submitted for review.\"", 
+                    "\"\""}}, AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {"Columns" -> {{0.25}}}], "Grid"], 
+                   TagBox[
+                    GridBox[{{"\"Submission ID:\"", 
+                    
+                    TemplateBox[{
+                    "\"1316\"", 
+                    "OEM6eJxLYyzmCEosd8qvSC0OZlMyNDY0UwIAPjEFdg=="}, 
+                    "ClickToCopyTemplate"]}}, AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+                    "Grid"], "\"\"", 
+                   TagBox[
+                    ButtonBox[
+                    TagBox[
+                    PaneSelectorBox[{False -> GraphicsBox[{
+                    GrayLevel[
+                    NCache[
+                    Rational[64, 85], 0.7529411764705882]], 
+                    
+                    PolygonBox[{{-0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, -0.282842712474619}, {0.282842712474619, 
+                    0.42426406871192845`}, {0.42426406871192845`, 
+                    0.282842712474619}}], 
+                    
+                    PolygonBox[{{0.42426406871192845`, -0.282842712474619}, {
+                    0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, 0.282842712474619}, {-0.282842712474619, 
+                    0.42426406871192845`}}]}, ImageSize -> 18, 
+                    PlotRangePadding -> 0, PlotRange -> 0.7, Background -> 
+                    None], True -> GraphicsBox[{
+                    GrayLevel[
+                    NCache[
+                    Rational[128, 255], 0.5019607843137255]], 
+                    
+                    PolygonBox[{{-0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, -0.282842712474619}, {0.282842712474619, 
+                    0.42426406871192845`}, {0.42426406871192845`, 
+                    0.282842712474619}}], 
+                    
+                    PolygonBox[{{0.42426406871192845`, -0.282842712474619}, {
+                    0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, 0.282842712474619}, {-0.282842712474619, 
+                    0.42426406871192845`}}]}, ImageSize -> 18, 
+                    PlotRangePadding -> 0, PlotRange -> 0.7, Background -> 
+                    None]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], 
+                    MouseAppearanceTag["LinkHand"]], 
+                    ButtonFunction :> (CurrentValue[
+                    EvaluationNotebook[], DockedCells] = DeleteCases[
+                    Flatten[{
+                    CurrentValue[
+                    EvaluationNotebook[], DockedCells]}], 
+                    Condition[
+                    Pattern[
+                    ResourceSystemClient`DefinitionNotebook`Private`c$, 
+                    Blank[Cell]], 
+                    Not[
+                    FreeQ[
+                    ResourceSystemClient`DefinitionNotebook`Private`c$, 
+                    "58199125-aea0-450e-a16b-6883a2613f4e"]]]]), Appearance -> 
+                    None, BoxID -> "58199125-aea0-450e-a16b-6883a2613f4e", 
+                    Evaluator -> Automatic, Method -> "Preemptive"], 
+                    MouseAppearanceTag["LinkHand"]]}}, 
+                 GridBoxAlignment -> {
+                  "Columns" -> {Left, Left, Left, Right, Right, Right}, 
+                   "Rows" -> {{Baseline}}}, AutoDelete -> False, 
+                 GridBoxItemSize -> {
+                  "Columns" -> {
+                    Automatic, Automatic, Automatic, Fit, 8, Automatic}, 
+                   "Rows" -> {{Automatic}}}], "Grid"]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, AutoDelete -> False,
+              GridBoxBackground -> {"Columns" -> {{Automatic}}}, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{0.2}}, "Rows" -> {{0.5}}}, 
+             BaselinePosition -> {1, 1}], True -> GridBox[{{
+               OpenerBox[
+                Dynamic[Typeset`var$$], Appearance -> Automatic, Enabled -> 
+                Automatic, AutoAction -> False, ContinuousAction -> False], 
+               TagBox[
+                GridBox[{{
+                   StyleBox[
+                    DynamicBox[
+                    ToBoxes[
+                    DateString[
+                    TimeZoneConvert[
+                    DateObject[
+                    3.805084223362372`16.33293926323283*^9, TimeZone -> 0]], {
+                    "MonthName", " ", "DayShort", ", ", "Year", " ", 
+                    "Hour12Short", ":", "Minute", " ", "AMPMLowerCase"}], 
+                    StandardForm], SingleEvaluation -> True, Evaluator -> 
+                    "System"], FontSlant -> Italic, FontColor -> 
+                    GrayLevel[0.5], FontSize -> 0.9 Inherited, StripOnInput -> 
+                    False], "\"   \"", 
+                   TagBox[
+                    
+                    GridBox[{{
+                    "\"Your update has been submitted for review.\"", 
+                    "\"\""}}, AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {"Columns" -> {{0.25}}}], "Grid"], 
+                   TagBox[
+                    GridBox[{{"\"Submission ID:\"", 
+                    
+                    TemplateBox[{
+                    "\"1316\"", 
+                    "OEM6eJxLYyzmCEosd8qvSC0OZlMyNDY0UwIAPjEFdg=="}, 
+                    "ClickToCopyTemplate"]}}, AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+                    "Grid"], "\"\"", 
+                   TagBox[
+                    ButtonBox[
+                    TagBox[
+                    PaneSelectorBox[{False -> GraphicsBox[{
+                    GrayLevel[
+                    NCache[
+                    Rational[64, 85], 0.7529411764705882]], 
+                    
+                    PolygonBox[{{-0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, -0.282842712474619}, {0.282842712474619, 
+                    0.42426406871192845`}, {0.42426406871192845`, 
+                    0.282842712474619}}], 
+                    
+                    PolygonBox[{{0.42426406871192845`, -0.282842712474619}, {
+                    0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, 0.282842712474619}, {-0.282842712474619, 
+                    0.42426406871192845`}}]}, ImageSize -> 18, 
+                    PlotRangePadding -> 0, PlotRange -> 0.7, Background -> 
+                    None], True -> GraphicsBox[{
+                    GrayLevel[
+                    NCache[
+                    Rational[128, 255], 0.5019607843137255]], 
+                    
+                    PolygonBox[{{-0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, -0.282842712474619}, {0.282842712474619, 
+                    0.42426406871192845`}, {0.42426406871192845`, 
+                    0.282842712474619}}], 
+                    
+                    PolygonBox[{{0.42426406871192845`, -0.282842712474619}, {
+                    0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, 0.282842712474619}, {-0.282842712474619, 
+                    0.42426406871192845`}}]}, ImageSize -> 18, 
+                    PlotRangePadding -> 0, PlotRange -> 0.7, Background -> 
+                    None]}, 
+                    Dynamic[
+                    CurrentValue["MouseOver"]], ImageSize -> Automatic, 
+                    FrameMargins -> 0], 
+                    MouseAppearanceTag["LinkHand"]], 
+                    ButtonFunction :> (CurrentValue[
+                    EvaluationNotebook[], DockedCells] = DeleteCases[
+                    Flatten[{
+                    CurrentValue[
+                    EvaluationNotebook[], DockedCells]}], 
+                    Condition[
+                    Pattern[
+                    ResourceSystemClient`DefinitionNotebook`Private`c$, 
+                    Blank[Cell]], 
+                    Not[
+                    FreeQ[
+                    ResourceSystemClient`DefinitionNotebook`Private`c$, 
+                    "58199125-aea0-450e-a16b-6883a2613f4e"]]]]), Appearance -> 
+                    None, BoxID -> "58199125-aea0-450e-a16b-6883a2613f4e", 
+                    Evaluator -> Automatic, Method -> "Preemptive"], 
+                    MouseAppearanceTag["LinkHand"]]}}, 
+                 GridBoxAlignment -> {
+                  "Columns" -> {Left, Left, Left, Right, Right, Right}, 
+                   "Rows" -> {{Baseline}}}, AutoDelete -> False, 
+                 GridBoxItemSize -> {
+                  "Columns" -> {
+                    Automatic, Automatic, Automatic, Fit, 8, Automatic}, 
+                   "Rows" -> {{Automatic}}}], "Grid"]}, {"", 
+               PaneBox[
+                TagBox[
+                 GridBox[{{"\"\"", 
+                    StyleBox[
+                    TagBox[
+                    
+                    GridBox[{{
+                    "\"\[FilledVerySmallSquare]\"", "\"Submission result:\"", 
+                    TemplateBox[{
+                    TagBox[
+                    RowBox[{
+                    TagBox["Success", "SummaryHead"], "[", 
+                    
+                    DynamicModuleBox[{
+                    Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+                    TemplateBox[{
+                    PaneSelectorBox[{False -> GridBox[{{
+                    PaneBox[
+                    ButtonBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SquarePlusIconMedium"]], 
+                    ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                    None, Evaluator -> Automatic, Method -> "Preemptive"], 
+                    Alignment -> {Center, Center}, ImageSize -> 
+                    Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}]], 
+                    FrameBox[
+                    StyleBox["\"\[Checkmark]\"", 
+                    Directive[
+                    RGBColor[
+                    0.3607843137254902, 0.596078431372549, 
+                    0.3803921568627451], 25], StripOnInput -> False], 
+                    ContentPadding -> False, FrameStyle -> None, 
+                    FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
+                    GridBox[{{
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"Message\"", "\": \""}, "RowDefault"], 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox[
+                    "\"Your update has been submitted. Your submission id is \
+1316.\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"Name\"", "\": \""}, "RowDefault"], 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox["\"DrawPDBSAS\"", "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {"Columns" -> {{Automatic}}, 
+                    "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {"Columns" -> {{2}}, 
+                    "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {ShowStringCharacters -> False, NumberMarks -> 
+                    False, PrintPrecision -> 3, ShowSyntaxStyles -> False}]}},
+                     GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}], True -> GridBox[{{
+                    PaneBox[
+                    ButtonBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SquareMinusIconMedium"]], 
+                    ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                    None, Evaluator -> Automatic, Method -> "Preemptive"], 
+                    Alignment -> {Center, Center}, ImageSize -> 
+                    Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}]], 
+                    FrameBox[
+                    StyleBox["\"\[Checkmark]\"", 
+                    Directive[
+                    RGBColor[
+                    0.3607843137254902, 0.596078431372549, 
+                    0.3803921568627451], 25], StripOnInput -> False], 
+                    ContentPadding -> False, FrameStyle -> None, 
+                    FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
+                    GridBox[{{
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"Message\"", "\": \""}, "RowDefault"], 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox[
+                    "\"Your update has been submitted. Your submission id is \
+1316.\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"Name\"", "\": \""}, "RowDefault"], 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox["\"DrawPDBSAS\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"UUID\"", "\": \""}, "RowDefault"], 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox[
+                    "\"d714e191-6750-4826-a12d-915d8074764e\"", 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"SubmissionID\"", "\": \""}, "RowDefault"],
+                     "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox["\"1316\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"ResourceType\"", "\": \""}, "RowDefault"],
+                     "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox["\"Function\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    
+                    TemplateBox[{"\"SubmissionDate\"", "\": \""}, 
+                    "RowDefault"], "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    TemplateBox[{
+                    RowBox[{"\"Fri 17 Jul 2020 19:31:54\"", 
+                    StyleBox["\"GMT\"", FontColor -> GrayLevel[0.5]]}], 
+                    RowBox[{"DateObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"2020", ",", "7", ",", "17", ",", "19", ",", "31",
+                     ",", "54.056058`8.485419346329167"}], "}"}], ",", 
+                    "\"Instant\"", ",", "\"Gregorian\"", ",", "0.`"}], "]"}]},
+                     "DateObject", Editable -> False], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"Tag\"", "\": \""}, "RowDefault"], 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox["\"ResourceSubmission\"", "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {"Columns" -> {{Automatic}}, 
+                    "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {"Columns" -> {{2}}, 
+                    "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {ShowStringCharacters -> False, NumberMarks -> 
+                    False, PrintPrecision -> 3, ShowSyntaxStyles -> False}]}},
+                     GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}]}, 
+                    Dynamic[Typeset`open$$], ImageSize -> Automatic]}, 
+                    "SummaryPanel"], DynamicModuleValues :> {}], "]"}], 
+                    Short[#, 0.75]& ], 
+                    "OEM6eJztWEtv20YQNq2XJSt+\
+JA6KpocShNFTZYi2JNsBClemLEdFlAhapQ8UAbwWV/Km5JLdXdpRi/6Ennrtof+qPRZt7/\
+0J7S5foik7cBUj6ME8aKWd2ZnZeXwz1EhhS314cei8RmyUY+\
+sdwhF1KeKQY4eI7ZHC8n1HMoyyLPsUMz5aZPkBHIsdUADecIgYA8vAs21IJ08QNIHy9SjD1loTAm08\
+7DqmZyF5fDE+ngGIs5XBxEUM8RPHRWRzk+\
+Xa0GIoom5EVGSfIhMIc9DmJsj1hfyJ4FkeINu1xGZgYSA4w1Z7kCCALDTkDr2sM9sXZkRKcqxwTLF5\
++XC0FqQQScqx4qHHeeSGUnijQO6j9lGP4nNhwkmbOoQfEbOPmOPRIQLF9tEh5jZ0GdgA33qQop7lsc\
+7QIV1kYs+WF5DmtJAFJ8hkK4GatkeG0uvXeSg7oB6Kr1Jqui6CFBIRgOwzh0wpxaNzaHlQuIAVmx53\
+bBHLYUzNdxE/c0xQ6lEknMjxeeJk08JjYiPCI8+xvIFkSkTrlLVjwzEC+\
+DskXFMIXROfSujNsNwA24jRBf8pfyr4y4ZHqZD3ubATgXtt4T8Duk8QHp9JzbmecyFUKWyjecocy+\
+Moyc/udeGY4BEe+jlq/CMCtdSm0PaDlmFLgE/8jAM57Y+ff9KEwGILU5ET8qqC3j8+NBzLofQ9//\
+n1gD7wnz8P6Jf+\
+89uB8X580TLgFLvPSYe4Hp9maUBcMYTpwrAeNE1MxmlyyTfLtycVo7JP6UI6xoQl01SuxoKxkP5+\
+vS35aTJHcpR4jWo3k67ddBGFR0FR64qCFqHVQFZ7rGqgJCS00Ah6FgcPwzLvcGQ3CXEClACZv3/\
+8JYEKn2hfiTpQPdcUstUzyNRThIjKvFMbc47MLdWn+78ZEwJUbKqYqfqO3tjSYiyRSt7mJnntmXDx/\
+Ncoay0KL3qtQ9AEKauieKyFjp8pm4gDFESmebYIsXI5NOITjaZsWWHdLM8V1VuSWwI3EEfpZFsNjZE\
+W+nV5Y1tm9dzcoEgrcOFQVsCNtRqL/\
+11Z8RCyoJwSzSggbYAz50KWBxkbZwIWhxK00i5afuaJdkJF2X0zQ1sRcC4KWeAEljlpZKZR9kVPCIe\
+vg1JOH51NAyXlhKtvmBk47v83smvS2RYmqOcwHPalIHKKocRcQVN6dw31YdBQu5jcQkdNw/\
+VdS71rqamWWrhrqe+kpb6VVS9edFrzW/WRZu7qNaTv65XGbr1aqe1tNypQ3zYr+\
+3rd3Kvu1nYbNXR79q5oII7T29id12R4b9OuCHAlTM5vV0mLcPf2bFtL+\
+KwlaHNbJ1RepSBhU6TykdamWNV31c88S92ubldVff/xjv64XpP4l4TE4+\
+5Am6K4D70SDIXM4jGFk6foHFkhVv9+MPtCDUryRs9PXwk8lS/\
+PU4bCdQ4DyveJzeVwMyutBMrHQNmVn4t6uOz7y44ulw/qta1qvVGt753sbdX26jV9f6fW2Nne1xuC+\
+wfJUtQ6hHFIuCZ/LWvHFI0diiHxf2eqWydAeZk0Or770pGJOTyNX7RvLfw5TdDnz8iNOLOnWXQ30t+\
+N9HcjfXKknw6d6UH5ihE1IR6Uw0KSc76VHsUfXPojMBg3RwsRjL0U7PG/\
+iPdnq7RZqIDVcHyKgAEczTcMnSTb7slWBayHgntQTo4yu5pKRd5mygayssdWQFYOPgLz4vFFbMmpA2\
+zeZHa4Rmg52W/BUtQ1K2DlcrMTlZFE23zgvFd/\
+FYyCsW48MD7svxHVCyGcg2KM5GE3WpjOwaXgb9MEeF+L6jHhfnDmC8zPwqGdBe+D/wLFJHLR"}, 
+                    "ClickToCopyTemplate"]}, {
+                    "\"\[FilledVerySmallSquare]\"", "\"Resource:\"", 
+                    TemplateBox[{
+                    TagBox[
+                    TagBox[
+                    FrameBox[
+                    PaneBox[
+                    GridBox[{{
+                    StyleBox[
+                    StyleBox[
+                    AdjustmentBox[
+                    "\"[\[FilledSmallSquare]]\"", BoxBaselineShift -> -0.25, 
+                    BoxMargins -> {{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                     FontColor -> GrayLevel[0.15]], ShowStringCharacters -> 
+                    False, FontFamily -> "Source Sans Pro Black", FontSize -> 
+                    0.65 Inherited, FontWeight -> "Heavy", 
+                    PrivateFontOptions -> {"OperatorSubstitution" -> False}], 
+                    StyleBox[
+                    RowBox[{
+                    StyleBox["\"DrawPDBSAS\"", "ResourceFunctionLabel"], 
+                    " "}], ShowAutoStyles -> False, ShowStringCharacters -> 
+                    False, FontSize -> 0.9 Inherited, FontColor -> 
+                    GrayLevel[0.1]]}}, 
+                    GridBoxSpacings -> {"Columns" -> {{0.25}}}], Alignment -> 
+                    Left, BaseStyle -> {
+                    LineSpacing -> {0, 0}, LineBreakWithin -> False}, 
+                    BaselinePosition -> Baseline, 
+                    FrameMargins -> {{3, 0}, {0, 0}}], Background -> 
+                    RGBColor[0.968627, 0.976471, 0.984314], BaselinePosition -> 
+                    Baseline, DefaultBaseStyle -> {}, 
+                    FrameMargins -> {{0, 0}, {1, 1}}, FrameStyle -> 
+                    RGBColor[0.831373, 0.847059, 0.85098], RoundingRadius -> 
+                    4], {"FunctionResourceBox", 
+                    GrayLevel[0.15], "\"DrawPDBSAS\""}, TagBoxNote -> 
+                    "FunctionResourceBox"], Short[#, 0.75]& ], 
+                    "OEM6eJyVVc9vE0cUjosd2yENBsIJDquIQ3tYKU1CqsJh8Q85jZQmlieUA\
+6rEePetPWQ9Y72ZTTAXeuuFK0KEv6K3IlVCqNdW4oTECVT1VKoi9Q+Azux6f+AQ1M5lx2/\
+evPe9771v7BdkpUsPGuI2SP+EPL3JFeAIQVHFBNdmbZzdpX2zK8tKG+kQzL4kyx3Ko+\
+0nsryBzDPbgixuMam0Kf7OygpR4wDiOPn9p3XvVijVELjSBlJeuvH7g5+/\
+WzI3u2EAsqatDSohYBzIgPkKZ6L17EnqMqddvqHYZ1ymCSff5kxzJt2/\
+a74ji12QIkQX2iF3TWWbruBppGpbcNUUgUBdQXUD6XgL9iHA1Wj94qSOi2QgDohCxvvNAUXqarKkLL\
+VpICHDZaK16ZAFY3KORFktQrm0OiisRkDdvdS1YlwJu2Mul3bZECT+\
+9qtZfziyuskHgEyB937k68D6A0VKXwPdH6dHZzrI9qkC47EzMhXKfDeMD1ncGQFSJZCEPamYCiO3Cf\
+pSrj0FOdsVB3FvkxDpKZlfaiE96LQapE6WyLlpZrdoDwJSsFJoC4a0eqhEFOEIXf+J02OJ+\
+uuDRB3X0MOHZj3OGnpqMrlkRF0N4ChnZR0lHObInHyTccxCVesB63Mz0NoDfJUdmDmOas+\
+PaXR0csuMd5x7enZjfMahgUD3rjM1YHyal1qikY6QLGpnJbGkPvORaI9TyomcUvKZ5xp6UPsoQu4Z6\
+XY3GhGfePbxq/m3b/928OXTnQtXnTcO3n/+8sz3d984/wtUrQU+DQOVcTMzxc3HYecFXmgWchIxt+\
+KIedg/vPrp3qPDPx38p/pifP78awfrhz8OLl95ncFe6JpidSe61GOhbBZ1gCgBOZvMdjLrsUg+\
+8FK8L44MVfyCbgsFxwWrTetI2xYS207vFriqXrFJcduUN5clsUlVCwjVUXvx2rXNFrnoroP/\
+xZd03fb8lRV7bW21Z9Nlb82+5K0sr33lrq8s+2CT+\
+STV7ngEpJKAsEn5Wy1H08PituDa8WQLpIssemLIjaYeTQUWtVZbFhvSPljC17+\
+kCPa1ECzqulrwrBeAJUP0qX4JP9PYPrd8gdpthJoQxi0fxdBSA7A0dMujivYo37PJHBkPeyKIKnMy1\
+kZmqgSOb6almcpMYaaufFk383TU0gdKuNGfW1xR1iMCgSaZarATlf0LACJ5vQ=="}, 
+                    "ClickToCopyTemplate"]}, {
+                    "\"\[FilledVerySmallSquare]\"", "\"Resource object:\"", 
+                    TemplateBox[{
+                    TagBox[
+                    RowBox[{"ResourceObject", "[", 
+                    PanelBox[
+                    TagBox[
+                    GridBox[{{
+                    GraphicsBox[
+                    RasterBox[CompressedData["
+1:eJztmzFvEzEUxyNg6JiNtUysmRADQ7qA2KJWrEitCBUMAaVFiO0GRoZILIyV
++gGQGJkqBmZgR06FKoRQRRAghBA6/JI7al585+fzc85X50n/Km3vzu8X28/2
+s+/C1r3122dardbOivyxvvlwbTjcfLTRlr/cGOzc2R70b10f7Pa3+8PLW2fl
+H69kOieVpqkXiWsrHan7UntSB1KpQQfZtXBPx5dfzIy9zOcJgc+kSfasXt1c
+iLEtlUiNGRiLNM7KaNfMmjDVpU2dJzVwdj3XJ6W+uwtqu6MaObFGvtq4fO6q
+1JsAGLHAp1Vm1o5YbD+1FfjGMoY1gJWNuUGszsxi1l+bxKoyW/VnMYvDIcYm
+qsB3ctwWYY05VTUisnYD8JVLXQJvnfMmbo0NrEkAPnIrKYlRTYzHJgHTXOw6
+pXVbWMeC0G8/Prhq1OHG+bn7ju5eKrye4i8806Y8jcaItUcpl2I6hp/vXhVe
+TykXnmlTXoH+5UnELG9ivOfL/uNC33+8fjH9/4ebF428f75Ppn+D6ynlwjO/
+vdzXlm3Bu6fwkuMUtB9sv96/Lb1H9fP3p0Onvvj5Sb8q7yQ9WRNYlYnt6/On
+ZF747MKLv28L3lSc5EydeE3tUuU1fTe25Vvy5vnhhfFS+6wnXmou3Atv2ThT
+Nm458FqzcvKWjTPYmHid29OSd8m75OUrf8nLIxg7wFcQtnwuDDp+tlvKC/Ps
+JvDCnB3m+RTDazTO+ST44chLHoPh2ab61a2RVF74znRrKKpw+RXmG9bzSVzP
+Nv03N1gnUesa8gVwvc4qzCet1wvY/yq8uVHbVZFVWC9YrwdhjWPDG5Cme0vC
+Mi+JY0ZDeKfr/dQin6MKxp3c8jUtxGUYb8A4xh1mqfkcUr4OC3JKucFnHMcg
+9xIAZ67/zjWJivsouC87xBKfmttXEQ75duDK2zFu44FIl29n2U9xmUt4knY/
+xbWOA5Z2v8y1Hweq0v3QNML97jSy8wxK7IrmvErGHM15JIU5mvNmDWSO6Qwl
+GyvqzyHGMPbzwChuhzRWeTvvjbijOM+v4Y7ifQ1NG4/ifRwN+6l/36qEPcj3
+6f4CgLLCWA==
+                    "], {{0, 0}, {60., 60.}}, {0, 255}, ColorFunction -> 
+                    RGBColor], {ImageSize -> 15, AspectRatio -> 1, Axes -> 
+                    False, Background -> None, Frame -> None, FrameTicks -> 
+                    None, ImageSize -> Dynamic[{
+                    Automatic, 3.5 (CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification])}, 
+                    ImageSizeCache -> {45., {0., 9.}}]}], "\"DrawPDBSAS\""}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Bottom}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{0.25}}, "Rows" -> {{0}}}], "Grid"], 
+                    FrameMargins -> 1, ContentPadding -> False], "]"}], 
+                    Short[#, 0.75]& ], 
+                    "OEM6eJztXM1v48YVtyzJ3+\
+t1mg0K9CQQ7hcQAe5ms0GLALEsW47ReCNonPQQJPCIGlncpUh2hlyvevKhx7ZYoJceF8gfUKDHnIIc\
+em57L7hBURRFUWSLtmiColBnRFKiKUoaSpQtmTPAW2vJmXnvN/PmzQfnvXqKrFTg+Z7+\
+BJF6lrx0pJkIGxiZ0FR0jT6up8hSRWcZ6hmSeUchZn2RLJ3AM/\
+oEbFYQ0S0so3erD5FsgnVgNZsQt95GsAZSH9TTZGu/pcGmIh/\
+rNUtFrJbFbi1pgEyyedIyEEHmqW4gbXubZEtQJch7e8d7i5pVVANUKrS9DbIVWn+L5lk/\
+QU1DpQ8dQZ2K0+R2GWoIIJWKpOPLPDMVKobHJEuWD7FSu1zY+\
+7vMKmGvsmR1zzJNrzXWXEROvd8oHZSx8piKcFrCumYeaDWvTcBq6WBPMZvQIOAO+\
+LEFMSqrFjmSde0Y1RSryQAwcfaRCluoRjYdNiVLk1njD2qhzAm2UBfKWsEwEMRQkxHJPNC13pvVg8d\
+QtSBtArJasEy9SbtU7r5dOkZmQ6+\
+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"}, 
+                    "ClickToCopyTemplate"]}}, 
+                    GridBoxAlignment -> {"Columns" -> {{Left}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {Automatic, Automatic, Fit}, 
+                    "Rows" -> {{Automatic}}}], "Grid"], FontColor -> 
+                    GrayLevel[0.5], FontSize -> 12, StripOnInput -> False]}}, 
+                  GridBoxAlignment -> {"Columns" -> {{Left}}}, AutoDelete -> 
+                  False, GridBoxDividers -> {
+                   "Columns" -> {{None}}, "RowsIndexed" -> {-1 -> GrayLevel[
+                    Rational[239, 255]]}}, 
+                  GridBoxItemSize -> {
+                   "Columns" -> {Automatic, Fit}, "Rows" -> {{Automatic}}}, 
+                  GridBoxSpacings -> {
+                   "Columns" -> {1, {}, 1}, "Rows" -> {1, {}, 2}}], "Grid"], 
+                ImageMargins -> 0]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, AutoDelete -> False,
+              GridBoxBackground -> {"Columns" -> {{Automatic}}}, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{0.2}}, "Rows" -> {{0.5}}}, 
+             BaselinePosition -> {1, 1}]}, 
+          Dynamic[Typeset`var$$], Alignment -> Automatic, ImageSize -> 
+          Automatic, ImageMargins -> 0, BaseStyle -> {}, DefaultBaseStyle -> 
+          "OpenerView", BaselinePosition -> Baseline], Deployed -> False, 
+         StripOnInput -> False], 
+        OpenerView[{
+          Grid[{{
+             Style[
+              Dynamic[
+               DateString[
+                TimeZoneConvert[
+                 DateObject[
+                 3.805084223362372`16.33293926323283*^9, TimeZone -> 0]], {
+                "MonthName", " ", "DayShort", ", ", "Year", " ", 
+                 "Hour12Short", ":", "Minute", " ", "AMPMLowerCase"}], 
+               SingleEvaluation -> True, Evaluator -> "System"], FontSlant -> 
+              Italic, FontColor -> GrayLevel[0.5], FontSize -> 0.9 Inherited],
+              "   ", 
+             
+             Grid[{{"Your update has been submitted for review.", ""}}, 
+              Spacings -> 0.25], 
+             Grid[{{"Submission ID:", 
+                RawBoxes[
+                 
+                 TemplateBox[{
+                  "\"1316\"", "OEM6eJxLYyzmCEosd8qvSC0OZlMyNDY0UwIAPjEFdg=="},
+                   "ClickToCopyTemplate"]]}}], "", 
+             MouseAppearance[
+              Button[
+               MouseAppearance[
+                Mouseover[
+                 Graphics[{
+                   GrayLevel[
+                    Rational[64, 85]], 
+                   
+                   Polygon[{{-0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, -0.282842712474619}, {0.282842712474619, 
+                    0.42426406871192845`}, {0.42426406871192845`, 
+                    0.282842712474619}}], 
+                   
+                   Polygon[{{0.42426406871192845`, -0.282842712474619}, {
+                    0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, 0.282842712474619}, {-0.282842712474619, 
+                    0.42426406871192845`}}]}, ImageSize -> 18, 
+                  PlotRangePadding -> 0, PlotRange -> 0.7, Background -> 
+                  None], 
+                 Graphics[{
+                   GrayLevel[
+                    Rational[128, 255]], 
+                   
+                   Polygon[{{-0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, -0.282842712474619}, {0.282842712474619, 
+                    0.42426406871192845`}, {0.42426406871192845`, 
+                    0.282842712474619}}], 
+                   
+                   Polygon[{{0.42426406871192845`, -0.282842712474619}, {
+                    0.282842712474619, -0.42426406871192845`}, \
+{-0.42426406871192845`, 0.282842712474619}, {-0.282842712474619, 
+                    0.42426406871192845`}}]}, ImageSize -> 18, 
+                  PlotRangePadding -> 0, PlotRange -> 0.7, Background -> 
+                  None]], "LinkHand"], CurrentValue[
+                 EvaluationNotebook[], DockedCells] = DeleteCases[
+                 Flatten[{
+                   CurrentValue[
+                    EvaluationNotebook[], DockedCells]}], 
+                 Condition[
+                  Pattern[ResourceSystemClient`DefinitionNotebook`Private`c$, 
+                   Blank[Cell]], 
+                  Not[
+                   FreeQ[
+                   ResourceSystemClient`DefinitionNotebook`Private`c$, 
+                    "58199125-aea0-450e-a16b-6883a2613f4e"]]]], Appearance -> 
+               None, BoxID -> "58199125-aea0-450e-a16b-6883a2613f4e"], 
+              "LinkHand"]}}, 
+           ItemSize -> {{Automatic, Automatic, Automatic, Fit, 8, Automatic}, 
+             Automatic}, 
+           Alignment -> {{Left, Left, Left, Right, Right, Right}, Baseline}], 
+          Grid[{{"", 
+             Style[
+              Grid[{{"\[FilledVerySmallSquare]", "Submission result:", 
+                 RawBoxes[
+                  TemplateBox[{
+                    TagBox[
+                    RowBox[{
+                    TagBox["Success", "SummaryHead"], "[", 
+                    
+                    DynamicModuleBox[{
+                    Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+                    TemplateBox[{
+                    PaneSelectorBox[{False -> GridBox[{{
+                    PaneBox[
+                    ButtonBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SquarePlusIconMedium"]], 
+                    ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                    None, Evaluator -> Automatic, Method -> "Preemptive"], 
+                    Alignment -> {Center, Center}, ImageSize -> 
+                    Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}]], 
+                    FrameBox[
+                    StyleBox["\"\[Checkmark]\"", 
+                    Directive[
+                    RGBColor[
+                    0.3607843137254902, 0.596078431372549, 
+                    0.3803921568627451], 25], StripOnInput -> False], 
+                    ContentPadding -> False, FrameStyle -> None, 
+                    FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
+                    GridBox[{{
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"Message\"", "\": \""}, "RowDefault"], 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox[
+                    "\"Your update has been submitted. Your submission id is \
+1316.\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"Name\"", "\": \""}, "RowDefault"], 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox["\"DrawPDBSAS\"", "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                    GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}], True -> GridBox[{{
+                    PaneBox[
+                    ButtonBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SquareMinusIconMedium"]], 
+                    ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                    None, Evaluator -> Automatic, Method -> "Preemptive"], 
+                    Alignment -> {Center, Center}, ImageSize -> 
+                    Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}]], 
+                    FrameBox[
+                    StyleBox["\"\[Checkmark]\"", 
+                    Directive[
+                    RGBColor[
+                    0.3607843137254902, 0.596078431372549, 
+                    0.3803921568627451], 25], StripOnInput -> False], 
+                    ContentPadding -> False, FrameStyle -> None, 
+                    FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
+                    GridBox[{{
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"Message\"", "\": \""}, "RowDefault"], 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox[
+                    "\"Your update has been submitted. Your submission id is \
+1316.\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"Name\"", "\": \""}, "RowDefault"], 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox["\"DrawPDBSAS\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"UUID\"", "\": \""}, "RowDefault"], 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox[
+                    "\"d714e191-6750-4826-a12d-915d8074764e\"", 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"SubmissionID\"", "\": \""}, "RowDefault"],
+                     "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox["\"1316\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"ResourceType\"", "\": \""}, "RowDefault"],
+                     "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox["\"Function\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    
+                    TemplateBox[{"\"SubmissionDate\"", "\": \""}, 
+                    "RowDefault"], "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    TemplateBox[{
+                    RowBox[{"\"Fri 17 Jul 2020 19:31:54\"", 
+                    StyleBox["\"GMT\"", FontColor -> GrayLevel[0.5]]}], 
+                    RowBox[{"DateObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"2020", ",", "7", ",", "17", ",", "19", ",", "31",
+                     ",", "54.056058`8.485419346329167"}], "}"}], ",", 
+                    "\"Instant\"", ",", "\"Gregorian\"", ",", "0.`"}], "]"}]},
+                     "DateObject", Editable -> False], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    TemplateBox[{"\"Tag\"", "\": \""}, "RowDefault"], 
+                    "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                    TagBox["\"ResourceSubmission\"", "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                    GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}]}, 
+                    Dynamic[Typeset`open$$], ImageSize -> Automatic]}, 
+                    "SummaryPanel"], DynamicModuleValues :> {}], "]"}], 
+                    Short[#, 0.75]& ], 
+                    "OEM6eJztWEtv20YQNq2XJSt+\
+JA6KpocShNFTZYi2JNsBClemLEdFlAhapQ8UAbwWV/Km5JLdXdpRi/6Ennrtof+qPRZt7/\
+0J7S5foik7cBUj6ME8aKWd2ZnZeXwz1EhhS314cei8RmyUY+\
+sdwhF1KeKQY4eI7ZHC8n1HMoyyLPsUMz5aZPkBHIsdUADecIgYA8vAs21IJ08QNIHy9SjD1loTAm08\
+7DqmZyF5fDE+ngGIs5XBxEUM8RPHRWRzk+\
+Xa0GIoom5EVGSfIhMIc9DmJsj1hfyJ4FkeINu1xGZgYSA4w1Z7kCCALDTkDr2sM9sXZkRKcqxwTLF5\
++XC0FqQQScqx4qHHeeSGUnijQO6j9lGP4nNhwkmbOoQfEbOPmOPRIQLF9tEh5jZ0GdgA33qQop7lsc\
+7QIV1kYs+WF5DmtJAFJ8hkK4GatkeG0uvXeSg7oB6Kr1Jqui6CFBIRgOwzh0wpxaNzaHlQuIAVmx53\
+bBHLYUzNdxE/c0xQ6lEknMjxeeJk08JjYiPCI8+xvIFkSkTrlLVjwzEC+\
+DskXFMIXROfSujNsNwA24jRBf8pfyr4y4ZHqZD3ubATgXtt4T8Duk8QHp9JzbmecyFUKWyjecocy+\
+Moyc/udeGY4BEe+jlq/CMCtdSm0PaDlmFLgE/8jAM57Y+ff9KEwGILU5ET8qqC3j8+NBzLofQ9//\
+n1gD7wnz8P6Jf+\
+89uB8X580TLgFLvPSYe4Hp9maUBcMYTpwrAeNE1MxmlyyTfLtycVo7JP6UI6xoQl01SuxoKxkP5+\
+vS35aTJHcpR4jWo3k67ddBGFR0FR64qCFqHVQFZ7rGqgJCS00Ah6FgcPwzLvcGQ3CXEClACZv3/\
+8JYEKn2hfiTpQPdcUstUzyNRThIjKvFMbc47MLdWn+78ZEwJUbKqYqfqO3tjSYiyRSt7mJnntmXDx/\
+Ncoay0KL3qtQ9AEKauieKyFjp8pm4gDFESmebYIsXI5NOITjaZsWWHdLM8V1VuSWwI3EEfpZFsNjZE\
+W+nV5Y1tm9dzcoEgrcOFQVsCNtRqL/\
+11Z8RCyoJwSzSggbYAz50KWBxkbZwIWhxK00i5afuaJdkJF2X0zQ1sRcC4KWeAEljlpZKZR9kVPCIe\
+vg1JOH51NAyXlhKtvmBk47v83smvS2RYmqOcwHPalIHKKocRcQVN6dw31YdBQu5jcQkdNw/\
+VdS71rqamWWrhrqe+kpb6VVS9edFrzW/WRZu7qNaTv65XGbr1aqe1tNypQ3zYr+\
+3rd3Kvu1nYbNXR79q5oII7T29id12R4b9OuCHAlTM5vV0mLcPf2bFtL+\
+KwlaHNbJ1RepSBhU6TykdamWNV31c88S92ubldVff/xjv64XpP4l4TE4+\
+5Am6K4D70SDIXM4jGFk6foHFkhVv9+MPtCDUryRs9PXwk8lS/\
+PU4bCdQ4DyveJzeVwMyutBMrHQNmVn4t6uOz7y44ulw/qta1qvVGt753sbdX26jV9f6fW2Nne1xuC+\
+wfJUtQ6hHFIuCZ/LWvHFI0diiHxf2eqWydAeZk0Or770pGJOTyNX7RvLfw5TdDnz8iNOLOnWXQ30t+\
+N9HcjfXKknw6d6UH5ihE1IR6Uw0KSc76VHsUfXPojMBg3RwsRjL0U7PG/\
+iPdnq7RZqIDVcHyKgAEczTcMnSTb7slWBayHgntQTo4yu5pKRd5mygayssdWQFYOPgLz4vFFbMmpA2\
+zeZHa4Rmg52W/BUtQ1K2DlcrMTlZFE23zgvFd/\
+FYyCsW48MD7svxHVCyGcg2KM5GE3WpjOwaXgb9MEeF+L6jHhfnDmC8zPwqGdBe+D/wLFJHLR"}, 
+                   "ClickToCopyTemplate"]]}, {
+                "\[FilledVerySmallSquare]", "Resource:", 
+                 RawBoxes[
+                  TemplateBox[{
+                    TagBox[
+                    TagBox[
+                    FrameBox[
+                    PaneBox[
+                    GridBox[{{
+                    StyleBox[
+                    StyleBox[
+                    AdjustmentBox[
+                    "\"[\[FilledSmallSquare]]\"", BoxBaselineShift -> -0.25, 
+                    BoxMargins -> {{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                     FontColor -> GrayLevel[0.15]], ShowStringCharacters -> 
+                    False, FontFamily -> "Source Sans Pro Black", FontSize -> 
+                    0.65 Inherited, FontWeight -> "Heavy", 
+                    PrivateFontOptions -> {"OperatorSubstitution" -> False}], 
+                    StyleBox[
+                    RowBox[{
+                    StyleBox["\"DrawPDBSAS\"", "ResourceFunctionLabel"], 
+                    " "}], ShowAutoStyles -> False, ShowStringCharacters -> 
+                    False, FontSize -> 0.9 Inherited, FontColor -> 
+                    GrayLevel[0.1]]}}, 
+                    GridBoxSpacings -> {"Columns" -> {{0.25}}}], Alignment -> 
+                    Left, BaseStyle -> {
+                    LineSpacing -> {0, 0}, LineBreakWithin -> False}, 
+                    BaselinePosition -> Baseline, 
+                    FrameMargins -> {{3, 0}, {0, 0}}], Background -> 
+                    RGBColor[0.968627, 0.976471, 0.984314], BaselinePosition -> 
+                    Baseline, DefaultBaseStyle -> {}, 
+                    FrameMargins -> {{0, 0}, {1, 1}}, FrameStyle -> 
+                    RGBColor[0.831373, 0.847059, 0.85098], RoundingRadius -> 
+                    4], {"FunctionResourceBox", 
+                    GrayLevel[0.15], "\"DrawPDBSAS\""}, TagBoxNote -> 
+                    "FunctionResourceBox"], Short[#, 0.75]& ], 
+                    "OEM6eJyVVc9vE0cUjosd2yENBsIJDquIQ3tYKU1CqsJh8Q85jZQmlieUA\
+6rEePetPWQ9Y72ZTTAXeuuFK0KEv6K3IlVCqNdW4oTECVT1VKoi9Q+Azux6f+AQ1M5lx2/\
+evPe9771v7BdkpUsPGuI2SP+EPL3JFeAIQVHFBNdmbZzdpX2zK8tKG+kQzL4kyx3Ko+\
+0nsryBzDPbgixuMam0Kf7OygpR4wDiOPn9p3XvVijVELjSBlJeuvH7g5+/\
+WzI3u2EAsqatDSohYBzIgPkKZ6L17EnqMqddvqHYZ1ymCSff5kxzJt2/\
+a74ji12QIkQX2iF3TWWbruBppGpbcNUUgUBdQXUD6XgL9iHA1Wj94qSOi2QgDohCxvvNAUXqarKkLL\
+VpICHDZaK16ZAFY3KORFktQrm0OiisRkDdvdS1YlwJu2Mul3bZECT+\
+9qtZfziyuskHgEyB937k68D6A0VKXwPdH6dHZzrI9qkC47EzMhXKfDeMD1ncGQFSJZCEPamYCiO3Cf\
+pSrj0FOdsVB3FvkxDpKZlfaiE96LQapE6WyLlpZrdoDwJSsFJoC4a0eqhEFOEIXf+J02OJ+\
+uuDRB3X0MOHZj3OGnpqMrlkRF0N4ChnZR0lHObInHyTccxCVesB63Mz0NoDfJUdmDmOas+\
+PaXR0csuMd5x7enZjfMahgUD3rjM1YHyal1qikY6QLGpnJbGkPvORaI9TyomcUvKZ5xp6UPsoQu4Z6\
+XY3GhGfePbxq/m3b/928OXTnQtXnTcO3n/+8sz3d984/wtUrQU+DQOVcTMzxc3HYecFXmgWchIxt+\
+KIedg/vPrp3qPDPx38p/pifP78awfrhz8OLl95ncFe6JpidSe61GOhbBZ1gCgBOZvMdjLrsUg+\
+8FK8L44MVfyCbgsFxwWrTetI2xYS207vFriqXrFJcduUN5clsUlVCwjVUXvx2rXNFrnoroP/\
+xZd03fb8lRV7bW21Z9Nlb82+5K0sr33lrq8s+2CT+\
+STV7ngEpJKAsEn5Wy1H08PituDa8WQLpIssemLIjaYeTQUWtVZbFhvSPljC17+\
+kCPa1ECzqulrwrBeAJUP0qX4JP9PYPrd8gdpthJoQxi0fxdBSA7A0dMujivYo37PJHBkPeyKIKnMy1\
+kZmqgSOb6almcpMYaaufFk383TU0gdKuNGfW1xR1iMCgSaZarATlf0LACJ5vQ=="}, 
+                   "ClickToCopyTemplate"]]}, {
+                "\[FilledVerySmallSquare]", "Resource object:", 
+                 RawBoxes[
+                  TemplateBox[{
+                    TagBox[
+                    RowBox[{"ResourceObject", "[", 
+                    PanelBox[
+                    TagBox[
+                    GridBox[{{
+                    GraphicsBox[
+                    RasterBox[CompressedData["
+1:eJztmzFvEzEUxyNg6JiNtUysmRADQ7qA2KJWrEitCBUMAaVFiO0GRoZILIyV
++gGQGJkqBmZgR06FKoRQRRAghBA6/JI7al585+fzc85X50n/Km3vzu8X28/2
+s+/C1r3122dardbOivyxvvlwbTjcfLTRlr/cGOzc2R70b10f7Pa3+8PLW2fl
+H69kOieVpqkXiWsrHan7UntSB1KpQQfZtXBPx5dfzIy9zOcJgc+kSfasXt1c
+iLEtlUiNGRiLNM7KaNfMmjDVpU2dJzVwdj3XJ6W+uwtqu6MaObFGvtq4fO6q
+1JsAGLHAp1Vm1o5YbD+1FfjGMoY1gJWNuUGszsxi1l+bxKoyW/VnMYvDIcYm
+qsB3ctwWYY05VTUisnYD8JVLXQJvnfMmbo0NrEkAPnIrKYlRTYzHJgHTXOw6
+pXVbWMeC0G8/Prhq1OHG+bn7ju5eKrye4i8806Y8jcaItUcpl2I6hp/vXhVe
+TykXnmlTXoH+5UnELG9ivOfL/uNC33+8fjH9/4ebF428f75Ppn+D6ynlwjO/
+vdzXlm3Bu6fwkuMUtB9sv96/Lb1H9fP3p0Onvvj5Sb8q7yQ9WRNYlYnt6/On
+ZF747MKLv28L3lSc5EydeE3tUuU1fTe25Vvy5vnhhfFS+6wnXmou3Atv2ThT
+Nm458FqzcvKWjTPYmHid29OSd8m75OUrf8nLIxg7wFcQtnwuDDp+tlvKC/Ps
+JvDCnB3m+RTDazTO+ST44chLHoPh2ab61a2RVF74znRrKKpw+RXmG9bzSVzP
+Nv03N1gnUesa8gVwvc4qzCet1wvY/yq8uVHbVZFVWC9YrwdhjWPDG5Cme0vC
+Mi+JY0ZDeKfr/dQin6MKxp3c8jUtxGUYb8A4xh1mqfkcUr4OC3JKucFnHMcg
+9xIAZ67/zjWJivsouC87xBKfmttXEQ75duDK2zFu44FIl29n2U9xmUt4knY/
+xbWOA5Z2v8y1Hweq0v3QNML97jSy8wxK7IrmvErGHM15JIU5mvNmDWSO6Qwl
+GyvqzyHGMPbzwChuhzRWeTvvjbijOM+v4Y7ifQ1NG4/ifRwN+6l/36qEPcj3
+6f4CgLLCWA==
+                    "], {{0, 0}, {60., 60.}}, {0, 255}, ColorFunction -> 
+                    RGBColor], {
+                    ImageSize -> 15, AspectRatio -> 1, Axes -> False, 
+                    Background -> None, Frame -> None, FrameTicks -> None, 
+                    ImageSize -> 
+                    Dynamic[{Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}, ImageSizeCache -> {45., {0., 9.}}]}], 
+                    "\"DrawPDBSAS\""}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Bottom}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{0.25}}, "Rows" -> {{0}}}], "Grid"], 
+                    FrameMargins -> 1, ContentPadding -> False], "]"}], 
+                    Short[#, 0.75]& ], 
+                    "OEM6eJztXM1v48YVtyzJ3+\
+t1mg0K9CQQ7hcQAe5ms0GLALEsW47ReCNonPQQJPCIGlncpUh2hlyvevKhx7ZYoJceF8gfUKDHnIIc\
+em57L7hBURRFUWSLtmiColBnRFKiKUoaSpQtmTPAW2vJmXnvN/PmzQfnvXqKrFTg+Z7+\
+BJF6lrx0pJkIGxiZ0FR0jT6up8hSRWcZ6hmSeUchZn2RLJ3AM/\
+oEbFYQ0S0so3erD5FsgnVgNZsQt95GsAZSH9TTZGu/pcGmIh/\
+rNUtFrJbFbi1pgEyyedIyEEHmqW4gbXubZEtQJch7e8d7i5pVVANUKrS9DbIVWn+L5lk/\
+QU1DpQ8dQZ2K0+R2GWoIIJWKpOPLPDMVKobHJEuWD7FSu1zY+\
+7vMKmGvsmR1zzJNrzXWXEROvd8oHZSx8piKcFrCumYeaDWvTcBq6WBPMZvQIOAO+\
+LEFMSqrFjmSde0Y1RSryQAwcfaRCluoRjYdNiVLk1njD2qhzAm2UBfKWsEwEMRQkxHJPNC13pvVg8d\
+QtSBtArJasEy9SbtU7r5dOkZmQ6+\
+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"}, 
+                   "ClickToCopyTemplate"]]}}, Alignment -> Left, 
+               ItemSize -> {{Automatic, Automatic, Fit}, Automatic}], 
+              FontColor -> GrayLevel[0.5], FontSize -> 12]}}, 
+           ItemSize -> {{Automatic, Fit}, Automatic}, Alignment -> Left, 
+           Dividers -> {None, {-1 -> GrayLevel[
+                Rational[239, 255]]}}, Spacings -> {{1, {}, 1}, {1, {}, 2}}]},
+          False]], DynamicModuleValues -> Automatic], Setting[#, {0}]& ], 
+     "Text", FontSize -> 12, FontColor -> GrayLevel[0.25], StripOnInput -> 
+     False]], "StripeCell", CellFrameMargins -> {{20, 5}, {2, 2}}, 
+   CellFrame -> {{0, 0}, {1, 0}}, CellFrameColor -> GrayLevel[0.75]]},
 TaggingRules->{"CompatibilityTest" -> HoldComplete[
     BinaryDeserialize[
      ByteArray[CompressedData["
@@ -37557,7 +38692,7 @@ mNGxuF82ZLhfWpZJPKq8oYvpTsasn5b8B2TRNlzeQf98
     "$sr3gp5b7d7kbSwaAZ1AX2BmbsD/iGQmh2Tkq8iL0KSM=$13sNkJq/g8kU7T2HvpRZiw=="},
    "ToolsOpen" -> True, "UpdatedTimestamp" -> 
   3.8050457926651413`17.33293487691099*^9, "TemplateVersion" -> "1.3.8", 
-  "StatusMessage" -> ""},
+  "StatusMessage" -> "", "AttachedHints" -> {}},
 CreateCellID->True,
 FrontEndVersion->"12.1 for Linux x86 (64-bit) (March 20, 2020)",
 StyleDefinitions->Notebook[{
@@ -38524,6 +39659,7 @@ functions\""}, "PrettyTooltipTemplate"],
               GridBoxSpacings -> {"Columns" -> {{0.5}}}, FrameStyle -> 
              RGBColor[0.9941, 0.7098, 0.602]], "Grid"], 
            TemplateBox[{
+             
              TemplateBox[{
               "\"Check\"", "\"Check notebook for potential errors\""}, 
               "PrettyTooltipTemplate"], 
@@ -39367,7 +40503,7 @@ CellTagsIndex->{
   Cell[29629, 733, 1046, 23, 40, "ReviewerComment",ExpressionUUID->"951c6057-9c6f-4f07-aa25-74ac824c592d",
    CellTags->{"CommentCell", "ReviewerComment"},
    CellID->272344011],
-  Cell[126873, 2578, 1017, 22, 37, "ReviewerComment",ExpressionUUID->"8ecfbb9f-4da0-4f1b-9ca9-676097a869e8",
+  Cell[126873, 2578, 1017, 22, 40, "ReviewerComment",ExpressionUUID->"8ecfbb9f-4da0-4f1b-9ca9-676097a869e8",
    CellTags->{"CommentCell", "ReviewerComment"},
    CellID->116544352],
   Cell[651970, 12013, 1055, 24, 37, "ReviewerComment",ExpressionUUID->"d7c398ed-3356-4895-8cd7-eb3d62fbd7fa",
@@ -39380,7 +40516,7 @@ CellTagsIndex->{
   Cell[29629, 733, 1046, 23, 40, "ReviewerComment",ExpressionUUID->"951c6057-9c6f-4f07-aa25-74ac824c592d",
    CellTags->{"CommentCell", "ReviewerComment"},
    CellID->272344011],
-  Cell[126873, 2578, 1017, 22, 37, "ReviewerComment",ExpressionUUID->"8ecfbb9f-4da0-4f1b-9ca9-676097a869e8",
+  Cell[126873, 2578, 1017, 22, 40, "ReviewerComment",ExpressionUUID->"8ecfbb9f-4da0-4f1b-9ca9-676097a869e8",
    CellTags->{"CommentCell", "ReviewerComment"},
    CellID->116544352],
   Cell[651970, 12013, 1055, 24, 37, "ReviewerComment",ExpressionUUID->"d7c398ed-3356-4895-8cd7-eb3d62fbd7fa",
@@ -39450,35 +40586,35 @@ CellTagsIndex->{
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Name", 2262178, 39230},
- {"TabNext", 2262368, 39234},
- {"TemplateCell", 2264641, 39280},
- {"Title", 2265003, 39287},
- {"Description", 2265197, 39291},
- {"Definition", 2265389, 39295},
- {"Function", 2265586, 39299},
- {"TemplateCellGroup", 2265792, 39303},
- {"Documentation", 2268378, 39346},
- {"Usage", 2268541, 39350},
- {"Details & Options", 2268736, 39354},
- {"Notes", 2268939, 39358},
- {"CommentCell", 2269148, 39362},
- {"ReviewerComment", 2269892, 39375},
- {"Examples", 2270629, 39388},
- {"Source & Additional Information", 2270839, 39392},
- {"Contributed By", 2271033, 39396},
- {"ContributorInformation", 2271271, 39400},
- {"Keywords", 2271495, 39404},
- {"Categories", 2271689, 39408},
- {"CategoriesCell", 2271887, 39412},
- {"Related Symbols", 2272067, 39416},
- {"Related Resource Objects", 2272282, 39420},
- {"Source/Reference Citation", 2272507, 39424},
- {"Links", 2272713, 39428},
- {"Tests", 2272899, 39432},
- {"VerificationTests", 2273119, 39436},
- {"Author Notes", 2273334, 39440},
- {"Submission Notes", 2273535, 39444}
+ {"Name", 2323900, 40366},
+ {"TabNext", 2324090, 40370},
+ {"TemplateCell", 2326363, 40416},
+ {"Title", 2326725, 40423},
+ {"Description", 2326919, 40427},
+ {"Definition", 2327111, 40431},
+ {"Function", 2327308, 40435},
+ {"TemplateCellGroup", 2327514, 40439},
+ {"Documentation", 2330100, 40482},
+ {"Usage", 2330263, 40486},
+ {"Details & Options", 2330458, 40490},
+ {"Notes", 2330661, 40494},
+ {"CommentCell", 2330870, 40498},
+ {"ReviewerComment", 2331614, 40511},
+ {"Examples", 2332351, 40524},
+ {"Source & Additional Information", 2332561, 40528},
+ {"Contributed By", 2332755, 40532},
+ {"ContributorInformation", 2332993, 40536},
+ {"Keywords", 2333217, 40540},
+ {"Categories", 2333411, 40544},
+ {"CategoriesCell", 2333609, 40548},
+ {"Related Symbols", 2333789, 40552},
+ {"Related Resource Objects", 2334004, 40556},
+ {"Source/Reference Citation", 2334229, 40560},
+ {"Links", 2334435, 40564},
+ {"Tests", 2334621, 40568},
+ {"VerificationTests", 2334841, 40572},
+ {"Author Notes", 2335056, 40576},
+ {"Submission Notes", 2335257, 40580}
  }
 *)
 (*NotebookFileOutline
@@ -39565,7 +40701,7 @@ Cell[126405, 2561, 362, 8, 58, "Text",ExpressionUUID->"396222ef-abb0-434f-a9f6-5
 Cell[CellGroupData[{
 Cell[126804, 2574, 66, 2, 54, "Subsection",ExpressionUUID->"90a10e7c-8a5d-46b8-8b7a-08d5f3a5c7c3",
  CellID->964056545],
-Cell[126873, 2578, 1017, 22, 37, "ReviewerComment",ExpressionUUID->"8ecfbb9f-4da0-4f1b-9ca9-676097a869e8",
+Cell[126873, 2578, 1017, 22, 40, "ReviewerComment",ExpressionUUID->"8ecfbb9f-4da0-4f1b-9ca9-676097a869e8",
  CellTags->{"CommentCell", "ReviewerComment"},
  CellID->116544352],
 Cell[127893, 2602, 501, 11, 58, "Text",ExpressionUUID->"8c399664-87f8-4881-9e4b-7d5d2833b3dd",
@@ -39615,7 +40751,7 @@ Cell[651970, 12013, 1055, 24, 37, "ReviewerComment",ExpressionUUID->"d7c398ed-33
 Cell[CellGroupData[{
 Cell[653050, 12041, 663, 12, 29, "Input",ExpressionUUID->"7d61103a-9030-4c91-99c7-fcf94365c4c7",
  CellID->833401435],
-Cell[653716, 12055, 1494039, 24728, 1043, 173755, 3082, "CachedBoxData", "BoxData", "Output",ExpressionUUID->"09aabfc8-2aa5-401f-97ad-123f96d6bf44",
+Cell[653716, 12055, 1494039, 24728, 1043, "Output",ExpressionUUID->"09aabfc8-2aa5-401f-97ad-123f96d6bf44",
  CellID->853193976]
 }, Open  ]]
 }, Open  ]]
